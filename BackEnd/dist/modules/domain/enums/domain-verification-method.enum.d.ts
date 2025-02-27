@@ -1,0 +1,22 @@
+export declare enum DomainVerificationMethod {
+    DNS_TXT = "dns_txt",
+    DNS_CNAME = "dns_cname",
+    HTML_FILE = "html_file",
+    META_TAG = "meta_tag",
+    EMAIL = "email",
+    GOOGLE_SEARCH_CONSOLE = "google_search_console",
+    REGISTRAR = "registrar",
+    HTTPS = "https",
+    REDIRECT = "redirect",
+    CONTACT = "contact",
+    THIRD_PARTY = "third_party",
+    DNS_CAA = "dns_caa",
+    MANUAL = "manual",
+    DOMAIN_TRANSFER = "domain_transfer",
+    DNS_DELEGATION = "dns_delegation",
+    API_TOKEN = "api_token",
+    HOSTING_PROVIDER = "hosting_provider",
+    WEBHOOK = "webhook",
+    MULTI_METHOD = "multi_method",
+    FILE = "FILE"
+}

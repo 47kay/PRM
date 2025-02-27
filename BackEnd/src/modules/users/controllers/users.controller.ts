@@ -1,0 +1,221 @@
+// src/modules/users/controllers/users.controller.ts
+
+import {
+    Controller,
+    Get,
+    Post,
+    Put,
+    Delete,
+    Body,
+    Param,
+    Query,
+    UseGuards,
+    Request,
+    HttpStatus,
+    ParseUUIDPipe,
+    NotFoundException,
+    BadRequestException,
+    ForbiddenException,
+} from '@nestjs/common';
+import { ApiTags, ApiOperation, ApiResponse, ApiBearerAuth } from '@nestjs/swagger';
+import { JwtAuthGuard } from '../../auth/guards/jwt-auth.guard';
+import { RolesGuard } from '../../auth/guards/roles.guard';
+import { Roles } from '../../auth/decorators/roles.decorator';
+import { Role } from '../enums/role.enum';
+import { UsersService } from '../services/users.service';
+import { CreateUserDto } from '../dto/create-user.dto';
+import { UpdateUserDto } from '../dto/update-user.dto';
+import { UserQueryDto } from '../dto/user-query.dto';
+import { UpdatePasswordDto } from '../dto/update-password.dto';
+import { UpdateProfileDto } from '../dto/update-profile.dto';
+import { CustomRequest } from '../../../interfaces/request.interface';
+
+@ApiTags('Users')
+@Controller('users')
+@UseGuards(JwtAuthGuard, RolesGuard)
+@ApiBearerAuth()
+export class UsersController {
+    constructor(private readonly usersService: UsersService) {}
+
+    @Post()
+    @Roles(Role.ADMIN)
+    @ApiOperation({ summary: 'Create new user' })
+    @ApiResponse({ status: HttpStatus.CREATED, description: 'User created successfully' })
+    async create(
+        @Body() createUserDto: CreateUserDto,
+        @Request() req: CustomRequest,
+    ) {
+        return this.usersService.create({
+            ...createUserDto,
+            organizationId: req.organization.id,
+            createdBy: req.user.id,
+        });
+    }
+
+    @Get()
+    @Roles(Role.ADMIN)
+    @ApiOperation({ summary: 'Get all users' })
+    @ApiResponse({ status: HttpStatus.OK, description: 'Return all users' })
+    async findAll(
+        @Query() query: UserQueryDto,
+        @Request() req: CustomRequest,
+    ) {
+        return this.usersService.findAll({
+            ...query,
+            organizationId: req.organization.id,
+        });
+    }
+
+    @Get('profile')
+    @ApiOperation({ summary: 'Get current user profile' })
+    @ApiResponse({ status: HttpStatus.OK, description: 'Return current user profile' })
+    async getProfile(
+        @Request() req: CustomRequest,
+    ) {
+        return this.usersService.findOne(req.user.id, req.organization.id);
+    }
+
+    @Put('profile')
+    @ApiOperation({ summary: 'Update current user profile' })
+    @ApiResponse({ status: HttpStatus.OK, description: 'Profile updated successfully' })
+    async updateProfile(
+        @Body() updateProfileDto: UpdateProfileDto,
+        @Request() req: CustomRequest,
+    ) {
+        return this.usersService.updateProfile(req.user.id, {
+            ...updateProfileDto,
+            organizationId: req.organization.id,
+        });
+    }
+
+    @Put('profile/password')
+    @ApiOperation({ summary: 'Update current user password' })
+    @ApiResponse({ status: HttpStatus.OK, description: 'Password updated successfully' })
+    async updatePassword(
+        @Body() updatePasswordDto: UpdatePasswordDto,
+        @Request() req: CustomRequest,
+    ) {
+        return this.usersService.updatePassword(req.user.id, {
+            ...updatePasswordDto,
+            organizationId: req.organization.id,
+        });
+    }
+
+    @Get(':id')
+    @Roles(Role.ADMIN)
+    @ApiOperation({ summary: 'Get user by id' })
+    @ApiResponse({ status: HttpStatus.OK, description: 'Return user details' })
+    async findOne(
+        @Param('id', ParseUUIDPipe) id: string,
+        @Request() req: CustomRequest,
+    ) {
+        const user = await this.usersService.findOne(id, req.organization.id);
+        if (!user) {
+            throw new NotFoundException('User not found');
+        }
+        return user;
+    }
+
+    @Put(':id')
+    @Roles(Role.ADMIN)
+    @ApiOperation({ summary: 'Update user' })
+    @ApiResponse({ status: HttpStatus.OK, description: 'User updated successfully' })
+    async update(
+        @Param('id', ParseUUIDPipe) id: string,
+        @Body() updateUserDto: UpdateUserDto,
+        @Request() req: CustomRequest,
+    ) {
+        // Prevent demoting the last admin
+        if (updateUserDto.role && updateUserDto.role !== Role.ADMIN) {
+            const admins = await this.usersService.getAdminCount(req.organization.id);
+            if (admins === 1) {
+                const currentUser = await this.usersService.findOne(id, req.organization.id);
+                if (currentUser.role === Role.ADMIN) {
+                    throw new BadRequestException('Cannot demote the last administrator');
+                }
+            }
+        }
+
+        return this.usersService.update(id, {
+            ...updateUserDto,
+            organizationId: req.organization.id,
+            updatedBy: req.user.id,
+        });
+    }
+
+    @Delete(':id')
+    @Roles(Role.ADMIN)
+    @ApiOperation({ summary: 'Delete user' })
+    @ApiResponse({ status: HttpStatus.NO_CONTENT, description: 'User deleted successfully' })
+    async remove(
+        @Param('id', ParseUUIDPipe) id: string,
+        @Request() req: CustomRequest,
+    ) {
+        // Prevent deleting the last admin
+        const user = await this.usersService.findOne(id, req.organization.id);
+        if (user.role === Role.ADMIN) {
+            const admins = await this.usersService.getAdminCount(req.organization.id);
+            if (admins === 1) {
+                throw new BadRequestException('Cannot delete the last administrator');
+            }
+        }
+
+        await this.usersService.remove(id, req.organization.id);
+    }
+
+    @Put(':id/activate')
+    @Roles(Role.ADMIN)
+    @ApiOperation({ summary: 'Activate user' })
+    @ApiResponse({ status: HttpStatus.OK, description: 'User activated successfully' })
+    async activate(
+        @Param('id', ParseUUIDPipe) id: string,
+        @Request() req: CustomRequest,
+    ) {
+        return this.usersService.activate(id, req.organization.id);
+    }
+
+    @Put(':id/deactivate')
+    @Roles(Role.ADMIN)
+    @ApiOperation({ summary: 'Deactivate user' })
+    @ApiResponse({ status: HttpStatus.OK, description: 'User deactivated successfully' })
+    async deactivate(
+        @Param('id', ParseUUIDPipe) id: string,
+        @Request() req: CustomRequest,
+    ) {
+        // Prevent deactivating the last admin
+        const user = await this.usersService.findOne(id, req.organization.id);
+        if (user.role === Role.ADMIN) {
+            const admins = await this.usersService.getAdminCount(req.organization.id);
+            if (admins === 1) {
+                throw new BadRequestException('Cannot deactivate the last administrator');
+            }
+        }
+
+        return this.usersService.deactivate(id, req.organization.id);
+    }
+
+    @Get(':id/activity')
+    @Roles(Role.ADMIN)
+    @ApiOperation({ summary: 'Get user activity' })
+    @ApiResponse({ status: HttpStatus.OK, description: 'Return user activity' })
+    async getActivity(
+        @Param('id', ParseUUIDPipe) id: string,
+        @Query() query: any,
+        @Request() req: CustomRequest,
+    ) {
+        return this.usersService.getActivity(id, {
+            ...query,
+            organizationId: req.organization.id,
+        });
+    }
+
+    @Get(':id/permissions')
+    @ApiOperation({ summary: 'Get user permissions' })
+    @ApiResponse({ status: HttpStatus.OK, description: 'Return user permissions' })
+    async getPermissions(
+        @Param('id', ParseUUIDPipe) id: string,
+        @Request() req: CustomRequest,
+    ) {
+        return this.usersService.getPermissions(id, req.organization.id);
+    }
+}

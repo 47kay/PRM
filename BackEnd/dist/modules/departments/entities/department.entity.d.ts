@@ -1,0 +1,33 @@
+import { Organization } from '../../organizations/entities/organization.entity';
+import { User } from '../../users/entities/user.entity';
+import { Ticket } from '../../tickets/entities/ticket.entity';
+export declare class Department {
+    id: string;
+    name: string;
+    displayOrder: number;
+    description: string;
+    isActive: boolean;
+    organizationId: string;
+    sortOrder: number;
+    organization: Organization;
+    managerId: string;
+    manager: User;
+    parentDepartmentId: string;
+    parentDepartment: Department;
+    childDepartments: Department[];
+    members: User[];
+    tickets: Ticket[];
+    metadata: Record<string, any>;
+    tags: string[];
+    memberCount: number;
+    contactEmail: string;
+    contactPhone: string;
+    workingHours: string;
+    timezone: string;
+    createdAt: Date;
+    updatedAt: Date;
+    createdById: string;
+    createdBy: User;
+    updatedById: string;
+    updatedBy: User;
+}

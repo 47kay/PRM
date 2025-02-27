@@ -1,0 +1,34 @@
+import { Repository } from 'typeorm';
+import { EventEmitter2 } from '@nestjs/event-emitter';
+import { Notification } from '../entities/notification.entity';
+import { EmailService } from '../../../shared/services/email.service';
+import { SmsService } from '../../../shared/services/sms.service';
+import { PushNotificationService } from '../../../shared/services/push-notification.service';
+import { WhatsappService } from '../../whatsapp/services/whatsapp.services';
+import { SlackService } from '../../integrations/slack/services/slack.service';
+export declare class NotificationSchedulerService {
+    private readonly notificationRepository;
+    private readonly emailService;
+    private readonly smsService;
+    private readonly pushNotificationService;
+    private readonly whatsappService;
+    private readonly slackService;
+    private readonly eventEmitter;
+    rescheduleNotification(notificationId: string, newScheduledFor: Date): void;
+    scheduleNotification(notification: Notification, scheduledFor: Date): void;
+    cancelScheduledNotification(notificationId: string): void;
+    private readonly logger;
+    private readonly MAX_RETRY_ATTEMPTS;
+    private readonly BATCH_SIZE;
+    constructor(notificationRepository: Repository<Notification>, emailService: EmailService, smsService: SmsService, pushNotificationService: PushNotificationService, whatsappService: WhatsappService, slackService: SlackService, eventEmitter: EventEmitter2);
+    processScheduledNotifications(): Promise<void>;
+    retryFailedNotifications(): Promise<void>;
+    cleanupExpiredNotifications(): Promise<void>;
+    private processNotification;
+    private sendNotificationByChannel;
+    private sendEmailNotification;
+    private sendSmsNotification;
+    private sendPushNotification;
+    private sendWhatsappNotification;
+    private sendSlackNotification;
+}
