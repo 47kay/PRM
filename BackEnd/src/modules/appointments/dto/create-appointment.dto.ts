@@ -23,6 +23,8 @@ export class CreateAppointmentDto {
     @IsNotEmpty()
     @IsUUID()
     patientId: string;
+    isRecurring?: boolean;
+    recurrencePattern?: any; // Add the recurrencePattern property
 
     @ApiProperty({ description: 'Doctor ID' })
     @IsNotEmpty()

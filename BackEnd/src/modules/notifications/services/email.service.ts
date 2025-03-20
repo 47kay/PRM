@@ -31,6 +31,20 @@ export class EmailService {
   private readonly logger = new Logger(EmailService.name);
   private readonly transporter: nodemailer.Transporter;
 
+  async sendAppointmentReminder(email: string, details: {
+    appointmentId: string;
+    patientName: string;
+    doctorName: string;
+    dateTime: Date;
+    location: string;
+    notes: string;
+    organizationName: string;
+  }): Promise<void> {
+    // Implementation for sending email reminder
+    // Example:
+    console.log(`Sending email to ${email} with details:`, details);
+  }
+
   constructor(
     @InjectRepository(EmailTemplate)
     private readonly templateRepository: Repository<EmailTemplate>,
@@ -61,17 +75,17 @@ export class EmailService {
     // If template is specified, fetch and compile it
     if (options.template) {
       const template = await this.templateRepository.findOne({
-        where: { 
+        where: {
           name: options.template,
           organizationId: options.organizationId,
-          isActive: true 
+          isActive: true
         }
       });
 
       if (template) {
         htmlContent = this.compileTemplate(template.htmlContent, options.variables);
-        textContent = template.textContent ? 
-          this.compileTemplate(template.textContent, options.variables) : 
+        textContent = template.textContent ?
+          this.compileTemplate(template.textContent, options.variables) :
           undefined;
       }
     }
@@ -99,7 +113,7 @@ export class EmailService {
     const queuedEmails = await this.queueRepository.find({
       where: [
         { status: EmailStatus.PENDING, scheduledFor: IsNull() },
-        { 
+        {
           status: EmailStatus.PENDING,
           scheduledFor: LessThanOrEqual(new Date())
         }

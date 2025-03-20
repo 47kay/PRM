@@ -27,6 +27,15 @@ export declare class EmailService {
     private readonly configService;
     private readonly logger;
     private readonly transporter;
+    sendAppointmentReminder(email: string, details: {
+        appointmentId: string;
+        patientName: string;
+        doctorName: string;
+        dateTime: Date;
+        location: string;
+        notes: string;
+        organizationName: string;
+    }): Promise<void>;
     constructor(templateRepository: Repository<EmailTemplate>, queueRepository: Repository<EmailQueue>, logRepository: Repository<EmailLog>, configService: ConfigService);
     queueEmail(options: SendEmailOptions): Promise<EmailQueue>;
     processQueue(batchSize?: number): Promise<void>;

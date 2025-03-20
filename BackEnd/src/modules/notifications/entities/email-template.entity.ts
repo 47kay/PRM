@@ -5,6 +5,8 @@ import { Organization } from '../../organizations/entities/organization.entity';
 export class EmailTemplate {
   @PrimaryGeneratedColumn('uuid')
   id: string;
+  content: string; // Add this line
+  type: string; // Add this line
 
   @Column()
   name: string;

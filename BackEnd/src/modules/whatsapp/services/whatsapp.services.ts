@@ -5,7 +5,7 @@ import { LessThan, Repository } from 'typeorm';
 import { EventEmitter2 } from '@nestjs/event-emitter';
 import axios, { AxiosInstance } from 'axios';
 import { MessageStatus, WhatsAppMessage } from '../entities/whatsapp-message.entity';
-import { WhatsAppTemplate } from '../entities/whatsapp-template.entity';
+import { WhatsappTemplate, WhatsappTemplateComponent, WhatsappTemplateHeaderType, WhatsappTemplateButton, WhatsappTemplateComponentType } from '../entities/whatsapp-template.entity';
 import { WhatsAppMediaType } from '../enums/whatsapp-media-type.enum';
 import { WhatsAppMessageStatus } from '../enums/whatsapp-message-status.enum';
 
@@ -31,8 +31,8 @@ export class WhatsappService {
         private readonly eventEmitter: EventEmitter2,
         @InjectRepository(WhatsAppMessage)
         private readonly messageRepository: Repository<WhatsAppMessage>,
-        @InjectRepository(WhatsAppTemplate)
-        private readonly templateRepository: Repository<WhatsAppTemplate>
+        @InjectRepository(WhatsappTemplate)
+        private readonly templateRepository: Repository<WhatsappTemplate>
     ) {
         this.client = axios.create({
             baseURL: this.configService.get('WHATSAPP_API_URL'),
@@ -193,15 +193,20 @@ export class WhatsappService {
     }
 
     private buildTemplateComponents(
-        template: WhatsAppTemplate,
+        template: WhatsappTemplate,
         parameters?: Record<string, any>
     ): any[] {
         const components = [];
 
-        if (template.headerType && parameters?.header) {
+        // Find header component if it exists
+        const headerComponent = template.components.find(c => 
+            c.type === WhatsappTemplateComponentType.HEADER
+        );
+
+        if (headerComponent && parameters?.header) {
             components.push({
                 type: 'header',
-                parameters: this.formatParameters(template.headerType, parameters.header)
+                parameters: this.formatParameters(headerComponent.format || WhatsappTemplateHeaderType.TEXT, parameters.header)
             });
         }
 
@@ -212,7 +217,12 @@ export class WhatsappService {
             });
         }
 
-        if (template.buttons && parameters?.buttons) {
+        // Find button component if it exists
+        const buttonComponent = template.components.find(c => 
+            c.type === WhatsappTemplateComponentType.BUTTONS
+        );
+        
+        if (buttonComponent?.buttons && parameters?.buttons) {
             components.push({
                 type: 'button',
                 sub_type: 'quick_reply',
@@ -305,18 +315,20 @@ export class WhatsappService {
     }
 
     private mapWhatsAppStatus(status: string): MessageStatus {
-        switch (status.toLowerCase()) {
-            case 'sent':
-                return MessageStatus.SENT;
-            case 'delivered':
-                return MessageStatus.DELIVERED;
-            case 'read':
-                return MessageStatus.READ;
-            case 'failed':
-                return MessageStatus.FAILED;
-            default:
-                return MessageStatus.UNKNOWN;
-        }
+        // Create a mapping from WhatsApp API status to our enum
+        const statusMapping: Record<string, WhatsAppMessageStatus> = {
+            'sent': WhatsAppMessageStatus.SENT,
+            'delivered': WhatsAppMessageStatus.DELIVERED,
+            'read': WhatsAppMessageStatus.READ,
+            'failed': WhatsAppMessageStatus.FAILED,
+            'pending': WhatsAppMessageStatus.PENDING
+        };
+        
+        // Get the mapped status or default to UNKNOWN
+        const mappedStatus = statusMapping[status.toLowerCase()] || WhatsAppMessageStatus.UNKNOWN;
+        
+        // Cast to MessageStatus (assuming they share the same string values)
+        return mappedStatus as unknown as MessageStatus;
     }
 
     private formatPhoneNumber(phone: string): string {

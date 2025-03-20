@@ -2,7 +2,7 @@ import { ConfigService } from '@nestjs/config';
 import { Repository } from 'typeorm';
 import { EventEmitter2 } from '@nestjs/event-emitter';
 import { WhatsAppMessage } from '../entities/whatsapp-message.entity';
-import { WhatsAppTemplate } from '../entities/whatsapp-template.entity';
+import { WhatsappTemplate } from '../entities/whatsapp-template.entity';
 import { WhatsAppMediaType } from '../enums/whatsapp-media-type.enum';
 interface WhatsAppMessageOptions {
     to: string;
@@ -22,7 +22,7 @@ export declare class WhatsappService {
     private readonly logger;
     private readonly client;
     private readonly maxRetries;
-    constructor(configService: ConfigService, eventEmitter: EventEmitter2, messageRepository: Repository<WhatsAppMessage>, templateRepository: Repository<WhatsAppTemplate>);
+    constructor(configService: ConfigService, eventEmitter: EventEmitter2, messageRepository: Repository<WhatsAppMessage>, templateRepository: Repository<WhatsappTemplate>);
     sendAppointmentReminder(whatsappNumber: string, data: {
         appointmentId: string;
         patientName: string;

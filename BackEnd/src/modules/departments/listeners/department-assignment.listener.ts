@@ -4,7 +4,8 @@ import { DepartmentAuditService } from '../services/department-audit.service';
 import { DepartmentAuditAction } from '../entities/department-audit-log.entity';
 import { NotificationsService } from '../../notifications/services/notifications.service';
 import { UsersService } from '../../users/services/users.service';
-import { SendNotificationOptions } from '../../notifications/interfaces/notification.interface';
+// Update the import to use the DTO instead of the interface
+import { SendNotificationDto } from '../../notifications/dto/send-notification.dto';
 
 interface DepartmentAssignmentEvent {
   departmentId: string;
@@ -40,7 +41,7 @@ export class DepartmentAssignmentListener {
     // Notify user
     const user = await this.usersService.findById(event.userId);
     if (user) {
-      const notification: SendNotificationOptions = {
+      const notification: SendNotificationDto = {
         userId: user.id,
         type: 'DEPARTMENT_ASSIGNMENT',
         title: 'Department Assignment',
@@ -50,6 +51,7 @@ export class DepartmentAssignmentListener {
           organizationId: event.organizationId,
         },
         organizationId: event.organizationId,
+        priority: 'MEDIUM', // Changed from 'NORMAL' to 'MEDIUM'
       };
       await this.notificationsService.send(notification);
     }
@@ -72,7 +74,7 @@ export class DepartmentAssignmentListener {
     // Notify user
     const user = await this.usersService.findById(event.userId);
     if (user) {
-      const notification: SendNotificationOptions = {
+      const notification: SendNotificationDto = {
         userId: user.id,
         type: 'DEPARTMENT_UNASSIGNMENT',
         title: 'Department Unassignment',
@@ -82,6 +84,7 @@ export class DepartmentAssignmentListener {
           organizationId: event.organizationId,
         },
         organizationId: event.organizationId,
+        priority: 'MEDIUM', // Changed from 'NORMAL' to 'MEDIUM'
       };
       await this.notificationsService.send(notification);
     }
@@ -105,7 +108,7 @@ export class DepartmentAssignmentListener {
     // Notify user
     const user = await this.usersService.findById(event.userId);
     if (user) {
-      const notification: SendNotificationOptions = {
+      const notification: SendNotificationDto = {
         userId: user.id,
         type: 'DEPARTMENT_TRANSFER',
         title: 'Department Transfer',
@@ -116,6 +119,7 @@ export class DepartmentAssignmentListener {
           organizationId: event.organizationId,
         },
         organizationId: event.organizationId,
+        priority: 'MEDIUM', // Changed from 'NORMAL' to 'MEDIUM'
       };
       await this.notificationsService.send(notification);
     }
@@ -142,7 +146,7 @@ export class DepartmentAssignmentListener {
     });
 
     // Notify new manager
-    const newManagerNotification: SendNotificationOptions = {
+    const newManagerNotification: SendNotificationDto = {
       userId: event.newManagerId,
       type: 'DEPARTMENT_MANAGER_ASSIGNMENT',
       title: 'Department Manager Assignment',
@@ -152,12 +156,13 @@ export class DepartmentAssignmentListener {
         organizationId: event.organizationId,
       },
       organizationId: event.organizationId,
+      priority: 'MEDIUM', // Changed from 'NORMAL' to 'MEDIUM'
     };
     await this.notificationsService.send(newManagerNotification);
 
     // Notify previous manager if exists
     if (event.previousManagerId) {
-      const previousManagerNotification: SendNotificationOptions = {
+      const previousManagerNotification: SendNotificationDto = {
         userId: event.previousManagerId,
         type: 'DEPARTMENT_MANAGER_UNASSIGNMENT',
         title: 'Department Manager Unassignment',
@@ -167,6 +172,7 @@ export class DepartmentAssignmentListener {
           organizationId: event.organizationId,
         },
         organizationId: event.organizationId,
+        priority: 'MEDIUM', // Changed from 'NORMAL' to 'MEDIUM'
       };
       await this.notificationsService.send(previousManagerNotification);
     }

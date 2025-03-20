@@ -33,7 +33,9 @@ export class NotificationQueryDto {
     @ApiPropertyOptional({ description: 'Search term for notification content' })
     @IsOptional()
     @IsUUID()
-    organizationId?: string;
+    skip?: number;
+    take?: number;
+    includeRead?: boolean;
 
     @ApiPropertyOptional({ enum: NotificationCategory, isArray: true })
     @IsOptional()
@@ -41,6 +43,7 @@ export class NotificationQueryDto {
     @IsEnum(NotificationCategory, { each: true })
     categories?: NotificationCategory[];
     userId?: string;
+    organizationId?: string;
 
     @ApiPropertyOptional({ enum: NotificationChannel, isArray: true })
     @IsOptional()

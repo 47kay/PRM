@@ -14,7 +14,10 @@ export declare class UsersService {
     private readonly dataSource;
     private readonly eventEmitter;
     private readonly notificationsService;
+    findUsersByRole(organizationId: string, arg1: string): void;
+    private readonly permissionsByRole;
     constructor(userRepository: Repository<User>, activityRepository: Repository<UserActivity>, dataSource: DataSource, eventEmitter: EventEmitter2, notificationsService: NotificationsService);
+    findByRole(role: string, organizationId: string): Promise<User[]>;
     create(data: CreateUserDto & {
         organizationId: string;
         createdBy: string;
@@ -22,7 +25,7 @@ export declare class UsersService {
     findById(id: string, relations?: string[]): Promise<User | null>;
     findAll(query: UserQueryDto & {
         organizationId: string;
-    }): Promise<import("nestjs-typeorm-paginate").Pagination<unknown, import("nestjs-typeorm-paginate").IPaginationMeta>>;
+    }): Promise<import("nestjs-typeorm-paginate").Pagination<User, import("nestjs-typeorm-paginate").IPaginationMeta>>;
     findOne(id: string, organizationId: string): Promise<User>;
     update(id: string, data: UpdateUserDto & {
         organizationId: string;
@@ -41,6 +44,5 @@ export declare class UsersService {
     getActivity(id: string, query: {
         organizationId: string;
     }): Promise<UserActivity[]>;
-    getPermissions(id: string, organizationId: string): Promise<string[]>;
-    private getRolePermissions;
+    getPermissions(userId: string, organizationId: string): Promise<string[]>;
 }

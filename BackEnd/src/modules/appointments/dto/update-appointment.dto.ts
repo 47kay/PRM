@@ -112,7 +112,7 @@ export class UpdateAppointmentDto {
     reschedulingReason?: string;
 }
 
-class UpdateReminderPreferencesDto {
+export class UpdateReminderPreferencesDto {
     @ApiPropertyOptional({ description: 'Send email reminders' })
     @IsOptional()
     @IsBoolean()
@@ -135,7 +135,7 @@ class UpdateReminderPreferencesDto {
     reminderTimes?: number[];
 }
 
-class UpdateAppointmentFormDataDto {
+export class UpdateAppointmentFormDataDto {
     @ApiPropertyOptional({ description: 'Chief complaint' })
     @IsOptional()
     @IsString()
@@ -185,7 +185,7 @@ class UpdateAppointmentFormDataDto {
     followUpInstructions?: string;
 }
 
-class UpdateAppointmentMetadataDto {
+export class UpdateAppointmentMetadataDto {
     @ApiPropertyOptional({ description: 'Referral source' })
     @IsOptional()
     @IsString()

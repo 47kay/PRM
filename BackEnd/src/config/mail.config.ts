@@ -53,7 +53,7 @@ export const mailConfigValidationSchema = Joi.object({
     MAIL_RATE_LIMIT_PER_HOUR: Joi.number().default(100),
 });
 
-export default registerAs('mail', (): MailConfig => ({
+const mailConfig = registerAs('mail', (): MailConfig => ({
     host: process.env.MAIL_HOST!,
     port: parseInt(process.env.MAIL_PORT || '587', 10),
     secure: process.env.MAIL_SECURE === 'true',
@@ -83,9 +83,16 @@ export default registerAs('mail', (): MailConfig => ({
     },
 }));
 
+export default mailConfig;
+
+// Helper function to get config without accessing process.env directly
+export const getMailConfig = (): MailConfig => {
+    return mailConfig();
+};
+
 // Mailer module configuration
 export const mailerConfig = (): MailerOptions => {
-    const config = defaultConfig();
+    const config = getMailConfig();
     
     return {
         transport: {

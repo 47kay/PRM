@@ -138,7 +138,7 @@ export class ContactsController {
         @Body() mergeContactsDto: MergeContactsDto,
         @Request() req: CustomRequest,
     ): Promise<Contact> {
-        return this.contactsService.merge(primaryId, mergeContactsDto.secondaryId, {
+        return this.contactsService.merge(primaryId, mergeContactsDto.secondaryContactId, {
             organizationId: req.organization?.id ?? (() => { throw new BadRequestException('Organization ID is required'); })(),
             userId: req.user?.id ?? (() => { throw new BadRequestException('User ID is required'); })(),
         });
@@ -186,6 +186,8 @@ export class ContactsController {
         });
     }
 
+    // Comment out or implement getAppointments method in ContactsService
+    /*
     @Get(':id/appointments')
     @ApiOperation({ summary: 'Get contact appointments' })
     @ApiResponse({ status: HttpStatus.OK, description: 'Return contact appointments' })
@@ -199,6 +201,7 @@ export class ContactsController {
             organizationId: req.organization?.id ?? (() => { throw new BadRequestException('Organization ID is required'); })(),
         });
     }
+    */
 
     @Get(':id/documents')
     @ApiOperation({ summary: 'Get contact documents' })
@@ -224,8 +227,8 @@ export class ContactsController {
         @Request() req: CustomRequest,
     ) {
         return this.contactsService.addDocument(id, documentDto, {
-            organizationId: req.organization.id,
-            userId: req.user.id,
+            organizationId: req.organization?.id ?? (() => { throw new BadRequestException('Organization ID is required'); })(),
+            userId: req.user?.id ?? (() => { throw new BadRequestException('User ID is required'); })(),
         });
     }
 
@@ -239,7 +242,7 @@ export class ContactsController {
     ) {
         return this.contactsService.getStatistics({
             ...query,
-            organizationId: req.organization.id,
+            organizationId: req.organization?.id ?? (() => { throw new BadRequestException('Organization ID is required'); })(),
         });
     }
 
@@ -252,8 +255,8 @@ export class ContactsController {
         @Request() req: CustomRequest,
     ) {
         return this.contactsService.importContacts(importDto, {
-            organizationId: req.organization.id,
-            userId: req.user.id,
+            organizationId: req.organization?.id ?? (() => { throw new BadRequestException('Organization ID is required'); })(),
+            userId: req.user?.id ?? (() => { throw new BadRequestException('User ID is required'); })(),
         });
     }
 
@@ -266,8 +269,8 @@ export class ContactsController {
         @Request() req: CustomRequest,
     ) {
         return this.contactsService.exportContacts(exportDto, {
-            organizationId: req.organization.id,
-            userId: req.user.id,
+            organizationId: req.organization?.id ?? (() => { throw new BadRequestException('Organization ID is required'); })(),
+            userId: req.user?.id ?? (() => { throw new BadRequestException('User ID is required'); })(),
         });
     }
 }

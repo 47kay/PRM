@@ -4,7 +4,7 @@ import { Injectable, Logger } from '@nestjs/common';
 import { InjectQueue, Process, Processor } from '@nestjs/bull';
 import { Queue, Job } from 'bull';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository, In } from 'typeorm';
+import { Repository, In, LessThan } from 'typeorm';
 import { ConfigService } from '@nestjs/config';
 import { WebSocketGateway, WebSocketServer } from '@nestjs/websockets';
 import { Server } from 'socket.io';
@@ -14,7 +14,7 @@ import { PushSubscription } from '../modules/notifications/entities/push-subscri
 import { EmailService } from '../modules/email/email.service';
 import { SmsService } from '../modules/sms/sms.service';
 
-interface NotificationJob {
+export interface NotificationJob {
     type: 'SYSTEM' | 'USER' | 'ORGANIZATION';
     title: string;
     message: string;
@@ -121,21 +121,23 @@ export class NotificationJob {
         data: NotificationJob,
         recipients: User[],
     ): Promise<Notification[]> {
-        const notifications = recipients.map(recipient => ({
-            type: data.type,
-            title: data.title,
-            message: data.message,
-            data: data.data,
-            priority: data.priority || 'MEDIUM',
-            userId: recipient.id,
-            organizationId: recipient.organizationId,
-            metadata: {
+        const notifications = recipients.map(recipient => {
+            const notification = new Notification();
+            notification.type = data.type;
+            notification.title = data.title;
+            notification.message = data.message;
+            notification.data = data.data;
+            notification.priority = data.priority || 'MEDIUM';
+            notification.userId = recipient.id;
+            notification.organizationId = recipient.organizationId;
+            notification.metadata = {
                 ...data.metadata,
                 recipientRole: recipient.role,
-            },
-            status: 'PENDING',
-            expiresAt: data.metadata?.expiresAt,
-        }));
+            };
+            notification.status = 'PENDING';
+            notification.expiresAt = data.metadata?.expiresAt;
+            return notification;
+        });
 
         return this.notificationRepository.save(notifications);
     }
@@ -160,8 +162,8 @@ export class NotificationJob {
             await this.notificationRepository.update(
                 { id: In(notifications.map(n => n.id)) },
                 { 
-                    status: 'DELIVERED',
-                    deliveredAt: new Date(),
+                    status: 'DELIVERED' as any,
+                    deliveredAt: new Date() as any,
                 },
             );
         } catch (error) {
@@ -213,9 +215,9 @@ export class NotificationJob {
             // Send SMS
             const smsPromises = Object.entries(userNotifications).map(async ([userId, userNotifs]) => {
                 const user = await this.userRepository.findOne({ where: { id: userId } });
-                if (!user?.phone) return;
+                if (!user || !user.mobilePhone) return;
 
-                await this.smsService.sendNotification(user.phone, {
+                await this.smsService.sendSms(user.mobilePhone, {
                     notifications: userNotifs,
                     userName: `${user.firstName} ${user.lastName}`,
                 });
@@ -332,9 +334,7 @@ export class NotificationJob {
         thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
 
         await this.notificationRepository.delete({
-            createdAt: {
-                $lt: thirtyDaysAgo,
-            },
+            createdAt: LessThan(thirtyDaysAgo),
             status: In(['DELIVERED', 'READ']),
         });
     }

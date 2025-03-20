@@ -7,11 +7,14 @@ import { CustomRequest } from '../../../interfaces/request.interface';
 export declare class NotificationsController {
     private readonly notificationsService;
     constructor(notificationsService: NotificationsService);
-    create(createNotificationDto: CreateNotificationDto, req: CustomRequest): Promise<any>;
-    findAll(query: NotificationQueryDto, req: CustomRequest): Promise<any>;
+    create(createNotificationDto: CreateNotificationDto, req: CustomRequest): Promise<void>;
+    findAll(query: NotificationQueryDto, req: CustomRequest): Promise<{
+        notifications: import("../entities/notification.entity").Notification[];
+        total: number;
+    }>;
     getUnreadCount(req: CustomRequest): Promise<number>;
-    findOne(id: string, req: CustomRequest): Promise<any>;
-    update(id: string, updateNotificationDto: UpdateNotificationDto, req: CustomRequest): Promise<any>;
+    findOne(id: string, req: CustomRequest): Promise<import("../entities/notification.entity").Notification>;
+    update(id: string, updateNotificationDto: UpdateNotificationDto, req: CustomRequest): Promise<import("../entities/notification.entity").Notification>;
     remove(id: string, req: CustomRequest): Promise<void>;
     markAsRead(id: string, req: CustomRequest): Promise<void>;
     markAllAsRead(req: CustomRequest): Promise<void>;
@@ -19,6 +22,6 @@ export declare class NotificationsController {
     updatePreferences(preferencesDto: NotificationPreferencesDto, req: CustomRequest): Promise<any>;
     sendTestNotification(data: {
         type: string;
-    }, req: CustomRequest): Promise<any>;
+    }, req: CustomRequest): Promise<void>;
     getChannels(req: CustomRequest): Promise<any>;
 }

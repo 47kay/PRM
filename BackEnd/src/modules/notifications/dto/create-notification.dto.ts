@@ -30,6 +30,7 @@ export enum NotificationType {
 export enum NotificationPriority {
     LOW = 'LOW',
     NORMAL = 'NORMAL',
+    MEDIUM = 'MEDIUM',
     HIGH = 'HIGH',
     URGENT = 'URGENT',
 }
@@ -70,6 +71,8 @@ export class NotificationRecipient {
     @ApiProperty()
     @IsUUID()
     userId: string;
+    role: string;
+    organizationId?: string;
 
     @ApiPropertyOptional()
     @IsOptional()
@@ -171,4 +174,11 @@ export class CreateNotificationDto {
     @IsOptional()
     @IsBoolean()
     silent?: boolean;
+
+    @ApiPropertyOptional()
+    @IsOptional()
+    @IsUUID()
+    organizationId: string;
+    senderId?: string;
+    metadata?: Record<string, any>;
 }

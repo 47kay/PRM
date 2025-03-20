@@ -40,7 +40,10 @@ export enum TicketStatus {
     RESOLVED = 'RESOLVED',
     CLOSED = 'CLOSED',
     ESCALATED = 'ESCALATED',
+    REOPENED = 'REOPENED',
+    DELETED = 'DELETED',
 }
+
 
 export enum TicketSource {
     WEB = 'WEB',

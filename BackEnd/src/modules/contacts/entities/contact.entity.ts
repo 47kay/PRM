@@ -18,8 +18,9 @@ import { Organization } from '../../organizations/entities/organization.entity';
 import { User } from '../../users/entities/user.entity';
 import { Appointment } from '../../appointments/entities/appointment.entity';
 import { Document } from '../../documents/entities/document.entity';
-import { MedicalHistory } from '../../medical-history/entities/medical-history.entity';
+import { MedicalHistory } from '../../medical-history/medical-history.entity';
 import { ContactRelationship } from './contact-relationship.entity';
+import { JoinColumn as TypeOrmJoinColumn } from 'typeorm';
 
 export enum ContactType {
     PATIENT = 'PATIENT',
@@ -54,6 +55,13 @@ export class Contact {
     @ApiProperty()
     @PrimaryGeneratedColumn('uuid')
     id: string;
+    status: string; // Add this line
+    createdBy: User;
+
+    @ManyToOne(() => User)
+    @JoinColumn({ name: 'createdById' })
+    metadata?: Record<string, any>;
+    phone: string; // Add this line
 
     @ApiProperty()
     @Column()
@@ -177,7 +185,6 @@ export class Contact {
     organization: Organization;
 
     @ManyToOne(() => User)
-    createdBy: User;
 
     @ManyToOne(() => User)
     updatedBy: User;
@@ -220,4 +227,7 @@ export class Contact {
         }
         return age;
     }
+}
+function JoinColumn(arg0: { name: string; }): PropertyDecorator {
+    return TypeOrmJoinColumn(arg0);
 }

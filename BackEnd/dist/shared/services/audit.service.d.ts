@@ -7,7 +7,7 @@ export interface AuditLogDto {
     entityId: string | number;
     changes?: Record<string, any>;
     metadata?: Record<string, any>;
-    userId?: string | number;
+    actorId?: string | number;
     organizationId?: string | number;
     ipAddress?: string;
     userAgent?: string;
@@ -23,7 +23,7 @@ export declare class AuditService {
         endDate?: Date;
         actions?: string[];
     }): Promise<[AuditLog[], number]>;
-    getUserAuditLogs(userId: string | number, options?: {
+    getUserAuditLogs(actorId: string | number, options?: {
         limit?: number;
         offset?: number;
         startDate?: Date;
@@ -38,7 +38,7 @@ export declare class AuditService {
         endDate?: Date;
         actions?: string[];
         entityTypes?: string[];
-        userIds?: (string | number)[];
+        actorIds?: (string | number)[];
     }): Promise<[AuditLog[], number]>;
     cleanupOldLogs(retentionDays?: number): Promise<number>;
 }

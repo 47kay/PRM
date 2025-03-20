@@ -23,13 +23,13 @@ export declare class MessagesService {
     }): Promise<Message>;
     findAll(query: MessageQueryDto & {
         organizationId: string;
-    }): Promise<import("nestjs-typeorm-paginate").Pagination<unknown, import("nestjs-typeorm-paginate").IPaginationMeta>>;
+    }): Promise<import("nestjs-typeorm-paginate").Pagination<Message, import("nestjs-typeorm-paginate").IPaginationMeta>>;
     getConversations(query: MessageQueryDto & {
         organizationId: string;
-    }): Promise<import("nestjs-typeorm-paginate").Pagination<unknown, import("nestjs-typeorm-paginate").IPaginationMeta>>;
+    }): Promise<import("nestjs-typeorm-paginate").Pagination<Message, import("nestjs-typeorm-paginate").IPaginationMeta>>;
     getConversation(contactId: string, query: MessageQueryDto & {
         organizationId: string;
-    }): Promise<import("nestjs-typeorm-paginate").Pagination<unknown, import("nestjs-typeorm-paginate").IPaginationMeta>>;
+    }): Promise<import("nestjs-typeorm-paginate").Pagination<Message, import("nestjs-typeorm-paginate").IPaginationMeta>>;
     findOne(id: string, organizationId: string): Promise<Message>;
     update(id: string, data: UpdateMessageDto & {
         organizationId: string;
@@ -39,7 +39,7 @@ export declare class MessagesService {
     createTemplate(data: MessageTemplateDto & {
         organizationId: string;
         createdBy: string;
-    }): Promise<any>;
+    }): Promise<MessageTemplate>;
     getTemplates(query: {
         organizationId: string;
     }): Promise<MessageTemplate[]>;
@@ -49,7 +49,7 @@ export declare class MessagesService {
     }): Promise<{
         success: boolean;
         count: number;
-        messages: any[];
+        messageIds: string[];
     }>;
     getStatistics(query: {
         organizationId: string;

@@ -9,7 +9,7 @@ export declare class UsersController {
     private readonly usersService;
     constructor(usersService: UsersService);
     create(createUserDto: CreateUserDto, req: CustomRequest): Promise<import("../entities/user.entity").User>;
-    findAll(query: UserQueryDto, req: CustomRequest): Promise<import("nestjs-typeorm-paginate").Pagination<unknown, import("nestjs-typeorm-paginate").IPaginationMeta>>;
+    findAll(query: UserQueryDto, req: CustomRequest): Promise<import("nestjs-typeorm-paginate").Pagination<import("../entities/user.entity").User, import("nestjs-typeorm-paginate").IPaginationMeta>>;
     getProfile(req: CustomRequest): Promise<import("../entities/user.entity").User>;
     updateProfile(updateProfileDto: UpdateProfileDto, req: CustomRequest): Promise<import("../entities/user.entity").User>;
     updatePassword(updatePasswordDto: UpdatePasswordDto, req: CustomRequest): Promise<void>;

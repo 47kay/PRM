@@ -25,6 +25,48 @@ export class TicketQueryDto {
     @IsString()
     searchTerm?: string;
 
+     @IsOptional()
+  @IsString()
+  priority?: string;
+
+  @IsOptional()
+  @IsString()
+  type?: string;
+
+  @IsOptional()
+  @IsUUID()
+  assigneeId?: string;
+
+  @IsOptional()
+  @IsUUID()
+  contactId?: string;
+
+  @IsOptional()
+  @IsUUID()
+  departmentId?: string;
+
+  @IsOptional()
+  @IsString()
+  search?: string;
+
+  @IsOptional()
+  startDate?: string;
+
+  @IsOptional()
+  endDate?: string;
+
+  @IsOptional()
+  @Type(() => Number)
+  @IsInt()
+  @Min(1)
+  page?: number = 1;
+
+  @IsOptional()
+  @Type(() => Number)
+  @IsInt()
+  @Min(1)
+  limit?: number = 10;
+
     @ApiPropertyOptional({
         description: 'Filter tickets by status',
         isArray: true,
@@ -43,7 +85,6 @@ export class TicketQueryDto {
     @IsOptional()
     @IsArray()
     @IsString({ each: true })
-    priority?: string[];
 
     @ApiPropertyOptional({
         description: 'Filter tickets by category',
@@ -189,7 +230,6 @@ export class TicketQueryDto {
     @IsInt()
     @Min(1)
     @Max(100)
-    limit?: number = 20;
 
     @ApiPropertyOptional({
         description: 'Number of tickets to skip',

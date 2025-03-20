@@ -8,6 +8,8 @@ export class TicketAttachment {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
+  organizationId: string; // Add this line
+
   @Column()
   fileName: string;
 

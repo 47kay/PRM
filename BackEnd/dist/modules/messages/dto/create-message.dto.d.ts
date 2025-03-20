@@ -16,7 +16,10 @@ export declare enum MessageStatus {
     SENDING = "SENDING",
     SENT = "SENT",
     DELIVERED = "DELIVERED",
-    FAILED = "FAILED"
+    FAILED = "FAILED",
+    SCHEDULED = "SCHEDULED",
+    DELIVERING = "DELIVERING",
+    PENDING = "PENDING"
 }
 export declare class Attachment {
     fileName: string;

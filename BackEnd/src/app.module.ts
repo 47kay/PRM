@@ -7,6 +7,7 @@ import { ThrottlerModule } from '@nestjs/throttler';
 import { EventEmitterModule } from '@nestjs/event-emitter';
 import { ScheduleModule } from '@nestjs/schedule';
 import { BullModule } from '@nestjs/bull';
+import { APP_FILTER, APP_INTERCEPTOR, APP_GUARD } from '@nestjs/core';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -27,6 +28,12 @@ import databaseConfig from './config/database.config';
 import redisConfig from './config/redis.config';
 import mailConfig from './config/mail.config';
 import jwtConfig from './config/jwt.config';
+
+// Custom filters, interceptors, and guards
+import { HttpExceptionFilter } from './common/filters/http-exception.filter';
+import { TransformInterceptor } from './common/interceptors/transform.interceptor';
+import { ThrottlerGuard } from '@nestjs/throttler';
+import { ThrottlerConfigService } from './config/throttler.config';
 
 @Module({
   imports: [
@@ -55,23 +62,27 @@ import jwtConfig from './config/jwt.config';
 
     // Redis and Bull Queue
     BullModule.forRootAsync({
+      imports: [ConfigModule],
       inject: [ConfigService],
-      useFactory: (configService: ConfigService) => ({
-        redis: {
-          host: configService.get('redis.host'),
-          port: configService.get('redis.port'),
-          password: configService.get('redis.password'),
-        },
-      }),
+      useFactory: async (configService: ConfigService) => {
+        const host = configService.get<string>('redis.host');
+        const port = configService.get<number>('redis.port');
+        const password = configService.get<string>('redis.password');
+        
+        const redisUrl = password 
+          ? `redis://:${password}@${host}:${port}`
+          : `redis://${host}:${port}`;
+          
+        return {
+          url: redisUrl
+        };
+      },
     }),
 
     // Rate Limiting
     ThrottlerModule.forRootAsync({
-      inject: [ConfigService],
-      useFactory: (configService: ConfigService) => ({
-        ttl: configService.get('app.throttleTtl'),
-        limit: configService.get('app.throttleLimit'),
-      }),
+      imports: [ConfigModule],
+      useClass: ThrottlerConfigService,
     }),
 
     // Event Emitter
@@ -99,15 +110,15 @@ import jwtConfig from './config/jwt.config';
   providers: [
     AppService,
     {
-      provide: 'APP_FILTER',
+      provide: APP_FILTER,
       useClass: HttpExceptionFilter,
     },
     {
-      provide: 'APP_INTERCEPTOR',
+      provide: APP_INTERCEPTOR,
       useClass: TransformInterceptor,
     },
     {
-      provide: 'APP_GUARD',
+      provide: APP_GUARD,
       useClass: ThrottlerGuard,
     },
   ],

@@ -21,6 +21,14 @@ interface ErrorResponse {
     correlationId?: string;
 }
 
+// Define a proper type for HttpException response object
+interface HttpExceptionResponse {
+    message: string | string[];
+    error?: string;
+    statusCode?: number;
+    [key: string]: unknown;
+}
+
 @Catch()
 export class HttpExceptionFilter implements ExceptionFilter {
     private readonly logger = new Logger(HttpExceptionFilter.name);
@@ -37,11 +45,11 @@ export class HttpExceptionFilter implements ExceptionFilter {
         // Handle different types of exceptions
         if (exception instanceof HttpException) {
             status = exception.getStatus();
-            const errorResponse = exception.getResponse();
+            const errorResponse = exception.getResponse() as HttpExceptionResponse;
             
             if (typeof errorResponse === 'object' && 'message' in errorResponse) {
-                message = errorResponse['message'];
-                error = errorResponse['error'] || this.getErrorName(status);
+                message = errorResponse.message;
+                error = errorResponse.error || this.getErrorName(status);
             } else {
                 message = exception.message;
                 error = this.getErrorName(status);
@@ -53,7 +61,7 @@ export class HttpExceptionFilter implements ExceptionFilter {
             error = 'Database Error';
 
             // Check for unique constraint violations
-            if (exception.message.includes('duplicate key')) {
+            if ((exception.message as string).includes('duplicate key')) {
                 message = 'A record with this value already exists';
                 error = 'Duplicate Entry';
             }

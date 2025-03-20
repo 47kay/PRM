@@ -11,6 +11,7 @@ export declare class CommentAttachment {
 }
 export declare class CreateTicketCommentDto {
     content: string;
+    isInternal: boolean;
     visibility?: CommentVisibility;
     parentId?: string;
     attachments?: CommentAttachment[];

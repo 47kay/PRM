@@ -1,12 +1,13 @@
 import { Injectable } from '@nestjs/common';
 import { OnEvent } from '@nestjs/event-emitter';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { Repository, In } from 'typeorm';
 import { Ticket } from '../entities/ticket.entity';
 import { TicketActivity } from '../entities/ticket-activity.entity';
 import { NotificationsService } from '../../notifications/services/notifications.service';
 import { UsersService } from '../../users/services/users.service';
 import { TicketActivityType } from '../enums/ticket-activity-type.enum';
+import { TicketStatus } from '../enums/ticket-status.enum';
 
 interface TicketAssignmentEvent {
   ticketId: string;
@@ -38,7 +39,7 @@ export class TicketAssignmentListener {
   private async createAssignmentActivity(event: TicketAssignmentEvent): Promise<void> {
     const activity = this.activityRepository.create({
       ticketId: event.ticketId,
-      type: TicketActivityType.ASSIGNMENT,
+      type: TicketActivityType.ASSIGNED, // Fix #1: Changed from ASSIGNMENT to ASSIGNED
       metadata: {
         previousAssigneeId: event.previousAssigneeId,
         newAssigneeId: event.newAssigneeId,
@@ -134,9 +135,20 @@ export class TicketAssignmentListener {
   }
 
   private async findAvailableAgent(organizationId: string, priority: string) {
-    // Implement agent selection logic
-    // This is a placeholder for the actual implementation
-    return this.usersService.findAvailableAgent(organizationId, priority);
+    // Fix #2: Implement this method since it doesn't exist in UsersService
+    // This is a temporary implementation until UsersService has the proper method
+    // You should eventually implement this method in UsersService
+    
+    // Find users with support role in this organization
+    const supportAgents = await this.usersService.findByRole('SUPPORT', organizationId);
+    
+    if (!supportAgents || supportAgents.length === 0) {
+      return null;
+    }
+    
+    // Simple implementation: return the first available agent
+    // In a real implementation, you'd want to consider workload, skills, etc.
+    return supportAgents[0];
   }
 
   @OnEvent('user.availability.changed')
@@ -149,7 +161,7 @@ export class TicketAssignmentListener {
       const assignedTickets = await this.ticketRepository.find({
         where: {
           assigneeId: payload.userId,
-          status: ['OPEN', 'IN_PROGRESS']
+          status: In(['OPEN', 'IN_PROGRESS'] as TicketStatus[]) // Fix #3: Using TypeORM's In operator with correct type casting
         }
       });
 

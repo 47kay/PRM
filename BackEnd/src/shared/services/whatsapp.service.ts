@@ -1,14 +1,13 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { Repository, LessThan } from 'typeorm';
 import { EventEmitter2 } from '@nestjs/event-emitter';
 import axios, { AxiosInstance } from 'axios';
-import { WhatsAppMessage } from '../../modules/whatsapp/entities/whatsapp-message.entity';
-import { WhatsAppTemplate } from '../../modules/whatsapp/entities/whatsapp-template.entity';
+import { WhatsAppMessage, MessageStatus, MessageDirection } from '../../modules/whatsapp/entities/whatsapp-message.entity'; // Import MessageDirection
+import { WhatsappTemplate } from '../../modules/whatsapp/entities/whatsapp-template.entity';
 import { WhatsAppMediaType } from '../../modules/whatsapp/enums/whatsapp-media-type.enum';
 import { WhatsAppMessageStatus } from '../../modules/whatsapp/enums/whatsapp-message-status.enum';
-import { WhatsAppMessageStatus as MessageStatus } from '../../modules/whatsapp/enums/whatsapp-message-status.enum';
 
 interface WhatsAppMessageOptions {
     to: string;
@@ -32,8 +31,8 @@ export class WhatsAppService {
         private readonly eventEmitter: EventEmitter2,
         @InjectRepository(WhatsAppMessage)
         private readonly messageRepository: Repository<WhatsAppMessage>,
-        @InjectRepository(WhatsAppTemplate)
-        private readonly templateRepository: Repository<WhatsAppTemplate>
+        @InjectRepository(WhatsappTemplate)
+        private readonly templateRepository: Repository<WhatsappTemplate>,
     ) {
         this.client = axios.create({
             baseURL: this.configService.get('WHATSAPP_API_URL'),
@@ -47,10 +46,8 @@ export class WhatsAppService {
 
     async sendMessage(options: WhatsAppMessageOptions): Promise<WhatsAppMessage> {
         try {
-            // Format phone number
             const formattedNumber = this.formatPhoneNumber(options.to);
 
-            // Validate phone number
             if (!this.isValidPhoneNumber(formattedNumber)) {
                 throw new Error(`Invalid phone number: ${options.to}`);
             }
@@ -65,19 +62,18 @@ export class WhatsAppService {
                 messageData = this.prepareTextMessage(options);
             }
 
-            // Create message record
             const message = this.messageRepository.create({
                 to: formattedNumber,
                 messageType: options.template ? 'template' : options.mediaUrl ? 'media' : 'text',
-                content: messageData,
+                content: JSON.stringify(messageData),
                 metadata: options.metadata,
-                status: WhatsAppMessageStatus.PENDING,
+                status: MessageStatus.QUEUED,
                 retryCount: 0,
+                recipientPhone: formattedNumber,
             });
 
             await this.messageRepository.save(message);
 
-            // Send message
             const response = await this.client.post('/messages', {
                 messaging_product: 'whatsapp',
                 recipient_type: 'individual',
@@ -85,13 +81,11 @@ export class WhatsAppService {
                 ...messageData,
             });
 
-            // Update message with WhatsApp message ID
             message.whatsappMessageId = response.data.messages[0].id;
-            message.status = WhatsAppMessageStatus.SENT;
+            message.status = MessageStatus.SENT;
             message.sentAt = new Date();
             await this.messageRepository.save(message);
 
-            // Emit event
             this.eventEmitter.emit('whatsapp.message.sent', message);
 
             return message;
@@ -103,7 +97,7 @@ export class WhatsAppService {
 
     private async prepareTemplateMessage(options: WhatsAppMessageOptions): Promise<any> {
         const template = await this.templateRepository.findOne({
-            where: { name: options.template }
+            where: { name: options.template },
         });
 
         if (!template) {
@@ -115,10 +109,10 @@ export class WhatsAppService {
             template: {
                 name: template.name,
                 language: {
-                    code: template.language
+                    code: template.language,
                 },
-                components: this.buildTemplateComponents(template, options.parameters)
-            }
+                components: this.buildTemplateComponents(template, options.parameters),
+            },
         };
     }
 
@@ -130,9 +124,9 @@ export class WhatsAppService {
         return {
             type: options.mediaType.toLowerCase(),
             [options.mediaType.toLowerCase()]: {
-                link: options.mediaUrl
+                link: options.mediaUrl,
             },
-            text: options.text
+            text: options.text,
         };
     }
 
@@ -145,37 +139,34 @@ export class WhatsAppService {
             type: 'text',
             text: {
                 body: options.text,
-                preview_url: true
-            }
+                preview_url: true,
+            },
         };
     }
 
-    private buildTemplateComponents(
-        template: WhatsAppTemplate,
-        parameters?: Record<string, any>
-    ): any[] {
+    private buildTemplateComponents(template: WhatsappTemplate, parameters?: Record<string, any>): any[] {
         const components = [];
 
-        if (template.headerType && parameters?.header) {
+        if (parameters?.header) {
             components.push({
                 type: 'header',
-                parameters: this.formatParameters(template.headerType, parameters.header)
+                parameters: this.formatParameters('text', parameters.header),
             });
         }
 
         if (parameters?.body) {
             components.push({
                 type: 'body',
-                parameters: this.formatParameters('text', parameters.body)
+                parameters: this.formatParameters('text', parameters.body),
             });
         }
 
-        if (template.buttons && parameters?.buttons) {
+        if (parameters?.buttons) {
             components.push({
                 type: 'button',
                 sub_type: 'quick_reply',
                 index: 0,
-                parameters: parameters.buttons
+                parameters: parameters.buttons,
             });
         }
 
@@ -220,19 +211,19 @@ export class WhatsAppService {
     private async handleIncomingMessages(messages: any[]): Promise<void> {
         for (const message of messages) {
             try {
-                // Create message record for incoming message
                 const incomingMessage = this.messageRepository.create({
                     whatsappMessageId: message.id,
                     from: message.from,
                     messageType: message.type,
-                    content: message,
-                    status: WhatsAppMessageStatus.RECEIVED,
+                    content: JSON.stringify(message),
+                    status: MessageStatus.QUEUED,
                     receivedAt: new Date(),
+                    recipientPhone: message.from,
+                    direction: MessageDirection.INBOUND, // Use enum value
                 });
 
                 await this.messageRepository.save(incomingMessage);
 
-                // Emit event
                 this.eventEmitter.emit('whatsapp.message.received', incomingMessage);
             } catch (error) {
                 this.logger.error('Error processing incoming WhatsApp message:', error);
@@ -244,16 +235,15 @@ export class WhatsAppService {
         for (const status of statuses) {
             try {
                 const message = await this.messageRepository.findOne({
-                    where: { whatsappMessageId: status.id }
+                    where: { whatsappMessageId: status.id },
                 });
 
                 if (message) {
-                    message.status = this.mapWhatsAppStatus(status.status) as MessageStatus;
-                    message.deliveredAt = status.status === 'delivered' ? new Date() : null;
-                    message.readAt = status.status === 'read' ? new Date() : null;
+                    message.status = this.mapWhatsAppStatus(status.status);
+                    message.deliveredAt = status.status === 'delivered' ? new Date() : message.deliveredAt;
+                    message.readAt = status.status === 'read' ? new Date() : message.readAt;
                     await this.messageRepository.save(message);
 
-                    // Emit event
                     this.eventEmitter.emit('whatsapp.message.status_updated', message);
                 }
             } catch (error) {
@@ -262,42 +252,37 @@ export class WhatsAppService {
         }
     }
 
-    private mapWhatsAppStatus(status: string): WhatsAppMessageStatus {
+    private mapWhatsAppStatus(status: string): MessageStatus {
         switch (status.toLowerCase()) {
             case 'sent':
-                return WhatsAppMessageStatus.SENT;
+                return MessageStatus.SENT;
             case 'delivered':
-                return WhatsAppMessageStatus.DELIVERED;
+                return MessageStatus.DELIVERED;
             case 'read':
-                return WhatsAppMessageStatus.READ;
+                return MessageStatus.READ;
             case 'failed':
-                return WhatsAppMessageStatus.FAILED;
+                return MessageStatus.FAILED;
             default:
-                return WhatsAppMessageStatus.UNKNOWN;
+                return MessageStatus.UNKNOWN;
         }
     }
 
     private formatPhoneNumber(phone: string): string {
-        // Remove any non-numeric characters
         const cleaned = phone.replace(/\D/g, '');
-        
-        // Ensure number starts with country code
         if (!cleaned.startsWith('1') && cleaned.length === 10) {
             return `1${cleaned}`;
         }
-        
         return cleaned;
     }
 
     private isValidPhoneNumber(phone: string): boolean {
-        // Basic validation for E.164 format
         return /^\d{11,15}$/.test(phone);
     }
 
     async getMessageStatus(messageId: string): Promise<WhatsAppMessage | null> {
         try {
             return await this.messageRepository.findOne({
-                where: { id: messageId }
+                where: { id: messageId },
             });
         } catch (error) {
             this.logger.error(`Error getting message status for ${messageId}:`, error);
@@ -309,31 +294,36 @@ export class WhatsAppService {
         try {
             const failedMessages = await this.messageRepository.find({
                 where: {
-                    status: WhatsAppMessageStatus.FAILED as MessageStatus,
-                    retryCount: { $lt: this.maxRetries }
-                }
+                    status: MessageStatus.FAILED,
+                    retryCount: LessThan(this.maxRetries),
+                },
             });
 
             for (const message of failedMessages) {
                 try {
-                    const response = await this.client.post('/messages', message.content);
-                    
+                    const content = JSON.parse(message.content);
+                    const response = await this.client.post('/messages', content);
+
                     message.whatsappMessageId = response.data.messages[0].id;
-                    message.status = WhatsAppMessageStatus.SENT;
+                    message.status = MessageStatus.SENT;
                     message.sentAt = new Date();
                     message.retryCount += 1;
-                    
+
                     await this.messageRepository.save(message);
                 } catch (error) {
                     this.logger.error(`Error retrying message ${message.id}:`, error);
-                    
+
                     message.retryCount += 1;
-                    message.lastError = error.message;
-                    
+                    message.lastError = error.message || String(error);
+
                     if (message.retryCount >= this.maxRetries) {
-                        message.status = WhatsAppMessageStatus.PERMANENTLY_FAILED as MessageStatus;
+                        message.status = MessageStatus.FAILED;
+                        message.metadata = { 
+                            ...message.metadata, 
+                            permanentlyFailed: true 
+                        };
                     }
-                    
+
                     await this.messageRepository.save(message);
                 }
             }

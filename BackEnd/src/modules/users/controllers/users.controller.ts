@@ -45,6 +45,15 @@ export class UsersController {
         @Body() createUserDto: CreateUserDto,
         @Request() req: CustomRequest,
     ) {
+        if (!req.organization) {
+            throw new ForbiddenException('Organization context is required');
+        }
+        
+        // Fix: Ensure req.user is defined
+        if (!req.user) {
+            throw new ForbiddenException('User context is required');
+        }
+        
         return this.usersService.create({
             ...createUserDto,
             organizationId: req.organization.id,
@@ -60,6 +69,9 @@ export class UsersController {
         @Query() query: UserQueryDto,
         @Request() req: CustomRequest,
     ) {
+        if (!req.organization) {
+            throw new ForbiddenException('Organization context is required');
+        }
         return this.usersService.findAll({
             ...query,
             organizationId: req.organization.id,
@@ -72,6 +84,15 @@ export class UsersController {
     async getProfile(
         @Request() req: CustomRequest,
     ) {
+        if (!req.organization) {
+            throw new ForbiddenException('Organization context is required');
+        }
+        
+        // Fix: Ensure req.user is defined
+        if (!req.user) {
+            throw new ForbiddenException('User context is required');
+        }
+        
         return this.usersService.findOne(req.user.id, req.organization.id);
     }
 
@@ -82,6 +103,15 @@ export class UsersController {
         @Body() updateProfileDto: UpdateProfileDto,
         @Request() req: CustomRequest,
     ) {
+        if (!req.organization) {
+            throw new ForbiddenException('Organization context is required');
+        }
+        
+        // Fix: Ensure req.user is defined
+        if (!req.user) {
+            throw new ForbiddenException('User context is required');
+        }
+        
         return this.usersService.updateProfile(req.user.id, {
             ...updateProfileDto,
             organizationId: req.organization.id,
@@ -95,6 +125,15 @@ export class UsersController {
         @Body() updatePasswordDto: UpdatePasswordDto,
         @Request() req: CustomRequest,
     ) {
+        if (!req.organization) {
+            throw new ForbiddenException('Organization context is required');
+        }
+        
+        // Fix: Ensure req.user is defined
+        if (!req.user) {
+            throw new ForbiddenException('User context is required');
+        }
+        
         return this.usersService.updatePassword(req.user.id, {
             ...updatePasswordDto,
             organizationId: req.organization.id,
@@ -109,6 +148,9 @@ export class UsersController {
         @Param('id', ParseUUIDPipe) id: string,
         @Request() req: CustomRequest,
     ) {
+        if (!req.organization) {
+            throw new ForbiddenException('Organization context is required');
+        }
         const user = await this.usersService.findOne(id, req.organization.id);
         if (!user) {
             throw new NotFoundException('User not found');
@@ -125,6 +167,15 @@ export class UsersController {
         @Body() updateUserDto: UpdateUserDto,
         @Request() req: CustomRequest,
     ) {
+        if (!req.organization) {
+            throw new ForbiddenException('Organization context is required');
+        }
+        
+        // Fix: Ensure req.user is defined
+        if (!req.user) {
+            throw new ForbiddenException('User context is required');
+        }
+        
         // Prevent demoting the last admin
         if (updateUserDto.role && updateUserDto.role !== Role.ADMIN) {
             const admins = await this.usersService.getAdminCount(req.organization.id);
@@ -151,6 +202,9 @@ export class UsersController {
         @Param('id', ParseUUIDPipe) id: string,
         @Request() req: CustomRequest,
     ) {
+        if (!req.organization) {
+            throw new ForbiddenException('Organization context is required');
+        }
         // Prevent deleting the last admin
         const user = await this.usersService.findOne(id, req.organization.id);
         if (user.role === Role.ADMIN) {
@@ -171,6 +225,9 @@ export class UsersController {
         @Param('id', ParseUUIDPipe) id: string,
         @Request() req: CustomRequest,
     ) {
+        if (!req.organization) {
+            throw new ForbiddenException('Organization context is required');
+        }
         return this.usersService.activate(id, req.organization.id);
     }
 
@@ -182,6 +239,9 @@ export class UsersController {
         @Param('id', ParseUUIDPipe) id: string,
         @Request() req: CustomRequest,
     ) {
+        if (!req.organization) {
+            throw new ForbiddenException('Organization context is required');
+        }
         // Prevent deactivating the last admin
         const user = await this.usersService.findOne(id, req.organization.id);
         if (user.role === Role.ADMIN) {
@@ -203,6 +263,9 @@ export class UsersController {
         @Query() query: any,
         @Request() req: CustomRequest,
     ) {
+        if (!req.organization) {
+            throw new ForbiddenException('Organization context is required');
+        }
         return this.usersService.getActivity(id, {
             ...query,
             organizationId: req.organization.id,
@@ -216,6 +279,9 @@ export class UsersController {
         @Param('id', ParseUUIDPipe) id: string,
         @Request() req: CustomRequest,
     ) {
+        if (!req.organization) {
+            throw new ForbiddenException('Organization context is required');
+        }
         return this.usersService.getPermissions(id, req.organization.id);
     }
 }

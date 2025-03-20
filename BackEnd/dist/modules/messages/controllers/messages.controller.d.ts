@@ -10,18 +10,18 @@ export declare class MessagesController {
     private readonly messagesService;
     constructor(messagesService: MessagesService);
     create(createMessageDto: CreateMessageDto, req: CustomRequest): Promise<Message>;
-    findAll(query: MessageQueryDto, req: CustomRequest): Promise<import("nestjs-typeorm-paginate").Pagination<unknown, import("nestjs-typeorm-paginate").IPaginationMeta>>;
-    getConversations(query: MessageQueryDto, req: CustomRequest): Promise<import("nestjs-typeorm-paginate").Pagination<unknown, import("nestjs-typeorm-paginate").IPaginationMeta>>;
-    getConversation(contactId: string, query: MessageQueryDto, req: CustomRequest): Promise<import("nestjs-typeorm-paginate").Pagination<unknown, import("nestjs-typeorm-paginate").IPaginationMeta>>;
+    findAll(query: MessageQueryDto, req: CustomRequest): Promise<import("nestjs-typeorm-paginate").Pagination<Message, import("nestjs-typeorm-paginate").IPaginationMeta>>;
+    getConversations(query: MessageQueryDto, req: CustomRequest): Promise<import("nestjs-typeorm-paginate").Pagination<Message, import("nestjs-typeorm-paginate").IPaginationMeta>>;
+    getConversation(contactId: string, query: MessageQueryDto, req: CustomRequest): Promise<import("nestjs-typeorm-paginate").Pagination<Message, import("nestjs-typeorm-paginate").IPaginationMeta>>;
     findOne(id: string, req: CustomRequest): Promise<Message>;
     update(id: string, updateMessageDto: UpdateMessageDto, req: CustomRequest): Promise<Message>;
     remove(id: string, req: CustomRequest): Promise<void>;
-    createTemplate(templateDto: MessageTemplateDto, req: CustomRequest): Promise<any>;
-    getTemplates(query: MessageQueryDto, req: CustomRequest): Promise<MessageTemplate[]>;
+    createTemplate(templateDto: MessageTemplateDto, req: CustomRequest): Promise<import("../entities/message-template.entity").MessageTemplate>;
+    getTemplates(query: MessageQueryDto, req: CustomRequest): Promise<import("../entities/message-template.entity").MessageTemplate[]>;
     sendBulk(bulkMessageDto: BulkMessageDto, req: CustomRequest): Promise<{
         success: boolean;
         count: number;
-        messages: any[];
+        messageIds: string[];
     }>;
     getStatistics(query: MessageQueryDto, req: CustomRequest): Promise<any>;
     resend(id: string, req: CustomRequest): Promise<Message>;

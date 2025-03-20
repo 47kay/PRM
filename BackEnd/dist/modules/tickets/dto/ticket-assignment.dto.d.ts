@@ -10,6 +10,10 @@ export declare class AssignmentNotification {
     notifyPreviousAssignee?: boolean;
     customMessage?: string;
 }
+export declare class TicketAssignmentDto {
+    assigneeId: string;
+    note?: string;
+}
 export declare class AssignmentRules {
     considerWorkload?: boolean;
     checkSkillMatch?: boolean;
@@ -35,8 +39,8 @@ export declare class UpdateTicketAssignmentDto {
 }
 export declare class BulkTicketAssignmentDto {
     ticketIds: string[];
-    assignment: CreateTicketAssignmentDto;
-    continueOnError?: boolean;
+    assigneeId: string;
+    note?: string;
 }
 export declare class AssignmentResponseDto {
     success: boolean;

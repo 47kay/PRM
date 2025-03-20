@@ -17,6 +17,7 @@ import { Organization } from '../../organizations/entities/organization.entity';
 import { AppointmentType } from '../enums/appointment-type.enum';
 import { AppointmentStatus } from '../enums/appointment-status.enum';
 import { AppointmentPriority } from '../enums/appointment-priority.enum';
+import { ApiProperty as SwaggerApiProperty } from '@nestjs/swagger';
 
 @Entity('appointments')
 @Index(['organizationId', 'startTime'])
@@ -25,6 +26,46 @@ import { AppointmentPriority } from '../enums/appointment-priority.enum';
 export class Appointment {
     @PrimaryGeneratedColumn('uuid')
     id: string;
+    confirmedAt?: Date;
+    scheduledFor: Date;
+   
+
+    @ApiProperty()
+    @PrimaryGeneratedColumn('uuid')
+
+    @ApiProperty()
+    @Column()
+    title: string;
+
+    @ApiProperty()
+    @Column({ type: 'timestamp' })
+    startTime: Date;
+
+    @ApiProperty()
+    @Column({ type: 'timestamp' })
+    endTime: Date;
+
+    @ApiProperty()
+    @Column({ nullable: true })
+    notes?: string;
+
+    @ApiProperty()
+    @Column()
+    createdById: string;
+
+    @ApiProperty()
+    @Column({ nullable: true })
+    updatedById?: string;
+
+    @CreateDateColumn()
+    createdAt: Date;
+
+    @UpdateDateColumn()
+    updatedAt: Date;
+
+    // Relations
+    @ManyToOne(() => Contact, contact => contact.appointments)
+    contact: Contact;
 
     @Column({ type: 'uuid' })
     organizationId: string;
@@ -43,10 +84,8 @@ export class Appointment {
 
     @Column({ type: 'timestamp with time zone' })
     @Index()
-    startTime: Date;
 
     @Column({ type: 'timestamp with time zone' })
-    endTime: Date;
 
     @Column({
         type: 'enum',
@@ -70,7 +109,6 @@ export class Appointment {
     priority: AppointmentPriority;
 
     @Column({ length: 100 })
-    title: string;
 
     @Column({ type: 'text', nullable: true })
     description: string;
@@ -114,6 +152,7 @@ export class Appointment {
         previousAppointmentId?: string;
         billingStatus?: string;
         claimStatus?: string;
+        followUpSentAt?: string; // Added followUpSentAt property
     };
 
     @Column({ type: 'boolean', default: false })
@@ -152,10 +191,8 @@ export class Appointment {
     cancelledAt: Date;
 
     @CreateDateColumn({ type: 'timestamp with time zone' })
-    createdAt: Date;
 
     @UpdateDateColumn({ type: 'timestamp with time zone' })
-    updatedAt: Date;
 
     // Relationships
     @ManyToOne(() => Organization, { onDelete: 'CASCADE' })
@@ -224,4 +261,7 @@ export class Appointment {
 
         return now >= reminderDue;
     }
+}
+function ApiProperty(): PropertyDecorator {
+    return SwaggerApiProperty();
 }

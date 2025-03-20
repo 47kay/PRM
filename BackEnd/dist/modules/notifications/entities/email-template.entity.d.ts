@@ -1,6 +1,8 @@
 import { Organization } from '../../organizations/entities/organization.entity';
 export declare class EmailTemplate {
     id: string;
+    content: string;
+    type: string;
     name: string;
     subject: string;
     htmlContent: string;

@@ -1,6 +1,7 @@
 import { IsUUID, IsOptional, IsString, IsBoolean, IsArray, ValidateNested, IsEnum } from 'class-validator';
 import { Type } from 'class-transformer';
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
+import { registerDecorator, ValidationOptions, ValidationArguments } from 'class-validator';
 
 export enum AssignmentType {
     USER = 'user',
@@ -35,6 +36,23 @@ export class AssignmentNotification {
     @IsOptional()
     customMessage?: string;
 }
+
+export class TicketAssignmentDto {
+    @ApiProperty({
+      description: 'The ID of the user to assign the ticket to',
+      example: '123e4567-e89b-12d3-a456-426614174000'
+    })
+    @IsUUID()
+    assigneeId: string;
+  
+    @ApiPropertyOptional({
+      description: 'Optional note about the assignment',
+      example: 'Assigning to support team lead for escalated issue'
+    })
+    @IsString()
+    @IsOptional()
+    note?: string;
+  }
 
 export class AssignmentRules {
     @ApiPropertyOptional({
@@ -181,28 +199,30 @@ export class UpdateTicketAssignmentDto {
 
 export class BulkTicketAssignmentDto {
     @ApiProperty({
-        description: 'Array of ticket IDs to assign',
-        type: [String]
+      description: 'Array of ticket IDs to assign',
+      example: ['123e4567-e89b-12d3-a456-426614174000', '123e4567-e89b-12d3-a456-426614174001'],
+      type: [String]
     })
     @IsArray()
     @IsUUID('4', { each: true })
+    @ArrayMinSize(1) // Moved this after IsArray and IsUUID to fix decorator type issues
     ticketIds: string[];
-
+  
     @ApiProperty({
-        description: 'Assignment details'
+      description: 'The ID of the user to assign the tickets to',
+      example: '123e4567-e89b-12d3-a456-426614174000'
     })
-    @ValidateNested()
-    @Type(() => CreateTicketAssignmentDto)
-    assignment: CreateTicketAssignmentDto;
-
+    @IsUUID()
+    assigneeId: string;
+  
     @ApiPropertyOptional({
-        description: 'Whether to apply assignment even if some fail',
-        default: false
+      description: 'Optional note about the bulk assignment',
+      example: 'Assigning all pending tickets to the new support agent'
     })
-    @IsBoolean()
+    @IsString()
     @IsOptional()
-    continueOnError?: boolean = false;
-}
+    note?: string;
+  }
 
 export class AssignmentResponseDto {
     @ApiProperty({
@@ -240,4 +260,25 @@ export class AssignmentResponseDto {
         description: 'Additional details about the assignment'
     })
     details?: Record<string, any>;
+}
+function ArrayMinSize(min: number, validationOptions?: ValidationOptions) {
+    return function (object: Object, propertyName: string) {
+        registerDecorator({
+            name: 'arrayMinSize',
+            target: object.constructor,
+            propertyName: propertyName,
+            options: validationOptions,
+            constraints: [min],
+            validator: {
+                validate(value: any, args: ValidationArguments) {
+                    const [minSize] = args.constraints;
+                    return Array.isArray(value) && value.length >= minSize;
+                },
+                defaultMessage(args: ValidationArguments) {
+                    const [minSize] = args.constraints;
+                    return `Array must contain at least ${minSize} elements`;
+                }
+            }
+        });
+    };
 }

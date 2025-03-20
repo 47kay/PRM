@@ -4,9 +4,12 @@ export declare class DateRangeDto {
     endDate?: string;
 }
 export declare class NotificationQueryDto {
-    organizationId?: string;
+    skip?: number;
+    take?: number;
+    includeRead?: boolean;
     categories?: NotificationCategory[];
     userId?: string;
+    organizationId?: string;
     channels?: NotificationChannel[];
     isRead?: boolean;
     isArchived?: boolean;

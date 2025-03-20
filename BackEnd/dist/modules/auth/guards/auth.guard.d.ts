@@ -1,21 +1,17 @@
-import { ExecutionContext, CanActivate } from '@nestjs/common';
+import { ExecutionContext } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
+import { AuthService } from '../services/auth.service';
 import { JwtService } from '@nestjs/jwt';
-import { UsersService } from '../../users/services/users.service';
-import { UserSessionsService } from '../../users/services/user-sessions.service';
 import { ConfigService } from '@nestjs/config';
-export declare const IS_PUBLIC_KEY = "isPublic";
-export declare const Public: () => import("@nestjs/common").CustomDecorator<string>;
-export declare class AuthGuard implements CanActivate {
+import { UsersService } from '../../users/services/users.service';
+export declare class AuthGuard {
     private readonly reflector;
+    private readonly authService;
     private readonly jwtService;
-    private readonly usersService;
-    private readonly userSessionsService;
     private readonly configService;
+    private readonly usersService;
     private readonly logger;
-    constructor(reflector: Reflector, jwtService: JwtService, usersService: UsersService, userSessionsService: UserSessionsService, configService: ConfigService);
+    constructor(reflector: Reflector, authService: AuthService, jwtService: JwtService, configService: ConfigService, usersService: UsersService);
     canActivate(context: ExecutionContext): Promise<boolean>;
-    private getUserData;
-    private updateSessionActivity;
     private extractTokenFromHeader;
 }

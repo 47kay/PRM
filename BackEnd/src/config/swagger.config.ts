@@ -39,7 +39,7 @@ export const swaggerConfigValidationSchema = Joi.object({
     }),
 });
 
-export default registerAs('swagger', (): SwaggerConfig => ({
+const swaggerConfig = registerAs('swagger', (): SwaggerConfig => ({
     enabled: process.env.SWAGGER_ENABLED === 'true',
     title: process.env.SWAGGER_TITLE || 'Patient Relationship Manager API',
     description: process.env.SWAGGER_DESCRIPTION || 'API documentation for PRM system',
@@ -68,9 +68,16 @@ export default registerAs('swagger', (): SwaggerConfig => ({
     ],
 }));
 
+export default swaggerConfig;
+
+// Helper function to get config without accessing process.env directly
+export const getSwaggerConfig = (): SwaggerConfig => {
+    return swaggerConfig();
+};
+
 // Swagger document configuration
 export const createSwaggerDocument = (): Partial<OpenAPIObject> => {
-    const config = defaultConfig();
+    const config = getSwaggerConfig();
 
     const builder = new DocumentBuilder()
         .setTitle(config.title)
@@ -89,12 +96,12 @@ export const createSwaggerDocument = (): Partial<OpenAPIObject> => {
         );
 
     // Add tags
-    config.tags.forEach(tag => {
+    config.tags.forEach((tag: string) => {
         builder.addTag(tag);
     });
 
     // Add servers
-    config.servers.forEach(server => {
+    config.servers.forEach((server: { url: string; description: string }) => {
         builder.addServer(server.url, server.description);
     });
 
@@ -121,7 +128,7 @@ export const swaggerCustomOptions: SwaggerCustomOptions = {
 
 // Swagger security configuration
 export const swaggerSecurityConfig = (app: any) => {
-    const config = defaultConfig();
+    const config = getSwaggerConfig();
 
     if (config.auth.enabled) {
         app.use(`/${config.path}`, (req: any, res: any, next: any) => {

@@ -2,7 +2,7 @@ import { Organization } from '../../organizations/entities/organization.entity';
 import { User } from '../../users/entities/user.entity';
 import { Appointment } from '../../appointments/entities/appointment.entity';
 import { Document } from '../../documents/entities/document.entity';
-import { MedicalHistory } from '../../medical-history/entities/medical-history.entity';
+import { MedicalHistory } from '../../medical-history/medical-history.entity';
 import { ContactRelationship } from './contact-relationship.entity';
 export declare enum ContactType {
     PATIENT = "PATIENT",
@@ -29,6 +29,10 @@ export declare enum BloodType {
 }
 export declare class Contact {
     id: string;
+    status: string;
+    createdBy: User;
+    metadata?: Record<string, any>;
+    phone: string;
     organizationId: string;
     type: ContactType;
     firstName: string;
@@ -68,7 +72,6 @@ export declare class Contact {
     updatedAt: Date;
     deletedAt?: Date;
     organization: Organization;
-    createdBy: User;
     updatedBy: User;
     appointments: Appointment[];
     documents: Document[];

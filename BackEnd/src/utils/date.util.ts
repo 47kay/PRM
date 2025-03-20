@@ -1,7 +1,5 @@
-// src/utils/date.util.ts
-
 import { addDays, addMonths, addYears, differenceInYears, format, parse, parseISO, startOfDay, endOfDay, isBefore, isAfter, isValid } from 'date-fns';
-import { utcToZonedTime, zonedTimeToUtc } from 'date-fns-tz';
+import { toZonedTime } from 'date-fns-tz'; // Only import toZonedTime
 
 export class DateUtil {
     /**
@@ -9,7 +7,9 @@ export class DateUtil {
      */
     static toUTC(date: Date | string, timezone: string = 'UTC'): Date {
         const zonedDate = typeof date === 'string' ? parseISO(date) : date;
-        return zonedTimeToUtc(zonedDate, timezone);
+        // If the date is in a specific timezone, convert it to UTC by adjusting the offset
+        const utcDate = new Date(zonedDate.toLocaleString('en-US', { timeZone: timezone }));
+        return new Date(utcDate.toUTCString()); // Ensure UTC output
     }
 
     /**
@@ -17,7 +17,7 @@ export class DateUtil {
      */
     static toTimezone(date: Date | string, timezone: string): Date {
         const utcDate = typeof date === 'string' ? parseISO(date) : date;
-        return utcToZonedTime(utcDate, timezone);
+        return toZonedTime(utcDate, timezone); // Still uses toZonedTime
     }
 
     /**

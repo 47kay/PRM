@@ -96,18 +96,39 @@ export const typeOrmConfig = async (): Promise<TypeOrmModuleOptions> => {
             max: dbConfig.maxConnections,
             min: dbConfig.minConnections,
         },
-        retryAttempts: dbConfig.retryAttempts,
-        retryDelay: dbConfig.retryDelay,
         autoLoadEntities: true,
     };
 };
 
+// Create a non-async version of typeOrmConfig for the DataSource
+export const typeOrmConfigSync = (): DataSourceOptions => {
+    const dbConfig = config();
+
+    return {
+        type: 'postgres',
+        host: dbConfig.host,
+        port: dbConfig.port,
+        username: dbConfig.username,
+        password: dbConfig.password,
+        database: dbConfig.database,
+        schema: dbConfig.schema,
+        ssl: dbConfig.ssl ? { rejectUnauthorized: false } : false,
+        synchronize: dbConfig.synchronize,
+        logging: dbConfig.logging,
+        entities: ['src/**/*.entity.ts'],
+        migrations: [`${dbConfig.migrations.directory}/*.ts`],
+        migrationsTableName: dbConfig.migrations.tableName,
+        migrationsRun: dbConfig.migrations.enabled,
+        extra: {
+            max: dbConfig.maxConnections,
+            min: dbConfig.minConnections,
+            connectionTimeout: dbConfig.connectionTimeout,
+        },
+    };
+};
+
 // Data source for TypeORM CLI
-export const dataSource = new DataSource({
-    ...(typeOrmConfig() as DataSourceOptions),
-    migrations: ['src/database/migrations/*.ts'],
-    entities: ['src/**/*.entity.ts'],
-});
+export const dataSource = new DataSource(typeOrmConfigSync());
 
 // Example .env file:
 /*

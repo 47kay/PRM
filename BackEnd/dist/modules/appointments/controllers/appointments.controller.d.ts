@@ -1,20 +1,39 @@
-import { AppointmentsService } from '../services/appointments.service';
+import { Repository } from 'typeorm';
+import { ConfigService } from '@nestjs/config';
+import { EventEmitter2 } from '@nestjs/event-emitter';
+import { Appointment } from '../entities/appointment.entity';
+import { User } from '../../users/entities/user.entity';
+import { Contact } from '../../contacts/entities/contact.entity';
 import { CreateAppointmentDto } from '../dto/create-appointment.dto';
 import { UpdateAppointmentDto } from '../dto/update-appointment.dto';
-import { AppointmentQueryDto } from '../dto/appointment-query.dto';
-import { RescheduleAppointmentDto } from '../dto/reschedule-appointment.dto';
-import { Appointment } from '../entities/appointment.entity';
-import { CustomRequest } from '../../../interfaces/request.interface';
-export declare class AppointmentsController {
-    private readonly appointmentsService;
-    constructor(appointmentsService: AppointmentsService);
-    create(createAppointmentDto: CreateAppointmentDto, req: CustomRequest): Promise<Appointment>;
-    findAll(query: AppointmentQueryDto, req: CustomRequest): Promise<{
-        data: Appointment[];
-        total: number;
-    }>;
-    getCalendar(start: Date, end: Date, doctorId?: string, req: CustomRequest): Promise<any>;
-    getDoctorAppointments(doctorId: string, query: AppointmentQueryDto, req: CustomRequest): Promise<{
+import { AppointmentStatus } from '../enums/appointment-status.enum';
+import { NotificationsService } from '../../notifications/services/notifications.service';
+import { EmailService } from '../../email/services/email.service';
+import { DoctorScheduleService } from '../services/doctor-schedule.service';
+export declare class AppointmentsService {
+    private appointmentRepository;
+    private userRepository;
+    private contactRepository;
+    private configService;
+    private notificationsService;
+    private emailService;
+    private doctorScheduleService;
+    private eventEmitter;
+    constructor(appointmentRepository: Repository<Appointment>, userRepository: Repository<User>, contactRepository: Repository<Contact>, configService: ConfigService, notificationsService: NotificationsService, emailService: EmailService, doctorScheduleService: DoctorScheduleService, eventEmitter: EventEmitter2);
+    create(createAppointmentDto: CreateAppointmentDto & {
+        organizationId: string;
+        createdBy: string;
+    }): Promise<Appointment>;
+    findAll(query: {
+        organizationId: string;
+        startDate?: Date;
+        endDate?: Date;
+        doctorId?: string;
+        patientId?: string;
+        status?: AppointmentStatus[];
+        page?: number;
+        limit?: number;
+    }): Promise<{
         data: Appointment[];
         meta: {
             page: number;
@@ -23,21 +42,72 @@ export declare class AppointmentsController {
             totalPages: number;
         };
     }>;
-    getPatientAppointments(patientId: string, query: AppointmentQueryDto, req: CustomRequest): Promise<{
-        data: Appointment[];
-        meta: {
-            page: number;
-            limit: number;
-            total: number;
-            totalPages: number;
-        };
-    }>;
-    getAvailableSlots(doctorId: string, date: Date, req: CustomRequest): Promise<any>;
-    findOne(id: string, req: CustomRequest): Promise<Appointment>;
-    update(id: string, updateAppointmentDto: UpdateAppointmentDto, req: CustomRequest): Promise<Appointment>;
-    reschedule(id: string, rescheduleDto: RescheduleAppointmentDto, req: CustomRequest): Promise<Appointment>;
-    confirm(id: string, req: CustomRequest): Promise<Appointment>;
-    cancel(id: string, reason: string, req: CustomRequest): Promise<Appointment>;
-    remove(id: string, req: CustomRequest): Promise<void>;
-    getStatistics(startDate: Date, endDate: Date, doctorId?: string, req: CustomRequest): Promise<void>;
+    findOne(id: string, organizationId: string): Promise<Appointment>;
+    update(id: string, updateAppointmentDto: UpdateAppointmentDto & {
+        organizationId: string;
+        updatedBy: string;
+    }): Promise<Appointment>;
+    cancel(id: string, data: {
+        reason: string;
+        organizationId: string;
+        updatedBy: string;
+    }): Promise<Appointment>;
+    reschedule(id: string, data: {
+        startTime: Date;
+        endTime: Date;
+        reason: string;
+        organizationId: string;
+        updatedBy: string;
+    }): Promise<Appointment>;
+    confirm(id: string, data: {
+        organizationId: string;
+        updatedBy: string;
+    }): Promise<Appointment>;
+    confirmAppointment(id: string, data: {
+        organizationId: string;
+        updatedBy: string;
+    }): Promise<Appointment>;
+    complete(id: string, data: {
+        organizationId: string;
+        updatedBy: string;
+    }): Promise<Appointment>;
+    remove(id: string, organizationId: string): Promise<void>;
+    getCalendarEvents(query: {
+        organizationId: string;
+        start: Date;
+        end: Date;
+        doctorId?: string;
+    }): Promise<{
+        id: string;
+        title: string;
+        start: Date;
+        end: Date;
+        status: AppointmentStatus;
+        doctor: {
+            id: string;
+            name: string;
+        } | null;
+        patient: {
+            id: string;
+            name: string;
+        } | null;
+    }[]>;
+    findAvailableSlots(query: {
+        doctorId: string;
+        date: Date;
+        organizationId: string;
+    }): Promise<{
+        start: string;
+        end: string;
+        available: boolean;
+    }[]>;
+    private checkConflicts;
+    private createRecurringAppointments;
+    private sendAppointmentNotifications;
+    getStatistics(query: {
+        organizationId: string;
+        startDate: Date;
+        endDate: Date;
+        doctorId?: string;
+    }): Promise<void>;
 }

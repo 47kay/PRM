@@ -10,6 +10,8 @@ import { TicketActivityType } from '../enums/ticket-activity-type.enum';
 interface ActivityOptions {
     ticketId: string;
     performedById: string;
+    organizationId: string;
+    userId: string; // Add this line
     type: TicketActivityType;
     data?: Record<string, any>;
     metadata?: Record<string, any>;
@@ -236,7 +238,7 @@ export class TicketActivityService {
             const activities = await this.activityRepository.find({
                 where: {
                     ticketId,
-                    timestamp: { $between: [startDate, endDate] }
+                    timestamp: Between(startDate, endDate)
                 },
                 relations: ['performedBy'],
                 order: { timestamp: 'ASC' }
@@ -292,4 +294,8 @@ export class TicketActivityService {
             return acc;
         }, {} as Record<string, number>);
     }
+}
+
+function Between(startDate: Date, endDate: Date): Date | import("typeorm").FindOperator<Date> | undefined {
+    throw new Error('Function not implemented.');
 }

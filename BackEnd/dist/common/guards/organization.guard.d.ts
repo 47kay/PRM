@@ -1,13 +1,14 @@
 import { CanActivate, ExecutionContext } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
-import { OrganizationService } from '../../modules/organizations/services/organizations.service';
+import { OrganizationsService } from '../../modules/organizations/services/organizations.service';
 export declare class OrganizationGuard implements CanActivate {
     private readonly reflector;
     private readonly organizationService;
-    constructor(reflector: Reflector, organizationService: OrganizationService);
+    constructor(reflector: Reflector, organizationService: OrganizationsService);
     canActivate(context: ExecutionContext): Promise<boolean>;
     private isSubscriptionValid;
     private checkOrganizationLimits;
     private getRequestedFeature;
     private hasFeatureAccess;
+    private getTierFeatures;
 }

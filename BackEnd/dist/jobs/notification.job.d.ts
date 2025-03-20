@@ -7,7 +7,7 @@ import { User } from '../modules/users/entities/user.entity';
 import { PushSubscription } from '../modules/notifications/entities/push-subscription.entity';
 import { EmailService } from '../modules/email/email.service';
 import { SmsService } from '../modules/sms/sms.service';
-interface NotificationJob {
+export interface NotificationJob {
     type: 'SYSTEM' | 'USER' | 'ORGANIZATION';
     title: string;
     message: string;
@@ -62,4 +62,3 @@ export declare class NotificationJob {
     private getPriorityLevel;
     cleanupOldNotifications(): Promise<void>;
 }
-export {};

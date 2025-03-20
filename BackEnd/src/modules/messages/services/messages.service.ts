@@ -7,9 +7,10 @@ import {
     ConflictException,
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository, DataSource, In, Not, IsNull } from 'typeorm';
+import { Repository, DataSource, In, Not, IsNull, SaveOptions } from 'typeorm';
 import { Message } from '../entities/message.entity';
 import { MessageTemplate } from '../entities/message-template.entity';
+// import { TemplateCategory } from '../entities/template-category.entity';
 import { MessageAttachment } from '../entities/message-attachment.entity';
 import { CreateMessageDto, MessageType, MessageStatus } from '../dto/create-message.dto';
 import { UpdateMessageDto } from '../dto/update-message.dto';
@@ -19,6 +20,9 @@ import { BulkMessageDto } from '../dto/bulk-message.dto';
 import { Contact } from '../../contacts/entities/contact.entity';
 import { EventEmitter2 } from '@nestjs/event-emitter';
 import { paginate } from 'nestjs-typeorm-paginate';
+import { DeepPartial } from 'typeorm';
+import { TemplateCategory } from '../entities/template-category.entity';
+
 
 @Injectable()
 export class MessagesService {
@@ -62,6 +66,7 @@ export class MessagesService {
             const message = this.messageRepository.create({
                 ...data,
                 status: data.scheduledFor ? MessageStatus.QUEUED : MessageStatus.SENDING,
+                attachments: data.attachments as DeepPartial<MessageAttachment>[],
             });
 
             // Handle template if provided
@@ -80,14 +85,15 @@ export class MessagesService {
 
             // Handle attachments if any
             if (data.attachments && data.attachments.length > 0) {
-                const attachments = data.attachments.map(attachment =>
-                    this.attachmentRepository.create({
+                const attachmentEntities = data.attachments.map(attachment => {
+                    return this.attachmentRepository.create({
                         ...attachment,
-                        messageId: message.id,
-                        organizationId: data.organizationId,
-                    })
-                );
-                await queryRunner.manager.save(MessageAttachment, attachments);
+                        message: message, // Use the relation object instead of messageId
+                        fileSize: attachment.fileSize ? Number(attachment.fileSize) : undefined, // Ensure fileSize is a number
+                        // Don't include organizationId if it's not in the entity
+                    });
+                });
+                await queryRunner.manager.save(MessageAttachment, attachmentEntities);
             }
 
             await queryRunner.commitTransaction();
@@ -204,7 +210,24 @@ export class MessagesService {
     }
 
     async createTemplate(data: MessageTemplateDto & { organizationId: string; createdBy: string }) {
-        const template = this.templateRepository.create(data);
+        // Fix for error on line 214
+        // Create template data without category first
+        const { category, ...restData } = data;
+        
+        // Create template entity
+        const template = this.templateRepository.create(restData as unknown as DeepPartial<MessageTemplate>);
+        
+        // Set category relationship if provided
+        if (category) {
+            if (typeof category === 'string') {
+                // If we have a category ID, create a reference entity
+                template.category = { id: category } as any;
+            } else {
+                // If we have a category object, assign it directly
+                template.category = category as any;
+            }
+        }
+        
         return this.templateRepository.save(template);
     }
 
@@ -227,24 +250,32 @@ export class MessagesService {
             throw new BadRequestException('Some contacts were not found');
         }
 
+        // Ensure data.messageData exists and is properly typed
+        if (!data.messageData) {
+            throw new BadRequestException('Message data is required');
+        }
+
+        // Create messages for each contact
         const messages = contacts.map(contact =>
             this.messageRepository.create({
-                ...data.message,
+                ...data.messageData,
                 contactId: contact.id,
                 organizationId: data.organizationId,
                 senderId: data.senderId,
+                attachments: data.messageData.attachments as DeepPartial<MessageAttachment>[],
             })
         );
 
-        await this.messageRepository.save(messages);
+        // Save all messages
+        const savedMessages = await this.messageRepository.save(messages.flat());
 
         // Emit event for processing
-        this.eventEmitter.emit('messages.bulk.created', messages);
+        this.eventEmitter.emit('messages.bulk.created', savedMessages);
 
         return {
             success: true,
-            count: messages.length,
-            messages: messages.map(m => m.id),
+            count: savedMessages.length,
+            messageIds: savedMessages.map(m => m.id),
         };
     }
 
@@ -288,12 +319,16 @@ export class MessagesService {
 
         message.status = MessageStatus.QUEUED;
         message.updatedById = context.userId;
+        
+        // Ensure deliveryDetails exists before updating it
+        const deliveryDetails: { provider?: string; attempts?: number; lastAttempt?: Date; errorCode?: string; errorMessage?: string } = message.deliveryDetails || {};
         message.deliveryDetails = {
-            ...message.deliveryDetails,
+            ...deliveryDetails,
+            provider: deliveryDetails.provider || '', // Add provider with a default value
             attempts: 0,
-            lastAttempt: null,
-            errorCode: null,
-            errorMessage: null,
+            lastAttempt: undefined, // Use undefined instead of null for Date
+            errorCode: undefined,   // Use undefined instead of null for string
+            errorMessage: undefined // Use undefined instead of null for string
         };
 
         await this.messageRepository.save(message);
@@ -318,7 +353,9 @@ export class MessagesService {
     private processTemplate(template: string, contact: Contact): string {
         // Replace template variables with contact data
         return template.replace(/\{\{(\w+)\}\}/g, (match, key) => {
-            return contact[key] || match;
+            // Use type-safe property access
+            const value = contact[key as keyof Contact];
+            return value !== undefined && value !== null ? String(value) : match;
         });
     }
 }

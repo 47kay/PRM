@@ -9,15 +9,21 @@ import {
 } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
 import { Request } from 'express';
-import { Observable } from 'rxjs';
-import { OrganizationService } from '../../modules/organizations/services/organizations.service';
+import { OrganizationsService } from '../../modules/organizations/services/organizations.service';
 import { AUTH_ORG_KEY } from '../decorators/auth.decorator';
+import { Organization } from '../../modules/organizations/entities/organization.entity';
+
+// Define a custom interface extending Express Request to include organization
+interface RequestWithOrganization extends Request {
+    organization?: Organization;
+    user?: any; // Also declare user for better type safety
+}
 
 @Injectable()
 export class OrganizationGuard implements CanActivate {
     constructor(
         private readonly reflector: Reflector,
-        private readonly organizationService: OrganizationService,
+        private readonly organizationService: OrganizationsService,
     ) {}
 
     async canActivate(context: ExecutionContext): Promise<boolean> {
@@ -31,8 +37,8 @@ export class OrganizationGuard implements CanActivate {
             return true;
         }
 
-        const request = context.switchToHttp().getRequest<Request>();
-        const user = request.user as any;
+        const request = context.switchToHttp().getRequest<RequestWithOrganization>();
+        const user = request.user;
 
         if (!user) {
             throw new UnauthorizedException('User not found');
@@ -44,14 +50,14 @@ export class OrganizationGuard implements CanActivate {
 
         try {
             // Get organization details
-            const organization = await this.organizationService.findById(user.organizationId);
+            const organization = await this.organizationService.findOne(user.organizationId);
 
             if (!organization) {
                 throw new ForbiddenException('Organization not found');
             }
 
             // Check if organization is active
-            if (!organization.isActive) {
+            if (organization.status !== 'ACTIVE') {
                 throw new ForbiddenException('Organization is inactive');
             }
 
@@ -64,7 +70,7 @@ export class OrganizationGuard implements CanActivate {
             await this.checkOrganizationLimits(organization, request);
 
             // Add organization to request for use in controllers
-            request['organization'] = organization;
+            request.organization = organization;
 
             return true;
         } catch (error) {
@@ -75,51 +81,37 @@ export class OrganizationGuard implements CanActivate {
         }
     }
 
-    private isSubscriptionValid(organization: any): boolean {
+    private isSubscriptionValid(organization: Organization): boolean {
         const now = new Date();
-        const subscriptionEnd = new Date(organization.subscriptionEndDate);
+        const subscriptionEnd = organization.subscriptionEndDate;
 
-        // Check if subscription is active and not expired
-        if (!organization.subscriptionStatus || organization.subscriptionStatus !== 'ACTIVE') {
+        // Check if subscription is active
+        if (!organization.isSubscriptionActive) {
             return false;
         }
 
         // Check if subscription end date is valid
-        if (!subscriptionEnd || subscriptionEnd < now) {
+        if (subscriptionEnd && subscriptionEnd < now) {
             return false;
         }
 
         return true;
     }
 
-    private async checkOrganizationLimits(organization: any, request: Request): Promise<void> {
-        // Get plan limits
-        const planLimits = await this.organizationService.getPlanLimits(organization.subscriptionPlan);
-
+    private async checkOrganizationLimits(organization: Organization, request: RequestWithOrganization): Promise<void> {
         // Check user limit
-        if (planLimits.maxUsers) {
-            const userCount = await this.organizationService.getUserCount(organization.id);
-            if (userCount >= planLimits.maxUsers) {
+        if (organization.maxUsers > 0) {
+            const userCount = await this.organizationService.getAdminCount(organization.id);
+            if (userCount >= organization.maxUsers) {
                 throw new ForbiddenException('Organization user limit reached');
             }
         }
 
         // Check storage limit
-        if (planLimits.maxStorage && request.url.includes('/storage')) {
-            const storageUsed = await this.organizationService.getStorageUsed(organization.id);
-            if (storageUsed >= planLimits.maxStorage) {
+        if (organization.maxStorage > 0 && request.url.includes('/storage')) {
+            const statistics = await this.organizationService.getStatistics(organization.id);
+            if (statistics.storageUsed >= organization.maxStorage) {
                 throw new ForbiddenException('Organization storage limit reached');
-            }
-        }
-
-        // Check API rate limits
-        if (planLimits.maxRequestsPerMinute) {
-            const requestCount = await this.organizationService.getRequestCount(
-                organization.id,
-                'MINUTE',
-            );
-            if (requestCount >= planLimits.maxRequestsPerMinute) {
-                throw new ForbiddenException('API rate limit exceeded');
             }
         }
 
@@ -130,7 +122,7 @@ export class OrganizationGuard implements CanActivate {
         }
     }
 
-    private getRequestedFeature(request: Request): string | null {
+    private getRequestedFeature(request: RequestWithOrganization): string | null {
         // Map endpoints to features
         const featureMap: Record<string, string> = {
             '/api/messages/whatsapp': 'WHATSAPP_INTEGRATION',
@@ -148,30 +140,20 @@ export class OrganizationGuard implements CanActivate {
         return null;
     }
 
-    private hasFeatureAccess(organization: any, feature: string): boolean {
-        // Check if the feature is included in the organization's subscription plan
-        return organization.features?.includes(feature) || false;
+    private hasFeatureAccess(organization: Organization, feature: string): boolean {
+        // Check if the feature is included in the organization's settings or tier-based features
+        const tierFeatures = this.getTierFeatures(organization.subscriptionTier);
+        return tierFeatures.includes(feature);
     }
-}
 
-// Example usage in a controller:
-/*
-@Controller('api/patients')
-@UseGuards(JwtAuthGuard, OrganizationGuard)
-export class PatientsController {
-    @Get()
-    async findAll() {
-        // Only accessible by users with valid organization access
-    }
-}
+    private getTierFeatures(tier: string): string[] {
+        const tierFeaturesMap: Record<string, string[]> = {
+            'FREE': ['BASIC'],
+            'BASIC': ['BASIC', 'DATA_EXPORT'],
+            'PROFESSIONAL': ['BASIC', 'DATA_EXPORT', 'ADVANCED_ANALYTICS'],
+            'ENTERPRISE': ['BASIC', 'DATA_EXPORT', 'ADVANCED_ANALYTICS', 'WHATSAPP_INTEGRATION'],
+        };
 
-// Or for specific endpoints:
-@Controller('api/public')
-export class PublicController {
-    @Get()
-    @SetMetadata(AUTH_ORG_KEY, false) // Skip organization check
-    async publicEndpoint() {
-        // Accessible without organization
+        return tierFeaturesMap[tier] || [];
     }
 }
-*/

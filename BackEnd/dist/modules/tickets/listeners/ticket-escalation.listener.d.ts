@@ -1,30 +1,23 @@
-import { TicketEscalationService } from '../services/ticket-escalation.service';
+import { TicketsService } from '../services/tickets.service';
 import { NotificationsService } from '../../notifications/services/notifications.service';
-import { TicketActivityType } from '../enums/ticket-activity-type.enum';
-interface TicketActivityEvent {
-    ticketId: string;
-    type: TicketActivityType;
-    metadata?: Record<string, any>;
-}
+import { UsersService } from '../../users/services/users.service';
 export declare class TicketEscalationListener {
-    private readonly escalationService;
+    private readonly ticketsService;
     private readonly notificationsService;
-    constructor(escalationService: TicketEscalationService, notificationsService: NotificationsService);
-    handleTicketActivity(event: TicketActivityEvent): Promise<void>;
-    handleTicketUpdate(payload: {
+    private readonly usersService;
+    constructor(ticketsService: TicketsService, notificationsService: NotificationsService, usersService: UsersService);
+    handleSlaBreachEvent(payload: {
         ticketId: string;
-        changes: Record<string, any>;
-    }): Promise<void>;
-    handleSlaBreached(payload: {
-        ticketId: string;
+        organizationId: string;
         slaType: 'response' | 'resolution';
         elapsedTime: number;
     }): Promise<void>;
-    handleTicketEscalated(payload: {
+    handleEscalationLevelChanged(payload: {
         ticketId: string;
+        organizationId: string;
         previousLevel: number;
         newLevel: number;
     }): Promise<void>;
-    handleHourlyCheck(): Promise<void>;
+    private findAdmins;
+    private formatElapsedTime;
 }
-export {};

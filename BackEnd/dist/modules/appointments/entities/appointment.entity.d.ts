@@ -6,17 +6,25 @@ import { AppointmentStatus } from '../enums/appointment-status.enum';
 import { AppointmentPriority } from '../enums/appointment-priority.enum';
 export declare class Appointment {
     id: string;
+    confirmedAt?: Date;
+    scheduledFor: Date;
+    title: string;
+    startTime: Date;
+    endTime: Date;
+    notes?: string;
+    createdById: string;
+    updatedById?: string;
+    createdAt: Date;
+    updatedAt: Date;
+    contact: Contact;
     organizationId: string;
     patientId: string;
     doctorId: string;
     createdBy: string;
     updatedBy: string;
-    startTime: Date;
-    endTime: Date;
     type: AppointmentType;
     status: AppointmentStatus;
     priority: AppointmentPriority;
-    title: string;
     description: string;
     location: string;
     meetingLink: string;
@@ -46,6 +54,7 @@ export declare class Appointment {
         previousAppointmentId?: string;
         billingStatus?: string;
         claimStatus?: string;
+        followUpSentAt?: string;
     };
     isRecurring: boolean;
     recurrencePattern: {
@@ -62,8 +71,6 @@ export declare class Appointment {
     checkedInAt: Date;
     completedAt: Date;
     cancelledAt: Date;
-    createdAt: Date;
-    updatedAt: Date;
     organization: Organization;
     patient: Contact;
     doctor: User;

@@ -1,18 +1,21 @@
-import { NotificationType, NotificationPriority, NotificationChannel } from '../dto/create-notification.dto';
-import { NotificationStatus } from '../dto/update-notification.dto';
+import { NotificationPriority, NotificationChannel } from '../dto/create-notification.dto';
 import { Organization } from '../../organizations/entities/organization.entity';
 import { User } from '../../users/entities/user.entity';
 export declare class Notification {
     [x: string]: any;
     id: string;
-    organizationId: string;
     userId: string;
-    senderId: string;
-    type: NotificationType;
-    title: string;
+    type: string;
     content: string;
+    metadata?: Record<string, any>;
+    status: string;
+    createdAt: Date;
+    updatedAt: Date;
+    readAt?: Date;
+    organizationId: string;
+    senderId: string;
+    title: string;
     priority: NotificationPriority;
-    status: NotificationStatus;
     actions?: {
         label: string;
         url: string;
@@ -30,7 +33,6 @@ export declare class Notification {
     referenceType?: string;
     silent: boolean;
     read: boolean;
-    readAt?: Date;
     deliveredAt?: Date;
     deliveryDetails?: {
         attempts: number;
@@ -52,8 +54,6 @@ export declare class Notification {
         webhookUrl?: string;
     };
     updatedById?: string;
-    createdAt: Date;
-    updatedAt: Date;
     deletedAt?: Date;
     organization: Organization;
     user: User;

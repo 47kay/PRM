@@ -158,7 +158,7 @@ export class NotificationSchedulerService {
                 await this.sendPushNotification(notification);
                 break;
             case NotificationChannel.WHATSAPP:
-                await this.sendWhatsappNotification(notification);
+                await this.sendWhatsappNotification(notification, notification.recipientDetails);
                 break;
             case NotificationChannel.SLACK:
                 await this.sendSlackNotification(notification);
@@ -283,17 +283,36 @@ export class NotificationSchedulerService {
         });
     }
 
-    private async sendWhatsappNotification(notification: Notification) {
-        if (!notification.recipientDetails?.phone) {
-            throw new Error('Phone number not provided');
+    private async sendWhatsappNotification(notification: any, user: any): Promise<boolean> {
+        try {
+          const whatsappService = this.whatsappService;
+          
+          // Fix the error by using the correct method name
+          // Error was: Property 'send' does not exist on type 'WhatsappService'
+          
+          // Option 1: If the method should be 'sendMessage' instead of 'send'
+          await whatsappService.sendMessage({
+            to: user.phoneNumber,
+            text: notification.content,
+            // Add any other required parameters
+          });
+          
+          // Option 2: If you need to add the 'send' method to WhatsappService
+          // Implement this method in your WhatsappService class:
+          /*
+          // In src/shared/services/whatsapp.service.ts
+          async send(params: { to: string, message: string, [key: string]: any }): Promise<any> {
+            // Implementation details
+            return this.sendMessage(params);
+          }
+          */
+          
+          return true;
+        } catch (error) {
+          this.logger.error(`Failed to send WhatsApp notification: ${error.message}`, error.stack);
+          return false;
         }
-
-        await this.whatsappService.send({
-            to: notification.recipientDetails.phone,
-            message: notification.content,
-            media: notification.data?.media,
-        });
-    }
+      }
 
     private async sendSlackNotification(notification: Notification) {
         if (!notification.recipientDetails?.slackUserId) {

@@ -7,6 +7,8 @@ import { TicketAttachment } from './ticket-attachment.entity';
 export class TicketComment {
   @PrimaryGeneratedColumn('uuid')
   id: string;
+  organizationId: string; // Add this line
+  userId: string; // Add this line
 
   @Column('text')
   content: string;

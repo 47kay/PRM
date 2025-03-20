@@ -1,170 +1,55 @@
-// src/modules/appointments/appointments.module.ts
+// src/modules/auth/auth.module.ts
 
 import { Module } from '@nestjs/common';
+import { JwtModule } from '@nestjs/jwt';
+import { PassportModule } from '@nestjs/passport';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { BullModule } from '@nestjs/bull';
-import { EventEmitterModule } from '@nestjs/event-emitter';
-
-// Controllers
-import { AppointmentsController } from './controllers/appointments.controller';
-import { DoctorScheduleController } from './controllers/doctor-schedule.controller';
-
-// Services
-import { AppointmentsService } from './services/appointments.service';
-import { DoctorScheduleService } from './services/doctor-schedule.service';
-import { AppointmentReminderService } from './services/appointment-reminder.service';
-
-// Entities
-import { Appointment } from './entities/appointment.entity';
-import { DoctorSchedule } from './entities/doctor-schedule.entity';
-import { AppointmentReminder } from './entities/appointment-reminder.entity';
-
-// Jobs
-import { AppointmentReminderJob } from '../../jobs/appointment-reminder.job';
-
-// Subscribers
-import { AppointmentSubscriber } from './subscribers/appointment.subscriber';
-
-// Related modules
+import { ConfigModule, ConfigService } from '@nestjs/config';
+import { AuthController } from '../auth/controllers/auth.controller';
+import { AuthService } from '../auth/services/auth.service';
+import { JwtStrategy } from '../auth/strategies/jwt.strategy';
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import { RefreshToken } from '../auth/entities/refresh-token.entity';
+import { User } from '../users/entities/user.entity';
+import { Organization } from '../organizations/entities/organization.entity';
 import { UsersModule } from '../users/users.module';
-import { ContactsModule } from '../contacts/contacts.module';
-import { NotificationsModule } from '../notifications/notifications.module';
-import { EmailModule } from '../email/email.module';
-import { SmsModule } from '../sms/sms.module';
-import { WhatsappModule } from '../whatsapp/whatsapp.module';
 
-@Module({
-    imports: [
-        // Register entities
-        TypeOrmModule.forFeature([
-            Appointment,
-            DoctorSchedule,
-            AppointmentReminder,
-        ]),
 
-        // Queue for appointment reminders
-        BullModule.registerQueue({
-            name: 'appointments',
-            defaultJobOptions: {
-                attempts: 3,
-                backoff: {
-                    type: 'exponential',
-                    delay: 1000,
-                },
-                removeOnComplete: true,
-            },
-        }),
-
-        // Event emitter for appointment events
-        EventEmitterModule.forRoot({
-            wildcard: true,
-            delimiter: '.',
-            newListener: false,
-            removeListener: false,
-            maxListeners: 10,
-            verboseMemoryLeak: true,
-            ignoreErrors: false,
-        }),
-
-        // Related modules
-        UsersModule,
-        ContactsModule,
-        NotificationsModule,
-        EmailModule,
-        SmsModule,
-        WhatsappModule,
-    ],
-    controllers: [
-        AppointmentsController,
-        DoctorScheduleController,
-    ],
-    providers: [
-        // Services
-        AppointmentsService,
-        DoctorScheduleService,
-        AppointmentReminderService,
-
-        // Jobs
-        AppointmentReminderJob,
-
-        // Event subscribers
-        AppointmentSubscriber,
-    ],
-    exports: [
-        AppointmentsService,
-        DoctorScheduleService,
-        AppointmentReminderService,
-    ],
-})
-export class AppointmentsModule {
-    // Optional: Configure module globally
-    configure(consumer: any) {
-        // Add middleware if needed
-    }
-
-    // Optional: Add module initialization logic
-    onModuleInit() {
-        // Initialize any required services
-    }
-
-    // Optional: Add cleanup logic
-    onModuleDestroy() {
-        // Cleanup resources
-    }
-}
-
-// Optional: Dynamic module configuration
-export interface AppointmentsModuleOptions {
-    reminderEnabled?: boolean;
-    defaultReminderTime?: number;
-    maxAppointmentsPerDay?: number;
-    defaultAppointmentDuration?: number;
-}
-
-// Optional: Async module configuration
-export class AppointmentsModuleAsync {
-    static forRoot(options: AppointmentsModuleOptions) {
-        return {
-            module: AppointmentsModule,
-            providers: [
-                {
-                    provide: 'APPOINTMENTS_OPTIONS',
-                    useValue: options,
-                },
-            ],
-        };
-    }
-
-    static forRootAsync(options: any) {
-        return {
-            module: AppointmentsModule,
-            imports: options.imports || [],
-            providers: [
-                {
-                    provide: 'APPOINTMENTS_OPTIONS',
-                    useFactory: options.useFactory,
-                    inject: options.inject || [],
-                },
-            ],
-        };
-    }
-}
-
-// Event types for appointment module
 export enum AppointmentEventTypes {
     CREATED = 'appointment.created',
     UPDATED = 'appointment.updated',
     CANCELLED = 'appointment.cancelled',
-    RESCHEDULED = 'appointment.rescheduled',
     COMPLETED = 'appointment.completed',
-    REMINDER_SENT = 'appointment.reminder.sent',
-}
+    RESCHEDULED = 'appointment.rescheduled',
+  }
 
-// Export commonly used types
-export * from './entities/appointment.entity';
-export * from './entities/doctor-schedule.entity';
-export * from './dto/create-appointment.dto';
-export * from './dto/update-appointment.dto';
-export * from './enums/appointment-status.enum';
-export * from './enums/appointment-type.enum';
-export * from './interfaces/appointment.interface';
+@Module({
+  imports: [
+    ConfigModule,
+    PassportModule.register({ defaultStrategy: 'jwt' }),
+    JwtModule.registerAsync({
+      imports: [ConfigModule],
+      inject: [ConfigService],
+      useFactory: async (configService: ConfigService) => ({
+        secret: configService.get<string>('JWT_SECRET'),
+        signOptions: {
+          expiresIn: configService.get<string>('JWT_EXPIRATION', '1h'),
+        },
+      }),
+    }),
+    TypeOrmModule.forFeature([User, RefreshToken, Organization]),
+    UsersModule,
+  ],
+  controllers: [AuthController],
+  providers: [
+    AuthService,
+    JwtStrategy,
+    JwtAuthGuard,
+  ],
+  exports: [
+    AuthService,
+    JwtAuthGuard,
+    PassportModule,
+  ],
+})
+export class AuthModule {}

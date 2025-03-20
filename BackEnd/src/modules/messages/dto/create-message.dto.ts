@@ -36,6 +36,9 @@ export enum MessageStatus {
     SENT = 'SENT',
     DELIVERED = 'DELIVERED',
     FAILED = 'FAILED',
+    SCHEDULED = 'SCHEDULED',
+    DELIVERING = 'DELIVERING',
+    PENDING = 'PENDING',
 }
 
 export class Attachment {

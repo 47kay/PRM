@@ -1,7 +1,6 @@
 import { EventEmitter2 } from '@nestjs/event-emitter';
 import { Repository } from 'typeorm';
 import { Notification } from '../entities/notification.entity';
-import { NotificationStatus } from '../dto/update-notification.dto';
 import { EmailService } from '../../../shared/services/email.service';
 import { SmsService } from '../../../shared/services/sms.service';
 import { PushNotificationService } from '../../../shared/services/push-notification.service';
@@ -20,7 +19,7 @@ export declare class NotificationDeliveryService {
     retryNotification(notification: Notification): Promise<void>;
     private deliverToChannel;
     getDeliveryStatus(notificationId: string): Promise<{
-        status: NotificationStatus;
+        status: string;
         deliveryDetails: {
             attempts: number;
             lastAttempt: Date;

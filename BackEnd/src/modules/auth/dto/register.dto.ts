@@ -67,7 +67,7 @@ export class RegisterUserDto {
         example: '+1234567890',
     })
     @IsOptional()
-    @IsPhoneNumber(null, { message: 'Please enter a valid phone number' })
+    @IsPhoneNumber(undefined, { message: 'Please enter a valid phone number' })
     phone?: string;
 
     @ApiPropertyOptional({
@@ -107,7 +107,7 @@ export class RegisterOrganizationDto {
         example: '+1234567890',
     })
     @IsOptional()
-    @IsPhoneNumber(null, { message: 'Please enter a valid phone number' })
+    @IsPhoneNumber(undefined, { message: 'Please enter a valid phone number' })
     phone?: string;
 
     @ApiPropertyOptional({

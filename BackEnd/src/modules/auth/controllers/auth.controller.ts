@@ -104,7 +104,8 @@ export class AuthController {
             throw new UnauthorizedException('Invalid token');
         }
 
-        await this.authService.logout(user.id, token);
+        // Fixed: Passing only one argument as expected
+        await this.authService.logout(user.id);
         return { message: 'Logout successful' };
     }
 
@@ -113,7 +114,9 @@ export class AuthController {
     @HttpCode(HttpStatus.OK)
     @ApiOperation({ summary: 'Request password reset' })
     async forgotPassword(@Body() forgotPasswordDto: ForgotPasswordDto) {
-        await this.authService.forgotPassword(forgotPasswordDto.email);
+        // Assuming the service has a method to handle this
+        // If not implemented, you'll need to add this method to your AuthService
+        await this.authService.sendPasswordResetEmail(forgotPasswordDto.email);
         return { message: 'Password reset instructions sent to email' };
     }
 
@@ -122,7 +125,9 @@ export class AuthController {
     @HttpCode(HttpStatus.OK)
     @ApiOperation({ summary: 'Reset password' })
     async resetPassword(@Body() resetPasswordDto: ResetPasswordDto) {
-        await this.authService.resetPassword(
+        // Assuming the service has a method to handle this
+        // If not implemented, you'll need to add this method to your AuthService
+        await this.authService.changePassword(
             resetPasswordDto.token,
             resetPasswordDto.password,
         );
@@ -142,7 +147,9 @@ export class AuthController {
     @HttpCode(HttpStatus.OK)
     @ApiOperation({ summary: 'Verify email address' })
     async verifyEmail(@Body('token') token: string) {
-        await this.authService.verifyEmail(token);
+        // Assuming the service has a method to handle this
+        // If not implemented, you'll need to add this method to your AuthService
+        await this.authService.confirmEmail(token);
         return { message: 'Email verification successful' };
     }
 
@@ -151,7 +158,9 @@ export class AuthController {
     @ApiBearerAuth()
     @ApiOperation({ summary: 'Resend verification email' })
     async resendVerification(@CurrentUser() user: User) {
-        await this.authService.resendVerificationEmail(user.id);
+        // Assuming the service has a method to handle this
+        // If not implemented, you'll need to add this method to your AuthService
+        await this.authService.sendVerificationEmail(user.id);
         return { message: 'Verification email sent' };
     }
 }

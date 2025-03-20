@@ -89,7 +89,7 @@ export class LoggerMiddleware implements NestMiddleware {
                 ? forwardedFor[0] 
                 : forwardedFor.split(',')[0];
         }
-        return request.ip;
+        return request.ip || ''; // Add fallback empty string in case ip is undefined
     }
 
     private sanitizeRequestBody(body: any): any {

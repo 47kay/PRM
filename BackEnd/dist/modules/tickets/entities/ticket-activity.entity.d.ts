@@ -3,6 +3,10 @@ import { User } from '../../users/entities/user.entity';
 import { TicketActivityType } from '../enums/ticket-activity-type.enum';
 export declare class TicketActivity {
     id: string;
+    organizationId: string;
+    userId: string;
+    action: string;
+    details: any;
     ticketId: string;
     ticket: Ticket;
     performedById: string;

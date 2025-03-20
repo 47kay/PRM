@@ -1,227 +1,256 @@
-import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, ManyToOne, JoinColumn, OneToMany, Index } from 'typeorm';
-import { Organization } from '../../organizations/entities/organization.entity';
-import { User } from '../../users/entities/user.entity';
+// src/modules/whatsapp/entities/whatsapp-template.entity.ts
 
-export enum TemplateStatus {
-  DRAFT = 'DRAFT',
-  PENDING_APPROVAL = 'PENDING_APPROVAL',
-  APPROVED = 'APPROVED',
-  REJECTED = 'REJECTED',
-  PAUSED = 'PAUSED',
-  DELETED = 'DELETED'
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  CreateDateColumn,
+  UpdateDateColumn,
+  DeleteDateColumn,
+  Index,
+} from 'typeorm';
+import {
+  WhatsappTemplateStatus,
+  WhatsappTemplateCategory,
+  WhatsappTemplateComponentType,
+  WhatsappTemplateHeaderType,
+  WhatsappTemplateButtonType
+} from '../services/whatsapp-template.service';
+
+// Re-export the enums so they can be imported from this file
+export {
+  WhatsappTemplateStatus,
+  WhatsappTemplateCategory,
+  WhatsappTemplateComponentType,
+  WhatsappTemplateHeaderType,
+  WhatsappTemplateButtonType
+} from '../services/whatsapp-template.service';
+
+/**
+ * Interface for template button
+ */
+export interface WhatsappTemplateButton {
+  type: WhatsappTemplateButtonType;
+  text: string;
+  url?: string;
+  phoneNumber?: string;
+  payload?: string;
 }
 
-export enum TemplateCategory {
-  MARKETING = 'MARKETING',
-  UTILITY = 'UTILITY',
-  AUTHENTICATION = 'AUTHENTICATION',
-  APPOINTMENT = 'APPOINTMENT',
-  PAYMENT = 'PAYMENT',
-  CUSTOMER_SUPPORT = 'CUSTOMER_SUPPORT'
+/**
+ * Interface for template component
+ */
+export interface WhatsappTemplateComponent {
+  type: WhatsappTemplateComponentType;
+  text?: string;
+  format?: WhatsappTemplateHeaderType;
+  example?: {
+    header_text?: string[];
+    body_text?: string[][];
+    header_handle?: string[];
+  };
+  buttons?: WhatsappTemplateButton[];
 }
 
-export enum TemplateLanguage {
-  EN = 'en',
-  ES = 'es',
-  PT = 'pt',
-  FR = 'fr',
-  DE = 'de',
-  IT = 'it',
-  AR = 'ar',
-  HI = 'hi',
-  ZH = 'zh'
-}
-
+/**
+ * Whatsapp template entity
+ */
 @Entity('whatsapp_templates')
-@Index(['organizationId', 'name'])
-export class WhatsAppTemplate {
+export class WhatsappTemplate {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column('uuid')
+  @Column()
+  @Index()
   organizationId: string;
 
-  @ManyToOne(() => Organization)
-  @JoinColumn({ name: 'organizationId' })
-  organization: Organization;
-
   @Column()
+  @Index()
   name: string;
 
-  @Column({
-    type: 'enum',
-    enum: TemplateCategory
+  @Column({ nullable: true })
+  description?: string;
+
+  @Column({ 
+    type: 'enum', 
+    enum: WhatsappTemplateCategory, 
+    default: WhatsappTemplateCategory.UTILITY 
   })
-  category: TemplateCategory;
+  category: WhatsappTemplateCategory;
 
-  @Column({
-    type: 'enum',
-    enum: TemplateLanguage,
-    default: TemplateLanguage.EN
+  @Column({ 
+    type: 'enum', 
+    enum: WhatsappTemplateStatus, 
+    default: WhatsappTemplateStatus.DRAFT 
   })
-  language: TemplateLanguage;
+  @Index()
+  status: WhatsappTemplateStatus;
 
-  @Column('text')
-  content: string;
-  
-
-  @Column('jsonb')
-  components: {
-    type: 'HEADER' | 'BODY' | 'FOOTER' | 'BUTTONS';
-    text?: string;
-    format?: 'TEXT' | 'IMAGE' | 'VIDEO' | 'DOCUMENT';
-    example?: Record<string, any>;
-  }[];
-
-  @Column('text', { array: true })
-  variables: string[];
-
-  @Column('jsonb', { nullable: true })
-  sampleValues: Record<string, string[]>;
-
-  @Column({
-    type: 'enum',
-    enum: TemplateStatus,
-    default: TemplateStatus.DRAFT
-  })
-  status: TemplateStatus;
+  @Column({ default: 'en' })
+  language: string;
 
   @Column({ nullable: true })
-  whatsappTemplateId: string | undefined;
+  externalTemplateId?: string;
 
-  @Column({ nullable: true })
-  rejectionReason: string;
-
-  @Column('text', { array: true, nullable: true })
-  allowedTags: string[];
-
-  @Column({ nullable: true })
-  description: string;
-
-  @Column('jsonb', { nullable: true })
-  metadata: Record<string, any>;
-
-  @Column({ default: 1 })
-  version: number;
-
-  @Column({ nullable: true })
-  expiresAt: Date;
+  @Column({ type: 'jsonb' })
+  components: WhatsappTemplateComponent[];
 
   @Column({ default: false })
-  isActive: boolean;
+  isDefault: boolean;
 
-  @Column({ default: 0 })
-  usageCount: number;
+  @Column({ type: 'timestamp', nullable: true })
+  submittedAt?: Date;
 
-  @Column('uuid', { nullable: true })
-  createdById: string;
-
-  @ManyToOne(() => User)
-  @JoinColumn({ name: 'createdById' })
-  createdBy: User;
-
-  @Column('uuid', { nullable: true })
-  updatedById: string;
-
-  @ManyToOne(() => User)
-  @JoinColumn({ name: 'updatedById' })
-  updatedBy: User;
-
-  @Column('uuid', { nullable: true })
-  approvedById: string | null;
-
-  @ManyToOne(() => User)
-  @JoinColumn({ name: 'approvedById' })
-  approvedBy: User;
+  @Column({ type: 'timestamp', nullable: true })
+  approvedAt?: Date;
 
   @Column({ nullable: true })
-  approvedAt: Date | undefined;
+  rejectionReason?: string;
+
+  @Column({ nullable: true, type: 'jsonb' })
+  metadata?: Record<string, any>;
+
+  @Column({ default: 0 })
+  useCount: number;
+
+  @Column({ type: 'timestamp', nullable: true })
+  lastUsedAt?: Date;
+
+  @Column({ nullable: true })
+  createdById?: string;
+
+  @Column({ nullable: true })
+  updatedById?: string;
 
   @CreateDateColumn()
   createdAt: Date;
 
   @UpdateDateColumn()
   updatedAt: Date;
-    headerType: any;
-    buttons: any;
+
+  @DeleteDateColumn()
+  deletedAt?: Date;
 
   /**
-   * Check if template is editable
+   * Get template variable placeholders
+   * Extracts all {{variable}} patterns from components
    */
-  isEditable(): boolean {
-    return [
-      TemplateStatus.DRAFT,
-      TemplateStatus.REJECTED
-    ].includes(this.status);
+  getVariables(): string[] {
+    const variables = new Set<string>();
+    const regex = /{{([^{}]+)}}/g;
+    
+    this.components.forEach(component => {
+      if (component.text) {
+        let match;
+        while ((match = regex.exec(component.text)) !== null) {
+          variables.add(match[1].trim());
+        }
+      }
+      
+      // Check button URLs for variables
+      if (component.buttons) {
+        component.buttons.forEach(button => {
+          if (button.url) {
+            let match;
+            while ((match = regex.exec(button.url)) !== null) {
+              variables.add(match[1].trim());
+            }
+          }
+        });
+      }
+    });
+    
+    return Array.from(variables);
   }
 
   /**
-   * Check if template can be submitted for approval
+   * Get the body text of the template
    */
-  canSubmitForApproval(): boolean {
-    return [
-      TemplateStatus.DRAFT,
-      TemplateStatus.REJECTED
-    ].includes(this.status);
-  }
-
-  /**
-   * Check if template is usable
-   */
-  isUsable(): boolean {
-    return (
-      this.status === TemplateStatus.APPROVED &&
-      this.isActive &&
-      !this.isExpired()
+  getBodyText(): string | null {
+    const bodyComponent = this.components.find(c => 
+      c.type === WhatsappTemplateComponentType.BODY
     );
+    
+    return bodyComponent?.text || null;
   }
 
   /**
-   * Check if template is expired
+   * Get the header text of the template
    */
-  isExpired(): boolean {
-    if (!this.expiresAt) {
-      return false;
-    }
-    return this.expiresAt < new Date();
-  }
-
-  /**
-   * Validate template variables
-   */
-  validateVariables(values: Record<string, string>): boolean {
-    const providedVariables = Object.keys(values);
-    const requiredVariables = this.variables;
-
-    // Check if all required variables are provided
-    return requiredVariables.every(variable => 
-      providedVariables.includes(variable)
+  getHeaderText(): string | null {
+    const headerComponent = this.components.find(c => 
+      c.type === WhatsappTemplateComponentType.HEADER && 
+      c.format === WhatsappTemplateHeaderType.TEXT
     );
+    
+    return headerComponent?.text || null;
   }
 
   /**
-   * Create new version
+   * Process template with variables
    */
-  createNewVersion(): WhatsAppTemplate {
-    const newTemplate = new WhatsAppTemplate();
-    Object.assign(newTemplate, this);
-    newTemplate.id = this.generateUniqueId();
-    newTemplate.version = this.version + 1;
-    newTemplate.status = TemplateStatus.DRAFT;
-    newTemplate.whatsappTemplateId = undefined;
-    newTemplate.approvedAt = undefined;
-    newTemplate.approvedById = null;
-    newTemplate.usageCount = 0;
-    return newTemplate;
-  }
-    generateUniqueId(): string {
-        throw new Error('Method not implemented.');
+  processTemplate(variables: Record<string, any> = {}): {
+    body: string;
+    header?: string;
+    footer?: string;
+    buttons?: WhatsappTemplateButton[];
+  } {
+    const result: {
+      body: string;
+      header?: string;
+      footer?: string;
+      buttons?: WhatsappTemplateButton[];
+    } = {
+      body: ''
+    };
+    
+    // Process each component
+    for (const component of this.components) {
+      switch (component.type) {
+        case WhatsappTemplateComponentType.BODY:
+          result.body = this.processText(component.text || '', variables);
+          break;
+          
+        case WhatsappTemplateComponentType.HEADER:
+          if (component.format === WhatsappTemplateHeaderType.TEXT) {
+            result.header = this.processText(component.text || '', variables);
+          }
+          break;
+          
+        case WhatsappTemplateComponentType.FOOTER:
+          result.footer = this.processText(component.text || '', variables);
+          break;
+          
+        case WhatsappTemplateComponentType.BUTTONS:
+          if (component.buttons) {
+            result.buttons = component.buttons.map(button => {
+              const processedButton = { ...button };
+              
+              if (button.url) {
+                processedButton.url = this.processText(button.url, variables);
+              }
+              
+              return processedButton;
+            });
+          }
+          break;
+      }
     }
+    
+    return result;
+  }
 
   /**
-   * Increment usage count
+   * Process text by replacing variables
    */
-  incrementUsage(): void {
-    this.usageCount += 1;
+  private processText(text: string, variables: Record<string, any>): string {
+    let processed = text;
+    
+    for (const [key, value] of Object.entries(variables)) {
+      const regex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
+      processed = processed.replace(regex, String(value ?? ''));
+    }
+    
+    return processed;
   }
 }

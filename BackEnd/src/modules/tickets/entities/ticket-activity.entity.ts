@@ -9,6 +9,10 @@ import { TicketActivityType } from '../enums/ticket-activity-type.enum';
 export class TicketActivity {
     @PrimaryGeneratedColumn('uuid')
     id: string;
+    organizationId: string; // Add this line
+    userId: string; // Add this line
+    action: string; // Add this line
+    details: any;
 
     @Column('uuid')
     @Index()

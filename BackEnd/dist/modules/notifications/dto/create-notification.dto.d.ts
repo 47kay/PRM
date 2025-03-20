@@ -11,6 +11,7 @@ export declare enum NotificationType {
 export declare enum NotificationPriority {
     LOW = "LOW",
     NORMAL = "NORMAL",
+    MEDIUM = "MEDIUM",
     HIGH = "HIGH",
     URGENT = "URGENT"
 }
@@ -31,6 +32,8 @@ export declare class NotificationAction {
 }
 export declare class NotificationRecipient {
     userId: string;
+    role: string;
+    organizationId?: string;
     channels?: NotificationChannel[];
     metadata?: Record<string, any>;
 }
@@ -51,4 +54,7 @@ export declare class CreateNotificationDto {
     referenceId?: string;
     referenceType?: string;
     silent?: boolean;
+    organizationId: string;
+    senderId?: string;
+    metadata?: Record<string, any>;
 }

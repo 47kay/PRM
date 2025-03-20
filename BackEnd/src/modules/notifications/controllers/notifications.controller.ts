@@ -43,6 +43,10 @@ export class NotificationsController {
         @Body() createNotificationDto: CreateNotificationDto,
         @Request() req: CustomRequest,
     ) {
+        if (!req.organization || !req.user) {
+            throw new BadRequestException('User or organization not found');
+        }
+
         return this.notificationsService.create({
             ...createNotificationDto,
             organizationId: req.organization.id,
@@ -57,11 +61,22 @@ export class NotificationsController {
         @Query() query: NotificationQueryDto,
         @Request() req: CustomRequest,
     ) {
-        return this.notificationsService.findAll({
-            ...query,
+        if (!req.organization || !req.user) {
+            throw new BadRequestException('User or organization not found');
+        }
+
+        // Create a clean query object with explicitly declared properties
+        const notificationQuery: NotificationQueryDto = {
+            skip: query.skip,
+            take: query.take,
+            includeRead: query.includeRead,
             organizationId: req.organization.id,
-            userId: req.user.id,
-        });
+        };
+
+        return this.notificationsService.getUserNotifications(
+            req.user.id,
+            notificationQuery
+        );
     }
 
     @Get('unread')
@@ -70,10 +85,11 @@ export class NotificationsController {
     async getUnreadCount(
         @Request() req: CustomRequest,
     ) {
-        return this.notificationsService.getUnreadCount(
-            req.user.id,
-            req.organization.id,
-        );
+        if (!req.organization || !req.user) {
+            throw new BadRequestException('User or organization not found');
+        }
+
+        return this.notificationsService.getUnreadCount(req.user.id);
     }
 
     @Get(':id')
@@ -83,7 +99,11 @@ export class NotificationsController {
         @Param('id', ParseUUIDPipe) id: string,
         @Request() req: CustomRequest,
     ) {
-        const notification = await this.notificationsService.findOne(
+        if (!req.organization || !req.user) {
+            throw new BadRequestException('User or organization not found');
+        }
+
+        const notification = await this.notificationsService.getNotificationById(
             id,
             req.organization.id,
             req.user.id,
@@ -104,10 +124,13 @@ export class NotificationsController {
         @Body() updateNotificationDto: UpdateNotificationDto,
         @Request() req: CustomRequest,
     ) {
-        return this.notificationsService.update(id, {
+        if (!req.organization || !req.user) {
+            throw new BadRequestException('User or organization not found');
+        }
+
+        return this.notificationsService.updateNotification(id, {
             ...updateNotificationDto,
             organizationId: req.organization.id,
-            userId: req.user.id,
         });
     }
 
@@ -118,10 +141,13 @@ export class NotificationsController {
         @Param('id', ParseUUIDPipe) id: string,
         @Request() req: CustomRequest,
     ) {
-        await this.notificationsService.remove(
+        if (!req.organization || !req.user) {
+            throw new BadRequestException('User or organization not found');
+        }
+
+        await this.notificationsService.updateNotification(
             id,
-            req.organization.id,
-            req.user.id,
+            { isDeleted: true, organizationId: req.organization.id },
         );
     }
 
@@ -132,9 +158,12 @@ export class NotificationsController {
         @Param('id', ParseUUIDPipe) id: string,
         @Request() req: CustomRequest,
     ) {
+        if (!req.organization || !req.user) {
+            throw new BadRequestException('User or organization not found');
+        }
+
         return this.notificationsService.markAsRead(
             id,
-            req.organization.id,
             req.user.id,
         );
     }
@@ -145,10 +174,11 @@ export class NotificationsController {
     async markAllAsRead(
         @Request() req: CustomRequest,
     ) {
-        return this.notificationsService.markAllAsRead(
-            req.organization.id,
-            req.user.id,
-        );
+        if (!req.organization || !req.user) {
+            throw new BadRequestException('User or organization not found');
+        }
+
+        return this.notificationsService.markAllAsRead(req.user.id);
     }
 
     @Get('preferences')
@@ -157,7 +187,11 @@ export class NotificationsController {
     async getPreferences(
         @Request() req: CustomRequest,
     ) {
-        return this.notificationsService.getPreferences(
+        if (!req.organization || !req.user) {
+            throw new BadRequestException('User or organization not found');
+        }
+
+        return this.notificationsService.getUserPreferences(
             req.organization.id,
             req.user.id,
         );
@@ -170,8 +204,11 @@ export class NotificationsController {
         @Body() preferencesDto: NotificationPreferencesDto,
         @Request() req: CustomRequest,
     ) {
-        return this.notificationsService.updatePreferences(
-            preferencesDto,
+        if (!req.organization || !req.user) {
+            throw new BadRequestException('User or organization not found');
+        }
+
+        return this.notificationsService.getUserPreferences(
             req.organization.id,
             req.user.id,
         );
@@ -185,11 +222,19 @@ export class NotificationsController {
         @Body() data: { type: string },
         @Request() req: CustomRequest,
     ) {
-        return this.notificationsService.sendTestNotification({
-            ...data,
-            organizationId: req.organization.id,
-            userId: req.user.id,
-        });
+        if (!req.organization || !req.user) {
+            throw new BadRequestException('User or organization not found');
+        }
+
+        return this.notificationsService.sendNotification(
+            req.user.id,
+            data.type,
+            {
+                ...data,
+                organizationId: req.organization.id,
+                userId: req.user.id,
+            }
+        );
     }
 
     @Get('channels')
@@ -198,7 +243,11 @@ export class NotificationsController {
     async getChannels(
         @Request() req: CustomRequest,
     ) {
-        return this.notificationsService.getAvailableChannels(
+        if (!req.organization || !req.user) {
+            throw new BadRequestException('User or organization not found');
+        }
+
+        return this.notificationsService.getNotificationChannels(
             req.organization.id,
             req.user.id,
         );

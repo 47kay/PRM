@@ -13,7 +13,7 @@ export declare class AuthController {
             id: any;
             email: any;
             role: any;
-            organizationId: any;
+            organizationId: string;
         };
         tokens: {
             accessToken: string;
@@ -21,15 +21,28 @@ export declare class AuthController {
         };
     }>;
     register(registerDto: RegisterDto, userAgent: string, ip: string): Promise<{
-        user: any;
-        organization: any;
+        user: {
+            id: string;
+            email: string;
+            firstName: string;
+            lastName: string;
+            role: import("../../users/enums/role.enum").Role;
+            organizationId: string;
+        };
+        organization: {
+            id: string;
+            name: string;
+            status: import("../../organizations/entities/organization.entity").OrganizationStatus;
+        };
         tokens: {
-            accessToken: any;
-            refreshToken: any;
+            accessToken: string;
+            refreshToken: string;
         };
     }>;
     refreshToken(refreshTokenDto: RefreshTokenDto): Promise<{
-        tokens: any;
+        tokens: {
+            accessToken: string;
+        };
     }>;
     logout(user: User, authHeader: string): Promise<{
         message: string;

@@ -3,6 +3,7 @@ import { TicketComment } from './ticket-comment.entity';
 import { User } from '../../users/entities/user.entity';
 export declare class TicketAttachment {
     id: string;
+    organizationId: string;
     fileName: string;
     fileSize: number;
     mimeType: string;

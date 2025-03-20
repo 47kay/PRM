@@ -32,13 +32,37 @@ export class Notification {
     @PrimaryGeneratedColumn('uuid')
     id: string;
 
+
+  @Column()
+  userId: string;
+
+  @Column()
+  type: string;
+
+  @Column()
+  content: string;
+
+  @Column('jsonb', { nullable: true })
+  metadata?: Record<string, any>;
+
+  @Column()
+  status: string;
+
+  @CreateDateColumn()
+  createdAt: Date;
+
+  @UpdateDateColumn()
+  updatedAt: Date;
+
+  @Column({ nullable: true })
+  readAt?: Date;
+
     @ApiProperty()
     @Column()
     organizationId: string;
 
     @ApiProperty()
     @Column()
-    userId: string;
 
     @ApiProperty()
     @Column()
@@ -46,7 +70,6 @@ export class Notification {
 
     @ApiProperty()
     @Column({ type: 'enum', enum: NotificationType })
-    type: NotificationType;
 
     @ApiProperty()
     @Column({ length: 200 })
@@ -54,7 +77,6 @@ export class Notification {
 
     @ApiProperty()
     @Column({ type: 'text' })
-    content: string;
 
     @ApiProperty()
     @Column({
@@ -70,7 +92,6 @@ export class Notification {
         enum: NotificationStatus,
         default: NotificationStatus.PENDING,
     })
-    status: NotificationStatus;
 
     @ApiProperty()
     @Column({ type: 'jsonb', nullable: true })
@@ -128,14 +149,16 @@ export class Notification {
 
     @ApiProperty()
     @Column({ type: 'timestamp', nullable: true })
-    readAt?: Date;
 
     @ApiProperty()
     @Column({ type: 'timestamp', nullable: true })
     deliveredAt?: Date;
 
+    
+
     @ApiProperty()
     @Column({ type: 'jsonb', nullable: true })
+    
     
     
     deliveryDetails?: {
@@ -175,12 +198,6 @@ export class Notification {
     @ApiProperty()
     @Column({ nullable: true })
     updatedById?: string;
-
-    @CreateDateColumn()
-    createdAt: Date;
-
-    @UpdateDateColumn()
-    updatedAt: Date;
 
     @DeleteDateColumn()
     deletedAt?: Date;

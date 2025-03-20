@@ -8,14 +8,23 @@ export enum AppointmentType {
     SURGERY = 'SURGERY',                             // Surgical appointment
     DIAGNOSTIC = 'DIAGNOSTIC',                       // Tests and diagnostics
     THERAPY = 'THERAPY',                             // Therapy session
-    VACCINATION = 'VACCINATION',                     // Vaccination appointment
+    VACCINATION = 'VACCINATION',                   // Vaccination appointment
     SCREENING = 'SCREENING',                         // Health screening
     TELEHEALTH = 'TELEHEALTH',                      // Virtual consultation
     LAB_WORK = 'LAB_WORK',                          // Laboratory tests
     IMAGING = 'IMAGING',                            // Medical imaging
     DENTAL = 'DENTAL',                              // Dental appointment
     PHARMACY = 'PHARMACY',                          // Pharmacy consultation
-    IN_PERSON = 'IN_PERSON'
+    IN_PERSON = 'IN_PERSON',
+    VIRTUAL = 'VIRTUAL',
+    PHONE = 'PHONE',
+    HOME_VISIT = 'HOME_VISIT',
+    EMERGENCY = 'EMERGENCY',
+    CONSULTATION = 'CONSULTATION',
+    MATERNITY = 'MATERNITY',
+    SPECIALIZED = 'SPECIALIZED',
+    PEDIATRIC = 'PEDIATRIC',
+    WELLNESS_CHECK = 'WELLNESS_CHECK',
 }
 
 // Helper type for appointment type metadata
@@ -201,6 +210,90 @@ export const APPOINTMENT_TYPE_METADATA: Record<AppointmentType, AppointmentTypeM
         defaultDuration: 30,
         requiresPreparation: false,
         category: 'OTHER',
+        virtualEnabled: true
+    },
+    [AppointmentType.VIRTUAL]: {
+        value: AppointmentType.VIRTUAL,
+        label: 'Virtual Appointment',
+        description: 'Virtual healthcare appointment',
+        defaultDuration: 30,
+        requiresPreparation: false,
+        category: 'PRIMARY',
+        virtualEnabled: true
+    },
+    [AppointmentType.PHONE]: {
+        value: AppointmentType.PHONE,
+        label: 'Phone Consultation',
+        description: 'Consultation over the phone',
+        defaultDuration: 20,
+        requiresPreparation: false,
+        category: 'PRIMARY',
+        virtualEnabled: true
+    },
+    [AppointmentType.HOME_VISIT]: {
+        value: AppointmentType.HOME_VISIT,
+        label: 'Home Visit',
+        description: 'Healthcare provider visits patient at home',
+        defaultDuration: 60,
+        requiresPreparation: true,
+        preparationInstructions: 'Ensure a clean and safe environment for the visit',
+        category: 'PRIMARY',
+        virtualEnabled: false
+    },
+    [AppointmentType.EMERGENCY]: {
+        value: AppointmentType.EMERGENCY,
+        label: 'Emergency Visit',
+        description: 'Emergency medical attention',
+        defaultDuration: 120,
+        requiresPreparation: false,
+        category: 'PRIMARY',
+        virtualEnabled: false
+    },
+    [AppointmentType.CONSULTATION]: {
+        value: AppointmentType.CONSULTATION,
+        label: 'General Consultation',
+        description: 'General medical consultation',
+        defaultDuration: 30,
+        requiresPreparation: false,
+        category: 'PRIMARY',
+        virtualEnabled: true
+    },
+    [AppointmentType.MATERNITY]: {
+        value: AppointmentType.MATERNITY,
+        label: 'Maternity Care',
+        description: 'Maternity care appointment',
+        defaultDuration: 60,
+        requiresPreparation: true,
+        preparationInstructions: 'Bring maternity records and previous test results',
+        category: 'SPECIALIST',
+        virtualEnabled: false
+    },
+    [AppointmentType.SPECIALIZED]: {
+        value: AppointmentType.SPECIALIZED,
+        label: 'Specialized Care',
+        description: 'Specialized medical care',
+        defaultDuration: 60,
+        requiresPreparation: true,
+        preparationInstructions: 'Bring relevant medical records and test results',
+        category: 'SPECIALIST',
+        virtualEnabled: false
+    },
+    [AppointmentType.PEDIATRIC]: {
+        value: AppointmentType.PEDIATRIC,
+        label: 'Pediatric Care',
+        description: 'Pediatric care appointment',
+        defaultDuration: 45,
+        requiresPreparation: false,
+        category: 'SPECIALIST',
+        virtualEnabled: false
+    },
+    [AppointmentType.WELLNESS_CHECK]: {
+        value: AppointmentType.WELLNESS_CHECK,
+        label: 'Wellness Check',
+        description: 'Routine wellness check-up',
+        defaultDuration: 30,
+        requiresPreparation: false,
+        category: 'PRIMARY',
         virtualEnabled: true
     }
 };

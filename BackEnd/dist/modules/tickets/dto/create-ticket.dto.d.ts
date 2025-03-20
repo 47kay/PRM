@@ -20,7 +20,9 @@ export declare enum TicketStatus {
     PENDING = "PENDING",
     RESOLVED = "RESOLVED",
     CLOSED = "CLOSED",
-    ESCALATED = "ESCALATED"
+    ESCALATED = "ESCALATED",
+    REOPENED = "REOPENED",
+    DELETED = "DELETED"
 }
 export declare enum TicketSource {
     WEB = "WEB",

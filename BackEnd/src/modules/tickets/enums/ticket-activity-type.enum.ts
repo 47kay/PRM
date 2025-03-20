@@ -9,6 +9,10 @@ export enum TicketActivityType {
     PRIORITY_CHANGED = 'priority_changed',
     CATEGORY_CHANGED = 'category_changed',
 
+    ESCALATION = 'ESCALATION',
+    RESPONSE = 'RESPONSE',
+    RESOLUTION = 'RESOLUTION',
+
     // Assignment
     ASSIGNED = 'assigned',
     UNASSIGNED = 'unassigned',

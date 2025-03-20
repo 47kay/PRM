@@ -37,6 +37,7 @@ export class CreateTicketCommentDto {
     @IsString()
     @IsNotEmpty()
     content: string;
+    isInternal: boolean;
 
     @ApiPropertyOptional({
         enum: CommentVisibility,

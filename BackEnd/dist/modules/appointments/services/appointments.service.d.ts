@@ -7,7 +7,7 @@ import { Contact } from '../../contacts/entities/contact.entity';
 import { CreateAppointmentDto } from '../dto/create-appointment.dto';
 import { UpdateAppointmentDto } from '../dto/update-appointment.dto';
 import { AppointmentStatus } from '../enums/appointment-status.enum';
-import { NotificationService } from '../../notifications/services/notification.service';
+import { NotificationsService } from '../../notifications/services/notifications.service';
 import { EmailService } from '../../email/services/email.service';
 import { DoctorScheduleService } from './doctor-schedule.service';
 export declare class AppointmentsService {
@@ -15,11 +15,11 @@ export declare class AppointmentsService {
     private userRepository;
     private contactRepository;
     private configService;
-    private notificationService;
+    private notificationsService;
     private emailService;
     private doctorScheduleService;
     private eventEmitter;
-    constructor(appointmentRepository: Repository<Appointment>, userRepository: Repository<User>, contactRepository: Repository<Contact>, configService: ConfigService, notificationService: NotificationService, emailService: EmailService, doctorScheduleService: DoctorScheduleService, eventEmitter: EventEmitter2);
+    constructor(appointmentRepository: Repository<Appointment>, userRepository: Repository<User>, contactRepository: Repository<Contact>, configService: ConfigService, notificationsService: NotificationsService, emailService: EmailService, doctorScheduleService: DoctorScheduleService, eventEmitter: EventEmitter2);
     create(createAppointmentDto: CreateAppointmentDto & {
         organizationId: string;
         createdBy: string;
@@ -59,17 +59,55 @@ export declare class AppointmentsService {
         organizationId: string;
         updatedBy: string;
     }): Promise<Appointment>;
+    confirm(id: string, data: {
+        organizationId: string;
+        updatedBy: string;
+    }): Promise<Appointment>;
+    confirmAppointment(id: string, data: {
+        organizationId: string;
+        updatedBy: string;
+    }): Promise<Appointment>;
     complete(id: string, data: {
         organizationId: string;
         updatedBy: string;
     }): Promise<Appointment>;
-    private checkConflicts;
-    private createRecurringAppointments;
-    private sendAppointmentNotifications;
+    remove(id: string, organizationId: string): Promise<void>;
+    getCalendarEvents(query: {
+        organizationId: string;
+        start: Date;
+        end: Date;
+        doctorId?: string;
+    }): Promise<{
+        id: string;
+        title: string;
+        start: Date;
+        end: Date;
+        status: AppointmentStatus;
+        doctor: {
+            id: string;
+            name: string;
+        } | null;
+        patient: {
+            id: string;
+            name: string;
+        } | null;
+    }[]>;
+    findAvailableSlots(query: {
+        doctorId: string;
+        date: Date;
+        organizationId: string;
+    }): Promise<{
+        start: string;
+        end: string;
+        available: boolean;
+    }[]>;
     getStatistics(query: {
         organizationId: string;
         startDate: Date;
         endDate: Date;
         doctorId?: string;
     }): Promise<void>;
+    private checkConflicts;
+    private createRecurringAppointments;
+    private sendAppointmentNotifications;
 }

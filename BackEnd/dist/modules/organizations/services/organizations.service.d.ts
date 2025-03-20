@@ -45,4 +45,7 @@ export declare class OrganizationsService {
     private generateUniqueSlug;
     private getDefaultSettings;
     private createAuditLog;
+    private sendWelcomeEmail;
+    private getStorageUsage;
+    private verifyDomainOwnership;
 }

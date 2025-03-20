@@ -2,6 +2,8 @@ import { AppointmentType } from '../enums/appointment-type.enum';
 import { AppointmentPriority } from '../enums/appointment-priority.enum';
 export declare class CreateAppointmentDto {
     patientId: string;
+    isRecurring?: boolean;
+    recurrencePattern?: any;
     doctorId: string;
     startTime: string;
     endTime: string;

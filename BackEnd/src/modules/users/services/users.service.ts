@@ -23,7 +23,43 @@ import { paginate } from 'nestjs-typeorm-paginate';
 
 @Injectable()
 export class UsersService {
-    // Removed duplicate findById method
+    findUsersByRole(organizationId: string, arg1: string) {
+        throw new Error('Method not implemented.');
+    }
+    // Define permissions map as a class property with all possible roles
+    private readonly permissionsByRole: Record<string, string[]> = {
+        [Role.SUPER_ADMIN]: [
+            'all.read', 'all.create', 'all.update', 'all.delete',
+            'users.manage', 'organizations.manage', 'settings.manage',
+            'reports.access', 'permissions.manage', 'billing.manage'
+        ],
+        [Role.ADMIN]: [
+            'users.read', 'users.create', 'users.update', 'users.delete',
+            'contacts.read', 'contacts.create', 'contacts.update', 'contacts.delete',
+            'appointments.read', 'appointments.create', 'appointments.update', 'appointments.delete',
+            'reports.access', 'settings.manage', 'notifications.manage'
+        ],
+        [Role.MANAGER]: [
+            'users.read', 'contacts.read', 'contacts.create', 'contacts.update',
+            'appointments.read', 'appointments.create', 'appointments.update',
+            'reports.access', 'tasks.manage'
+        ],
+        [Role.DOCTOR]: [
+            'contacts.read', 'contacts.create', 'contacts.update',
+            'appointments.read', 'appointments.create', 'appointments.update',
+            'medical.read', 'medical.write'
+        ],
+        [Role.NURSE]: [
+            'contacts.read', 'contacts.update',
+            'appointments.read', 'appointments.update',
+            'medical.read', 'medical.write', 'vitals.manage'
+        ],
+        [Role.STAFF]: [
+            'contacts.read', 'appointments.read', 'appointments.create',
+            'tasks.read', 'tasks.create'
+        ]
+    };
+
     constructor(
         @InjectRepository(User)
         private readonly userRepository: Repository<User>,
@@ -32,7 +68,16 @@ export class UsersService {
         private readonly dataSource: DataSource,
         private readonly eventEmitter: EventEmitter2,
         private readonly notificationsService: NotificationsService,
-    ) {}
+    ) { }
+
+    async findByRole(role: string, organizationId: string): Promise<User[]> {
+        return this.userRepository.find({
+          where: {
+            role: role as Role,
+            organizationId,
+          },
+        });
+      }
 
     async create(data: CreateUserDto & { organizationId: string; createdBy: string }): Promise<User> {
         const queryRunner = this.dataSource.createQueryRunner();
@@ -100,10 +145,10 @@ export class UsersService {
 
     async findById(id: string, relations: string[] = []): Promise<User | null> {
         return this.userRepository.findOne({
-          where: { id },
-          relations
+            where: { id },
+            relations
         });
-      }
+    }
 
     async findAll(query: UserQueryDto & { organizationId: string }) {
         const {
@@ -246,35 +291,13 @@ export class UsersService {
         });
     }
 
-    async getPermissions(id: string, organizationId: string) {
-        const user = await this.findOne(id, organizationId);
-        return this.getRolePermissions(user.role);
-    }
-
-    private getRolePermissions(role: Role): string[] {
-        const permissions = {
-            [Role.SUPER_ADMIN]: ['*'],
-            [Role.ADMIN]: [
-                'users.manage',
-                'tickets.manage',
-                'appointments.manage',
-                'reports.view',
-                'settings.manage',
-            ],
-            [Role.DOCTOR]: [
-                'appointments.manage',
-                'patients.view',
-                'patients.edit',
-                'prescriptions.manage',
-            ],
-            [Role.STAFF]: [
-                'appointments.view',
-                'appointments.schedule',
-                'patients.view',
-                'tickets.create',
-            ],
-        };
-
-        return permissions[role] || [];
+    async getPermissions(userId: string, organizationId: string): Promise<string[]> {
+        const user = await this.findOne(userId, organizationId);
+        if (!user) {
+            throw new NotFoundException('User not found');
+        }
+        
+        // Return the permissions for the user's role or an empty array if the role isn't defined
+        return this.permissionsByRole[user.role] || [];
     }
 }

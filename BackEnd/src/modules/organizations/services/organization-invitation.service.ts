@@ -1,10 +1,12 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { Repository, FindOptionsWhere, Equal, LessThanOrEqual, FindOperator } from 'typeorm';
 import { EventEmitter2 } from '@nestjs/event-emitter';
 import * as crypto from 'crypto';
 import { Organization } from '../entities/organization.entity';
 import { OrganizationInvitation } from '../entities/organization-invitation.entity';
+// Import the enum but use string literals in the code
+import { InvitationStatus } from '../enums/invitation-status.enum';
 import { User } from '../../users/entities/user.entity';
 import { EmailService } from '../../../shared/services/email.service';
 import { OrganizationSubscriptionService } from './organization-subscription.service';
@@ -55,40 +57,52 @@ export class OrganizationInvitationService {
 
             // Check if user is already a member
             const existingMember = await this.userRepository.findOne({
-                where: { email, organizations: { id: organizationId } }
+                where: { 
+                    email, 
+                    organizationId 
+                }
             });
 
             if (existingMember) {
                 throw new Error(`User ${email} is already a member of the organization`);
             }
 
-            // Check for existing pending invitation
-            const existingInvitation = await this.invitationRepository.findOne({
-                where: {
-                    organizationId,
-                    email,
-                    status: 'pending'
-                }
-            });
+            // Check for existing pending invitation - avoid using enum directly
+            const existingInvitations = await this.invitationRepository.createQueryBuilder("invitation")
+                .where("invitation.organizationId = :organizationId", { organizationId })
+                .andWhere("invitation.email = :email", { email })
+                .andWhere("invitation.status = :status", { status: "PENDING" })
+                .getMany();
 
-            if (existingInvitation) {
+            if (existingInvitations.length > 0) {
                 throw new Error(`Pending invitation already exists for ${email}`);
             }
 
             // Create new invitation
-            const invitation = this.invitationRepository.create({
-                organizationId,
-                email,
-                role,
-                invitedBy,
-                token: this.generateInvitationToken(),
-                expiresAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000), // 7 days
+            const invitation = new OrganizationInvitation();
+            invitation.organizationId = organizationId;
+            invitation.email = email;
+            invitation.roles = [role]; 
+            
+            const inviter = await this.userRepository.findOne({
+                where: { id: invitedBy }
             });
 
-            await this.invitationRepository.save(invitation);
+            if (!inviter) {
+                throw new Error(`Inviter ${invitedBy} not found`);
+            }
+
+            invitation.invitedBy = inviter;
+            invitation.token = this.generateInvitationToken();
+            invitation.expiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000); // 7 days
+            
+            // Set status as string and cast
+            invitation.status = "PENDING" as any;
+
+            const savedInvitation = await this.invitationRepository.save(invitation);
 
             // Send invitation email
-            await this.sendInvitationEmail(invitation, organization);
+            await this.sendInvitationEmail(savedInvitation, organization);
 
             // Emit event
             this.eventEmitter.emit('organization.invitation.created', {
@@ -98,7 +112,7 @@ export class OrganizationInvitationService {
                 invitedBy,
             });
 
-            return invitation;
+            return savedInvitation;
         } catch (error) {
             this.logger.error('Error creating invitation:', error);
             throw error;
@@ -107,9 +121,13 @@ export class OrganizationInvitationService {
 
     async acceptInvitation(token: string, userId: string): Promise<void> {
         try {
-            const invitation = await this.invitationRepository.findOne({
-                where: { token, status: 'pending' }
-            });
+            // Use raw SQL query or TypeORM query builder to avoid enum issues
+            const invitations = await this.invitationRepository.createQueryBuilder("invitation")
+                .where("invitation.token = :token", { token })
+                .andWhere("invitation.status = :status", { status: "PENDING" })
+                .getMany();
+                
+            const invitation = invitations.length > 0 ? invitations[0] : null;
 
             if (!invitation) {
                 throw new Error('Invalid or expired invitation');
@@ -145,23 +163,27 @@ export class OrganizationInvitationService {
                 ...(organization.members || []),
                 {
                     userId,
-                    role: invitation.role,
+                    role: invitation.roles,
                     joinedAt: new Date(),
                 }
             ];
 
             await this.organizationRepository.save(organization);
 
-            // Update invitation status
-            invitation.status = 'accepted';
-            invitation.acceptedAt = new Date();
+            // Update invitation - fetch, modify, save pattern
+            invitation.status = "ACCEPTED" as any;
+            invitation.metadata = {
+                ...(invitation.metadata || {}),
+                acceptedAt: new Date()
+            };
+            
             await this.invitationRepository.save(invitation);
 
             // Emit event
             this.eventEmitter.emit('organization.member.added', {
                 organizationId: organization.id,
                 userId,
-                role: invitation.role,
+                role: invitation.roles,
                 invitedBy: invitation.invitedBy,
             });
         } catch (error) {
@@ -172,18 +194,26 @@ export class OrganizationInvitationService {
 
     async cancelInvitation(invitationId: string, cancelledBy: string): Promise<void> {
         try {
-            const invitation = await this.invitationRepository.findOne({
-                where: { id: invitationId, status: 'pending' }
-            });
+            // Use query builder to avoid enum issues
+            const invitations = await this.invitationRepository.createQueryBuilder("invitation")
+                .where("invitation.id = :id", { id: invitationId })
+                .andWhere("invitation.status = :status", { status: "PENDING" })
+                .getMany();
+                
+            const invitation = invitations.length > 0 ? invitations[0] : null;
 
             if (!invitation) {
                 throw new Error('Invitation not found or already processed');
             }
 
-            // Update invitation status
-            invitation.status = 'cancelled';
-            invitation.cancelledAt = new Date();
-            invitation.cancelledBy = cancelledBy;
+            // Update invitation - fetch, modify, save pattern
+            invitation.status = "CANCELLED" as any;
+            invitation.metadata = {
+                ...(invitation.metadata || {}),
+                cancelledAt: new Date(),
+                cancelledBy: cancelledBy
+            };
+            
             await this.invitationRepository.save(invitation);
 
             // Emit event
@@ -208,7 +238,8 @@ export class OrganizationInvitationService {
                 throw new Error('Invitation not found');
             }
 
-            if (invitation.status !== 'pending') {
+            // Compare with string directly
+            if (String(invitation.status) !== "PENDING") {
                 throw new Error('Can only resend pending invitations');
             }
 
@@ -220,10 +251,11 @@ export class OrganizationInvitationService {
                 throw new Error('Organization not found');
             }
 
-            // Update expiration and token
+            // Update - fetch, modify, save pattern
             invitation.token = this.generateInvitationToken();
             invitation.expiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
             invitation.resendCount = (invitation.resendCount || 0) + 1;
+            
             await this.invitationRepository.save(invitation);
 
             // Resend email
@@ -243,15 +275,12 @@ export class OrganizationInvitationService {
 
     async listPendingInvitations(organizationId: string): Promise<OrganizationInvitation[]> {
         try {
-            return await this.invitationRepository.find({
-                where: {
-                    organizationId,
-                    status: 'pending'
-                },
-                order: {
-                    createdAt: 'DESC'
-                }
-            });
+            // Use query builder to avoid enum issues
+            return await this.invitationRepository.createQueryBuilder("invitation")
+                .where("invitation.organizationId = :organizationId", { organizationId })
+                .andWhere("invitation.status = :status", { status: "PENDING" })
+                .orderBy("invitation.createdAt", "DESC")
+                .getMany();
         } catch (error) {
             this.logger.error('Error listing pending invitations:', error);
             throw error;
@@ -267,18 +296,41 @@ export class OrganizationInvitationService {
         organization: Organization
     ): Promise<void> {
         try {
-            await this.emailService.send({
-                recipient: { email: invitation.email },
+            // Get inviter name from the User object if available
+            let inviterName = 'An organization administrator';
+            if (invitation.invitedBy) {
+                if (typeof invitation.invitedBy === 'object' && invitation.invitedBy.firstName) {
+                    inviterName = `${invitation.invitedBy.firstName} ${invitation.invitedBy.lastName || ''}`.trim();
+                } else if (typeof invitation.invitedBy === 'string') {
+                    inviterName = invitation.invitedBy;
+                }
+            }
+
+            // Get role as a string
+            const roleValue = Array.isArray(invitation.roles) 
+                ? invitation.roles.join(', ') 
+                : String(invitation.roles || '');
+
+            // Create email notification data
+            const emailData = {
+                to: invitation.email,
                 subject: `Invitation to join ${organization.name}`,
                 template: 'organization-invitation',
-                metadata: {
+                context: {
                     organizationName: organization.name,
-                    inviterName: invitation.invitedBy,
-                    role: invitation.role,
+                    inviterName: inviterName,
+                    role: roleValue,
                     acceptUrl: `${process.env.APP_URL}/invitations/accept?token=${invitation.token}`,
                     expiresAt: invitation.expiresAt,
                 }
-            });
+            };
+
+            // Send using your email service's method
+            if (typeof this.emailService.sendEmail === 'function') {
+                await this.emailService.sendEmail(emailData);
+            } else {
+                this.logger.warn('No suitable email service method found. Please implement a proper email sending method.');
+            }
         } catch (error) {
             this.logger.error('Error sending invitation email:', error);
             throw error;
@@ -287,17 +339,15 @@ export class OrganizationInvitationService {
 
     async cleanupExpiredInvitations(): Promise<void> {
         try {
-            const expiredInvitations = await this.invitationRepository.find({
-                where: {
-                    status: 'pending',
-                    expiresAt: {
-                        lte: new Date()
-                    }
-                }
-            });
+            // Use query builder to avoid enum issues
+            const expiredInvitations = await this.invitationRepository.createQueryBuilder("invitation")
+                .where("invitation.status = :status", { status: "PENDING" })
+                .andWhere("invitation.expiresAt <= :now", { now: new Date() })
+                .getMany();
 
             for (const invitation of expiredInvitations) {
-                invitation.status = 'expired';
+                // Update using fetch, modify, save pattern
+                invitation.status = "EXPIRED" as any;
                 await this.invitationRepository.save(invitation);
 
                 this.eventEmitter.emit('organization.invitation.expired', {

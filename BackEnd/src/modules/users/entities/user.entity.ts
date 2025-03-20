@@ -29,6 +29,7 @@ export class User {
     @ApiProperty()
     @PrimaryGeneratedColumn('uuid')
     id: string;
+    mobilePhone?: string; // added mobilePhone property
 
     @ApiProperty()
     @Column()

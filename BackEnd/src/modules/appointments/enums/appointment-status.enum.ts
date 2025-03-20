@@ -9,7 +9,9 @@ export enum AppointmentStatus {
     CANCELLED = 'CANCELLED',        // Cancelled by either party
     NO_SHOW = 'NO_SHOW',           // Patient didn't show up
     RESCHEDULED = 'RESCHEDULED',    // Appointment was rescheduled
-    WAITING_LIST = 'WAITING_LIST'   // On waiting list for cancellation
+    WAITING_LIST = 'WAITING_LIST',  // On waiting list for cancellation
+    MISSED = 'MISSED',              // Missed appointment
+    
 }
 
 // Helper type for status metadata
@@ -132,6 +134,15 @@ export const STATUS_METADATA: Record<AppointmentStatus, StatusMetadata> = {
         allowedTransitions: [
             AppointmentStatus.CONFIRMED,
             AppointmentStatus.CANCELLED
+        ]
+    },
+    [AppointmentStatus.MISSED]: {
+        value: AppointmentStatus.MISSED,
+        label: 'Missed',
+        description: 'Appointment was missed',
+        color: '#A9A9A9', // Dark Gray
+        allowedTransitions: [
+            AppointmentStatus.RESCHEDULED
         ]
     }
 };

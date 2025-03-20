@@ -104,5 +104,4 @@ export declare class NotificationPreference {
     user: User;
     createdBy?: User;
     updatedBy?: User;
-    phone: boolean;
 }

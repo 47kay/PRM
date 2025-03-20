@@ -7,6 +7,8 @@ import { TicketActivityType } from '../enums/ticket-activity-type.enum';
 interface ActivityOptions {
     ticketId: string;
     performedById: string;
+    organizationId: string;
+    userId: string;
     type: TicketActivityType;
     data?: Record<string, any>;
     metadata?: Record<string, any>;

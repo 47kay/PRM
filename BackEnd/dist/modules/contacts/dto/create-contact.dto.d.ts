@@ -1,8 +1,15 @@
 import { Gender } from '../enums/gender.enum';
 import { MaritalStatus } from '../enums/marital-status.enum';
 import { BloodGroup } from '../enums/blood-group.enum';
+import { DeepPartial } from 'typeorm';
+import { User } from '../../users/entities/user.entity';
 export declare class ContactAddressDto {
     street: string;
+    firstName: string;
+    lastName: string;
+    email: string;
+    phone: string;
+    createdBy?: DeepPartial<User>;
     street2?: string;
     city: string;
     state: string;

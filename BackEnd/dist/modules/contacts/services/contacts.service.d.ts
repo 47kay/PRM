@@ -4,10 +4,30 @@ import { Contact } from '../entities/contact.entity';
 import { CreateContactDto } from '../dto/create-contact.dto';
 import { UpdateContactDto } from '../dto/update-contact.dto';
 import { ContactQueryDto } from '../dto/contact-query.dto';
-import { ContactRelationship } from '../entities/contact-relationship.entity';
-import { MedicalHistory } from '../../medical-history/entities/medical-history.entity';
+import { ContactRelationship, RelationshipType } from '../entities/contact-relationship.entity';
+import { MedicalHistory } from '../../medical-history/medical-history.entity';
 import { Appointment } from '../../appointments/entities/appointment.entity';
 import { Document } from '../../documents/entities/document.entity';
+export interface CreateContactRelationshipDto {
+    relatedContactId: string;
+    type: RelationshipType;
+    inverseType?: RelationshipType;
+    notes?: string;
+    isPrimary?: boolean;
+    startDate?: Date;
+    endDate?: Date;
+    metadata?: Record<string, any>;
+}
+export interface UpdateContactRelationshipDto {
+    type?: RelationshipType;
+    inverseType?: RelationshipType;
+    notes?: string;
+    isPrimary?: boolean;
+    isActive?: boolean;
+    startDate?: Date;
+    endDate?: Date;
+    metadata?: Record<string, any>;
+}
 export declare class ContactsService {
     private readonly contactRepository;
     private readonly relationshipRepository;
@@ -25,35 +45,48 @@ export declare class ContactsService {
     }): Promise<Pagination<Contact>>;
     search(searchTerm: string, query: ContactQueryDto & {
         organizationId: string;
-    }): Promise<Pagination<unknown, import("nestjs-typeorm-paginate").IPaginationMeta>>;
+    }): Promise<Pagination<Contact, import("nestjs-typeorm-paginate").IPaginationMeta>>;
     findOne(id: string, organizationId: string): Promise<Contact>;
     update(id: string, data: UpdateContactDto & {
         organizationId: string;
         updatedBy: string;
+        phone?: string;
     }): Promise<Contact>;
     remove(id: string, organizationId: string): Promise<void>;
     merge(primaryId: string, secondaryId: string, context: {
         organizationId: string;
         userId: string;
     }): Promise<Contact>;
-    getRelationships(id: string, organizationId: string): Promise<ContactRelationship[]>;
+    getRelationships(id: string, organizationId: string, includeInactive?: boolean): Promise<ContactRelationship[]>;
+    createRelationship(contactId: string, relationshipDto: CreateContactRelationshipDto, context: {
+        organizationId: string;
+        userId: string;
+    }): Promise<ContactRelationship>;
+    updateRelationship(id: string, updateDto: UpdateContactRelationshipDto, context: {
+        organizationId: string;
+        userId: string;
+    }): Promise<ContactRelationship>;
+    deleteRelationship(id: string, context: {
+        organizationId: string;
+        userId: string;
+    }): Promise<void>;
+    getContactsByRelationshipType(contactId: string, type: RelationshipType, query: {
+        organizationId: string;
+    }): Promise<any[]>;
     addRelationship(id: string, relationshipDto: any, context: {
         organizationId: string;
         userId: string;
-    }): Promise<any>;
+    }): Promise<ContactRelationship>;
     getMedicalHistory(id: string, query: {
         organizationId: string;
     }): Promise<MedicalHistory[]>;
-    getAppointments(id: string, query: {
-        organizationId: string;
-    }): Promise<Appointment[]>;
     getDocuments(id: string, query: {
         organizationId: string;
     }): Promise<Document[]>;
     addDocument(id: string, documentDto: any, context: {
         organizationId: string;
         userId: string;
-    }): Promise<any>;
+    }): Promise<Document[]>;
     getStatistics(query: {
         organizationId: string;
     }): Promise<any>;
@@ -74,7 +107,7 @@ export declare class ContactsService {
             firstName: string;
             lastName: string;
             email: string | undefined;
-            phoneNumber: string | undefined;
+            phone: string;
             type: import("../entities/contact.entity").ContactType;
         }[];
     }>;

@@ -110,35 +110,45 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _nestjs_config__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_config__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @nestjs/typeorm */ "@nestjs/typeorm");
 /* harmony import */ var _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_2__);
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '@nestjs/throttler'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var _nestjs_throttler__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @nestjs/throttler */ "@nestjs/throttler");
+/* harmony import */ var _nestjs_throttler__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_nestjs_throttler__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @nestjs/event-emitter */ "@nestjs/event-emitter");
 /* harmony import */ var _nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _nestjs_schedule__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @nestjs/schedule */ "@nestjs/schedule");
 /* harmony import */ var _nestjs_schedule__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_nestjs_schedule__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _nestjs_bull__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @nestjs/bull */ "../node_modules/@nestjs/bull/dist/index.js");
 /* harmony import */ var _nestjs_bull__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_nestjs_bull__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _app_controller__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./app.controller */ "./src/app.controller.ts");
-/* harmony import */ var _app_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./app.service */ "./src/app.service.ts");
-/* harmony import */ var _modules_users_users_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/users/users.module */ "./src/modules/users/users.module.ts");
-/* harmony import */ var _modules_auth_auth_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modules/auth/auth.module */ "./src/modules/auth/auth.module.ts");
-/* harmony import */ var _modules_organizations_organizations_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./modules/organizations/organizations.module */ "./src/modules/organizations/organizations.module.ts");
-/* harmony import */ var _modules_contacts_contacts_module__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./modules/contacts/contacts.module */ "./src/modules/contacts/contacts.module.ts");
-/* harmony import */ var _modules_appointments_appointments_module__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./modules/appointments/appointments.module */ "./src/modules/appointments/appointments.module.ts");
-/* harmony import */ var _modules_tickets_tickets_module__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./modules/tickets/tickets.module */ "./src/modules/tickets/tickets.module.ts");
-/* harmony import */ var _modules_messages_messages_module__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./modules/messages/messages.module */ "./src/modules/messages/messages.module.ts");
-/* harmony import */ var _modules_messages_messages_module__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(_modules_messages_messages_module__WEBPACK_IMPORTED_MODULE_15__);
-/* harmony import */ var _modules_notifications_notifications_module__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./modules/notifications/notifications.module */ "./src/modules/notifications/notifications.module.ts");
-/* harmony import */ var _config_app_config__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./config/app.config */ "./src/config/app.config.ts");
-/* harmony import */ var _config_database_config__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./config/database.config */ "./src/config/database.config.ts");
-/* harmony import */ var _config_redis_config__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./config/redis.config */ "./src/config/redis.config.ts");
-/* harmony import */ var _config_mail_config__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./config/mail.config */ "./src/config/mail.config.ts");
-/* harmony import */ var _config_jwt_config__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./config/jwt.config */ "./src/config/jwt.config.ts");
+/* harmony import */ var _nestjs_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @nestjs/core */ "@nestjs/core");
+/* harmony import */ var _nestjs_core__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_nestjs_core__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _app_controller__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./app.controller */ "./src/app.controller.ts");
+/* harmony import */ var _app_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./app.service */ "./src/app.service.ts");
+/* harmony import */ var _modules_users_users_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modules/users/users.module */ "./src/modules/users/users.module.ts");
+/* harmony import */ var _modules_auth_auth_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./modules/auth/auth.module */ "./src/modules/auth/auth.module.ts");
+/* harmony import */ var _modules_organizations_organizations_module__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./modules/organizations/organizations.module */ "./src/modules/organizations/organizations.module.ts");
+/* harmony import */ var _modules_contacts_contacts_module__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./modules/contacts/contacts.module */ "./src/modules/contacts/contacts.module.ts");
+/* harmony import */ var _modules_appointments_appointments_module__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./modules/appointments/appointments.module */ "./src/modules/appointments/appointments.module.ts");
+/* harmony import */ var _modules_tickets_tickets_module__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./modules/tickets/tickets.module */ "./src/modules/tickets/tickets.module.ts");
+/* harmony import */ var _modules_messages_messages_module__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./modules/messages/messages.module */ "./src/modules/messages/messages.module.ts");
+/* harmony import */ var _modules_notifications_notifications_module__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./modules/notifications/notifications.module */ "./src/modules/notifications/notifications.module.ts");
+/* harmony import */ var _config_app_config__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./config/app.config */ "./src/config/app.config.ts");
+/* harmony import */ var _config_database_config__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./config/database.config */ "./src/config/database.config.ts");
+/* harmony import */ var _config_redis_config__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./config/redis.config */ "./src/config/redis.config.ts");
+/* harmony import */ var _config_mail_config__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./config/mail.config */ "./src/config/mail.config.ts");
+/* harmony import */ var _config_jwt_config__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./config/jwt.config */ "./src/config/jwt.config.ts");
+/* harmony import */ var _common_filters_http_exception_filter__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./common/filters/http-exception.filter */ "./src/common/filters/http-exception.filter.ts");
+/* harmony import */ var _common_interceptors_transform_interceptor__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./common/interceptors/transform.interceptor */ "./src/common/interceptors/transform.interceptor.ts");
+/* harmony import */ var _config_throttler_config__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./config/throttler.config */ "./src/config/throttler.config.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
+
+
 
 
 
@@ -168,7 +178,7 @@ AppModule = __decorate([
         imports: [
             _nestjs_config__WEBPACK_IMPORTED_MODULE_1__.ConfigModule.forRoot({
                 isGlobal: true,
-                load: [_config_app_config__WEBPACK_IMPORTED_MODULE_17__["default"], _config_database_config__WEBPACK_IMPORTED_MODULE_18__["default"], _config_redis_config__WEBPACK_IMPORTED_MODULE_19__["default"], _config_mail_config__WEBPACK_IMPORTED_MODULE_20__["default"], _config_jwt_config__WEBPACK_IMPORTED_MODULE_21__["default"]],
+                load: [_config_app_config__WEBPACK_IMPORTED_MODULE_18__["default"], _config_database_config__WEBPACK_IMPORTED_MODULE_19__["default"], _config_redis_config__WEBPACK_IMPORTED_MODULE_20__["default"], _config_mail_config__WEBPACK_IMPORTED_MODULE_21__["default"], _config_jwt_config__WEBPACK_IMPORTED_MODULE_22__["default"]],
             }),
             _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_2__.TypeOrmModule.forRootAsync({
                 inject: [_nestjs_config__WEBPACK_IMPORTED_MODULE_1__.ConfigService],
@@ -186,21 +196,23 @@ AppModule = __decorate([
                 }),
             }),
             _nestjs_bull__WEBPACK_IMPORTED_MODULE_6__.BullModule.forRootAsync({
+                imports: [_nestjs_config__WEBPACK_IMPORTED_MODULE_1__.ConfigModule],
                 inject: [_nestjs_config__WEBPACK_IMPORTED_MODULE_1__.ConfigService],
-                useFactory: (configService) => ({
-                    redis: {
-                        host: configService.get('redis.host'),
-                        port: configService.get('redis.port'),
-                        password: configService.get('redis.password'),
-                    },
-                }),
+                useFactory: async (configService) => {
+                    const host = configService.get('redis.host');
+                    const port = configService.get('redis.port');
+                    const password = configService.get('redis.password');
+                    const redisUrl = password
+                        ? `redis://:${password}@${host}:${port}`
+                        : `redis://${host}:${port}`;
+                    return {
+                        url: redisUrl
+                    };
+                },
             }),
-            Object(function webpackMissingModule() { var e = new Error("Cannot find module '@nestjs/throttler'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()).forRootAsync({
-                inject: [_nestjs_config__WEBPACK_IMPORTED_MODULE_1__.ConfigService],
-                useFactory: (configService) => ({
-                    ttl: configService.get('app.throttleTtl'),
-                    limit: configService.get('app.throttleLimit'),
-                }),
+            _nestjs_throttler__WEBPACK_IMPORTED_MODULE_3__.ThrottlerModule.forRootAsync({
+                imports: [_nestjs_config__WEBPACK_IMPORTED_MODULE_1__.ConfigModule],
+                useClass: _config_throttler_config__WEBPACK_IMPORTED_MODULE_25__.ThrottlerConfigService,
             }),
             _nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_4__.EventEmitterModule.forRoot({
                 wildcard: true,
@@ -209,29 +221,29 @@ AppModule = __decorate([
                 verboseMemoryLeak: true,
             }),
             _nestjs_schedule__WEBPACK_IMPORTED_MODULE_5__.ScheduleModule.forRoot(),
-            _modules_users_users_module__WEBPACK_IMPORTED_MODULE_9__.UsersModule,
-            _modules_auth_auth_module__WEBPACK_IMPORTED_MODULE_10__.AuthModule,
-            _modules_organizations_organizations_module__WEBPACK_IMPORTED_MODULE_11__.OrganizationsModule,
-            _modules_contacts_contacts_module__WEBPACK_IMPORTED_MODULE_12__.ContactsModule,
-            _modules_appointments_appointments_module__WEBPACK_IMPORTED_MODULE_13__.AppointmentsModule,
-            _modules_tickets_tickets_module__WEBPACK_IMPORTED_MODULE_14__.TicketsModule,
-            _modules_messages_messages_module__WEBPACK_IMPORTED_MODULE_15__.MessagesModule,
-            _modules_notifications_notifications_module__WEBPACK_IMPORTED_MODULE_16__.NotificationsModule,
+            _modules_users_users_module__WEBPACK_IMPORTED_MODULE_10__.UsersModule,
+            _modules_auth_auth_module__WEBPACK_IMPORTED_MODULE_11__.AuthModule,
+            _modules_organizations_organizations_module__WEBPACK_IMPORTED_MODULE_12__.OrganizationsModule,
+            _modules_contacts_contacts_module__WEBPACK_IMPORTED_MODULE_13__.ContactsModule,
+            _modules_appointments_appointments_module__WEBPACK_IMPORTED_MODULE_14__.AppointmentsModule,
+            _modules_tickets_tickets_module__WEBPACK_IMPORTED_MODULE_15__.TicketsModule,
+            _modules_messages_messages_module__WEBPACK_IMPORTED_MODULE_16__.MessagesModule,
+            _modules_notifications_notifications_module__WEBPACK_IMPORTED_MODULE_17__.NotificationsModule,
         ],
-        controllers: [_app_controller__WEBPACK_IMPORTED_MODULE_7__.AppController],
+        controllers: [_app_controller__WEBPACK_IMPORTED_MODULE_8__.AppController],
         providers: [
-            _app_service__WEBPACK_IMPORTED_MODULE_8__.AppService,
+            _app_service__WEBPACK_IMPORTED_MODULE_9__.AppService,
             {
-                provide: 'APP_FILTER',
-                useClass: HttpExceptionFilter,
+                provide: _nestjs_core__WEBPACK_IMPORTED_MODULE_7__.APP_FILTER,
+                useClass: _common_filters_http_exception_filter__WEBPACK_IMPORTED_MODULE_23__.HttpExceptionFilter,
             },
             {
-                provide: 'APP_INTERCEPTOR',
-                useClass: TransformInterceptor,
+                provide: _nestjs_core__WEBPACK_IMPORTED_MODULE_7__.APP_INTERCEPTOR,
+                useClass: _common_interceptors_transform_interceptor__WEBPACK_IMPORTED_MODULE_24__.TransformInterceptor,
             },
             {
-                provide: 'APP_GUARD',
-                useClass: ThrottlerGuard,
+                provide: _nestjs_core__WEBPACK_IMPORTED_MODULE_7__.APP_GUARD,
+                useClass: _nestjs_throttler__WEBPACK_IMPORTED_MODULE_3__.ThrottlerGuard,
             },
         ],
     })
@@ -420,6 +432,60 @@ AppService = __decorate([
 
 /***/ }),
 
+/***/ "./src/common/decorators/auth.decorator.ts":
+/*!*************************************************!*\
+  !*** ./src/common/decorators/auth.decorator.ts ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   AUTH_ORG_KEY: () => (/* binding */ AUTH_ORG_KEY),
+/* harmony export */   AUTH_ROLES_KEY: () => (/* binding */ AUTH_ROLES_KEY),
+/* harmony export */   Auth: () => (/* binding */ Auth),
+/* harmony export */   CurrentOrganization: () => (/* binding */ CurrentOrganization),
+/* harmony export */   CurrentUser: () => (/* binding */ CurrentUser),
+/* harmony export */   Public: () => (/* binding */ Public),
+/* harmony export */   RequireOrganization: () => (/* binding */ RequireOrganization)
+/* harmony export */ });
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _nestjs_swagger__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nestjs/swagger */ "@nestjs/swagger");
+/* harmony import */ var _nestjs_swagger__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_swagger__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _modules_auth_guards_jwt_auth_guard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../modules/auth/guards/jwt-auth.guard */ "./src/modules/auth/guards/jwt-auth.guard.ts");
+/* harmony import */ var _modules_auth_guards_roles_guard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../modules/auth/guards/roles.guard */ "./src/modules/auth/guards/roles.guard.ts");
+
+
+
+
+const AUTH_ROLES_KEY = 'roles';
+const AUTH_ORG_KEY = 'requireOrganization';
+function Auth(options = {}) {
+    const { roles = [], requireOrganization = true } = options;
+    return (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.applyDecorators)((0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.SetMetadata)(AUTH_ROLES_KEY, roles), (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.SetMetadata)(AUTH_ORG_KEY, requireOrganization), (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.UseGuards)(_modules_auth_guards_jwt_auth_guard__WEBPACK_IMPORTED_MODULE_2__.JwtAuthGuard, _modules_auth_guards_roles_guard__WEBPACK_IMPORTED_MODULE_3__.RolesGuard), (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_1__.ApiBearerAuth)(), (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_1__.ApiUnauthorizedResponse)({ description: 'Unauthorized' }));
+}
+function Public() {
+    return (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.SetMetadata)('isPublic', true);
+}
+function RequireOrganization() {
+    return (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.SetMetadata)(AUTH_ORG_KEY, true);
+}
+
+const CurrentUser = (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.createParamDecorator)((data, ctx) => {
+    const request = ctx.switchToHttp().getRequest();
+    const user = request.user;
+    return data ? user === null || user === void 0 ? void 0 : user[data] : user;
+});
+const CurrentOrganization = (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.createParamDecorator)((data, ctx) => {
+    const request = ctx.switchToHttp().getRequest();
+    const organization = request.organization;
+    return data ? organization === null || organization === void 0 ? void 0 : organization[data] : organization;
+});
+
+
+/***/ }),
+
 /***/ "./src/common/decorators/current-user.decorator.ts":
 /*!*********************************************************!*\
   !*** ./src/common/decorators/current-user.decorator.ts ***!
@@ -565,6 +631,366 @@ function getRolePermissions(role) {
 
 /***/ }),
 
+/***/ "./src/common/filters/http-exception.filter.ts":
+/*!*****************************************************!*\
+  !*** ./src/common/filters/http-exception.filter.ts ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   HttpExceptionFilter: () => (/* binding */ HttpExceptionFilter)
+/* harmony export */ });
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! typeorm */ "typeorm");
+/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(typeorm__WEBPACK_IMPORTED_MODULE_1__);
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var HttpExceptionFilter_1;
+
+
+let HttpExceptionFilter = HttpExceptionFilter_1 = class HttpExceptionFilter {
+    constructor() {
+        this.logger = new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.Logger(HttpExceptionFilter_1.name);
+    }
+    catch(exception, host) {
+        const ctx = host.switchToHttp();
+        const response = ctx.getResponse();
+        const request = ctx.getRequest();
+        let status = _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.HttpStatus.INTERNAL_SERVER_ERROR;
+        let message = 'Internal server error';
+        let error = 'Internal Server Error';
+        if (exception instanceof _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.HttpException) {
+            status = exception.getStatus();
+            const errorResponse = exception.getResponse();
+            if (typeof errorResponse === 'object' && 'message' in errorResponse) {
+                message = errorResponse.message;
+                error = errorResponse.error || this.getErrorName(status);
+            }
+            else {
+                message = exception.message;
+                error = this.getErrorName(status);
+            }
+        }
+        else if (exception instanceof typeorm__WEBPACK_IMPORTED_MODULE_1__.QueryFailedError) {
+            status = _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.HttpStatus.BAD_REQUEST;
+            message = 'Database operation failed';
+            error = 'Database Error';
+            if (exception.message.includes('duplicate key')) {
+                message = 'A record with this value already exists';
+                error = 'Duplicate Entry';
+            }
+        }
+        else if (exception instanceof Error) {
+            message = exception.message;
+        }
+        const errorResponse = {
+            statusCode: status,
+            message,
+            error,
+            path: request.url,
+            timestamp: new Date().toISOString(),
+            method: request.method,
+            correlationId: request.headers['x-correlation-id'],
+        };
+        this.logError(errorResponse, exception);
+        response
+            .status(status)
+            .json(errorResponse);
+    }
+    getErrorName(status) {
+        switch (status) {
+            case _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.HttpStatus.BAD_REQUEST:
+                return 'Bad Request';
+            case _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.HttpStatus.UNAUTHORIZED:
+                return 'Unauthorized';
+            case _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.HttpStatus.FORBIDDEN:
+                return 'Forbidden';
+            case _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.HttpStatus.NOT_FOUND:
+                return 'Not Found';
+            case _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.HttpStatus.CONFLICT:
+                return 'Conflict';
+            case _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.HttpStatus.UNPROCESSABLE_ENTITY:
+                return 'Unprocessable Entity';
+            case _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.HttpStatus.TOO_MANY_REQUESTS:
+                return 'Too Many Requests';
+            case _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.HttpStatus.INTERNAL_SERVER_ERROR:
+                return 'Internal Server Error';
+            case _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.HttpStatus.BAD_GATEWAY:
+                return 'Bad Gateway';
+            case _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.HttpStatus.SERVICE_UNAVAILABLE:
+                return 'Service Unavailable';
+            default:
+                return 'Error';
+        }
+    }
+    logError(errorResponse, exception) {
+        const logMessage = Object.assign(Object.assign({}, errorResponse), { stack: exception instanceof Error ? exception.stack : undefined });
+        if (errorResponse.statusCode >= 500) {
+            this.logger.error(JSON.stringify(logMessage));
+        }
+        else {
+            this.logger.warn(JSON.stringify(logMessage));
+        }
+    }
+};
+HttpExceptionFilter = HttpExceptionFilter_1 = __decorate([
+    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.Catch)()
+], HttpExceptionFilter);
+
+
+
+/***/ }),
+
+/***/ "./src/common/guards/organization.guard.ts":
+/*!*************************************************!*\
+  !*** ./src/common/guards/organization.guard.ts ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   OrganizationGuard: () => (/* binding */ OrganizationGuard)
+/* harmony export */ });
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _nestjs_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nestjs/core */ "@nestjs/core");
+/* harmony import */ var _nestjs_core__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_core__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _modules_organizations_services_organizations_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../modules/organizations/services/organizations.service */ "./src/modules/organizations/services/organizations.service.ts");
+/* harmony import */ var _decorators_auth_decorator__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../decorators/auth.decorator */ "./src/common/decorators/auth.decorator.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+let OrganizationGuard = class OrganizationGuard {
+    constructor(reflector, organizationService) {
+        this.reflector = reflector;
+        this.organizationService = organizationService;
+    }
+    async canActivate(context) {
+        const requireOrganization = this.reflector.getAllAndOverride(_decorators_auth_decorator__WEBPACK_IMPORTED_MODULE_3__.AUTH_ORG_KEY, [context.getHandler(), context.getClass()]);
+        if (!requireOrganization) {
+            return true;
+        }
+        const request = context.switchToHttp().getRequest();
+        const user = request.user;
+        if (!user) {
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.UnauthorizedException('User not found');
+        }
+        if (!user.organizationId) {
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.ForbiddenException('User is not associated with any organization');
+        }
+        try {
+            const organization = await this.organizationService.findOne(user.organizationId);
+            if (!organization) {
+                throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.ForbiddenException('Organization not found');
+            }
+            if (organization.status !== 'ACTIVE') {
+                throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.ForbiddenException('Organization is inactive');
+            }
+            if (!this.isSubscriptionValid(organization)) {
+                throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.ForbiddenException('Organization subscription is invalid or expired');
+            }
+            await this.checkOrganizationLimits(organization, request);
+            request.organization = organization;
+            return true;
+        }
+        catch (error) {
+            if (error instanceof _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.ForbiddenException || error instanceof _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.UnauthorizedException) {
+                throw error;
+            }
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.ForbiddenException('Organization access denied');
+        }
+    }
+    isSubscriptionValid(organization) {
+        const now = new Date();
+        const subscriptionEnd = organization.subscriptionEndDate;
+        if (!organization.isSubscriptionActive) {
+            return false;
+        }
+        if (subscriptionEnd && subscriptionEnd < now) {
+            return false;
+        }
+        return true;
+    }
+    async checkOrganizationLimits(organization, request) {
+        if (organization.maxUsers > 0) {
+            const userCount = await this.organizationService.getAdminCount(organization.id);
+            if (userCount >= organization.maxUsers) {
+                throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.ForbiddenException('Organization user limit reached');
+            }
+        }
+        if (organization.maxStorage > 0 && request.url.includes('/storage')) {
+            const statistics = await this.organizationService.getStatistics(organization.id);
+            if (statistics.storageUsed >= organization.maxStorage) {
+                throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.ForbiddenException('Organization storage limit reached');
+            }
+        }
+        const requestedFeature = this.getRequestedFeature(request);
+        if (requestedFeature && !this.hasFeatureAccess(organization, requestedFeature)) {
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.ForbiddenException(`Access to ${requestedFeature} feature is not included in your plan`);
+        }
+    }
+    getRequestedFeature(request) {
+        const featureMap = {
+            '/api/messages/whatsapp': 'WHATSAPP_INTEGRATION',
+            '/api/analytics': 'ADVANCED_ANALYTICS',
+            '/api/export': 'DATA_EXPORT',
+        };
+        for (const [endpoint, feature] of Object.entries(featureMap)) {
+            if (request.url.includes(endpoint)) {
+                return feature;
+            }
+        }
+        return null;
+    }
+    hasFeatureAccess(organization, feature) {
+        const tierFeatures = this.getTierFeatures(organization.subscriptionTier);
+        return tierFeatures.includes(feature);
+    }
+    getTierFeatures(tier) {
+        const tierFeaturesMap = {
+            'FREE': ['BASIC'],
+            'BASIC': ['BASIC', 'DATA_EXPORT'],
+            'PROFESSIONAL': ['BASIC', 'DATA_EXPORT', 'ADVANCED_ANALYTICS'],
+            'ENTERPRISE': ['BASIC', 'DATA_EXPORT', 'ADVANCED_ANALYTICS', 'WHATSAPP_INTEGRATION'],
+        };
+        return tierFeaturesMap[tier] || [];
+    }
+};
+OrganizationGuard = __decorate([
+    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.Injectable)(),
+    __metadata("design:paramtypes", [_nestjs_core__WEBPACK_IMPORTED_MODULE_1__.Reflector,
+        _modules_organizations_services_organizations_service__WEBPACK_IMPORTED_MODULE_2__.OrganizationsService])
+], OrganizationGuard);
+
+
+
+/***/ }),
+
+/***/ "./src/common/interceptors/transform.interceptor.ts":
+/*!**********************************************************!*\
+  !*** ./src/common/interceptors/transform.interceptor.ts ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   TransformInterceptor: () => (/* binding */ TransformInterceptor)
+/* harmony export */ });
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs/operators */ "rxjs/operators");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! class-transformer */ "class-transformer");
+/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(class_transformer__WEBPACK_IMPORTED_MODULE_2__);
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __rest = (undefined && undefined.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
+
+
+
+let TransformInterceptor = class TransformInterceptor {
+    intercept(context, next) {
+        const request = context.switchToHttp().getRequest();
+        const response = context.switchToHttp().getResponse();
+        const status = response.statusCode || _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.HttpStatus.OK;
+        return next.handle().pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_1__.map)(data => {
+            if (data === null || data === undefined) {
+                return this.buildResponse(null, status, request);
+            }
+            const transformedData = this.transformData(data);
+            if (this.isPaginatedResponse(transformedData)) {
+                return this.buildPaginatedResponse(transformedData, status, request);
+            }
+            return this.buildResponse(transformedData, status, request);
+        }));
+    }
+    buildResponse(data, status, request, paginationMeta) {
+        return {
+            statusCode: status,
+            message: this.getStatusMessage(status),
+            data,
+            metadata: Object.assign({ timestamp: new Date().toISOString(), path: request.url, version: process.env.API_VERSION || '1.0' }, (paginationMeta && { pagination: paginationMeta })),
+        };
+    }
+    buildPaginatedResponse(data, status, request) {
+        const { items } = data, paginationMeta = __rest(data, ["items"]);
+        return this.buildResponse(items, status, request, paginationMeta);
+    }
+    transformData(data) {
+        if (data && typeof data === 'object') {
+            return (0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.classToPlain)(data, {
+                excludePrefixes: ['_'],
+                enableCircularCheck: true,
+            });
+        }
+        return data;
+    }
+    isPaginatedResponse(data) {
+        return (data &&
+            Array.isArray(data.items) &&
+            typeof data.page === 'number' &&
+            typeof data.limit === 'number' &&
+            typeof data.total === 'number' &&
+            typeof data.totalPages === 'number');
+    }
+    getStatusMessage(status) {
+        switch (status) {
+            case _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.HttpStatus.OK:
+                return 'Success';
+            case _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.HttpStatus.CREATED:
+                return 'Created successfully';
+            case _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.HttpStatus.ACCEPTED:
+                return 'Request accepted';
+            case _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.HttpStatus.NO_CONTENT:
+                return 'No content';
+            case _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.HttpStatus.PARTIAL_CONTENT:
+                return 'Partial content';
+            default:
+                return 'Operation completed';
+        }
+    }
+};
+TransformInterceptor = __decorate([
+    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.Injectable)()
+], TransformInterceptor);
+
+
+
+/***/ }),
+
 /***/ "./src/config/app.config.ts":
 /*!**********************************!*\
   !*** ./src/config/app.config.ts ***!
@@ -646,7 +1072,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   dataSource: () => (/* binding */ dataSource),
 /* harmony export */   databaseConfigValidationSchema: () => (/* binding */ databaseConfigValidationSchema),
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
-/* harmony export */   typeOrmConfig: () => (/* binding */ typeOrmConfig)
+/* harmony export */   typeOrmConfig: () => (/* binding */ typeOrmConfig),
+/* harmony export */   typeOrmConfigSync: () => (/* binding */ typeOrmConfigSync)
 /* harmony export */ });
 /* harmony import */ var _nestjs_config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/config */ "@nestjs/config");
 /* harmony import */ var _nestjs_config__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_config__WEBPACK_IMPORTED_MODULE_0__);
@@ -721,12 +1148,34 @@ const typeOrmConfig = async () => {
             max: dbConfig.maxConnections,
             min: dbConfig.minConnections,
         },
-        retryAttempts: dbConfig.retryAttempts,
-        retryDelay: dbConfig.retryDelay,
         autoLoadEntities: true,
     };
 };
-const dataSource = new typeorm__WEBPACK_IMPORTED_MODULE_2__.DataSource(Object.assign(Object.assign({}, typeOrmConfig()), { migrations: ['src/database/migrations/*.ts'], entities: ['src/**/*.entity.ts'] }));
+const typeOrmConfigSync = () => {
+    const dbConfig = config();
+    return {
+        type: 'postgres',
+        host: dbConfig.host,
+        port: dbConfig.port,
+        username: dbConfig.username,
+        password: dbConfig.password,
+        database: dbConfig.database,
+        schema: dbConfig.schema,
+        ssl: dbConfig.ssl ? { rejectUnauthorized: false } : false,
+        synchronize: dbConfig.synchronize,
+        logging: dbConfig.logging,
+        entities: ['src/**/*.entity.ts'],
+        migrations: [`${dbConfig.migrations.directory}/*.ts`],
+        migrationsTableName: dbConfig.migrations.tableName,
+        migrationsRun: dbConfig.migrations.enabled,
+        extra: {
+            max: dbConfig.maxConnections,
+            min: dbConfig.minConnections,
+            connectionTimeout: dbConfig.connectionTimeout,
+        },
+    };
+};
+const dataSource = new typeorm__WEBPACK_IMPORTED_MODULE_2__.DataSource(typeOrmConfigSync());
 
 
 /***/ }),
@@ -810,6 +1259,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
 /* harmony export */   emailTemplates: () => (/* binding */ emailTemplates),
+/* harmony export */   getMailConfig: () => (/* binding */ getMailConfig),
 /* harmony export */   mailConfigValidationSchema: () => (/* binding */ mailConfigValidationSchema),
 /* harmony export */   mailerConfig: () => (/* binding */ mailerConfig)
 /* harmony export */ });
@@ -817,7 +1267,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _nestjs_config__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_config__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var joi__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! joi */ "joi");
 /* harmony import */ var joi__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(joi__WEBPACK_IMPORTED_MODULE_1__);
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '@nestjs-modules/mailer/dist/adapters/handlebars.adapter'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var _nestjs_modules_mailer_dist_adapters_handlebars_adapter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @nestjs-modules/mailer/dist/adapters/handlebars.adapter */ "@nestjs-modules/mailer/dist/adapters/handlebars.adapter");
+/* harmony import */ var _nestjs_modules_mailer_dist_adapters_handlebars_adapter__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_nestjs_modules_mailer_dist_adapters_handlebars_adapter__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var path__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! path */ "path");
 /* harmony import */ var path__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(path__WEBPACK_IMPORTED_MODULE_3__);
 
@@ -840,7 +1291,7 @@ const mailConfigValidationSchema = joi__WEBPACK_IMPORTED_MODULE_1__.object({
     MAIL_RATE_LIMIT_ENABLED: joi__WEBPACK_IMPORTED_MODULE_1__.boolean().default(true),
     MAIL_RATE_LIMIT_PER_HOUR: joi__WEBPACK_IMPORTED_MODULE_1__.number().default(100),
 });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_nestjs_config__WEBPACK_IMPORTED_MODULE_0__.registerAs)('mail', () => ({
+const mailConfig = (0,_nestjs_config__WEBPACK_IMPORTED_MODULE_0__.registerAs)('mail', () => ({
     host: process.env.MAIL_HOST,
     port: parseInt(process.env.MAIL_PORT || '587', 10),
     secure: process.env.MAIL_SECURE === 'true',
@@ -853,7 +1304,7 @@ const mailConfigValidationSchema = joi__WEBPACK_IMPORTED_MODULE_1__.object({
     },
     template: {
         dir: process.env.MAIL_TEMPLATE_DIR || (0,path__WEBPACK_IMPORTED_MODULE_3__.join)(__dirname, '..', 'templates', 'email'),
-        adapter: new Object(function webpackMissingModule() { var e = new Error("Cannot find module '@nestjs-modules/mailer/dist/adapters/handlebars.adapter'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(),
+        adapter: new _nestjs_modules_mailer_dist_adapters_handlebars_adapter__WEBPACK_IMPORTED_MODULE_2__.HandlebarsAdapter(),
         options: {
             strict: true,
         },
@@ -868,9 +1319,13 @@ const mailConfigValidationSchema = joi__WEBPACK_IMPORTED_MODULE_1__.object({
         enabled: process.env.MAIL_RATE_LIMIT_ENABLED === 'true',
         maxPerHour: parseInt(process.env.MAIL_RATE_LIMIT_PER_HOUR || '100', 10),
     },
-})));
+}));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (mailConfig);
+const getMailConfig = () => {
+    return mailConfig();
+};
 const mailerConfig = () => {
-    const config = defaultConfig();
+    const config = getMailConfig();
     return {
         transport: {
             host: config.host,
@@ -930,6 +1385,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
 /* harmony export */   getCacheConfig: () => (/* binding */ getCacheConfig),
+/* harmony export */   getRedisConfig: () => (/* binding */ getRedisConfig),
 /* harmony export */   getRedisOptions: () => (/* binding */ getRedisOptions),
 /* harmony export */   redisConfigValidationSchema: () => (/* binding */ redisConfigValidationSchema),
 /* harmony export */   redisKeys: () => (/* binding */ redisKeys)
@@ -957,7 +1413,7 @@ const redisConfigValidationSchema = joi__WEBPACK_IMPORTED_MODULE_1__.object({
         then: joi__WEBPACK_IMPORTED_MODULE_1__.required(),
     }),
 });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_nestjs_config__WEBPACK_IMPORTED_MODULE_0__.registerAs)('redis', () => {
+const redisConfig = (0,_nestjs_config__WEBPACK_IMPORTED_MODULE_0__.registerAs)('redis', () => {
     var _a;
     return ({
         host: process.env.REDIS_HOST || 'localhost',
@@ -965,14 +1421,14 @@ const redisConfigValidationSchema = joi__WEBPACK_IMPORTED_MODULE_1__.object({
         password: process.env.REDIS_PASSWORD,
         db: parseInt(process.env.REDIS_DB || '0', 10),
         keyPrefix: process.env.REDIS_KEY_PREFIX || 'prm:',
-        connectionTimeout: parseInt(process.env.REDIS_CONNECTION_TIMEOUT || '10000', 10),
+        connectTimeout: parseInt(process.env.REDIS_CONNECTION_TIMEOUT || '10000', 10),
         maxRetriesPerRequest: parseInt(process.env.REDIS_MAX_RETRIES || '10', 10),
         retryStrategy: {
             retries: parseInt(process.env.REDIS_MAX_RETRIES || '10', 10),
             maxDelay: parseInt(process.env.REDIS_RETRY_MAX_DELAY || '5000', 10),
         },
         cache: {
-            ttl: parseInt(process.env.REDIS_CACHE_TTL || '3600', 10),
+            cacheTtl: parseInt(process.env.REDIS_CACHE_TTL || '3600', 10),
             max: parseInt(process.env.REDIS_CACHE_MAX || '10000', 10),
         },
         cluster: {
@@ -980,9 +1436,13 @@ const redisConfigValidationSchema = joi__WEBPACK_IMPORTED_MODULE_1__.object({
             nodes: (_a = process.env.REDIS_CLUSTER_NODES) === null || _a === void 0 ? void 0 : _a.split(','),
         },
     });
-}));
+});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (redisConfig);
+const getRedisConfig = () => {
+    return redisConfig();
+};
 const getRedisOptions = () => {
-    const config = defaultConfig();
+    const config = getRedisConfig();
     return {
         host: config.host,
         port: config.port,
@@ -996,12 +1456,22 @@ const getRedisOptions = () => {
             return Math.min(times * 1000, config.retryStrategy.maxDelay);
         },
         maxRetriesPerRequest: config.maxRetriesPerRequest,
-        connectionTimeout: config.connectionTimeout,
+        connectTimeout: config.connectTimeout,
     };
 };
 const getCacheConfig = () => {
-    const config = defaultConfig();
-    return Object.assign(Object.assign({ store: 'redis' }, getRedisOptions()), { ttl: config.cache.ttl, max: config.cache.max });
+    const config = getRedisConfig();
+    const redisOptions = getRedisOptions();
+    return {
+        store: 'redis',
+        host: redisOptions.host || 'localhost',
+        port: redisOptions.port || 6379,
+        password: redisOptions.password,
+        db: redisOptions.db || 0,
+        keyPrefix: redisOptions.keyPrefix || '',
+        max: config.cache.max,
+        ttlSeconds: config.cache.cacheTtl,
+    };
 };
 const redisKeys = {
     userSession: (userId) => `session:${userId}`,
@@ -1015,32 +1485,21 @@ const redisKeys = {
 
 /***/ }),
 
-/***/ "./src/jobs/appointment-reminder.job.ts":
-/*!**********************************************!*\
-  !*** ./src/jobs/appointment-reminder.job.ts ***!
-  \**********************************************/
+/***/ "./src/config/throttler.config.ts":
+/*!****************************************!*\
+  !*** ./src/config/throttler.config.ts ***!
+  \****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   AppointmentReminderJob: () => (/* binding */ AppointmentReminderJob)
+/* harmony export */   ThrottlerConfigService: () => (/* binding */ ThrottlerConfigService)
 /* harmony export */ });
 /* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
 /* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _nestjs_schedule__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nestjs/schedule */ "@nestjs/schedule");
-/* harmony import */ var _nestjs_schedule__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_schedule__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @nestjs/typeorm */ "@nestjs/typeorm");
-/* harmony import */ var _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! typeorm */ "typeorm");
-/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(typeorm__WEBPACK_IMPORTED_MODULE_3__);
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../modules/emails/email.service'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-/* harmony import */ var _modules_sms_sms_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../modules/sms/sms.service */ "./src/modules/sms/sms.service.ts");
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../modules/whatsapp/whatsapp.service'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../modules/notifications/notification.service'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-/* harmony import */ var _modules_appointments_entities_appointment_entity__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../modules/appointments/entities/appointment.entity */ "./src/modules/appointments/entities/appointment.entity.ts");
-/* harmony import */ var _modules_contacts_entities_contact_entity__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../modules/contacts/entities/contact.entity */ "./src/modules/contacts/entities/contact.entity.ts");
-/* harmony import */ var _modules_organizations_entities_organization_entity__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../modules/organizations/entities/organization.entity */ "./src/modules/organizations/entities/organization.entity.ts");
+/* harmony import */ var _nestjs_config__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nestjs/config */ "@nestjs/config");
+/* harmony import */ var _nestjs_config__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_config__WEBPACK_IMPORTED_MODULE_1__);
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1050,177 +1509,23 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
-    return function (target, key) { decorator(target, key, paramIndex); }
-};
-var AppointmentReminderJob_1;
-var _a, _b, _c;
 
 
-
-
-
-
-
-
-
-
-
-let AppointmentReminderJob = AppointmentReminderJob_1 = class AppointmentReminderJob {
-    constructor(appointmentRepository, contactRepository, organizationRepository, emailService, smsService, whatsappService, notificationService) {
-        this.appointmentRepository = appointmentRepository;
-        this.contactRepository = contactRepository;
-        this.organizationRepository = organizationRepository;
-        this.emailService = emailService;
-        this.smsService = smsService;
-        this.whatsappService = whatsappService;
-        this.notificationService = notificationService;
-        this.logger = new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.Logger(AppointmentReminderJob_1.name);
+let ThrottlerConfigService = class ThrottlerConfigService {
+    constructor(configService) {
+        this.configService = configService;
     }
-    async handleAppointmentReminders() {
-        try {
-            this.logger.log('Starting appointment reminder job');
-            const appointments = await this.getUpcomingAppointments();
-            const reminderGroups = this.groupAppointmentsByReminderType(appointments);
-            await Promise.all([
-                this.processEmailReminders(reminderGroups.email),
-                this.processSmsReminders(reminderGroups.sms),
-                this.processWhatsappReminders(reminderGroups.whatsapp),
-            ]);
-            this.logger.log(`Processed ${appointments.length} appointment reminders`);
-        }
-        catch (error) {
-            this.logger.error('Error processing appointment reminders:', error);
-            await this.notificationService.notifyError('Appointment Reminder Job', error);
-        }
-    }
-    async getUpcomingAppointments() {
-        const now = new Date();
-        const tomorrow = new Date(now.getTime() + 24 * 60 * 60 * 1000);
-        return this.appointmentRepository.find({
-            where: {
-                startTime: (0,typeorm__WEBPACK_IMPORTED_MODULE_3__.LessThanOrEqual)(tomorrow),
-                status: 'CONFIRMED',
-                reminderSent: false,
-            },
-            relations: ['contact', 'doctor', 'organization'],
-            order: {
-                startTime: 'ASC',
-            },
-        });
-    }
-    groupAppointmentsByReminderType(appointments) {
-        return appointments.reduce((acc, appointment) => {
-            const contact = appointment.contact;
-            if (contact.allowEmail && contact.email) {
-                acc.email.push(appointment);
-            }
-            if (contact.allowSMS && contact.phone) {
-                acc.sms.push(appointment);
-            }
-            if (contact.allowWhatsApp && contact.whatsapp) {
-                acc.whatsapp.push(appointment);
-            }
-            return acc;
-        }, { email: [], sms: [], whatsapp: [] });
-    }
-    async processEmailReminders(appointments) {
-        for (const appointment of appointments) {
-            try {
-                await this.emailService.sendAppointmentReminder(appointment.contact.email, {
-                    appointmentId: appointment.id,
-                    patientName: `${appointment.contact.firstName} ${appointment.contact.lastName}`,
-                    doctorName: `Dr. ${appointment.doctor.firstName} ${appointment.doctor.lastName}`,
-                    dateTime: appointment.startTime,
-                    location: appointment.location,
-                    notes: appointment.notes,
-                    organizationName: appointment.organization.name,
-                });
-                await this.markReminderSent(appointment.id);
-            }
-            catch (error) {
-                this.logger.error(`Error sending email reminder for appointment ${appointment.id}:`, error);
-            }
-        }
-    }
-    async processSmsReminders(appointments) {
-        for (const appointment of appointments) {
-            try {
-                await this.smsService.sendAppointmentReminder(appointment.contact.phone, {
-                    appointmentId: appointment.id,
-                    patientName: `${appointment.contact.firstName} ${appointment.contact.lastName}`,
-                    dateTime: appointment.startTime,
-                    organizationName: appointment.organization.name,
-                });
-                await this.markReminderSent(appointment.id);
-            }
-            catch (error) {
-                this.logger.error(`Error sending SMS reminder for appointment ${appointment.id}:`, error);
-            }
-        }
-    }
-    async processWhatsappReminders(appointments) {
-        for (const appointment of appointments) {
-            try {
-                await this.whatsappService.sendAppointmentReminder(appointment.contact.whatsapp, {
-                    appointmentId: appointment.id,
-                    patientName: `${appointment.contact.firstName} ${appointment.contact.lastName}`,
-                    doctorName: `Dr. ${appointment.doctor.firstName} ${appointment.doctor.lastName}`,
-                    dateTime: appointment.startTime,
-                    location: appointment.location,
-                    organizationName: appointment.organization.name,
-                });
-                await this.markReminderSent(appointment.id);
-            }
-            catch (error) {
-                this.logger.error(`Error sending WhatsApp reminder for appointment ${appointment.id}:`, error);
-            }
-        }
-    }
-    async markReminderSent(appointmentId) {
-        await this.appointmentRepository.update(appointmentId, {
-            reminderSent: true,
-            reminderSentAt: new Date(),
-        });
-    }
-    async cleanupOldReminders() {
-        try {
-            const thirtyDaysAgo = new Date();
-            thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
-            await this.appointmentRepository.update({
-                startTime: (0,typeorm__WEBPACK_IMPORTED_MODULE_3__.LessThanOrEqual)(thirtyDaysAgo),
-                reminderSent: true,
-            }, {
-                reminderSent: false,
-                reminderSentAt: null,
-            });
-        }
-        catch (error) {
-            this.logger.error('Error cleaning up old reminders:', error);
-        }
+    createThrottlerOptions() {
+        return {
+            ttl: this.configService.get('app.throttleTtl') || 60,
+            limit: this.configService.get('app.throttleLimit') || 10,
+        };
     }
 };
-__decorate([
-    (0,_nestjs_schedule__WEBPACK_IMPORTED_MODULE_1__.Cron)(_nestjs_schedule__WEBPACK_IMPORTED_MODULE_1__.CronExpression.EVERY_10_MINUTES),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", Promise)
-], AppointmentReminderJob.prototype, "handleAppointmentReminders", null);
-__decorate([
-    (0,_nestjs_schedule__WEBPACK_IMPORTED_MODULE_1__.Cron)(_nestjs_schedule__WEBPACK_IMPORTED_MODULE_1__.CronExpression.EVERY_DAY_AT_MIDNIGHT),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", Promise)
-], AppointmentReminderJob.prototype, "cleanupOldReminders", null);
-AppointmentReminderJob = AppointmentReminderJob_1 = __decorate([
+ThrottlerConfigService = __decorate([
     (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.Injectable)(),
-    __param(0, (0,_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_2__.InjectRepository)(_modules_appointments_entities_appointment_entity__WEBPACK_IMPORTED_MODULE_6__.Appointment)),
-    __param(1, (0,_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_2__.InjectRepository)(_modules_contacts_entities_contact_entity__WEBPACK_IMPORTED_MODULE_7__.Contact)),
-    __param(2, (0,_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_2__.InjectRepository)(_modules_organizations_entities_organization_entity__WEBPACK_IMPORTED_MODULE_8__.Organization)),
-    __metadata("design:paramtypes", [typeorm__WEBPACK_IMPORTED_MODULE_3__.Repository,
-        typeorm__WEBPACK_IMPORTED_MODULE_3__.Repository,
-        typeorm__WEBPACK_IMPORTED_MODULE_3__.Repository, typeof (_a = typeof Object(function webpackMissingModule() { var e = new Error("Cannot find module '../modules/emails/email.service'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()) !== "undefined" && Object(function webpackMissingModule() { var e = new Error("Cannot find module '../modules/emails/email.service'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())) === "function" ? _a : Object, _modules_sms_sms_service__WEBPACK_IMPORTED_MODULE_5__.SmsService, typeof (_b = typeof Object(function webpackMissingModule() { var e = new Error("Cannot find module '../modules/whatsapp/whatsapp.service'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()) !== "undefined" && Object(function webpackMissingModule() { var e = new Error("Cannot find module '../modules/whatsapp/whatsapp.service'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())) === "function" ? _b : Object, typeof (_c = typeof Object(function webpackMissingModule() { var e = new Error("Cannot find module '../modules/notifications/notification.service'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()) !== "undefined" && Object(function webpackMissingModule() { var e = new Error("Cannot find module '../modules/notifications/notification.service'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())) === "function" ? _c : Object])
-], AppointmentReminderJob);
+    __metadata("design:paramtypes", [_nestjs_config__WEBPACK_IMPORTED_MODULE_1__.ConfigService])
+], ThrottlerConfigService);
 
 
 
@@ -1235,48 +1540,27 @@ AppointmentReminderJob = AppointmentReminderJob_1 = __decorate([
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   APPOINTMENT_TYPE_METADATA: () => (/* reexport safe */ _enums_appointment_type_enum__WEBPACK_IMPORTED_MODULE_15__.APPOINTMENT_TYPE_METADATA),
-/* harmony export */   Appointment: () => (/* reexport safe */ _entities_appointment_entity__WEBPACK_IMPORTED_MODULE_7__.Appointment),
 /* harmony export */   AppointmentEventTypes: () => (/* binding */ AppointmentEventTypes),
-/* harmony export */   AppointmentStatus: () => (/* reexport safe */ _enums_appointment_status_enum__WEBPACK_IMPORTED_MODULE_14__.AppointmentStatus),
-/* harmony export */   AppointmentType: () => (/* reexport safe */ _enums_appointment_type_enum__WEBPACK_IMPORTED_MODULE_15__.AppointmentType),
-/* harmony export */   AppointmentsModule: () => (/* binding */ AppointmentsModule),
-/* harmony export */   AppointmentsModuleAsync: () => (/* binding */ AppointmentsModuleAsync),
-/* harmony export */   CreateAppointmentDto: () => (/* reexport safe */ _dto_create_appointment_dto__WEBPACK_IMPORTED_MODULE_12__.CreateAppointmentDto),
-/* harmony export */   STATUS_METADATA: () => (/* reexport safe */ _enums_appointment_status_enum__WEBPACK_IMPORTED_MODULE_14__.STATUS_METADATA),
-/* harmony export */   UpdateAppointmentDto: () => (/* reexport safe */ _dto_update_appointment_dto__WEBPACK_IMPORTED_MODULE_13__.UpdateAppointmentDto)
+/* harmony export */   AuthModule: () => (/* binding */ AuthModule)
 /* harmony export */ });
-/* empty/unused harmony star reexport */
-/* empty/unused harmony star reexport */
 /* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
 /* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nestjs/typeorm */ "@nestjs/typeorm");
-/* harmony import */ var _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _nestjs_bull__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @nestjs/bull */ "../node_modules/@nestjs/bull/dist/index.js");
-/* harmony import */ var _nestjs_bull__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_nestjs_bull__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @nestjs/event-emitter */ "@nestjs/event-emitter");
-/* harmony import */ var _nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _controllers_appointments_controller__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./controllers/appointments.controller */ "./src/modules/appointments/controllers/appointments.controller.ts");
-Object(function webpackMissingModule() { var e = new Error("Cannot find module './controllers/doctor-schedule.controller'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-/* harmony import */ var _services_appointments_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./services/appointments.service */ "./src/modules/appointments/services/appointments.service.ts");
-Object(function webpackMissingModule() { var e = new Error("Cannot find module './services/doctor-schedule.service'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module './services/appointment-reminder.service'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-/* harmony import */ var _entities_appointment_entity__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./entities/appointment.entity */ "./src/modules/appointments/entities/appointment.entity.ts");
-Object(function webpackMissingModule() { var e = new Error("Cannot find module './entities/doctor-schedule.entity'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module './entities/appointment-reminder.entity'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-/* harmony import */ var _jobs_appointment_reminder_job__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../jobs/appointment-reminder.job */ "./src/jobs/appointment-reminder.job.ts");
-Object(function webpackMissingModule() { var e = new Error("Cannot find module './subscribers/appointment.subscriber'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-/* harmony import */ var _users_users_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../users/users.module */ "./src/modules/users/users.module.ts");
-/* harmony import */ var _contacts_contacts_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../contacts/contacts.module */ "./src/modules/contacts/contacts.module.ts");
-/* harmony import */ var _notifications_notifications_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../notifications/notifications.module */ "./src/modules/notifications/notifications.module.ts");
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../email/email.module'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../sms/sms.module'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../whatsapp/whatsapp.module'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-/* harmony import */ var _dto_create_appointment_dto__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./dto/create-appointment.dto */ "./src/modules/appointments/dto/create-appointment.dto.ts");
-/* harmony import */ var _dto_update_appointment_dto__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./dto/update-appointment.dto */ "./src/modules/appointments/dto/update-appointment.dto.ts");
-/* harmony import */ var _enums_appointment_status_enum__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./enums/appointment-status.enum */ "./src/modules/appointments/enums/appointment-status.enum.ts");
-/* harmony import */ var _enums_appointment_type_enum__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./enums/appointment-type.enum */ "./src/modules/appointments/enums/appointment-type.enum.ts");
-Object(function webpackMissingModule() { var e = new Error("Cannot find module './interfaces/appointment.interface'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var _nestjs_jwt__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nestjs/jwt */ "@nestjs/jwt");
+/* harmony import */ var _nestjs_jwt__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_jwt__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _nestjs_passport__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @nestjs/passport */ "@nestjs/passport");
+/* harmony import */ var _nestjs_passport__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_nestjs_passport__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @nestjs/typeorm */ "@nestjs/typeorm");
+/* harmony import */ var _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _nestjs_config__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @nestjs/config */ "@nestjs/config");
+/* harmony import */ var _nestjs_config__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_nestjs_config__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _auth_controllers_auth_controller__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../auth/controllers/auth.controller */ "./src/modules/auth/controllers/auth.controller.ts");
+/* harmony import */ var _auth_services_auth_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../auth/services/auth.service */ "./src/modules/auth/services/auth.service.ts");
+/* harmony import */ var _auth_strategies_jwt_strategy__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../auth/strategies/jwt.strategy */ "./src/modules/auth/strategies/jwt.strategy.ts");
+/* harmony import */ var _auth_guards_jwt_auth_guard__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../auth/guards/jwt-auth.guard */ "./src/modules/auth/guards/jwt-auth.guard.ts");
+/* harmony import */ var _auth_entities_refresh_token_entity__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../auth/entities/refresh-token.entity */ "./src/modules/auth/entities/refresh-token.entity.ts");
+/* harmony import */ var _users_entities_user_entity__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts");
+/* harmony import */ var _organizations_entities_organization_entity__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../organizations/entities/organization.entity */ "./src/modules/organizations/entities/organization.entity.ts");
+/* harmony import */ var _users_users_module__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../users/users.module */ "./src/modules/users/users.module.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1296,928 +1580,48 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
-
-
-
-
-
-
-
-let AppointmentsModule = class AppointmentsModule {
-    configure(consumer) {
-    }
-    onModuleInit() {
-    }
-    onModuleDestroy() {
-    }
-};
-AppointmentsModule = __decorate([
-    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.Module)({
-        imports: [
-            _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__.TypeOrmModule.forFeature([
-                _entities_appointment_entity__WEBPACK_IMPORTED_MODULE_7__.Appointment,
-                Object(function webpackMissingModule() { var e = new Error("Cannot find module './entities/doctor-schedule.entity'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
-                Object(function webpackMissingModule() { var e = new Error("Cannot find module './entities/appointment-reminder.entity'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
-            ]),
-            _nestjs_bull__WEBPACK_IMPORTED_MODULE_2__.BullModule.registerQueue({
-                name: 'appointments',
-                defaultJobOptions: {
-                    attempts: 3,
-                    backoff: {
-                        type: 'exponential',
-                        delay: 1000,
-                    },
-                    removeOnComplete: true,
-                },
-            }),
-            _nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_3__.EventEmitterModule.forRoot({
-                wildcard: true,
-                delimiter: '.',
-                newListener: false,
-                removeListener: false,
-                maxListeners: 10,
-                verboseMemoryLeak: true,
-                ignoreErrors: false,
-            }),
-            _users_users_module__WEBPACK_IMPORTED_MODULE_9__.UsersModule,
-            _contacts_contacts_module__WEBPACK_IMPORTED_MODULE_10__.ContactsModule,
-            _notifications_notifications_module__WEBPACK_IMPORTED_MODULE_11__.NotificationsModule,
-            Object(function webpackMissingModule() { var e = new Error("Cannot find module '../email/email.module'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
-            Object(function webpackMissingModule() { var e = new Error("Cannot find module '../sms/sms.module'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
-            Object(function webpackMissingModule() { var e = new Error("Cannot find module '../whatsapp/whatsapp.module'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
-        ],
-        controllers: [
-            _controllers_appointments_controller__WEBPACK_IMPORTED_MODULE_4__.AppointmentsController,
-            Object(function webpackMissingModule() { var e = new Error("Cannot find module './controllers/doctor-schedule.controller'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
-        ],
-        providers: [
-            _services_appointments_service__WEBPACK_IMPORTED_MODULE_6__.AppointmentsService,
-            Object(function webpackMissingModule() { var e = new Error("Cannot find module './services/doctor-schedule.service'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
-            Object(function webpackMissingModule() { var e = new Error("Cannot find module './services/appointment-reminder.service'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
-            _jobs_appointment_reminder_job__WEBPACK_IMPORTED_MODULE_8__.AppointmentReminderJob,
-            Object(function webpackMissingModule() { var e = new Error("Cannot find module './subscribers/appointment.subscriber'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
-        ],
-        exports: [
-            _services_appointments_service__WEBPACK_IMPORTED_MODULE_6__.AppointmentsService,
-            Object(function webpackMissingModule() { var e = new Error("Cannot find module './services/doctor-schedule.service'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
-            Object(function webpackMissingModule() { var e = new Error("Cannot find module './services/appointment-reminder.service'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
-        ],
-    })
-], AppointmentsModule);
-
-class AppointmentsModuleAsync {
-    static forRoot(options) {
-        return {
-            module: AppointmentsModule,
-            providers: [
-                {
-                    provide: 'APPOINTMENTS_OPTIONS',
-                    useValue: options,
-                },
-            ],
-        };
-    }
-    static forRootAsync(options) {
-        return {
-            module: AppointmentsModule,
-            imports: options.imports || [],
-            providers: [
-                {
-                    provide: 'APPOINTMENTS_OPTIONS',
-                    useFactory: options.useFactory,
-                    inject: options.inject || [],
-                },
-            ],
-        };
-    }
-}
 var AppointmentEventTypes;
 (function (AppointmentEventTypes) {
     AppointmentEventTypes["CREATED"] = "appointment.created";
     AppointmentEventTypes["UPDATED"] = "appointment.updated";
     AppointmentEventTypes["CANCELLED"] = "appointment.cancelled";
-    AppointmentEventTypes["RESCHEDULED"] = "appointment.rescheduled";
     AppointmentEventTypes["COMPLETED"] = "appointment.completed";
-    AppointmentEventTypes["REMINDER_SENT"] = "appointment.reminder.sent";
+    AppointmentEventTypes["RESCHEDULED"] = "appointment.rescheduled";
 })(AppointmentEventTypes || (AppointmentEventTypes = {}));
-
-
-
-
-
-
-
-
-
-/***/ }),
-
-/***/ "./src/modules/appointments/controllers/appointments.controller.ts":
-/*!*************************************************************************!*\
-  !*** ./src/modules/appointments/controllers/appointments.controller.ts ***!
-  \*************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   AppointmentsController: () => (/* binding */ AppointmentsController)
-/* harmony export */ });
-/* harmony import */ var _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/swagger */ "@nestjs/swagger");
-/* harmony import */ var _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
-/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _nestjs_passport__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @nestjs/passport */ "@nestjs/passport");
-/* harmony import */ var _nestjs_passport__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_nestjs_passport__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _auth_guards_roles_guard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../auth/guards/roles.guard */ "./src/modules/auth/guards/roles.guard.ts");
-/* harmony import */ var _services_appointments_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../services/appointments.service */ "./src/modules/appointments/services/appointments.service.ts");
-/* harmony import */ var _dto_create_appointment_dto__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../dto/create-appointment.dto */ "./src/modules/appointments/dto/create-appointment.dto.ts");
-/* harmony import */ var _dto_update_appointment_dto__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../dto/update-appointment.dto */ "./src/modules/appointments/dto/update-appointment.dto.ts");
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../dto/appointment-query.dto'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../dto/reschedule-appointment.dto'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../auth/decorators/roles.decorator'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-/* harmony import */ var _users_enums_role_enum__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../users/enums/role.enum */ "./src/modules/users/enums/role.enum.ts");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
+let AuthModule = class AuthModule {
 };
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
-    return function (target, key) { decorator(target, key, paramIndex); }
-};
-var _a, _b, _c, _d;
+AuthModule = __decorate([
+    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.Module)({
+        imports: [
+            _nestjs_config__WEBPACK_IMPORTED_MODULE_4__.ConfigModule,
+            _nestjs_passport__WEBPACK_IMPORTED_MODULE_2__.PassportModule.register({ defaultStrategy: 'jwt' }),
+            _nestjs_jwt__WEBPACK_IMPORTED_MODULE_1__.JwtModule.registerAsync({
+                imports: [_nestjs_config__WEBPACK_IMPORTED_MODULE_4__.ConfigModule],
+                inject: [_nestjs_config__WEBPACK_IMPORTED_MODULE_4__.ConfigService],
+                useFactory: async (configService) => ({
+                    secret: configService.get('JWT_SECRET'),
+                    signOptions: {
+                        expiresIn: configService.get('JWT_EXPIRATION', '1h'),
+                    },
+                }),
+            }),
+            _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_3__.TypeOrmModule.forFeature([_users_entities_user_entity__WEBPACK_IMPORTED_MODULE_10__.User, _auth_entities_refresh_token_entity__WEBPACK_IMPORTED_MODULE_9__.RefreshToken, _organizations_entities_organization_entity__WEBPACK_IMPORTED_MODULE_11__.Organization]),
+            _users_users_module__WEBPACK_IMPORTED_MODULE_12__.UsersModule,
+        ],
+        controllers: [_auth_controllers_auth_controller__WEBPACK_IMPORTED_MODULE_5__.AuthController],
+        providers: [
+            _auth_services_auth_service__WEBPACK_IMPORTED_MODULE_6__.AuthService,
+            _auth_strategies_jwt_strategy__WEBPACK_IMPORTED_MODULE_7__.JwtStrategy,
+            _auth_guards_jwt_auth_guard__WEBPACK_IMPORTED_MODULE_8__.JwtAuthGuard,
+        ],
+        exports: [
+            _auth_services_auth_service__WEBPACK_IMPORTED_MODULE_6__.AuthService,
+            _auth_guards_jwt_auth_guard__WEBPACK_IMPORTED_MODULE_8__.JwtAuthGuard,
+            _nestjs_passport__WEBPACK_IMPORTED_MODULE_2__.PassportModule,
+        ],
+    })
+], AuthModule);
 
-
-
-
-
-
-
-
-
-
-
-
-let AppointmentsController = class AppointmentsController {
-    constructor(appointmentsService) {
-        this.appointmentsService = appointmentsService;
-    }
-    async create(createAppointmentDto, req) {
-        return this.appointmentsService.create(Object.assign(Object.assign({}, createAppointmentDto), { organizationId: req.organization.id, createdBy: req.user.id }));
-    }
-    async findAll(query, req) {
-        return this.appointmentsService.findAll(Object.assign(Object.assign({}, query), { organizationId: req.organization.id }));
-    }
-    async getCalendar(start, end, doctorId, req) {
-        return this.appointmentsService.getCalendarEvents({
-            start,
-            end,
-            doctorId,
-            organizationId: req.organization.id,
-        });
-    }
-    async getDoctorAppointments(doctorId, query, req) {
-        return this.appointmentsService.findAll(Object.assign(Object.assign({}, query), { doctorId, organizationId: req.organization.id }));
-    }
-    async getPatientAppointments(patientId, query, req) {
-        return this.appointmentsService.findAll(Object.assign(Object.assign({}, query), { patientId, organizationId: req.organization.id }));
-    }
-    async getAvailableSlots(doctorId, date, req) {
-        return this.appointmentsService.getAvailableSlots({
-            doctorId,
-            date,
-            organizationId: req.organization.id,
-        });
-    }
-    async findOne(id, req) {
-        return this.appointmentsService.findOne(id, req.organization.id);
-    }
-    async update(id, updateAppointmentDto, req) {
-        return this.appointmentsService.update(id, Object.assign(Object.assign({}, updateAppointmentDto), { organizationId: req.organization.id, updatedBy: req.user.id }));
-    }
-    async reschedule(id, rescheduleDto, req) {
-        return this.appointmentsService.reschedule(id, Object.assign(Object.assign({}, rescheduleDto), { organizationId: req.organization.id, updatedBy: req.user.id }));
-    }
-    async confirm(id, req) {
-        return this.appointmentsService.confirm(id, {
-            organizationId: req.organization.id,
-            updatedBy: req.user.id,
-        });
-    }
-    async cancel(id, reason, req) {
-        return this.appointmentsService.cancel(id, {
-            reason,
-            organizationId: req.organization.id,
-            updatedBy: req.user.id,
-        });
-    }
-    async remove(id, req) {
-        await this.appointmentsService.remove(id, req.organization.id);
-    }
-    async getStatistics(startDate, endDate, doctorId, req) {
-        return this.appointmentsService.getStatistics({
-            startDate,
-            endDate,
-            doctorId,
-            organizationId: req.organization.id,
-        });
-    }
-};
-__decorate([
-    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Post)(),
-    Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../auth/decorators/roles.decorator'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_users_enums_role_enum__WEBPACK_IMPORTED_MODULE_8__.Role.ADMIN, _users_enums_role_enum__WEBPACK_IMPORTED_MODULE_8__.Role.DOCTOR, _users_enums_role_enum__WEBPACK_IMPORTED_MODULE_8__.Role.STAFF),
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Create new appointment' }),
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse)({ status: _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.CREATED, description: 'Appointment created successfully' }),
-    _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 201, type: (__webpack_require__(/*! ../entities/appointment.entity */ "./src/modules/appointments/entities/appointment.entity.ts").Appointment) }),
-    __param(0, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Body)()),
-    __param(1, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Request)()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [_dto_create_appointment_dto__WEBPACK_IMPORTED_MODULE_5__.CreateAppointmentDto, Object]),
-    __metadata("design:returntype", Promise)
-], AppointmentsController.prototype, "create", null);
-__decorate([
-    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Get)(),
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Get all appointments' }),
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse)({ status: _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.OK, description: 'Return all appointments' }),
-    _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 200 }),
-    __param(0, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Query)()),
-    __param(1, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Request)()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [typeof (_a = typeof Object(function webpackMissingModule() { var e = new Error("Cannot find module '../dto/appointment-query.dto'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()) !== "undefined" && Object(function webpackMissingModule() { var e = new Error("Cannot find module '../dto/appointment-query.dto'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())) === "function" ? _a : Object, Object]),
-    __metadata("design:returntype", Promise)
-], AppointmentsController.prototype, "findAll", null);
-__decorate([
-    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Get)('calendar'),
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Get appointments in calendar format' }),
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse)({ status: _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.OK, description: 'Return appointments for calendar' }),
-    _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 200, type: Object }),
-    __param(0, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Query)('start')),
-    __param(1, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Query)('end')),
-    __param(2, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Query)('doctorId')),
-    __param(3, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Request)()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Date,
-        Date, String, Object]),
-    __metadata("design:returntype", Promise)
-], AppointmentsController.prototype, "getCalendar", null);
-__decorate([
-    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Get)('doctor/:doctorId'),
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Get doctor appointments' }),
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse)({ status: _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.OK, description: 'Return doctor appointments' }),
-    _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 200 }),
-    __param(0, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Param)('doctorId', _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.ParseUUIDPipe)),
-    __param(1, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Query)()),
-    __param(2, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Request)()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, typeof (_b = typeof Object(function webpackMissingModule() { var e = new Error("Cannot find module '../dto/appointment-query.dto'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()) !== "undefined" && Object(function webpackMissingModule() { var e = new Error("Cannot find module '../dto/appointment-query.dto'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())) === "function" ? _b : Object, Object]),
-    __metadata("design:returntype", Promise)
-], AppointmentsController.prototype, "getDoctorAppointments", null);
-__decorate([
-    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Get)('patient/:patientId'),
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Get patient appointments' }),
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse)({ status: _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.OK, description: 'Return patient appointments' }),
-    _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 200 }),
-    __param(0, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Param)('patientId', _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.ParseUUIDPipe)),
-    __param(1, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Query)()),
-    __param(2, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Request)()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, typeof (_c = typeof Object(function webpackMissingModule() { var e = new Error("Cannot find module '../dto/appointment-query.dto'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()) !== "undefined" && Object(function webpackMissingModule() { var e = new Error("Cannot find module '../dto/appointment-query.dto'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())) === "function" ? _c : Object, Object]),
-    __metadata("design:returntype", Promise)
-], AppointmentsController.prototype, "getPatientAppointments", null);
-__decorate([
-    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Get)('available-slots'),
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Get available appointment slots' }),
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse)({ status: _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.OK, description: 'Return available slots' }),
-    _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 200, type: Object }),
-    __param(0, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Query)('doctorId', _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.ParseUUIDPipe)),
-    __param(1, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Query)('date')),
-    __param(2, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Request)()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, Date, Object]),
-    __metadata("design:returntype", Promise)
-], AppointmentsController.prototype, "getAvailableSlots", null);
-__decorate([
-    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Get)(':id'),
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Get appointment by id' }),
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse)({ status: _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.OK, description: 'Return appointment' }),
-    _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 200, type: (__webpack_require__(/*! ../entities/appointment.entity */ "./src/modules/appointments/entities/appointment.entity.ts").Appointment) }),
-    __param(0, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Param)('id', _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.ParseUUIDPipe)),
-    __param(1, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Request)()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, Object]),
-    __metadata("design:returntype", Promise)
-], AppointmentsController.prototype, "findOne", null);
-__decorate([
-    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Put)(':id'),
-    Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../auth/decorators/roles.decorator'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_users_enums_role_enum__WEBPACK_IMPORTED_MODULE_8__.Role.ADMIN, _users_enums_role_enum__WEBPACK_IMPORTED_MODULE_8__.Role.DOCTOR, _users_enums_role_enum__WEBPACK_IMPORTED_MODULE_8__.Role.STAFF),
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Update appointment' }),
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse)({ status: _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.OK, description: 'Appointment updated successfully' }),
-    _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 200, type: (__webpack_require__(/*! ../entities/appointment.entity */ "./src/modules/appointments/entities/appointment.entity.ts").Appointment) }),
-    __param(0, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Param)('id', _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.ParseUUIDPipe)),
-    __param(1, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Body)()),
-    __param(2, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Request)()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, _dto_update_appointment_dto__WEBPACK_IMPORTED_MODULE_6__.UpdateAppointmentDto, Object]),
-    __metadata("design:returntype", Promise)
-], AppointmentsController.prototype, "update", null);
-__decorate([
-    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Put)(':id/reschedule'),
-    Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../auth/decorators/roles.decorator'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_users_enums_role_enum__WEBPACK_IMPORTED_MODULE_8__.Role.ADMIN, _users_enums_role_enum__WEBPACK_IMPORTED_MODULE_8__.Role.DOCTOR, _users_enums_role_enum__WEBPACK_IMPORTED_MODULE_8__.Role.STAFF),
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Reschedule appointment' }),
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse)({ status: _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.OK, description: 'Appointment rescheduled successfully' }),
-    _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 200, type: (__webpack_require__(/*! ../entities/appointment.entity */ "./src/modules/appointments/entities/appointment.entity.ts").Appointment) }),
-    __param(0, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Param)('id', _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.ParseUUIDPipe)),
-    __param(1, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Body)()),
-    __param(2, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Request)()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, typeof (_d = typeof Object(function webpackMissingModule() { var e = new Error("Cannot find module '../dto/reschedule-appointment.dto'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()) !== "undefined" && Object(function webpackMissingModule() { var e = new Error("Cannot find module '../dto/reschedule-appointment.dto'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())) === "function" ? _d : Object, Object]),
-    __metadata("design:returntype", Promise)
-], AppointmentsController.prototype, "reschedule", null);
-__decorate([
-    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Put)(':id/confirm'),
-    Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../auth/decorators/roles.decorator'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_users_enums_role_enum__WEBPACK_IMPORTED_MODULE_8__.Role.ADMIN, _users_enums_role_enum__WEBPACK_IMPORTED_MODULE_8__.Role.DOCTOR, _users_enums_role_enum__WEBPACK_IMPORTED_MODULE_8__.Role.STAFF),
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Confirm appointment' }),
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse)({ status: _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.OK, description: 'Appointment confirmed successfully' }),
-    _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 200, type: (__webpack_require__(/*! ../entities/appointment.entity */ "./src/modules/appointments/entities/appointment.entity.ts").Appointment) }),
-    __param(0, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Param)('id', _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.ParseUUIDPipe)),
-    __param(1, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Request)()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, Object]),
-    __metadata("design:returntype", Promise)
-], AppointmentsController.prototype, "confirm", null);
-__decorate([
-    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Put)(':id/cancel'),
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Cancel appointment' }),
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse)({ status: _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.OK, description: 'Appointment cancelled successfully' }),
-    _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 200, type: (__webpack_require__(/*! ../entities/appointment.entity */ "./src/modules/appointments/entities/appointment.entity.ts").Appointment) }),
-    __param(0, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Param)('id', _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.ParseUUIDPipe)),
-    __param(1, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Body)('reason')),
-    __param(2, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Request)()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, String, Object]),
-    __metadata("design:returntype", Promise)
-], AppointmentsController.prototype, "cancel", null);
-__decorate([
-    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Delete)(':id'),
-    Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../auth/decorators/roles.decorator'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_users_enums_role_enum__WEBPACK_IMPORTED_MODULE_8__.Role.ADMIN),
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Delete appointment' }),
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse)({ status: _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.NO_CONTENT, description: 'Appointment deleted successfully' }),
-    _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 200 }),
-    __param(0, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Param)('id', _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.ParseUUIDPipe)),
-    __param(1, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Request)()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, Object]),
-    __metadata("design:returntype", Promise)
-], AppointmentsController.prototype, "remove", null);
-__decorate([
-    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Get)('statistics/summary'),
-    Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../auth/decorators/roles.decorator'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_users_enums_role_enum__WEBPACK_IMPORTED_MODULE_8__.Role.ADMIN, _users_enums_role_enum__WEBPACK_IMPORTED_MODULE_8__.Role.DOCTOR),
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Get appointments statistics' }),
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse)({ status: _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.OK, description: 'Return appointments statistics' }),
-    _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 200 }),
-    __param(0, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Query)('startDate')),
-    __param(1, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Query)('endDate')),
-    __param(2, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Query)('doctorId')),
-    __param(3, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Request)()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Date,
-        Date, String, Object]),
-    __metadata("design:returntype", Promise)
-], AppointmentsController.prototype, "getStatistics", null);
-AppointmentsController = __decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiTags)('Appointments'),
-    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Controller)('appointments'),
-    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.UseGuards)((0,_nestjs_passport__WEBPACK_IMPORTED_MODULE_2__.AuthGuard)('jwt'), _auth_guards_roles_guard__WEBPACK_IMPORTED_MODULE_3__.RolesGuard),
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiBearerAuth)(),
-    __metadata("design:paramtypes", [_services_appointments_service__WEBPACK_IMPORTED_MODULE_4__.AppointmentsService])
-], AppointmentsController);
-
-
-
-/***/ }),
-
-/***/ "./src/modules/appointments/dto/create-appointment.dto.ts":
-/*!****************************************************************!*\
-  !*** ./src/modules/appointments/dto/create-appointment.dto.ts ***!
-  \****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   CreateAppointmentDto: () => (/* binding */ CreateAppointmentDto)
-/* harmony export */ });
-/* harmony import */ var _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/swagger */ "@nestjs/swagger");
-/* harmony import */ var _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var class_validator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! class-validator */ "class-validator");
-/* harmony import */ var class_validator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(class_validator__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! class-transformer */ "class-transformer");
-/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(class_transformer__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _enums_appointment_type_enum__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../enums/appointment-type.enum */ "./src/modules/appointments/enums/appointment-type.enum.ts");
-/* harmony import */ var _enums_appointment_priority_enum__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../enums/appointment-priority.enum */ "./src/modules/appointments/enums/appointment-priority.enum.ts");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-class CreateAppointmentDto {
-    static _OPENAPI_METADATA_FACTORY() {
-        return { patientId: { required: true, type: () => String }, doctorId: { required: true, type: () => String }, startTime: { required: true, type: () => String }, endTime: { required: true, type: () => String }, type: { required: true, enum: (__webpack_require__(/*! ../enums/appointment-type.enum */ "./src/modules/appointments/enums/appointment-type.enum.ts").AppointmentType) }, priority: { required: false, enum: (__webpack_require__(/*! ../enums/appointment-priority.enum */ "./src/modules/appointments/enums/appointment-priority.enum.ts").AppointmentPriority) }, title: { required: true, type: () => String, minLength: 3, maxLength: 100 }, description: { required: false, type: () => String, maxLength: 1000 }, location: { required: false, type: () => String, maxLength: 200 }, meetingLink: { required: false, type: () => String, maxLength: 500 }, sendReminders: { required: false, type: () => Boolean }, reminderPreferences: { required: false, type: () => ReminderPreferencesDto }, formData: { required: false, type: () => AppointmentFormDataDto }, metadata: { required: false, type: () => AppointmentMetadataDto } };
-    }
-}
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)({ description: 'Patient/Contact ID' }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsNotEmpty)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsUUID)(),
-    __metadata("design:type", String)
-], CreateAppointmentDto.prototype, "patientId", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)({ description: 'Doctor ID' }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsNotEmpty)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsUUID)(),
-    __metadata("design:type", String)
-], CreateAppointmentDto.prototype, "doctorId", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)({ description: 'Appointment start time', example: '2024-02-10T10:00:00Z' }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsNotEmpty)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsDateString)(),
-    __metadata("design:type", String)
-], CreateAppointmentDto.prototype, "startTime", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)({ description: 'Appointment end time', example: '2024-02-10T11:00:00Z' }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsNotEmpty)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsDateString)(),
-    __metadata("design:type", String)
-], CreateAppointmentDto.prototype, "endTime", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)({ enum: _enums_appointment_type_enum__WEBPACK_IMPORTED_MODULE_3__.AppointmentType, description: 'Type of appointment' }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsNotEmpty)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsEnum)(_enums_appointment_type_enum__WEBPACK_IMPORTED_MODULE_3__.AppointmentType),
-    __metadata("design:type", String)
-], CreateAppointmentDto.prototype, "type", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ enum: _enums_appointment_priority_enum__WEBPACK_IMPORTED_MODULE_4__.AppointmentPriority, description: 'Priority of appointment' }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsEnum)(_enums_appointment_priority_enum__WEBPACK_IMPORTED_MODULE_4__.AppointmentPriority),
-    __metadata("design:type", String)
-], CreateAppointmentDto.prototype, "priority", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)({ description: 'Title/Subject of appointment' }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsNotEmpty)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.MinLength)(3),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.MaxLength)(100),
-    __metadata("design:type", String)
-], CreateAppointmentDto.prototype, "title", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Detailed description of appointment' }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.MaxLength)(1000),
-    __metadata("design:type", String)
-], CreateAppointmentDto.prototype, "description", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Location of appointment' }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.MaxLength)(200),
-    __metadata("design:type", String)
-], CreateAppointmentDto.prototype, "location", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Meeting link for virtual appointments' }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.ValidateIf)(o => o.type === _enums_appointment_type_enum__WEBPACK_IMPORTED_MODULE_3__.AppointmentType.VIRTUAL),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.MaxLength)(500),
-    __metadata("design:type", String)
-], CreateAppointmentDto.prototype, "meetingLink", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Whether to send reminders' }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsBoolean)(),
-    __metadata("design:type", Boolean)
-], CreateAppointmentDto.prototype, "sendReminders", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Reminder preferences' }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Type)(() => ReminderPreferencesDto),
-    __metadata("design:type", ReminderPreferencesDto)
-], CreateAppointmentDto.prototype, "reminderPreferences", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Custom form data for appointment' }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Type)(() => AppointmentFormDataDto),
-    __metadata("design:type", AppointmentFormDataDto)
-], CreateAppointmentDto.prototype, "formData", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Additional metadata for appointment' }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Type)(() => AppointmentMetadataDto),
-    __metadata("design:type", AppointmentMetadataDto)
-], CreateAppointmentDto.prototype, "metadata", void 0);
-class ReminderPreferencesDto {
-    static _OPENAPI_METADATA_FACTORY() {
-        return { email: { required: false, type: () => Boolean }, sms: { required: false, type: () => Boolean }, whatsapp: { required: false, type: () => Boolean }, reminderTimes: { required: false, type: () => [Number] } };
-    }
-}
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Send email reminders' }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsBoolean)(),
-    __metadata("design:type", Boolean)
-], ReminderPreferencesDto.prototype, "email", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Send SMS reminders' }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsBoolean)(),
-    __metadata("design:type", Boolean)
-], ReminderPreferencesDto.prototype, "sms", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Send WhatsApp reminders' }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsBoolean)(),
-    __metadata("design:type", Boolean)
-], ReminderPreferencesDto.prototype, "whatsapp", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Reminder times in minutes before appointment' }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsArray)(),
-    (0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Type)(() => Number),
-    __metadata("design:type", Array)
-], ReminderPreferencesDto.prototype, "reminderTimes", void 0);
-class AppointmentFormDataDto {
-    static _OPENAPI_METADATA_FACTORY() {
-        return { chiefComplaint: { required: false, type: () => String, maxLength: 500 }, symptoms: { required: false, type: () => [String] }, duration: { required: false, type: () => String, maxLength: 100 }, notes: { required: false, type: () => String, maxLength: 1000 } };
-    }
-}
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Chief complaint' }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.MaxLength)(500),
-    __metadata("design:type", String)
-], AppointmentFormDataDto.prototype, "chiefComplaint", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Symptoms' }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsArray)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)({ each: true }),
-    __metadata("design:type", Array)
-], AppointmentFormDataDto.prototype, "symptoms", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Duration of symptoms' }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.MaxLength)(100),
-    __metadata("design:type", String)
-], AppointmentFormDataDto.prototype, "duration", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Additional notes' }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.MaxLength)(1000),
-    __metadata("design:type", String)
-], AppointmentFormDataDto.prototype, "notes", void 0);
-class AppointmentMetadataDto {
-    static _OPENAPI_METADATA_FACTORY() {
-        return { referralSource: { required: false, type: () => String }, insurance: { required: false, type: () => String }, tags: { required: false, type: () => [String] }, externalId: { required: false, type: () => String } };
-    }
-}
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Referral source' }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
-    __metadata("design:type", String)
-], AppointmentMetadataDto.prototype, "referralSource", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Insurance information' }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
-    __metadata("design:type", String)
-], AppointmentMetadataDto.prototype, "insurance", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Custom tags' }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsArray)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)({ each: true }),
-    __metadata("design:type", Array)
-], AppointmentMetadataDto.prototype, "tags", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'External reference ID' }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
-    __metadata("design:type", String)
-], AppointmentMetadataDto.prototype, "externalId", void 0);
-
-
-/***/ }),
-
-/***/ "./src/modules/appointments/dto/update-appointment.dto.ts":
-/*!****************************************************************!*\
-  !*** ./src/modules/appointments/dto/update-appointment.dto.ts ***!
-  \****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   UpdateAppointmentDto: () => (/* binding */ UpdateAppointmentDto)
-/* harmony export */ });
-/* harmony import */ var _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/swagger */ "@nestjs/swagger");
-/* harmony import */ var _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var class_validator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! class-validator */ "class-validator");
-/* harmony import */ var class_validator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(class_validator__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! class-transformer */ "class-transformer");
-/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(class_transformer__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _enums_appointment_type_enum__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../enums/appointment-type.enum */ "./src/modules/appointments/enums/appointment-type.enum.ts");
-/* harmony import */ var _enums_appointment_priority_enum__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../enums/appointment-priority.enum */ "./src/modules/appointments/enums/appointment-priority.enum.ts");
-/* harmony import */ var _enums_appointment_status_enum__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../enums/appointment-status.enum */ "./src/modules/appointments/enums/appointment-status.enum.ts");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-
-class UpdateAppointmentDto {
-    static _OPENAPI_METADATA_FACTORY() {
-        return { doctorId: { required: false, type: () => String }, startTime: { required: false, type: () => String }, endTime: { required: false, type: () => String }, type: { required: false, enum: (__webpack_require__(/*! ../enums/appointment-type.enum */ "./src/modules/appointments/enums/appointment-type.enum.ts").AppointmentType) }, priority: { required: false, enum: (__webpack_require__(/*! ../enums/appointment-priority.enum */ "./src/modules/appointments/enums/appointment-priority.enum.ts").AppointmentPriority) }, status: { required: false, enum: (__webpack_require__(/*! ../enums/appointment-status.enum */ "./src/modules/appointments/enums/appointment-status.enum.ts").AppointmentStatus) }, title: { required: false, type: () => String, minLength: 3, maxLength: 100 }, description: { required: false, type: () => String, maxLength: 1000 }, location: { required: false, type: () => String, maxLength: 200 }, meetingLink: { required: false, type: () => String, maxLength: 500 }, sendReminders: { required: false, type: () => Boolean }, reminderPreferences: { required: false, type: () => UpdateReminderPreferencesDto }, formData: { required: false, type: () => UpdateAppointmentFormDataDto }, metadata: { required: false, type: () => UpdateAppointmentMetadataDto }, cancellationReason: { required: false, type: () => String, minLength: 3, maxLength: 500 }, reschedulingReason: { required: false, type: () => String, minLength: 3, maxLength: 500 } };
-    }
-}
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Doctor ID' }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsUUID)(),
-    __metadata("design:type", String)
-], UpdateAppointmentDto.prototype, "doctorId", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Appointment start time' }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsDateString)(),
-    __metadata("design:type", String)
-], UpdateAppointmentDto.prototype, "startTime", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Appointment end time' }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsDateString)(),
-    __metadata("design:type", String)
-], UpdateAppointmentDto.prototype, "endTime", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ enum: _enums_appointment_type_enum__WEBPACK_IMPORTED_MODULE_3__.AppointmentType, description: 'Type of appointment' }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsEnum)(_enums_appointment_type_enum__WEBPACK_IMPORTED_MODULE_3__.AppointmentType),
-    __metadata("design:type", String)
-], UpdateAppointmentDto.prototype, "type", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ enum: _enums_appointment_priority_enum__WEBPACK_IMPORTED_MODULE_4__.AppointmentPriority, description: 'Priority of appointment' }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsEnum)(_enums_appointment_priority_enum__WEBPACK_IMPORTED_MODULE_4__.AppointmentPriority),
-    __metadata("design:type", String)
-], UpdateAppointmentDto.prototype, "priority", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ enum: _enums_appointment_status_enum__WEBPACK_IMPORTED_MODULE_5__.AppointmentStatus, description: 'Status of appointment' }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsEnum)(_enums_appointment_status_enum__WEBPACK_IMPORTED_MODULE_5__.AppointmentStatus),
-    __metadata("design:type", String)
-], UpdateAppointmentDto.prototype, "status", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Title/Subject of appointment' }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.MinLength)(3),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.MaxLength)(100),
-    __metadata("design:type", String)
-], UpdateAppointmentDto.prototype, "title", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Detailed description of appointment' }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.MaxLength)(1000),
-    __metadata("design:type", String)
-], UpdateAppointmentDto.prototype, "description", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Location of appointment' }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.MaxLength)(200),
-    __metadata("design:type", String)
-], UpdateAppointmentDto.prototype, "location", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Meeting link for virtual appointments' }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.ValidateIf)(o => o.type === _enums_appointment_type_enum__WEBPACK_IMPORTED_MODULE_3__.AppointmentType.VIRTUAL),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.MaxLength)(500),
-    __metadata("design:type", String)
-], UpdateAppointmentDto.prototype, "meetingLink", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Whether to send reminders' }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsBoolean)(),
-    __metadata("design:type", Boolean)
-], UpdateAppointmentDto.prototype, "sendReminders", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Reminder preferences' }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Type)(() => UpdateReminderPreferencesDto),
-    __metadata("design:type", UpdateReminderPreferencesDto)
-], UpdateAppointmentDto.prototype, "reminderPreferences", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Custom form data for appointment' }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Type)(() => UpdateAppointmentFormDataDto),
-    __metadata("design:type", UpdateAppointmentFormDataDto)
-], UpdateAppointmentDto.prototype, "formData", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Additional metadata for appointment' }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Type)(() => UpdateAppointmentMetadataDto),
-    __metadata("design:type", UpdateAppointmentMetadataDto)
-], UpdateAppointmentDto.prototype, "metadata", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Cancellation reason' }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.ValidateIf)(o => o.status === _enums_appointment_status_enum__WEBPACK_IMPORTED_MODULE_5__.AppointmentStatus.CANCELLED),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.MinLength)(3),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.MaxLength)(500),
-    __metadata("design:type", String)
-], UpdateAppointmentDto.prototype, "cancellationReason", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Rescheduling reason' }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.ValidateIf)(o => o.status === _enums_appointment_status_enum__WEBPACK_IMPORTED_MODULE_5__.AppointmentStatus.RESCHEDULED),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.MinLength)(3),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.MaxLength)(500),
-    __metadata("design:type", String)
-], UpdateAppointmentDto.prototype, "reschedulingReason", void 0);
-class UpdateReminderPreferencesDto {
-    static _OPENAPI_METADATA_FACTORY() {
-        return { email: { required: false, type: () => Boolean }, sms: { required: false, type: () => Boolean }, whatsapp: { required: false, type: () => Boolean }, reminderTimes: { required: false, type: () => [Number] } };
-    }
-}
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Send email reminders' }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsBoolean)(),
-    __metadata("design:type", Boolean)
-], UpdateReminderPreferencesDto.prototype, "email", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Send SMS reminders' }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsBoolean)(),
-    __metadata("design:type", Boolean)
-], UpdateReminderPreferencesDto.prototype, "sms", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Send WhatsApp reminders' }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsBoolean)(),
-    __metadata("design:type", Boolean)
-], UpdateReminderPreferencesDto.prototype, "whatsapp", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Reminder times in minutes before appointment' }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsArray)(),
-    (0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Type)(() => Number),
-    __metadata("design:type", Array)
-], UpdateReminderPreferencesDto.prototype, "reminderTimes", void 0);
-class UpdateAppointmentFormDataDto {
-    static _OPENAPI_METADATA_FACTORY() {
-        return { chiefComplaint: { required: false, type: () => String, maxLength: 500 }, symptoms: { required: false, type: () => [String] }, duration: { required: false, type: () => String, maxLength: 100 }, notes: { required: false, type: () => String, maxLength: 1000 }, diagnosis: { required: false, type: () => String, maxLength: 500 }, treatmentPlan: { required: false, type: () => String, maxLength: 1000 }, prescriptions: { required: false, type: () => [String] }, followUpInstructions: { required: false, type: () => String, maxLength: 1000 } };
-    }
-}
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Chief complaint' }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.MaxLength)(500),
-    __metadata("design:type", String)
-], UpdateAppointmentFormDataDto.prototype, "chiefComplaint", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Symptoms' }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsArray)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)({ each: true }),
-    __metadata("design:type", Array)
-], UpdateAppointmentFormDataDto.prototype, "symptoms", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Duration of symptoms' }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.MaxLength)(100),
-    __metadata("design:type", String)
-], UpdateAppointmentFormDataDto.prototype, "duration", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Additional notes' }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.MaxLength)(1000),
-    __metadata("design:type", String)
-], UpdateAppointmentFormDataDto.prototype, "notes", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Diagnosis' }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.MaxLength)(500),
-    __metadata("design:type", String)
-], UpdateAppointmentFormDataDto.prototype, "diagnosis", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Treatment plan' }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.MaxLength)(1000),
-    __metadata("design:type", String)
-], UpdateAppointmentFormDataDto.prototype, "treatmentPlan", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Prescribed medications' }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsArray)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)({ each: true }),
-    __metadata("design:type", Array)
-], UpdateAppointmentFormDataDto.prototype, "prescriptions", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Follow-up instructions' }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.MaxLength)(1000),
-    __metadata("design:type", String)
-], UpdateAppointmentFormDataDto.prototype, "followUpInstructions", void 0);
-class UpdateAppointmentMetadataDto {
-    static _OPENAPI_METADATA_FACTORY() {
-        return { referralSource: { required: false, type: () => String }, insurance: { required: false, type: () => String }, tags: { required: false, type: () => [String] }, externalId: { required: false, type: () => String }, followUpAppointmentId: { required: false, type: () => String }, previousAppointmentId: { required: false, type: () => String }, billingStatus: { required: false, type: () => String }, claimStatus: { required: false, type: () => String } };
-    }
-}
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Referral source' }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
-    __metadata("design:type", String)
-], UpdateAppointmentMetadataDto.prototype, "referralSource", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Insurance information' }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
-    __metadata("design:type", String)
-], UpdateAppointmentMetadataDto.prototype, "insurance", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Custom tags' }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsArray)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)({ each: true }),
-    __metadata("design:type", Array)
-], UpdateAppointmentMetadataDto.prototype, "tags", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'External reference ID' }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
-    __metadata("design:type", String)
-], UpdateAppointmentMetadataDto.prototype, "externalId", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Follow-up appointment ID' }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsUUID)(),
-    __metadata("design:type", String)
-], UpdateAppointmentMetadataDto.prototype, "followUpAppointmentId", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Previous appointment ID' }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsUUID)(),
-    __metadata("design:type", String)
-], UpdateAppointmentMetadataDto.prototype, "previousAppointmentId", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Billing status' }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
-    __metadata("design:type", String)
-], UpdateAppointmentMetadataDto.prototype, "billingStatus", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Insurance claim status' }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
-    __metadata("design:type", String)
-], UpdateAppointmentMetadataDto.prototype, "claimStatus", void 0);
 
 
 /***/ }),
@@ -2260,6 +1664,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 let Appointment = class Appointment {
     isUpcoming() {
         return new Date() < this.startTime;
@@ -2291,13 +1696,57 @@ let Appointment = class Appointment {
         return now >= reminderDue;
     }
     static _OPENAPI_METADATA_FACTORY() {
-        return { id: { required: true, type: () => String }, organizationId: { required: true, type: () => String }, patientId: { required: true, type: () => String }, doctorId: { required: true, type: () => String }, createdBy: { required: true, type: () => String }, updatedBy: { required: true, type: () => String }, startTime: { required: true, type: () => Date }, endTime: { required: true, type: () => Date }, type: { required: true, enum: (__webpack_require__(/*! ../enums/appointment-type.enum */ "./src/modules/appointments/enums/appointment-type.enum.ts").AppointmentType) }, status: { required: true, enum: (__webpack_require__(/*! ../enums/appointment-status.enum */ "./src/modules/appointments/enums/appointment-status.enum.ts").AppointmentStatus) }, priority: { required: true, enum: (__webpack_require__(/*! ../enums/appointment-priority.enum */ "./src/modules/appointments/enums/appointment-priority.enum.ts").AppointmentPriority) }, title: { required: true, type: () => String }, description: { required: true, type: () => String }, location: { required: true, type: () => String }, meetingLink: { required: true, type: () => String }, sendReminders: { required: true, type: () => Boolean }, reminderPreferences: { required: true, type: () => ({ email: { required: true, type: () => Boolean }, sms: { required: true, type: () => Boolean }, whatsapp: { required: true, type: () => Boolean }, reminderTimes: { required: true, type: () => [Number] } }) }, formData: { required: true, type: () => ({ chiefComplaint: { required: false, type: () => String }, symptoms: { required: false, type: () => [String] }, duration: { required: false, type: () => String }, notes: { required: false, type: () => String }, diagnosis: { required: false, type: () => String }, treatmentPlan: { required: false, type: () => String }, prescriptions: { required: false, type: () => [String] }, followUpInstructions: { required: false, type: () => String } }) }, metadata: { required: true, type: () => ({ referralSource: { required: false, type: () => String }, insurance: { required: false, type: () => String }, tags: { required: false, type: () => [String] }, externalId: { required: false, type: () => String }, followUpAppointmentId: { required: false, type: () => String }, previousAppointmentId: { required: false, type: () => String }, billingStatus: { required: false, type: () => String }, claimStatus: { required: false, type: () => String } }) }, isRecurring: { required: true, type: () => Boolean }, recurrencePattern: { required: true, type: () => ({ frequency: { required: true, type: () => Object }, interval: { required: true, type: () => Number }, endDate: { required: false, type: () => Date }, daysOfWeek: { required: false, type: () => [Number] } }) }, parentAppointmentId: { required: true, type: () => String }, cancellationReason: { required: true, type: () => String }, reschedulingReason: { required: true, type: () => String }, reminderSent: { required: true, type: () => Boolean }, reminderSentAt: { required: true, type: () => Date }, checkedInAt: { required: true, type: () => Date }, completedAt: { required: true, type: () => Date }, cancelledAt: { required: true, type: () => Date }, createdAt: { required: true, type: () => Date }, updatedAt: { required: true, type: () => Date }, organization: { required: true, type: () => (__webpack_require__(/*! ../../organizations/entities/organization.entity */ "./src/modules/organizations/entities/organization.entity.ts").Organization) }, patient: { required: true, type: () => (__webpack_require__(/*! ../../contacts/entities/contact.entity */ "./src/modules/contacts/entities/contact.entity.ts").Contact) }, doctor: { required: true, type: () => (__webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts").User) }, creator: { required: true, type: () => (__webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts").User) }, updater: { required: true, type: () => (__webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts").User) }, parentAppointment: { required: true, type: () => (__webpack_require__(/*! ./appointment.entity */ "./src/modules/appointments/entities/appointment.entity.ts").Appointment) }, recurrentAppointments: { required: true, type: () => [(__webpack_require__(/*! ./appointment.entity */ "./src/modules/appointments/entities/appointment.entity.ts").Appointment)] }, provider: { required: true, type: () => Object } };
+        return { id: { required: true, type: () => String }, confirmedAt: { required: false, type: () => Date }, scheduledFor: { required: true, type: () => Date }, title: { required: true, type: () => String }, startTime: { required: true, type: () => Date }, endTime: { required: true, type: () => Date }, notes: { required: false, type: () => String }, createdById: { required: true, type: () => String }, updatedById: { required: false, type: () => String }, createdAt: { required: true, type: () => Date }, updatedAt: { required: true, type: () => Date }, contact: { required: true, type: () => (__webpack_require__(/*! ../../contacts/entities/contact.entity */ "./src/modules/contacts/entities/contact.entity.ts").Contact) }, organizationId: { required: true, type: () => String }, patientId: { required: true, type: () => String }, doctorId: { required: true, type: () => String }, createdBy: { required: true, type: () => String }, updatedBy: { required: true, type: () => String }, type: { required: true, enum: (__webpack_require__(/*! ../enums/appointment-type.enum */ "./src/modules/appointments/enums/appointment-type.enum.ts").AppointmentType) }, status: { required: true, enum: (__webpack_require__(/*! ../enums/appointment-status.enum */ "./src/modules/appointments/enums/appointment-status.enum.ts").AppointmentStatus) }, priority: { required: true, enum: (__webpack_require__(/*! ../enums/appointment-priority.enum */ "./src/modules/appointments/enums/appointment-priority.enum.ts").AppointmentPriority) }, description: { required: true, type: () => String }, location: { required: true, type: () => String }, meetingLink: { required: true, type: () => String }, sendReminders: { required: true, type: () => Boolean }, reminderPreferences: { required: true, type: () => ({ email: { required: true, type: () => Boolean }, sms: { required: true, type: () => Boolean }, whatsapp: { required: true, type: () => Boolean }, reminderTimes: { required: true, type: () => [Number] } }) }, formData: { required: true, type: () => ({ chiefComplaint: { required: false, type: () => String }, symptoms: { required: false, type: () => [String] }, duration: { required: false, type: () => String }, notes: { required: false, type: () => String }, diagnosis: { required: false, type: () => String }, treatmentPlan: { required: false, type: () => String }, prescriptions: { required: false, type: () => [String] }, followUpInstructions: { required: false, type: () => String } }) }, metadata: { required: true, type: () => ({ referralSource: { required: false, type: () => String }, insurance: { required: false, type: () => String }, tags: { required: false, type: () => [String] }, externalId: { required: false, type: () => String }, followUpAppointmentId: { required: false, type: () => String }, previousAppointmentId: { required: false, type: () => String }, billingStatus: { required: false, type: () => String }, claimStatus: { required: false, type: () => String }, followUpSentAt: { required: false, type: () => String } }) }, isRecurring: { required: true, type: () => Boolean }, recurrencePattern: { required: true, type: () => ({ frequency: { required: true, type: () => Object }, interval: { required: true, type: () => Number }, endDate: { required: false, type: () => Date }, daysOfWeek: { required: false, type: () => [Number] } }) }, parentAppointmentId: { required: true, type: () => String }, cancellationReason: { required: true, type: () => String }, reschedulingReason: { required: true, type: () => String }, reminderSent: { required: true, type: () => Boolean }, reminderSentAt: { required: true, type: () => Date }, checkedInAt: { required: true, type: () => Date }, completedAt: { required: true, type: () => Date }, cancelledAt: { required: true, type: () => Date }, organization: { required: true, type: () => (__webpack_require__(/*! ../../organizations/entities/organization.entity */ "./src/modules/organizations/entities/organization.entity.ts").Organization) }, patient: { required: true, type: () => (__webpack_require__(/*! ../../contacts/entities/contact.entity */ "./src/modules/contacts/entities/contact.entity.ts").Contact) }, doctor: { required: true, type: () => (__webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts").User) }, creator: { required: true, type: () => (__webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts").User) }, updater: { required: true, type: () => (__webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts").User) }, parentAppointment: { required: true, type: () => (__webpack_require__(/*! ./appointment.entity */ "./src/modules/appointments/entities/appointment.entity.ts").Appointment) }, recurrentAppointments: { required: true, type: () => [(__webpack_require__(/*! ./appointment.entity */ "./src/modules/appointments/entities/appointment.entity.ts").Appointment)] }, provider: { required: true, type: () => Object } };
     }
 };
 __decorate([
     (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.PrimaryGeneratedColumn)('uuid'),
     __metadata("design:type", String)
 ], Appointment.prototype, "id", void 0);
+__decorate([
+    ApiProperty(),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.PrimaryGeneratedColumn)('uuid'),
+    ApiProperty(),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)(),
+    __metadata("design:type", String)
+], Appointment.prototype, "title", void 0);
+__decorate([
+    ApiProperty(),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'timestamp' }),
+    __metadata("design:type", Date)
+], Appointment.prototype, "startTime", void 0);
+__decorate([
+    ApiProperty(),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'timestamp' }),
+    __metadata("design:type", Date)
+], Appointment.prototype, "endTime", void 0);
+__decorate([
+    ApiProperty(),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true }),
+    __metadata("design:type", String)
+], Appointment.prototype, "notes", void 0);
+__decorate([
+    ApiProperty(),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)(),
+    __metadata("design:type", String)
+], Appointment.prototype, "createdById", void 0);
+__decorate([
+    ApiProperty(),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true }),
+    __metadata("design:type", String)
+], Appointment.prototype, "updatedById", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.CreateDateColumn)(),
+    __metadata("design:type", Date)
+], Appointment.prototype, "createdAt", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.UpdateDateColumn)(),
+    __metadata("design:type", Date)
+], Appointment.prototype, "updatedAt", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.ManyToOne)(() => _contacts_entities_contact_entity__WEBPACK_IMPORTED_MODULE_3__.Contact, contact => contact.appointments),
+    __metadata("design:type", _contacts_entities_contact_entity__WEBPACK_IMPORTED_MODULE_3__.Contact)
+], Appointment.prototype, "contact", void 0);
 __decorate([
     (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'uuid' }),
     __metadata("design:type", String)
@@ -2321,13 +1770,7 @@ __decorate([
 __decorate([
     (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'timestamp with time zone' }),
     (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Index)(),
-    __metadata("design:type", Date)
-], Appointment.prototype, "startTime", void 0);
-__decorate([
     (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'timestamp with time zone' }),
-    __metadata("design:type", Date)
-], Appointment.prototype, "endTime", void 0);
-__decorate([
     (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({
         type: 'enum',
         enum: _enums_appointment_type_enum__WEBPACK_IMPORTED_MODULE_5__.AppointmentType,
@@ -2353,9 +1796,6 @@ __decorate([
 ], Appointment.prototype, "priority", void 0);
 __decorate([
     (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ length: 100 }),
-    __metadata("design:type", String)
-], Appointment.prototype, "title", void 0);
-__decorate([
     (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'text', nullable: true }),
     __metadata("design:type", String)
 ], Appointment.prototype, "description", void 0);
@@ -2425,13 +1865,7 @@ __decorate([
 ], Appointment.prototype, "cancelledAt", void 0);
 __decorate([
     (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.CreateDateColumn)({ type: 'timestamp with time zone' }),
-    __metadata("design:type", Date)
-], Appointment.prototype, "createdAt", void 0);
-__decorate([
     (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.UpdateDateColumn)({ type: 'timestamp with time zone' }),
-    __metadata("design:type", Date)
-], Appointment.prototype, "updatedAt", void 0);
-__decorate([
     (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.ManyToOne)(() => _organizations_entities_organization_entity__WEBPACK_IMPORTED_MODULE_4__.Organization, { onDelete: 'CASCADE' }),
     (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.JoinColumn)({ name: 'organizationId' }),
     __metadata("design:type", _organizations_entities_organization_entity__WEBPACK_IMPORTED_MODULE_4__.Organization)
@@ -2472,6 +1906,9 @@ Appointment = __decorate([
     (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Index)(['patientId', 'startTime'])
 ], Appointment);
 
+function ApiProperty() {
+    return (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)();
+}
 
 
 /***/ }),
@@ -2571,6 +2008,7 @@ var AppointmentStatus;
     AppointmentStatus["NO_SHOW"] = "NO_SHOW";
     AppointmentStatus["RESCHEDULED"] = "RESCHEDULED";
     AppointmentStatus["WAITING_LIST"] = "WAITING_LIST";
+    AppointmentStatus["MISSED"] = "MISSED";
 })(AppointmentStatus || (AppointmentStatus = {}));
 const STATUS_METADATA = {
     [AppointmentStatus.REQUESTED]: {
@@ -2683,6 +2121,15 @@ const STATUS_METADATA = {
             AppointmentStatus.CONFIRMED,
             AppointmentStatus.CANCELLED
         ]
+    },
+    [AppointmentStatus.MISSED]: {
+        value: AppointmentStatus.MISSED,
+        label: 'Missed',
+        description: 'Appointment was missed',
+        color: '#A9A9A9',
+        allowedTransitions: [
+            AppointmentStatus.RESCHEDULED
+        ]
     }
 };
 
@@ -2720,6 +2167,15 @@ var AppointmentType;
     AppointmentType["DENTAL"] = "DENTAL";
     AppointmentType["PHARMACY"] = "PHARMACY";
     AppointmentType["IN_PERSON"] = "IN_PERSON";
+    AppointmentType["VIRTUAL"] = "VIRTUAL";
+    AppointmentType["PHONE"] = "PHONE";
+    AppointmentType["HOME_VISIT"] = "HOME_VISIT";
+    AppointmentType["EMERGENCY"] = "EMERGENCY";
+    AppointmentType["CONSULTATION"] = "CONSULTATION";
+    AppointmentType["MATERNITY"] = "MATERNITY";
+    AppointmentType["SPECIALIZED"] = "SPECIALIZED";
+    AppointmentType["PEDIATRIC"] = "PEDIATRIC";
+    AppointmentType["WELLNESS_CHECK"] = "WELLNESS_CHECK";
 })(AppointmentType || (AppointmentType = {}));
 const APPOINTMENT_TYPE_METADATA = {
     [AppointmentType.INITIAL_CONSULTATION]: {
@@ -2889,261 +2345,92 @@ const APPOINTMENT_TYPE_METADATA = {
         requiresPreparation: false,
         category: 'OTHER',
         virtualEnabled: true
+    },
+    [AppointmentType.VIRTUAL]: {
+        value: AppointmentType.VIRTUAL,
+        label: 'Virtual Appointment',
+        description: 'Virtual healthcare appointment',
+        defaultDuration: 30,
+        requiresPreparation: false,
+        category: 'PRIMARY',
+        virtualEnabled: true
+    },
+    [AppointmentType.PHONE]: {
+        value: AppointmentType.PHONE,
+        label: 'Phone Consultation',
+        description: 'Consultation over the phone',
+        defaultDuration: 20,
+        requiresPreparation: false,
+        category: 'PRIMARY',
+        virtualEnabled: true
+    },
+    [AppointmentType.HOME_VISIT]: {
+        value: AppointmentType.HOME_VISIT,
+        label: 'Home Visit',
+        description: 'Healthcare provider visits patient at home',
+        defaultDuration: 60,
+        requiresPreparation: true,
+        preparationInstructions: 'Ensure a clean and safe environment for the visit',
+        category: 'PRIMARY',
+        virtualEnabled: false
+    },
+    [AppointmentType.EMERGENCY]: {
+        value: AppointmentType.EMERGENCY,
+        label: 'Emergency Visit',
+        description: 'Emergency medical attention',
+        defaultDuration: 120,
+        requiresPreparation: false,
+        category: 'PRIMARY',
+        virtualEnabled: false
+    },
+    [AppointmentType.CONSULTATION]: {
+        value: AppointmentType.CONSULTATION,
+        label: 'General Consultation',
+        description: 'General medical consultation',
+        defaultDuration: 30,
+        requiresPreparation: false,
+        category: 'PRIMARY',
+        virtualEnabled: true
+    },
+    [AppointmentType.MATERNITY]: {
+        value: AppointmentType.MATERNITY,
+        label: 'Maternity Care',
+        description: 'Maternity care appointment',
+        defaultDuration: 60,
+        requiresPreparation: true,
+        preparationInstructions: 'Bring maternity records and previous test results',
+        category: 'SPECIALIST',
+        virtualEnabled: false
+    },
+    [AppointmentType.SPECIALIZED]: {
+        value: AppointmentType.SPECIALIZED,
+        label: 'Specialized Care',
+        description: 'Specialized medical care',
+        defaultDuration: 60,
+        requiresPreparation: true,
+        preparationInstructions: 'Bring relevant medical records and test results',
+        category: 'SPECIALIST',
+        virtualEnabled: false
+    },
+    [AppointmentType.PEDIATRIC]: {
+        value: AppointmentType.PEDIATRIC,
+        label: 'Pediatric Care',
+        description: 'Pediatric care appointment',
+        defaultDuration: 45,
+        requiresPreparation: false,
+        category: 'SPECIALIST',
+        virtualEnabled: false
+    },
+    [AppointmentType.WELLNESS_CHECK]: {
+        value: AppointmentType.WELLNESS_CHECK,
+        label: 'Wellness Check',
+        description: 'Routine wellness check-up',
+        defaultDuration: 30,
+        requiresPreparation: false,
+        category: 'PRIMARY',
+        virtualEnabled: true
     }
 };
-
-
-/***/ }),
-
-/***/ "./src/modules/appointments/services/appointments.service.ts":
-/*!*******************************************************************!*\
-  !*** ./src/modules/appointments/services/appointments.service.ts ***!
-  \*******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   AppointmentsService: () => (/* binding */ AppointmentsService)
-/* harmony export */ });
-/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
-/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nestjs/typeorm */ "@nestjs/typeorm");
-/* harmony import */ var _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! typeorm */ "typeorm");
-/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(typeorm__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _nestjs_config__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @nestjs/config */ "@nestjs/config");
-/* harmony import */ var _nestjs_config__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_nestjs_config__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @nestjs/event-emitter */ "@nestjs/event-emitter");
-/* harmony import */ var _nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _entities_appointment_entity__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../entities/appointment.entity */ "./src/modules/appointments/entities/appointment.entity.ts");
-/* harmony import */ var _users_entities_user_entity__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts");
-/* harmony import */ var _contacts_entities_contact_entity__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../contacts/entities/contact.entity */ "./src/modules/contacts/entities/contact.entity.ts");
-/* harmony import */ var _enums_appointment_status_enum__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../enums/appointment-status.enum */ "./src/modules/appointments/enums/appointment-status.enum.ts");
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../notifications/services/notification.service'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../email/services/email.service'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module './doctor-schedule.service'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
-    return function (target, key) { decorator(target, key, paramIndex); }
-};
-var _a, _b, _c;
-
-
-
-
-
-
-
-
-
-
-
-
-let AppointmentsService = class AppointmentsService {
-    constructor(appointmentRepository, userRepository, contactRepository, configService, notificationService, emailService, doctorScheduleService, eventEmitter) {
-        this.appointmentRepository = appointmentRepository;
-        this.userRepository = userRepository;
-        this.contactRepository = contactRepository;
-        this.configService = configService;
-        this.notificationService = notificationService;
-        this.emailService = emailService;
-        this.doctorScheduleService = doctorScheduleService;
-        this.eventEmitter = eventEmitter;
-    }
-    async create(createAppointmentDto) {
-        const [doctor, patient] = await Promise.all([
-            this.userRepository.findOne({ where: { id: createAppointmentDto.doctorId } }),
-            this.contactRepository.findOne({ where: { id: createAppointmentDto.patientId } }),
-        ]);
-        if (!doctor)
-            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.NotFoundException('Doctor not found');
-        if (!patient)
-            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.NotFoundException('Patient not found');
-        const isAvailable = await this.doctorScheduleService.checkAvailability({
-            doctorId: doctor.id,
-            startTime: new Date(createAppointmentDto.startTime),
-            endTime: new Date(createAppointmentDto.endTime),
-        });
-        if (!isAvailable) {
-            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.ConflictException('Doctor is not available at the selected time');
-        }
-        await this.checkConflicts({
-            doctorId: doctor.id,
-            startTime: new Date(createAppointmentDto.startTime),
-            endTime: new Date(createAppointmentDto.endTime),
-        });
-        const appointment = this.appointmentRepository.create(Object.assign(Object.assign({}, createAppointmentDto), { startTime: new Date(createAppointmentDto.startTime), endTime: new Date(createAppointmentDto.endTime) }));
-        const savedAppointment = await this.appointmentRepository.save(appointment);
-        if (createAppointmentDto.isRecurring && createAppointmentDto.recurrencePattern) {
-            await this.createRecurringAppointments(savedAppointment, createAppointmentDto.recurrencePattern);
-        }
-        await this.sendAppointmentNotifications(savedAppointment, 'created');
-        this.eventEmitter.emit('appointment.created', savedAppointment);
-        return savedAppointment;
-    }
-    async findAll(query) {
-        const { organizationId, startDate, endDate, doctorId, patientId, status, page = 1, limit = 10, } = query;
-        const queryBuilder = this.appointmentRepository
-            .createQueryBuilder('appointment')
-            .where('appointment.organizationId = :organizationId', { organizationId });
-        if (startDate && endDate) {
-            queryBuilder.andWhere('appointment.startTime BETWEEN :startDate AND :endDate', {
-                startDate,
-                endDate,
-            });
-        }
-        if (doctorId) {
-            queryBuilder.andWhere('appointment.doctorId = :doctorId', { doctorId });
-        }
-        if (patientId) {
-            queryBuilder.andWhere('appointment.patientId = :patientId', { patientId });
-        }
-        if (status && status.length > 0) {
-            queryBuilder.andWhere('appointment.status IN (:...status)', { status });
-        }
-        queryBuilder
-            .leftJoinAndSelect('appointment.doctor', 'doctor')
-            .leftJoinAndSelect('appointment.patient', 'patient')
-            .leftJoinAndSelect('appointment.creator', 'creator');
-        const skip = (page - 1) * limit;
-        queryBuilder.skip(skip).take(limit);
-        queryBuilder.orderBy('appointment.startTime', 'ASC');
-        const [appointments, total] = await queryBuilder.getManyAndCount();
-        return {
-            data: appointments,
-            meta: {
-                page,
-                limit,
-                total,
-                totalPages: Math.ceil(total / limit),
-            },
-        };
-    }
-    async findOne(id, organizationId) {
-        const appointment = await this.appointmentRepository.findOne({
-            where: { id, organizationId },
-            relations: ['doctor', 'patient', 'creator', 'updater'],
-        });
-        if (!appointment) {
-            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.NotFoundException('Appointment not found');
-        }
-        return appointment;
-    }
-    async update(id, updateAppointmentDto) {
-        const appointment = await this.findOne(id, updateAppointmentDto.organizationId);
-        if (!appointment.canBeModified()) {
-            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.ForbiddenException('Appointment cannot be modified');
-        }
-        if (updateAppointmentDto.startTime || updateAppointmentDto.endTime) {
-            await this.checkConflicts({
-                doctorId: updateAppointmentDto.doctorId || appointment.doctorId,
-                startTime: new Date(updateAppointmentDto.startTime || appointment.startTime),
-                endTime: new Date(updateAppointmentDto.endTime || appointment.endTime),
-                excludeAppointmentId: id,
-            });
-        }
-        Object.assign(appointment, updateAppointmentDto);
-        const savedAppointment = await this.appointmentRepository.save(appointment);
-        await this.sendAppointmentNotifications(savedAppointment, 'updated');
-        this.eventEmitter.emit('appointment.updated', savedAppointment);
-        return savedAppointment;
-    }
-    async cancel(id, data) {
-        const appointment = await this.findOne(id, data.organizationId);
-        if (!appointment.canBeModified()) {
-            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.ForbiddenException('Appointment cannot be cancelled');
-        }
-        appointment.status = _enums_appointment_status_enum__WEBPACK_IMPORTED_MODULE_8__.AppointmentStatus.CANCELLED;
-        appointment.cancellationReason = data.reason;
-        appointment.cancelledAt = new Date();
-        appointment.updatedBy = data.updatedBy;
-        const savedAppointment = await this.appointmentRepository.save(appointment);
-        await this.sendAppointmentNotifications(savedAppointment, 'cancelled');
-        this.eventEmitter.emit('appointment.cancelled', savedAppointment);
-        return savedAppointment;
-    }
-    async reschedule(id, data) {
-        const appointment = await this.findOne(id, data.organizationId);
-        if (!appointment.canBeModified()) {
-            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.ForbiddenException('Appointment cannot be rescheduled');
-        }
-        await this.checkConflicts({
-            doctorId: appointment.doctorId,
-            startTime: data.startTime,
-            endTime: data.endTime,
-            excludeAppointmentId: id,
-        });
-        appointment.startTime = data.startTime;
-        appointment.endTime = data.endTime;
-        appointment.status = _enums_appointment_status_enum__WEBPACK_IMPORTED_MODULE_8__.AppointmentStatus.RESCHEDULED;
-        appointment.reschedulingReason = data.reason;
-        appointment.updatedBy = data.updatedBy;
-        const savedAppointment = await this.appointmentRepository.save(appointment);
-        await this.sendAppointmentNotifications(savedAppointment, 'rescheduled');
-        this.eventEmitter.emit('appointment.rescheduled', savedAppointment);
-        return savedAppointment;
-    }
-    async complete(id, data) {
-        const appointment = await this.findOne(id, data.organizationId);
-        if (appointment.status !== _enums_appointment_status_enum__WEBPACK_IMPORTED_MODULE_8__.AppointmentStatus.CONFIRMED) {
-            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.BadRequestException('Only confirmed appointments can be completed');
-        }
-        appointment.status = _enums_appointment_status_enum__WEBPACK_IMPORTED_MODULE_8__.AppointmentStatus.COMPLETED;
-        appointment.completedAt = new Date();
-        appointment.updatedBy = data.updatedBy;
-        const savedAppointment = await this.appointmentRepository.save(appointment);
-        await this.sendAppointmentNotifications(savedAppointment, 'completed');
-        this.eventEmitter.emit('appointment.completed', savedAppointment);
-        return savedAppointment;
-    }
-    async checkConflicts(data) {
-        const queryBuilder = this.appointmentRepository
-            .createQueryBuilder('appointment')
-            .where('appointment.doctorId = :doctorId', { doctorId: data.doctorId })
-            .andWhere('appointment.status NOT IN (:...excludeStatuses)', {
-            excludeStatuses: [_enums_appointment_status_enum__WEBPACK_IMPORTED_MODULE_8__.AppointmentStatus.CANCELLED, _enums_appointment_status_enum__WEBPACK_IMPORTED_MODULE_8__.AppointmentStatus.COMPLETED],
-        })
-            .andWhere('(appointment.startTime, appointment.endTime) OVERLAPS (:startTime, :endTime)', {
-            startTime: data.startTime,
-            endTime: data.endTime,
-        });
-        if (data.excludeAppointmentId) {
-            queryBuilder.andWhere('appointment.id != :excludeId', {
-                excludeId: data.excludeAppointmentId,
-            });
-        }
-        const conflictingAppointment = await queryBuilder.getOne();
-        if (conflictingAppointment) {
-            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.ConflictException('Time slot conflicts with another appointment');
-        }
-    }
-    async createRecurringAppointments(parentAppointment, recurrencePattern) {
-    }
-    async sendAppointmentNotifications(appointment, action) {
-    }
-    async getStatistics(query) {
-    }
-};
-AppointmentsService = __decorate([
-    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.Injectable)(),
-    __param(0, (0,_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__.InjectRepository)(_entities_appointment_entity__WEBPACK_IMPORTED_MODULE_5__.Appointment)),
-    __param(1, (0,_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__.InjectRepository)(_users_entities_user_entity__WEBPACK_IMPORTED_MODULE_6__.User)),
-    __param(2, (0,_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__.InjectRepository)(_contacts_entities_contact_entity__WEBPACK_IMPORTED_MODULE_7__.Contact)),
-    __metadata("design:paramtypes", [typeorm__WEBPACK_IMPORTED_MODULE_2__.Repository,
-        typeorm__WEBPACK_IMPORTED_MODULE_2__.Repository,
-        typeorm__WEBPACK_IMPORTED_MODULE_2__.Repository,
-        _nestjs_config__WEBPACK_IMPORTED_MODULE_3__.ConfigService, typeof (_a = typeof Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../notifications/services/notification.service'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()) !== "undefined" && Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../notifications/services/notification.service'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())) === "function" ? _a : Object, typeof (_b = typeof Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../email/services/email.service'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()) !== "undefined" && Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../email/services/email.service'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())) === "function" ? _b : Object, typeof (_c = typeof Object(function webpackMissingModule() { var e = new Error("Cannot find module './doctor-schedule.service'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()) !== "undefined" && Object(function webpackMissingModule() { var e = new Error("Cannot find module './doctor-schedule.service'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())) === "function" ? _c : Object, _nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_4__.EventEmitter2])
-], AppointmentsService);
-
 
 
 /***/ }),
@@ -3403,7 +2690,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _nestjs_config__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @nestjs/config */ "@nestjs/config");
 /* harmony import */ var _nestjs_config__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_nestjs_config__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _controllers_auth_controller__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./controllers/auth.controller */ "./src/modules/auth/controllers/auth.controller.ts");
-/* harmony import */ var _auth_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./auth.service */ "./src/modules/auth/auth.service.ts");
+Object(function webpackMissingModule() { var e = new Error("Cannot find module './auth.service'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 /* harmony import */ var _strategies_jwt_strategy__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./strategies/jwt.strategy */ "./src/modules/auth/strategies/jwt.strategy.ts");
 /* harmony import */ var _users_entities_user_entity__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts");
 /* harmony import */ var _entities_refresh_token_entity__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./entities/refresh-token.entity */ "./src/modules/auth/entities/refresh-token.entity.ts");
@@ -3447,197 +2734,10 @@ AuthModule = __decorate([
             _users_users_module__WEBPACK_IMPORTED_MODULE_11__.UsersModule,
         ],
         controllers: [_controllers_auth_controller__WEBPACK_IMPORTED_MODULE_5__.AuthController],
-        providers: [_auth_service__WEBPACK_IMPORTED_MODULE_6__.AuthService, _strategies_jwt_strategy__WEBPACK_IMPORTED_MODULE_7__.JwtStrategy],
-        exports: [_auth_service__WEBPACK_IMPORTED_MODULE_6__.AuthService, _strategies_jwt_strategy__WEBPACK_IMPORTED_MODULE_7__.JwtStrategy],
+        providers: [Object(function webpackMissingModule() { var e = new Error("Cannot find module './auth.service'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), _strategies_jwt_strategy__WEBPACK_IMPORTED_MODULE_7__.JwtStrategy],
+        exports: [Object(function webpackMissingModule() { var e = new Error("Cannot find module './auth.service'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), _strategies_jwt_strategy__WEBPACK_IMPORTED_MODULE_7__.JwtStrategy],
     })
 ], AuthModule);
-
-
-
-/***/ }),
-
-/***/ "./src/modules/auth/auth.service.ts":
-/*!******************************************!*\
-  !*** ./src/modules/auth/auth.service.ts ***!
-  \******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   AuthService: () => (/* binding */ AuthService)
-/* harmony export */ });
-/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
-/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _nestjs_jwt__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nestjs/jwt */ "@nestjs/jwt");
-/* harmony import */ var _nestjs_jwt__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_jwt__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @nestjs/typeorm */ "@nestjs/typeorm");
-/* harmony import */ var _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! typeorm */ "typeorm");
-/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(typeorm__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var bcrypt__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! bcrypt */ "bcrypt");
-/* harmony import */ var bcrypt__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(bcrypt__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _users_entities_user_entity__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts");
-/* harmony import */ var _entities_refresh_token_entity__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./entities/refresh-token.entity */ "./src/modules/auth/entities/refresh-token.entity.ts");
-/* harmony import */ var _organizations_entities_organization_entity__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../organizations/entities/organization.entity */ "./src/modules/organizations/entities/organization.entity.ts");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
-    return function (target, key) { decorator(target, key, paramIndex); }
-};
-var __rest = (undefined && undefined.__rest) || function (s, e) {
-    var t = {};
-    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
-        t[p] = s[p];
-    if (s != null && typeof Object.getOwnPropertySymbols === "function")
-        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
-            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
-                t[p[i]] = s[p[i]];
-        }
-    return t;
-};
-
-
-
-
-
-
-
-
-let AuthService = class AuthService {
-    constructor(userRepository, refreshTokenRepository, organizationRepository, jwtService) {
-        this.userRepository = userRepository;
-        this.refreshTokenRepository = refreshTokenRepository;
-        this.organizationRepository = organizationRepository;
-        this.jwtService = jwtService;
-    }
-    async validateUser(email, password) {
-        const user = await this.userRepository.findOne({
-            where: { email },
-            relations: ['organization'],
-        });
-        if (!user) {
-            return null;
-        }
-        const isPasswordValid = await (0,bcrypt__WEBPACK_IMPORTED_MODULE_4__.compare)(password, user.password);
-        if (!isPasswordValid) {
-            return null;
-        }
-        const { password: _ } = user, result = __rest(user, ["password"]);
-        return result;
-    }
-    async login(loginDto) {
-        const user = await this.validateUser(loginDto.email, loginDto.password);
-        if (!user) {
-            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.UnauthorizedException('Invalid credentials');
-        }
-        const organization = await this.organizationRepository.findOne({
-            where: { id: user.organization.id },
-        });
-        if (!organization.isActive) {
-            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.UnauthorizedException('Organization is inactive');
-        }
-        if (!organization.isSubscriptionActive) {
-            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.UnauthorizedException('Organization subscription has expired');
-        }
-        const payload = {
-            sub: user.id,
-            email: user.email,
-            role: user.role,
-            organizationId: user.organization.id,
-        };
-        const [accessToken, refreshToken] = await Promise.all([
-            this.generateAccessToken(payload),
-            this.generateRefreshToken(user.id),
-        ]);
-        return {
-            accessToken,
-            refreshToken: refreshToken.token,
-            user: {
-                id: user.id,
-                email: user.email,
-                role: user.role,
-                organizationId: user.organization.id,
-                firstName: user.firstName,
-                lastName: user.lastName,
-            },
-        };
-    }
-    async register(registerDto) {
-        const existingUser = await this.userRepository.findOne({
-            where: [
-                { email: registerDto.email },
-                { username: registerDto.username },
-            ],
-        });
-        if (existingUser) {
-            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.UnauthorizedException(existingUser.email === registerDto.email
-                ? 'Email already registered'
-                : 'Username already taken');
-        }
-        const hashedPassword = await (0,bcrypt__WEBPACK_IMPORTED_MODULE_4__.hash)(registerDto.password, 12);
-        const user = this.userRepository.create(Object.assign(Object.assign({}, registerDto), { password: hashedPassword, role: 'STANDARD_USER' }));
-        await this.userRepository.save(user);
-        const { password: _ } = user, result = __rest(user, ["password"]);
-        return result;
-    }
-    async generateAccessToken(payload) {
-        return this.jwtService.sign(payload);
-    }
-    async generateRefreshToken(userId) {
-        const token = this.refreshTokenRepository.create({
-            user: { id: userId },
-            token: await (0,bcrypt__WEBPACK_IMPORTED_MODULE_4__.hash)(Date.now().toString(), 8),
-            expiresAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
-        });
-        return this.refreshTokenRepository.save(token);
-    }
-    async refreshToken(refreshToken) {
-        const tokenEntity = await this.refreshTokenRepository.findOne({
-            where: { token: refreshToken },
-            relations: ['user', 'user.organization'],
-        });
-        if (!tokenEntity || tokenEntity.isExpired()) {
-            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.UnauthorizedException('Invalid or expired refresh token');
-        }
-        const payload = {
-            sub: tokenEntity.user.id,
-            email: tokenEntity.user.email,
-            role: tokenEntity.user.role,
-            organizationId: tokenEntity.user.organization.id,
-        };
-        const accessToken = await this.generateAccessToken(payload);
-        return { accessToken };
-    }
-    async logout(userId) {
-        await this.refreshTokenRepository.delete({ user: { id: userId } });
-    }
-    async validateOrganizationAccess(userId, organizationId) {
-        var _a;
-        const user = await this.userRepository.findOne({
-            where: { id: userId },
-            relations: ['organization'],
-        });
-        return ((_a = user === null || user === void 0 ? void 0 : user.organization) === null || _a === void 0 ? void 0 : _a.id) === organizationId;
-    }
-};
-AuthService = __decorate([
-    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.Injectable)(),
-    __param(0, (0,_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_2__.InjectRepository)(_users_entities_user_entity__WEBPACK_IMPORTED_MODULE_5__.User)),
-    __param(1, (0,_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_2__.InjectRepository)(_entities_refresh_token_entity__WEBPACK_IMPORTED_MODULE_6__.RefreshToken)),
-    __param(2, (0,_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_2__.InjectRepository)(_organizations_entities_organization_entity__WEBPACK_IMPORTED_MODULE_7__.Organization)),
-    __metadata("design:paramtypes", [typeorm__WEBPACK_IMPORTED_MODULE_3__.Repository,
-        typeorm__WEBPACK_IMPORTED_MODULE_3__.Repository,
-        typeorm__WEBPACK_IMPORTED_MODULE_3__.Repository,
-        _nestjs_jwt__WEBPACK_IMPORTED_MODULE_1__.JwtService])
-], AuthService);
 
 
 
@@ -3661,14 +2761,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/auth.service */ "./src/modules/auth/services/auth.service.ts");
 /* harmony import */ var _dto_login_dto__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../dto/login.dto */ "./src/modules/auth/dto/login.dto.ts");
 /* harmony import */ var _dto_register_dto__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../dto/register.dto */ "./src/modules/auth/dto/register.dto.ts");
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../dto/forgot-password.dto'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../dto/reset-password.dto'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-/* harmony import */ var _guards_jwt_auth_guard__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../guards/jwt-auth.guard */ "./src/modules/auth/guards/jwt-auth.guard.ts");
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../dto/refresh-token.dto'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-/* harmony import */ var _users_entities_user_entity__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts");
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../decorators/public.decorator'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../decorators/current-user.decorator'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../guards/rate-limit.guard'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var _dto_forgot_password_dto__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../dto/forgot-password.dto */ "./src/modules/auth/dto/forgot-password.dto.ts");
+/* harmony import */ var _dto_reset_password_dto__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../dto/reset-password.dto */ "./src/modules/auth/dto/reset-password.dto.ts");
+/* harmony import */ var _guards_jwt_auth_guard__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../guards/jwt-auth.guard */ "./src/modules/auth/guards/jwt-auth.guard.ts");
+/* harmony import */ var _dto_refresh_token_dto__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../dto/refresh-token.dto */ "./src/modules/auth/dto/refresh-token.dto.ts");
+/* harmony import */ var _users_entities_user_entity__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts");
+/* harmony import */ var _decorators_public_decorator__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../decorators/public.decorator */ "./src/modules/auth/decorators/public.decorator.ts");
+/* harmony import */ var _decorators_current_user_decorator__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../decorators/current-user.decorator */ "./src/modules/auth/decorators/current-user.decorator.ts");
+/* harmony import */ var _guards_rate_limit_guard__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../guards/rate-limit.guard */ "./src/modules/auth/guards/rate-limit.guard.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3681,7 +2781,6 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
-var _a, _b, _c;
 
 
 
@@ -3736,32 +2835,32 @@ let AuthController = class AuthController {
         if (!token) {
             throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.UnauthorizedException('Invalid token');
         }
-        await this.authService.logout(user.id, token);
+        await this.authService.logout(user.id);
         return { message: 'Logout successful' };
     }
     async forgotPassword(forgotPasswordDto) {
-        await this.authService.forgotPassword(forgotPasswordDto.email);
+        await this.authService.sendPasswordResetEmail(forgotPasswordDto.email);
         return { message: 'Password reset instructions sent to email' };
     }
     async resetPassword(resetPasswordDto) {
-        await this.authService.resetPassword(resetPasswordDto.token, resetPasswordDto.password);
+        await this.authService.changePassword(resetPasswordDto.token, resetPasswordDto.password);
         return { message: 'Password reset successful' };
     }
     async getCurrentUser(user) {
         return { user };
     }
     async verifyEmail(token) {
-        await this.authService.verifyEmail(token);
+        await this.authService.confirmEmail(token);
         return { message: 'Email verification successful' };
     }
     async resendVerification(user) {
-        await this.authService.resendVerificationEmail(user.id);
+        await this.authService.sendVerificationEmail(user.id);
         return { message: 'Verification email sent' };
     }
 };
 __decorate([
     (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Post)('login'),
-    Object(function webpackMissingModule() { var e = new Error("Cannot find module '../decorators/public.decorator'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(),
+    (0,_decorators_public_decorator__WEBPACK_IMPORTED_MODULE_10__.Public)(),
     (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpCode)(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.OK),
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'User login' }),
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse)({ status: _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.OK, description: 'Login successful' }),
@@ -3776,7 +2875,7 @@ __decorate([
 ], AuthController.prototype, "login", null);
 __decorate([
     (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Post)('register'),
-    Object(function webpackMissingModule() { var e = new Error("Cannot find module '../decorators/public.decorator'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(),
+    (0,_decorators_public_decorator__WEBPACK_IMPORTED_MODULE_10__.Public)(),
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Register new user/organization' }),
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse)({ status: _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.CREATED, description: 'Registration successful' }),
     _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 201 }),
@@ -3789,64 +2888,64 @@ __decorate([
 ], AuthController.prototype, "register", null);
 __decorate([
     (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Post)('refresh-token'),
-    Object(function webpackMissingModule() { var e = new Error("Cannot find module '../decorators/public.decorator'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(),
+    (0,_decorators_public_decorator__WEBPACK_IMPORTED_MODULE_10__.Public)(),
     (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpCode)(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.OK),
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Refresh access token' }),
     _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.OK }),
     __param(0, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [typeof (_a = typeof Object(function webpackMissingModule() { var e = new Error("Cannot find module '../dto/refresh-token.dto'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()) !== "undefined" && Object(function webpackMissingModule() { var e = new Error("Cannot find module '../dto/refresh-token.dto'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())) === "function" ? _a : Object]),
+    __metadata("design:paramtypes", [_dto_refresh_token_dto__WEBPACK_IMPORTED_MODULE_8__.RefreshTokenDto]),
     __metadata("design:returntype", Promise)
 ], AuthController.prototype, "refreshToken", null);
 __decorate([
     (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Post)('logout'),
-    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.UseGuards)(_guards_jwt_auth_guard__WEBPACK_IMPORTED_MODULE_6__.JwtAuthGuard),
+    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.UseGuards)(_guards_jwt_auth_guard__WEBPACK_IMPORTED_MODULE_7__.JwtAuthGuard),
     (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpCode)(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.OK),
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiBearerAuth)(),
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'User logout' }),
     _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.OK }),
-    __param(0, Object(function webpackMissingModule() { var e = new Error("Cannot find module '../decorators/current-user.decorator'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())()),
+    __param(0, (0,_decorators_current_user_decorator__WEBPACK_IMPORTED_MODULE_11__.CurrentUser)()),
     __param(1, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Headers)('authorization')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [_users_entities_user_entity__WEBPACK_IMPORTED_MODULE_7__.User, String]),
+    __metadata("design:paramtypes", [_users_entities_user_entity__WEBPACK_IMPORTED_MODULE_9__.User, String]),
     __metadata("design:returntype", Promise)
 ], AuthController.prototype, "logout", null);
 __decorate([
     (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Post)('forgot-password'),
-    Object(function webpackMissingModule() { var e = new Error("Cannot find module '../decorators/public.decorator'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(),
+    (0,_decorators_public_decorator__WEBPACK_IMPORTED_MODULE_10__.Public)(),
     (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpCode)(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.OK),
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Request password reset' }),
     _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.OK }),
     __param(0, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [typeof (_b = typeof Object(function webpackMissingModule() { var e = new Error("Cannot find module '../dto/forgot-password.dto'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()) !== "undefined" && Object(function webpackMissingModule() { var e = new Error("Cannot find module '../dto/forgot-password.dto'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())) === "function" ? _b : Object]),
+    __metadata("design:paramtypes", [_dto_forgot_password_dto__WEBPACK_IMPORTED_MODULE_5__.ForgotPasswordDto]),
     __metadata("design:returntype", Promise)
 ], AuthController.prototype, "forgotPassword", null);
 __decorate([
     (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Post)('reset-password'),
-    Object(function webpackMissingModule() { var e = new Error("Cannot find module '../decorators/public.decorator'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(),
+    (0,_decorators_public_decorator__WEBPACK_IMPORTED_MODULE_10__.Public)(),
     (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpCode)(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.OK),
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Reset password' }),
     _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.OK }),
     __param(0, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [typeof (_c = typeof Object(function webpackMissingModule() { var e = new Error("Cannot find module '../dto/reset-password.dto'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()) !== "undefined" && Object(function webpackMissingModule() { var e = new Error("Cannot find module '../dto/reset-password.dto'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())) === "function" ? _c : Object]),
+    __metadata("design:paramtypes", [_dto_reset_password_dto__WEBPACK_IMPORTED_MODULE_6__.ResetPasswordDto]),
     __metadata("design:returntype", Promise)
 ], AuthController.prototype, "resetPassword", null);
 __decorate([
     (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Get)('me'),
-    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.UseGuards)(_guards_jwt_auth_guard__WEBPACK_IMPORTED_MODULE_6__.JwtAuthGuard),
+    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.UseGuards)(_guards_jwt_auth_guard__WEBPACK_IMPORTED_MODULE_7__.JwtAuthGuard),
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiBearerAuth)(),
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Get current user profile' }),
     _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 200 }),
-    __param(0, Object(function webpackMissingModule() { var e = new Error("Cannot find module '../decorators/current-user.decorator'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())()),
+    __param(0, (0,_decorators_current_user_decorator__WEBPACK_IMPORTED_MODULE_11__.CurrentUser)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [_users_entities_user_entity__WEBPACK_IMPORTED_MODULE_7__.User]),
+    __metadata("design:paramtypes", [_users_entities_user_entity__WEBPACK_IMPORTED_MODULE_9__.User]),
     __metadata("design:returntype", Promise)
 ], AuthController.prototype, "getCurrentUser", null);
 __decorate([
     (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Post)('verify-email'),
-    Object(function webpackMissingModule() { var e = new Error("Cannot find module '../decorators/public.decorator'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(),
+    (0,_decorators_public_decorator__WEBPACK_IMPORTED_MODULE_10__.Public)(),
     (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpCode)(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.OK),
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Verify email address' }),
     _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.OK }),
@@ -3857,22 +2956,152 @@ __decorate([
 ], AuthController.prototype, "verifyEmail", null);
 __decorate([
     (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Post)('resend-verification'),
-    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.UseGuards)(_guards_jwt_auth_guard__WEBPACK_IMPORTED_MODULE_6__.JwtAuthGuard),
+    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.UseGuards)(_guards_jwt_auth_guard__WEBPACK_IMPORTED_MODULE_7__.JwtAuthGuard),
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiBearerAuth)(),
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Resend verification email' }),
     _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 201 }),
-    __param(0, Object(function webpackMissingModule() { var e = new Error("Cannot find module '../decorators/current-user.decorator'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())()),
+    __param(0, (0,_decorators_current_user_decorator__WEBPACK_IMPORTED_MODULE_11__.CurrentUser)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [_users_entities_user_entity__WEBPACK_IMPORTED_MODULE_7__.User]),
+    __metadata("design:paramtypes", [_users_entities_user_entity__WEBPACK_IMPORTED_MODULE_9__.User]),
     __metadata("design:returntype", Promise)
 ], AuthController.prototype, "resendVerification", null);
 AuthController = __decorate([
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiTags)('Authentication'),
     (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Controller)('auth'),
-    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.UseGuards)(Object(function webpackMissingModule() { var e = new Error("Cannot find module '../guards/rate-limit.guard'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())),
+    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.UseGuards)(_guards_rate_limit_guard__WEBPACK_IMPORTED_MODULE_12__.RateLimitGuard),
     __metadata("design:paramtypes", [_services_auth_service__WEBPACK_IMPORTED_MODULE_2__.AuthService])
 ], AuthController);
 
+
+
+/***/ }),
+
+/***/ "./src/modules/auth/decorators/current-user.decorator.ts":
+/*!***************************************************************!*\
+  !*** ./src/modules/auth/decorators/current-user.decorator.ts ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   CurrentUser: () => (/* binding */ CurrentUser)
+/* harmony export */ });
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_0__);
+
+const CurrentUser = (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.createParamDecorator)((data, ctx) => {
+    const request = ctx.switchToHttp().getRequest();
+    return request.user;
+});
+
+
+/***/ }),
+
+/***/ "./src/modules/auth/decorators/permissions.decorator.ts":
+/*!**************************************************************!*\
+  !*** ./src/modules/auth/decorators/permissions.decorator.ts ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   PERMISSIONS_KEY: () => (/* binding */ PERMISSIONS_KEY),
+/* harmony export */   Permissions: () => (/* binding */ Permissions)
+/* harmony export */ });
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_0__);
+
+const PERMISSIONS_KEY = 'permissions';
+const Permissions = (...permissions) => (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.SetMetadata)(PERMISSIONS_KEY, permissions);
+
+
+/***/ }),
+
+/***/ "./src/modules/auth/decorators/public.decorator.ts":
+/*!*********************************************************!*\
+  !*** ./src/modules/auth/decorators/public.decorator.ts ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   IS_PUBLIC_KEY: () => (/* binding */ IS_PUBLIC_KEY),
+/* harmony export */   Public: () => (/* binding */ Public)
+/* harmony export */ });
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_0__);
+
+const IS_PUBLIC_KEY = 'isPublic';
+const Public = () => (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.SetMetadata)(IS_PUBLIC_KEY, true);
+
+
+/***/ }),
+
+/***/ "./src/modules/auth/decorators/roles.decorator.ts":
+/*!********************************************************!*\
+  !*** ./src/modules/auth/decorators/roles.decorator.ts ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ROLES_KEY: () => (/* binding */ ROLES_KEY),
+/* harmony export */   Roles: () => (/* binding */ Roles)
+/* harmony export */ });
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_0__);
+
+const ROLES_KEY = 'roles';
+const Roles = (...roles) => (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.SetMetadata)(ROLES_KEY, roles);
+
+
+/***/ }),
+
+/***/ "./src/modules/auth/dto/forgot-password.dto.ts":
+/*!*****************************************************!*\
+  !*** ./src/modules/auth/dto/forgot-password.dto.ts ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ForgotPasswordDto: () => (/* binding */ ForgotPasswordDto)
+/* harmony export */ });
+/* harmony import */ var _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/swagger */ "@nestjs/swagger");
+/* harmony import */ var _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var class_validator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! class-validator */ "class-validator");
+/* harmony import */ var class_validator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(class_validator__WEBPACK_IMPORTED_MODULE_1__);
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+class ForgotPasswordDto {
+    static _OPENAPI_METADATA_FACTORY() {
+        return { email: { required: true, type: () => String } };
+    }
+}
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)({
+        description: 'Email address associated with the account',
+        example: 'user@example.com'
+    }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsEmail)({}, { message: 'Please provide a valid email address' }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsNotEmpty)({ message: 'Email is required' }),
+    __metadata("design:type", String)
+], ForgotPasswordDto.prototype, "email", void 0);
 
 
 /***/ }),
@@ -3958,6 +3187,51 @@ __decorate([
 
 /***/ }),
 
+/***/ "./src/modules/auth/dto/refresh-token.dto.ts":
+/*!***************************************************!*\
+  !*** ./src/modules/auth/dto/refresh-token.dto.ts ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   RefreshTokenDto: () => (/* binding */ RefreshTokenDto)
+/* harmony export */ });
+/* harmony import */ var _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/swagger */ "@nestjs/swagger");
+/* harmony import */ var _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var class_validator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! class-validator */ "class-validator");
+/* harmony import */ var class_validator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(class_validator__WEBPACK_IMPORTED_MODULE_1__);
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+class RefreshTokenDto {
+    static _OPENAPI_METADATA_FACTORY() {
+        return { refreshToken: { required: true, type: () => String } };
+    }
+}
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)({
+        description: 'Refresh token for obtaining a new access token',
+        example: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...'
+    }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsNotEmpty)({ message: 'Refresh token is required' }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)({ message: 'Refresh token must be a string' }),
+    __metadata("design:type", String)
+], RefreshTokenDto.prototype, "refreshToken", void 0);
+
+
+/***/ }),
+
 /***/ "./src/modules/auth/dto/register.dto.ts":
 /*!**********************************************!*\
   !*** ./src/modules/auth/dto/register.dto.ts ***!
@@ -3979,7 +3253,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! class-transformer */ "class-transformer");
 /* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(class_transformer__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _users_enums_role_enum__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../users/enums/role.enum */ "./src/modules/users/enums/role.enum.ts");
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../organizations/enums/subscription-plan.enum'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var _organizations_enums_subscription_plan_enum__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../organizations/enums/subscription-plan.enum */ "./src/modules/organizations/enums/subscription-plan.enum.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3989,7 +3263,6 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var _a;
 
 
 
@@ -4052,7 +3325,7 @@ __decorate([
         example: '+1234567890',
     }),
     (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsPhoneNumber)(null, { message: 'Please enter a valid phone number' }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsPhoneNumber)(undefined, { message: 'Please enter a valid phone number' }),
     __metadata("design:type", String)
 ], RegisterUserDto.prototype, "phone", void 0);
 __decorate([
@@ -4067,7 +3340,7 @@ __decorate([
 ], RegisterUserDto.prototype, "role", void 0);
 class RegisterOrganizationDto {
     static _OPENAPI_METADATA_FACTORY() {
-        return { name: { required: true, type: () => String, minLength: 2, maxLength: 100 }, website: { required: false, type: () => String, pattern: "/^https?:\\/\\/.+\\..+$/" }, phone: { required: false, type: () => String }, address: { required: false, type: () => (__webpack_require__(/*! ./register.dto */ "./src/modules/auth/dto/register.dto.ts").OrganizationAddressDto) }, subscriptionPlan: { required: false, type: () => Object } };
+        return { name: { required: true, type: () => String, minLength: 2, maxLength: 100 }, website: { required: false, type: () => String, pattern: "/^https?:\\/\\/.+\\..+$/" }, phone: { required: false, type: () => String }, address: { required: false, type: () => (__webpack_require__(/*! ./register.dto */ "./src/modules/auth/dto/register.dto.ts").OrganizationAddressDto) }, subscriptionPlan: { required: false, enum: (__webpack_require__(/*! ../../organizations/enums/subscription-plan.enum */ "./src/modules/organizations/enums/subscription-plan.enum.ts").SubscriptionPlan) } };
     }
 }
 __decorate([
@@ -4099,7 +3372,7 @@ __decorate([
         example: '+1234567890',
     }),
     (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsPhoneNumber)(null, { message: 'Please enter a valid phone number' }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsPhoneNumber)(undefined, { message: 'Please enter a valid phone number' }),
     __metadata("design:type", String)
 ], RegisterOrganizationDto.prototype, "phone", void 0);
 __decorate([
@@ -4113,13 +3386,13 @@ __decorate([
 ], RegisterOrganizationDto.prototype, "address", void 0);
 __decorate([
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({
-        enum: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../organizations/enums/subscription-plan.enum'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+        enum: _organizations_enums_subscription_plan_enum__WEBPACK_IMPORTED_MODULE_4__.SubscriptionPlan,
         description: 'Subscription plan',
-        default: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../organizations/enums/subscription-plan.enum'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()).BASIC,
+        default: _organizations_enums_subscription_plan_enum__WEBPACK_IMPORTED_MODULE_4__.SubscriptionPlan.BASIC,
     }),
     (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsEnum)(Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../organizations/enums/subscription-plan.enum'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())),
-    __metadata("design:type", typeof (_a = typeof Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../organizations/enums/subscription-plan.enum'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()) !== "undefined" && Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../organizations/enums/subscription-plan.enum'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())) === "function" ? _a : Object)
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsEnum)(_organizations_enums_subscription_plan_enum__WEBPACK_IMPORTED_MODULE_4__.SubscriptionPlan),
+    __metadata("design:type", String)
 ], RegisterOrganizationDto.prototype, "subscriptionPlan", void 0);
 class OrganizationAddressDto {
     static _OPENAPI_METADATA_FACTORY() {
@@ -4173,6 +3446,73 @@ __decorate([
     (0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Type)(() => RegisterOrganizationDto),
     __metadata("design:type", RegisterOrganizationDto)
 ], RegisterDto.prototype, "organization", void 0);
+
+
+/***/ }),
+
+/***/ "./src/modules/auth/dto/reset-password.dto.ts":
+/*!****************************************************!*\
+  !*** ./src/modules/auth/dto/reset-password.dto.ts ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ResetPasswordDto: () => (/* binding */ ResetPasswordDto)
+/* harmony export */ });
+/* harmony import */ var _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/swagger */ "@nestjs/swagger");
+/* harmony import */ var _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var class_validator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! class-validator */ "class-validator");
+/* harmony import */ var class_validator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(class_validator__WEBPACK_IMPORTED_MODULE_1__);
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+class ResetPasswordDto {
+    static _OPENAPI_METADATA_FACTORY() {
+        return { token: { required: true, type: () => String }, password: { required: true, type: () => String, minLength: 8, pattern: "/((?=.*\\d)|(?=.*\\W+))(?![.\\n])(?=.*[A-Z])(?=.*[a-z]).*$/" }, passwordConfirmation: { required: true, type: () => String } };
+    }
+}
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)({
+        description: 'Reset token received via email',
+        example: 'abcdef123456789'
+    }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsNotEmpty)({ message: 'Token is required' }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)({ message: 'Token must be a string' }),
+    __metadata("design:type", String)
+], ResetPasswordDto.prototype, "token", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)({
+        description: 'New password',
+        example: 'StrongP@ssw0rd!'
+    }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsNotEmpty)({ message: 'Password is required' }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)({ message: 'Password must be a string' }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.MinLength)(8, { message: 'Password must be at least 8 characters long' }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.Matches)(/((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/, {
+        message: 'Password must contain at least 1 uppercase letter, 1 lowercase letter, and 1 number or special character'
+    }),
+    __metadata("design:type", String)
+], ResetPasswordDto.prototype, "password", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)({
+        description: 'Confirm new password',
+        example: 'StrongP@ssw0rd!'
+    }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsNotEmpty)({ message: 'Password confirmation is required' }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)({ message: 'Password confirmation must be a string' }),
+    __metadata("design:type", String)
+], ResetPasswordDto.prototype, "passwordConfirmation", void 0);
 
 
 /***/ }),
@@ -4302,6 +3642,157 @@ RefreshToken = __decorate([
 
 /***/ }),
 
+/***/ "./src/modules/auth/entities/user.entity.ts":
+/*!**************************************************!*\
+  !*** ./src/modules/auth/entities/user.entity.ts ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   User: () => (/* binding */ User)
+/* harmony export */ });
+/* harmony import */ var _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/swagger */ "@nestjs/swagger");
+/* harmony import */ var _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! typeorm */ "typeorm");
+/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(typeorm__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! class-transformer */ "class-transformer");
+/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(class_transformer__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _organizations_entities_organization_entity__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../organizations/entities/organization.entity */ "./src/modules/organizations/entities/organization.entity.ts");
+/* harmony import */ var _users_enums_role_enum__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../users/enums/role.enum */ "./src/modules/users/enums/role.enum.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+let User = class User {
+    get fullName() {
+        return `${this.firstName} ${this.lastName}`;
+    }
+    normalizeEmail() {
+        if (this.email) {
+            this.email = this.email.toLowerCase().trim();
+        }
+    }
+    static _OPENAPI_METADATA_FACTORY() {
+        return { id: { required: true, type: () => String }, firstName: { required: true, type: () => String }, lastName: { required: true, type: () => String }, email: { required: true, type: () => String }, password: { required: true, type: () => String }, phone: { required: false, type: () => String }, role: { required: true, enum: (__webpack_require__(/*! ../../users/enums/role.enum */ "./src/modules/users/enums/role.enum.ts").Role) }, permissions: { required: true, type: () => [String] }, isEmailVerified: { required: true, type: () => Boolean }, isActive: { required: true, type: () => Boolean }, lastLoginAt: { required: true, type: () => Date }, organization: { required: true, type: () => (__webpack_require__(/*! ../../organizations/entities/organization.entity */ "./src/modules/organizations/entities/organization.entity.ts").Organization) }, organizationId: { required: true, type: () => String }, createdBy: { required: false, type: () => String }, createdAt: { required: true, type: () => Date }, updatedBy: { required: false, type: () => String }, updatedAt: { required: true, type: () => Date }, refreshToken: { required: false, type: () => String }, refreshTokenExpiresAt: { required: false, type: () => Date }, passwordResetToken: { required: false, type: () => String }, passwordResetExpiresAt: { required: false, type: () => Date } };
+    }
+};
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.PrimaryGeneratedColumn)('uuid'),
+    __metadata("design:type", String)
+], User.prototype, "id", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ length: 50 }),
+    __metadata("design:type", String)
+], User.prototype, "firstName", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ length: 50 }),
+    __metadata("design:type", String)
+], User.prototype, "lastName", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ unique: true }),
+    __metadata("design:type", String)
+], User.prototype, "email", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)(),
+    (0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Exclude)(),
+    __metadata("design:type", String)
+], User.prototype, "password", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true }),
+    __metadata("design:type", String)
+], User.prototype, "phone", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({
+        type: 'enum',
+        enum: _users_enums_role_enum__WEBPACK_IMPORTED_MODULE_4__.Role,
+        default: _users_enums_role_enum__WEBPACK_IMPORTED_MODULE_4__.Role.STAFF
+    }),
+    __metadata("design:type", String)
+], User.prototype, "role", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'simple-array', nullable: true }),
+    __metadata("design:type", Array)
+], User.prototype, "permissions", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ default: false }),
+    __metadata("design:type", Boolean)
+], User.prototype, "isEmailVerified", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ default: true }),
+    __metadata("design:type", Boolean)
+], User.prototype, "isActive", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true }),
+    __metadata("design:type", Date)
+], User.prototype, "lastLoginAt", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.ManyToOne)(() => _organizations_entities_organization_entity__WEBPACK_IMPORTED_MODULE_3__.Organization, { nullable: false }),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.JoinColumn)({ name: 'organization_id' }),
+    __metadata("design:type", _organizations_entities_organization_entity__WEBPACK_IMPORTED_MODULE_3__.Organization)
+], User.prototype, "organization", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ name: 'organization_id' }),
+    __metadata("design:type", String)
+], User.prototype, "organizationId", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true }),
+    __metadata("design:type", String)
+], User.prototype, "createdBy", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.CreateDateColumn)(),
+    __metadata("design:type", Date)
+], User.prototype, "createdAt", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true }),
+    __metadata("design:type", String)
+], User.prototype, "updatedBy", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.UpdateDateColumn)(),
+    __metadata("design:type", Date)
+], User.prototype, "updatedAt", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true }),
+    __metadata("design:type", String)
+], User.prototype, "refreshToken", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true, type: 'timestamp' }),
+    __metadata("design:type", Date)
+], User.prototype, "refreshTokenExpiresAt", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true }),
+    __metadata("design:type", String)
+], User.prototype, "passwordResetToken", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true, type: 'timestamp' }),
+    __metadata("design:type", Date)
+], User.prototype, "passwordResetExpiresAt", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.BeforeInsert)(),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.BeforeUpdate)(),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], User.prototype, "normalizeEmail", null);
+User = __decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Entity)('users')
+], User);
+
+
+
+/***/ }),
+
 /***/ "./src/modules/auth/guards/auth.guard.ts":
 /*!***********************************************!*\
   !*** ./src/modules/auth/guards/auth.guard.ts ***!
@@ -4311,20 +3802,19 @@ RefreshToken = __decorate([
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   AuthGuard: () => (/* binding */ AuthGuard),
-/* harmony export */   IS_PUBLIC_KEY: () => (/* binding */ IS_PUBLIC_KEY),
-/* harmony export */   Public: () => (/* binding */ Public)
+/* harmony export */   AuthGuard: () => (/* binding */ AuthGuard)
 /* harmony export */ });
 /* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
 /* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _nestjs_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nestjs/core */ "@nestjs/core");
 /* harmony import */ var _nestjs_core__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_core__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _nestjs_jwt__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @nestjs/jwt */ "@nestjs/jwt");
-/* harmony import */ var _nestjs_jwt__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_nestjs_jwt__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _users_services_users_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../users/services/users.service */ "./src/modules/users/services/users.service.ts");
-/* harmony import */ var _users_services_user_sessions_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../users/services/user-sessions.service */ "./src/modules/users/services/user-sessions.service.ts");
-/* harmony import */ var _nestjs_config__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @nestjs/config */ "@nestjs/config");
-/* harmony import */ var _nestjs_config__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_nestjs_config__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/auth.service */ "./src/modules/auth/services/auth.service.ts");
+/* harmony import */ var _nestjs_jwt__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @nestjs/jwt */ "@nestjs/jwt");
+/* harmony import */ var _nestjs_jwt__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_nestjs_jwt__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _nestjs_config__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @nestjs/config */ "@nestjs/config");
+/* harmony import */ var _nestjs_config__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_nestjs_config__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _decorators_public_decorator__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../decorators/public.decorator */ "./src/modules/auth/decorators/public.decorator.ts");
+/* harmony import */ var _users_services_users_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../users/services/users.service */ "./src/modules/users/services/users.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4341,21 +3831,20 @@ var AuthGuard_1;
 
 
 
-const IS_PUBLIC_KEY = 'isPublic';
-const Public = () => (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.SetMetadata)(IS_PUBLIC_KEY, true);
+
 let AuthGuard = AuthGuard_1 = class AuthGuard {
-    constructor(reflector, jwtService, usersService, userSessionsService, configService) {
+    constructor(reflector, authService, jwtService, configService, usersService) {
         this.reflector = reflector;
+        this.authService = authService;
         this.jwtService = jwtService;
-        this.usersService = usersService;
-        this.userSessionsService = userSessionsService;
         this.configService = configService;
+        this.usersService = usersService;
         this.logger = new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.Logger(AuthGuard_1.name);
     }
     async canActivate(context) {
         try {
             const request = context.switchToHttp().getRequest();
-            const isPublic = this.reflector.getAllAndOverride(IS_PUBLIC_KEY, [
+            const isPublic = this.reflector.getAllAndOverride(_decorators_public_decorator__WEBPACK_IMPORTED_MODULE_5__.IS_PUBLIC_KEY, [
                 context.getHandler(),
                 context.getClass(),
             ]);
@@ -4366,40 +3855,28 @@ let AuthGuard = AuthGuard_1 = class AuthGuard {
                 throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.UnauthorizedException('No authentication token provided');
             }
             try {
-                const payload = await this.jwtService.verifyAsync(token, {
+                const payload = this.jwtService.verify(token, {
                     secret: this.configService.get('JWT_SECRET')
                 });
-                const enableSessionTracking = this.configService.get('ENABLE_SESSION_TRACKING');
-                if (enableSessionTracking) {
-                    const session = await this.userSessionsService.validateSession(token);
-                    if (!session) {
-                        throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.UnauthorizedException('Invalid or expired session');
-                    }
-                    request.session = session;
+                if (this.authService.isTokenBlacklisted(token)) {
+                    throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.UnauthorizedException('Token has been revoked');
                 }
-                const userData = await this.getUserData(payload.sub);
-                if (!userData) {
+                const user = await this.usersService.findById(payload.sub);
+                if (!user) {
                     throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.UnauthorizedException('User not found');
                 }
-                if (!userData.isActive) {
+                if (!user.isActive) {
                     throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.UnauthorizedException('User account is inactive');
                 }
-                if (userData.requirePasswordChange) {
-                    const isPasswordChangeRoute = request.path.includes('/auth/change-password');
-                    if (!isPasswordChangeRoute) {
-                        throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.UnauthorizedException('Password change required');
-                    }
+                if (this.authService.requireEmailVerification && !user.isEmailVerified) {
+                    throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.UnauthorizedException('Email verification required');
                 }
-                request.user = userData;
-                request.token = {
-                    raw: token,
-                    payload
+                request.user = user;
+                request.tokenMetadata = {
+                    token,
+                    iat: payload.iat,
+                    exp: payload.exp,
                 };
-                if (request.session) {
-                    this.updateSessionActivity(request.session.id).catch(error => {
-                        this.logger.error('Error updating session activity:', error);
-                    });
-                }
                 return true;
             }
             catch (error) {
@@ -4423,37 +3900,19 @@ let AuthGuard = AuthGuard_1 = class AuthGuard {
             throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.UnauthorizedException('Authentication failed');
         }
     }
-    async getUserData(userId) {
-        try {
-            return await this.usersService.findById(userId, ['roles', 'permissions', 'preferences']);
-        }
-        catch (error) {
-            this.logger.error(`Error fetching user data: ${error.message}`);
-            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.UnauthorizedException('Error fetching user data');
-        }
-    }
-    async updateSessionActivity(sessionId) {
-        await this.userSessionsService.updateLastActivity(sessionId);
-    }
     extractTokenFromHeader(request) {
-        const authHeader = request.headers.authorization;
-        if (!authHeader) {
-            return undefined;
-        }
-        const [type, token] = authHeader.split(' ');
-        if (type !== 'Bearer') {
-            return undefined;
-        }
-        return token;
+        var _a, _b;
+        const [type, token] = (_b = (_a = request.headers.authorization) === null || _a === void 0 ? void 0 : _a.split(' ')) !== null && _b !== void 0 ? _b : [];
+        return type === 'Bearer' ? token : undefined;
     }
 };
 AuthGuard = AuthGuard_1 = __decorate([
     (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.Injectable)(),
     __metadata("design:paramtypes", [_nestjs_core__WEBPACK_IMPORTED_MODULE_1__.Reflector,
-        _nestjs_jwt__WEBPACK_IMPORTED_MODULE_2__.JwtService,
-        _users_services_users_service__WEBPACK_IMPORTED_MODULE_3__.UsersService,
-        _users_services_user_sessions_service__WEBPACK_IMPORTED_MODULE_4__.UserSessionsService,
-        _nestjs_config__WEBPACK_IMPORTED_MODULE_5__.ConfigService])
+        _services_auth_service__WEBPACK_IMPORTED_MODULE_2__.AuthService,
+        _nestjs_jwt__WEBPACK_IMPORTED_MODULE_3__.JwtService,
+        _nestjs_config__WEBPACK_IMPORTED_MODULE_4__.ConfigService,
+        _users_services_users_service__WEBPACK_IMPORTED_MODULE_6__.UsersService])
 ], AuthGuard);
 
 
@@ -4478,7 +3937,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _nestjs_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @nestjs/core */ "@nestjs/core");
 /* harmony import */ var _nestjs_core__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_nestjs_core__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/auth.service */ "./src/modules/auth/services/auth.service.ts");
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../decorators/public.decorator'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var _decorators_public_decorator__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../decorators/public.decorator */ "./src/modules/auth/decorators/public.decorator.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4502,7 +3961,7 @@ let JwtAuthGuard = JwtAuthGuard_1 = class JwtAuthGuard extends (0,_nestjs_passpo
         this.logger = new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.Logger(JwtAuthGuard_1.name);
     }
     canActivate(context) {
-        const isPublic = this.reflector.getAllAndOverride(Object(function webpackMissingModule() { var e = new Error("Cannot find module '../decorators/public.decorator'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), [
+        const isPublic = this.reflector.getAllAndOverride(_decorators_public_decorator__WEBPACK_IMPORTED_MODULE_4__.IS_PUBLIC_KEY, [
             context.getHandler(),
             context.getClass(),
         ]);
@@ -4554,6 +4013,73 @@ JwtAuthGuard = JwtAuthGuard_1 = __decorate([
 
 /***/ }),
 
+/***/ "./src/modules/auth/guards/rate-limit.guard.ts":
+/*!*****************************************************!*\
+  !*** ./src/modules/auth/guards/rate-limit.guard.ts ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   RateLimitGuard: () => (/* binding */ RateLimitGuard)
+/* harmony export */ });
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_0__);
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var RateLimitGuard_1;
+
+let RateLimitGuard = RateLimitGuard_1 = class RateLimitGuard {
+    constructor() {
+        this.maxRequests = 100;
+        this.windowMs = 15 * 60 * 1000;
+    }
+    canActivate(context) {
+        const request = context.switchToHttp().getRequest();
+        const ip = this.getIp(request);
+        const key = `${ip}`;
+        const now = Date.now();
+        const data = RateLimitGuard_1.store[key] || { count: 0, lastRequest: now };
+        if (now - data.lastRequest > this.windowMs) {
+            data.count = 0;
+            data.lastRequest = now;
+        }
+        data.count += 1;
+        RateLimitGuard_1.store[key] = data;
+        const response = context.switchToHttp().getResponse();
+        response.header('X-RateLimit-Limit', this.maxRequests);
+        response.header('X-RateLimit-Remaining', Math.max(0, this.maxRequests - data.count));
+        if (data.count > this.maxRequests) {
+            const resetTime = new Date(data.lastRequest + this.windowMs);
+            response.header('X-RateLimit-Reset', resetTime.toISOString());
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.HttpException('Too Many Requests', _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.HttpStatus.TOO_MANY_REQUESTS);
+        }
+        return true;
+    }
+    getIp(request) {
+        const forwardedFor = request.headers['x-forwarded-for'];
+        if (forwardedFor) {
+            return Array.isArray(forwardedFor)
+                ? forwardedFor[0]
+                : forwardedFor.split(',')[0].trim();
+        }
+        return request.ip || 'unknown';
+    }
+};
+RateLimitGuard.store = {};
+RateLimitGuard = RateLimitGuard_1 = __decorate([
+    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.Injectable)()
+], RateLimitGuard);
+
+
+
+/***/ }),
+
 /***/ "./src/modules/auth/guards/roles.guard.ts":
 /*!************************************************!*\
   !*** ./src/modules/auth/guards/roles.guard.ts ***!
@@ -4570,9 +4096,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _nestjs_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nestjs/core */ "@nestjs/core");
 /* harmony import */ var _nestjs_core__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_core__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _users_enums_role_enum__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../users/enums/role.enum */ "./src/modules/users/enums/role.enum.ts");
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../decorators/roles.decorator'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../decorators/permissions.decorator'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../services/auth.service */ "./src/modules/auth/services/auth.service.ts");
+/* harmony import */ var _decorators_roles_decorator__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../decorators/roles.decorator */ "./src/modules/auth/decorators/roles.decorator.ts");
+/* harmony import */ var _decorators_permissions_decorator__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../decorators/permissions.decorator */ "./src/modules/auth/decorators/permissions.decorator.ts");
+/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../services/auth.service */ "./src/modules/auth/services/auth.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4596,11 +4122,11 @@ let RolesGuard = RolesGuard_1 = class RolesGuard {
         this.logger = new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.Logger(RolesGuard_1.name);
     }
     async canActivate(context) {
-        const requiredRoles = this.reflector.getAllAndOverride(Object(function webpackMissingModule() { var e = new Error("Cannot find module '../decorators/roles.decorator'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), [
+        const requiredRoles = this.reflector.getAllAndOverride(_decorators_roles_decorator__WEBPACK_IMPORTED_MODULE_3__.ROLES_KEY, [
             context.getHandler(),
             context.getClass(),
         ]);
-        const requiredPermissions = this.reflector.getAllAndOverride(Object(function webpackMissingModule() { var e = new Error("Cannot find module '../decorators/permissions.decorator'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), [context.getHandler(), context.getClass()]);
+        const requiredPermissions = this.reflector.getAllAndOverride(_decorators_permissions_decorator__WEBPACK_IMPORTED_MODULE_4__.PERMISSIONS_KEY, [context.getHandler(), context.getClass()]);
         if (!requiredRoles && !requiredPermissions) {
             return true;
         }
@@ -4658,7 +4184,7 @@ let RolesGuard = RolesGuard_1 = class RolesGuard {
 RolesGuard = RolesGuard_1 = __decorate([
     (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.Injectable)(),
     __metadata("design:paramtypes", [_nestjs_core__WEBPACK_IMPORTED_MODULE_1__.Reflector,
-        _services_auth_service__WEBPACK_IMPORTED_MODULE_4__.AuthService])
+        _services_auth_service__WEBPACK_IMPORTED_MODULE_5__.AuthService])
 ], RolesGuard);
 
 
@@ -4684,11 +4210,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! typeorm */ "typeorm");
 /* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(typeorm__WEBPACK_IMPORTED_MODULE_3__);
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../entities/user.entity'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var _users_entities_user_entity__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts");
 /* harmony import */ var _entities_refresh_token_entity__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../entities/refresh-token.entity */ "./src/modules/auth/entities/refresh-token.entity.ts");
 /* harmony import */ var bcrypt__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! bcrypt */ "bcrypt");
 /* harmony import */ var bcrypt__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(bcrypt__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var _organizations_entities_organization_entity__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../organizations/entities/organization.entity */ "./src/modules/organizations/entities/organization.entity.ts");
+/* harmony import */ var _users_enums_role_enum__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../users/enums/role.enum */ "./src/modules/users/enums/role.enum.ts");
+/* harmony import */ var _users_services_users_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../users/services/users.service */ "./src/modules/users/services/users.service.ts");
+/* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! uuid */ "uuid");
+/* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(uuid__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _nestjs_config__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @nestjs/config */ "@nestjs/config");
+/* harmony import */ var _nestjs_config__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_nestjs_config__WEBPACK_IMPORTED_MODULE_11__);
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4720,12 +4252,36 @@ var __rest = (undefined && undefined.__rest) || function (s, e) {
 
 
 
+
+
+
+
 let AuthService = class AuthService {
-    constructor(userRepository, refreshTokenRepository, organizationRepository, jwtService) {
+    constructor(userRepository, refreshTokenRepository, organizationRepository, jwtService, usersService, configService) {
         this.userRepository = userRepository;
         this.refreshTokenRepository = refreshTokenRepository;
         this.organizationRepository = organizationRepository;
         this.jwtService = jwtService;
+        this.usersService = usersService;
+        this.configService = configService;
+    }
+    isTokenBlacklisted(token) {
+        return false;
+    }
+    get requireEmailVerification() {
+        var _a, _b;
+        const requireVerification = (_b = (_a = this.configService) === null || _a === void 0 ? void 0 : _a.get('EMAIL_VERIFICATION_REQUIRED')) !== null && _b !== void 0 ? _b : true;
+        return requireVerification;
+    }
+    async checkOrganizationAccess(userId, organizationId) {
+        const user = await this.usersService.findById(userId);
+        return (user === null || user === void 0 ? void 0 : user.organizationId) === organizationId;
+    }
+    async getUserPermissions(userId) {
+        return ['permission1', 'permission2'];
+    }
+    async checkResourceOwnership(userId, resourceId, resourceType) {
+        return true;
     }
     async validateUser(email, password) {
         const user = await this.userRepository.findOne({
@@ -4733,19 +4289,23 @@ let AuthService = class AuthService {
             relations: ['organization'],
         });
         if (user && (await (0,bcrypt__WEBPACK_IMPORTED_MODULE_6__.compare)(password, user.password))) {
-            const { password } = user, result = __rest(user, ["password"]);
+            const { password: _password } = user, result = __rest(user, ["password"]);
             return result;
         }
         return null;
     }
-    async login(loginDto) {
+    async login(loginDto, metadata) {
+        var _a;
         const user = await this.validateUser(loginDto.email, loginDto.password);
         if (!user) {
             throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.UnauthorizedException('Invalid credentials');
         }
         const organization = await this.organizationRepository.findOne({
-            where: { id: user.organization.id },
+            where: { id: (_a = user.organization) === null || _a === void 0 ? void 0 : _a.id },
         });
+        if (!organization) {
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.UnauthorizedException('Organization not found');
+        }
         if (!organization.isSubscriptionActive) {
             throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.UnauthorizedException('Organization subscription is inactive');
         }
@@ -4753,10 +4313,12 @@ let AuthService = class AuthService {
             sub: user.id,
             email: user.email,
             role: user.role,
-            organizationId: user.organization.id,
+            organizationId: organization.id,
+            permissions: [],
+            sessionId: (0,uuid__WEBPACK_IMPORTED_MODULE_10__.v4)(),
         };
         const accessToken = this.jwtService.sign(payload);
-        const refreshToken = await this.generateRefreshToken(user.id);
+        const refreshToken = await this.generateRefreshToken(user.id, metadata);
         return {
             accessToken,
             refreshToken: refreshToken.token,
@@ -4764,69 +4326,202 @@ let AuthService = class AuthService {
                 id: user.id,
                 email: user.email,
                 role: user.role,
-                organizationId: user.organization.id,
+                organizationId: organization.id,
             },
         };
     }
-    async register(registerDto) {
+    async register(registerDto, metadata) {
         const existingUser = await this.userRepository.findOne({
-            where: { email: registerDto.email },
+            where: { email: registerDto.user.email },
         });
         if (existingUser) {
             throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.UnauthorizedException('Email already registered');
         }
-        const hashedPassword = await (0,bcrypt__WEBPACK_IMPORTED_MODULE_6__.hash)(registerDto.password, 10);
-        const user = this.userRepository.create(Object.assign(Object.assign({}, registerDto), { password: hashedPassword, role: 'STANDARD_USER' }));
-        await this.userRepository.save(user);
-        const { password } = user, result = __rest(user, ["password"]);
-        return result;
+        const organization = new _organizations_entities_organization_entity__WEBPACK_IMPORTED_MODULE_7__.Organization();
+        organization.name = registerDto.organization.name;
+        organization.status = _organizations_entities_organization_entity__WEBPACK_IMPORTED_MODULE_7__.OrganizationStatus.ACTIVE;
+        organization.isSubscriptionActive = true;
+        if (registerDto.organization.website) {
+            organization.website = registerDto.organization.website;
+        }
+        if (registerDto.organization.phone) {
+            organization.contactInfo = {
+                phone: registerDto.organization.phone
+            };
+        }
+        if (registerDto.organization.address) {
+            organization.contactInfo = Object.assign(Object.assign({}, organization.contactInfo), { address: {
+                    street: registerDto.organization.address.street,
+                    city: registerDto.organization.address.city,
+                    state: registerDto.organization.address.state,
+                    postalCode: registerDto.organization.address.postalCode,
+                    country: registerDto.organization.address.country,
+                } });
+        }
+        organization.slug = this.generateSlug(registerDto.organization.name);
+        const savedOrganization = await this.organizationRepository.save(organization);
+        const hashedPassword = await (0,bcrypt__WEBPACK_IMPORTED_MODULE_6__.hash)(registerDto.user.password, 10);
+        const user = new _users_entities_user_entity__WEBPACK_IMPORTED_MODULE_4__.User();
+        user.firstName = registerDto.user.firstName;
+        user.lastName = registerDto.user.lastName;
+        user.email = registerDto.user.email;
+        user.password = hashedPassword;
+        user.role = registerDto.user.role || _users_enums_role_enum__WEBPACK_IMPORTED_MODULE_8__.Role.ADMIN;
+        user.organizationId = savedOrganization.id;
+        user.createdById = savedOrganization.id;
+        if (registerDto.user.phone) {
+            user.phoneNumber = registerDto.user.phone;
+        }
+        const savedUser = await this.userRepository.save(user);
+        savedOrganization.createdById = savedUser.id;
+        await this.organizationRepository.save(savedOrganization);
+        const payload = {
+            sub: savedUser.id,
+            email: savedUser.email,
+            role: savedUser.role,
+            organizationId: savedOrganization.id,
+            permissions: [],
+            sessionId: (0,uuid__WEBPACK_IMPORTED_MODULE_10__.v4)(),
+        };
+        const accessToken = this.jwtService.sign(payload);
+        const refreshToken = await this.generateRefreshToken(savedUser.id, metadata);
+        return {
+            accessToken,
+            refreshToken: refreshToken.token,
+            user: {
+                id: savedUser.id,
+                email: savedUser.email,
+                firstName: savedUser.firstName,
+                lastName: savedUser.lastName,
+                role: savedUser.role,
+                organizationId: savedOrganization.id,
+            },
+            organization: {
+                id: savedOrganization.id,
+                name: savedOrganization.name,
+                status: savedOrganization.status,
+            },
+        };
     }
-    async refreshAccessToken(refreshToken) {
-        const token = await this.refreshTokenRepository.findOne({
-            where: { token: refreshToken },
+    async refreshToken(token) {
+        const refreshToken = await this.refreshTokenRepository.findOne({
+            where: { token },
             relations: ['user'],
         });
-        if (!token || token.isExpired()) {
+        if (!refreshToken || refreshToken.isExpired() || refreshToken.isRevoked) {
             throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.UnauthorizedException('Invalid refresh token');
         }
+        refreshToken.updateLastUsed();
+        await this.refreshTokenRepository.save(refreshToken);
+        const user = await this.userRepository.findOne({
+            where: { id: refreshToken.userId }
+        });
+        if (!user) {
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.UnauthorizedException('User not found');
+        }
         const payload = {
-            sub: token.user.id,
-            email: token.user.email,
-            role: token.user.role,
-            organizationId: token.user.organization.id,
+            sub: refreshToken.userId,
+            email: user.email,
+            role: user.role,
+            organizationId: refreshToken.organizationId || user.organizationId,
+            permissions: [],
+            sessionId: (0,uuid__WEBPACK_IMPORTED_MODULE_10__.v4)(),
         };
         const accessToken = this.jwtService.sign(payload);
         return { accessToken };
     }
-    async generateRefreshToken(userId) {
-        const token = this.refreshTokenRepository.create({
-            user: { id: userId },
-            expiresAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
-        });
+    async generateRefreshToken(userId, metadata) {
+        const tokenString = (0,uuid__WEBPACK_IMPORTED_MODULE_10__.v4)();
+        const user = await this.userRepository.findOne({ where: { id: userId } });
+        if (!user) {
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.UnauthorizedException('User not found');
+        }
+        const token = new _entities_refresh_token_entity__WEBPACK_IMPORTED_MODULE_5__.RefreshToken();
+        token.userId = userId;
+        token.organizationId = user.organizationId;
+        token.token = tokenString;
+        token.expiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
+        token.userAgent = metadata.userAgent;
+        token.ipAddress = metadata.ip;
+        token.metadata = {
+            platform: this.extractPlatform(metadata.userAgent),
+            browser: this.extractBrowser(metadata.userAgent),
+            lastUsed: new Date(),
+        };
         return this.refreshTokenRepository.save(token);
     }
     async logout(userId) {
-        await this.refreshTokenRepository.delete({ user: { id: userId } });
+        await this.refreshTokenRepository.update({ userId }, { isRevoked: true, revokedAt: new Date(), revokedReason: 'User logout' });
         return { message: 'Logged out successfully' };
     }
     async validateOrganizationAccess(userId, organizationId) {
-        var _a;
         const user = await this.userRepository.findOne({
             where: { id: userId },
             relations: ['organization'],
         });
-        return ((_a = user === null || user === void 0 ? void 0 : user.organization) === null || _a === void 0 ? void 0 : _a.id) === organizationId;
+        return (user === null || user === void 0 ? void 0 : user.organizationId) === organizationId;
+    }
+    generateSlug(name) {
+        return name
+            .toLowerCase()
+            .replace(/\s+/g, '-')
+            .replace(/[^a-z0-9-]/g, '')
+            .slice(0, 50) + '-' + Math.floor(Math.random() * 10000);
+    }
+    extractPlatform(userAgent) {
+        if (userAgent.includes('Windows'))
+            return 'Windows';
+        if (userAgent.includes('Mac'))
+            return 'Mac';
+        if (userAgent.includes('iPhone') || userAgent.includes('iPad'))
+            return 'iOS';
+        if (userAgent.includes('Android'))
+            return 'Android';
+        if (userAgent.includes('Linux'))
+            return 'Linux';
+        return 'Unknown';
+    }
+    extractBrowser(userAgent) {
+        if (userAgent.includes('Chrome') && !userAgent.includes('Edg'))
+            return 'Chrome';
+        if (userAgent.includes('Firefox'))
+            return 'Firefox';
+        if (userAgent.includes('Safari') && !userAgent.includes('Chrome'))
+            return 'Safari';
+        if (userAgent.includes('Edg'))
+            return 'Edge';
+        if (userAgent.includes('Opera') || userAgent.includes('OPR'))
+            return 'Opera';
+        return 'Unknown';
+    }
+    async sendPasswordResetEmail(email) {
+        const user = await this.userRepository.findOne({ where: { email } });
+        if (!user) {
+            return;
+        }
+    }
+    async changePassword(token, newPassword) {
+    }
+    async confirmEmail(token) {
+    }
+    async sendVerificationEmail(userId) {
+        const user = await this.userRepository.findOne({ where: { id: userId } });
+        if (!user) {
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.UnauthorizedException('User not found');
+        }
     }
 };
 AuthService = __decorate([
     (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.Injectable)(),
-    __param(0, (0,_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_2__.InjectRepository)(Object(function webpackMissingModule() { var e = new Error("Cannot find module '../entities/user.entity'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()))),
+    __param(0, (0,_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_2__.InjectRepository)(_users_entities_user_entity__WEBPACK_IMPORTED_MODULE_4__.User)),
     __param(1, (0,_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_2__.InjectRepository)(_entities_refresh_token_entity__WEBPACK_IMPORTED_MODULE_5__.RefreshToken)),
     __param(2, (0,_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_2__.InjectRepository)(_organizations_entities_organization_entity__WEBPACK_IMPORTED_MODULE_7__.Organization)),
     __metadata("design:paramtypes", [typeorm__WEBPACK_IMPORTED_MODULE_3__.Repository,
         typeorm__WEBPACK_IMPORTED_MODULE_3__.Repository,
         typeorm__WEBPACK_IMPORTED_MODULE_3__.Repository,
-        _nestjs_jwt__WEBPACK_IMPORTED_MODULE_1__.JwtService])
+        _nestjs_jwt__WEBPACK_IMPORTED_MODULE_1__.JwtService,
+        _users_services_users_service__WEBPACK_IMPORTED_MODULE_9__.UsersService,
+        _nestjs_config__WEBPACK_IMPORTED_MODULE_11__.ConfigService])
 ], AuthService);
 
 
@@ -4856,7 +4551,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! typeorm */ "typeorm");
 /* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(typeorm__WEBPACK_IMPORTED_MODULE_5__);
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../entities/user.entity'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var _entities_user_entity__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../entities/user.entity */ "./src/modules/auth/entities/user.entity.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4908,7 +4603,7 @@ let JwtStrategy = class JwtStrategy extends (0,_nestjs_passport__WEBPACK_IMPORTE
 };
 JwtStrategy = __decorate([
     (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.Injectable)(),
-    __param(1, (0,_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_4__.InjectRepository)(Object(function webpackMissingModule() { var e = new Error("Cannot find module '../entities/user.entity'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()))),
+    __param(1, (0,_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_4__.InjectRepository)(_entities_user_entity__WEBPACK_IMPORTED_MODULE_6__.User)),
     __metadata("design:paramtypes", [_nestjs_config__WEBPACK_IMPORTED_MODULE_3__.ConfigService,
         typeorm__WEBPACK_IMPORTED_MODULE_5__.Repository])
 ], JwtStrategy);
@@ -4935,13 +4630,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _controllers_contacts_controller__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./controllers/contacts.controller */ "./src/modules/contacts/controllers/contacts.controller.ts");
 /* harmony import */ var _services_contacts_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./services/contacts.service */ "./src/modules/contacts/services/contacts.service.ts");
 /* harmony import */ var _entities_contact_entity__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./entities/contact.entity */ "./src/modules/contacts/entities/contact.entity.ts");
-Object(function webpackMissingModule() { var e = new Error("Cannot find module './entities/contact-relationship.entity'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var _entities_contact_relationship_entity__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./entities/contact-relationship.entity */ "./src/modules/contacts/entities/contact-relationship.entity.ts");
 Object(function webpackMissingModule() { var e = new Error("Cannot find module '../medical-history/entities/medical-history.entity'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-/* harmony import */ var _appointments_entities_appointment_entity__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../appointments/entities/appointment.entity */ "./src/modules/appointments/entities/appointment.entity.ts");
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../documents/entities/document.entity'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-/* harmony import */ var _auth_auth_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../auth/auth.module */ "./src/modules/auth/auth.module.ts");
-/* harmony import */ var _users_users_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../users/users.module */ "./src/modules/users/users.module.ts");
-/* harmony import */ var _organizations_organizations_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../organizations/organizations.module */ "./src/modules/organizations/organizations.module.ts");
+/* harmony import */ var _appointments_entities_appointment_entity__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../appointments/entities/appointment.entity */ "./src/modules/appointments/entities/appointment.entity.ts");
+/* harmony import */ var _documents_entities_document_entity__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../documents/entities/document.entity */ "./src/modules/documents/entities/document.entity.ts");
+/* harmony import */ var _auth_auth_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../auth/auth.module */ "./src/modules/auth/auth.module.ts");
+/* harmony import */ var _users_users_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../users/users.module */ "./src/modules/users/users.module.ts");
+/* harmony import */ var _organizations_organizations_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../organizations/organizations.module */ "./src/modules/organizations/organizations.module.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4967,14 +4662,14 @@ ContactsModule = __decorate([
         imports: [
             _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__.TypeOrmModule.forFeature([
                 _entities_contact_entity__WEBPACK_IMPORTED_MODULE_4__.Contact,
-                Object(function webpackMissingModule() { var e = new Error("Cannot find module './entities/contact-relationship.entity'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+                _entities_contact_relationship_entity__WEBPACK_IMPORTED_MODULE_5__.ContactRelationship,
                 Object(function webpackMissingModule() { var e = new Error("Cannot find module '../medical-history/entities/medical-history.entity'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
-                _appointments_entities_appointment_entity__WEBPACK_IMPORTED_MODULE_6__.Appointment,
-                Object(function webpackMissingModule() { var e = new Error("Cannot find module '../documents/entities/document.entity'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())
+                _appointments_entities_appointment_entity__WEBPACK_IMPORTED_MODULE_7__.Appointment,
+                _documents_entities_document_entity__WEBPACK_IMPORTED_MODULE_8__.Document
             ]),
-            _auth_auth_module__WEBPACK_IMPORTED_MODULE_7__.AuthModule,
-            _users_users_module__WEBPACK_IMPORTED_MODULE_8__.UsersModule,
-            _organizations_organizations_module__WEBPACK_IMPORTED_MODULE_9__.OrganizationsModule
+            _auth_auth_module__WEBPACK_IMPORTED_MODULE_9__.AuthModule,
+            _users_users_module__WEBPACK_IMPORTED_MODULE_10__.UsersModule,
+            _organizations_organizations_module__WEBPACK_IMPORTED_MODULE_11__.OrganizationsModule
         ],
         controllers: [_controllers_contacts_controller__WEBPACK_IMPORTED_MODULE_2__.ContactsController],
         providers: [_services_contacts_service__WEBPACK_IMPORTED_MODULE_3__.ContactsService],
@@ -5008,8 +4703,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_contacts_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../services/contacts.service */ "./src/modules/contacts/services/contacts.service.ts");
 /* harmony import */ var _dto_create_contact_dto__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../dto/create-contact.dto */ "./src/modules/contacts/dto/create-contact.dto.ts");
 /* harmony import */ var _dto_update_contact_dto__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../dto/update-contact.dto */ "./src/modules/contacts/dto/update-contact.dto.ts");
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../dto/contact-query.dto'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../dto/merge-contacts.dto'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var _dto_contact_query_dto__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../dto/contact-query.dto */ "./src/modules/contacts/dto/contact-query.dto.ts");
+/* harmony import */ var _dto_merge_contacts_dto__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../dto/merge-contacts.dto */ "./src/modules/contacts/dto/merge-contacts.dto.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -5022,7 +4717,6 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
-var _a, _b, _c;
 
 
 
@@ -5078,7 +4772,7 @@ let ContactsController = class ContactsController {
     }
     async merge(primaryId, mergeContactsDto, req) {
         var _a, _b, _c, _d;
-        return this.contactsService.merge(primaryId, mergeContactsDto.secondaryId, {
+        return this.contactsService.merge(primaryId, mergeContactsDto.secondaryContactId, {
             organizationId: (_b = (_a = req.organization) === null || _a === void 0 ? void 0 : _a.id) !== null && _b !== void 0 ? _b : (() => { throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.BadRequestException('Organization ID is required'); })(),
             userId: (_d = (_c = req.user) === null || _c === void 0 ? void 0 : _c.id) !== null && _d !== void 0 ? _d : (() => { throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.BadRequestException('User ID is required'); })(),
         });
@@ -5101,33 +4795,33 @@ let ContactsController = class ContactsController {
         var _a, _b;
         return this.contactsService.getMedicalHistory(id, Object.assign(Object.assign({}, query), { organizationId: (_b = (_a = req.organization) === null || _a === void 0 ? void 0 : _a.id) !== null && _b !== void 0 ? _b : (() => { throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.BadRequestException('Organization ID is required'); })() }));
     }
-    async getAppointments(id, query, req) {
-        var _a, _b;
-        return this.contactsService.getAppointments(id, Object.assign(Object.assign({}, query), { organizationId: (_b = (_a = req.organization) === null || _a === void 0 ? void 0 : _a.id) !== null && _b !== void 0 ? _b : (() => { throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.BadRequestException('Organization ID is required'); })() }));
-    }
     async getDocuments(id, query, req) {
         var _a, _b;
         return this.contactsService.getDocuments(id, Object.assign(Object.assign({}, query), { organizationId: (_b = (_a = req.organization) === null || _a === void 0 ? void 0 : _a.id) !== null && _b !== void 0 ? _b : (() => { throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.BadRequestException('Organization ID is required'); })() }));
     }
     async addDocument(id, documentDto, req) {
+        var _a, _b, _c, _d;
         return this.contactsService.addDocument(id, documentDto, {
-            organizationId: req.organization.id,
-            userId: req.user.id,
+            organizationId: (_b = (_a = req.organization) === null || _a === void 0 ? void 0 : _a.id) !== null && _b !== void 0 ? _b : (() => { throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.BadRequestException('Organization ID is required'); })(),
+            userId: (_d = (_c = req.user) === null || _c === void 0 ? void 0 : _c.id) !== null && _d !== void 0 ? _d : (() => { throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.BadRequestException('User ID is required'); })(),
         });
     }
     async getStatistics(query, req) {
-        return this.contactsService.getStatistics(Object.assign(Object.assign({}, query), { organizationId: req.organization.id }));
+        var _a, _b;
+        return this.contactsService.getStatistics(Object.assign(Object.assign({}, query), { organizationId: (_b = (_a = req.organization) === null || _a === void 0 ? void 0 : _a.id) !== null && _b !== void 0 ? _b : (() => { throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.BadRequestException('Organization ID is required'); })() }));
     }
     async importContacts(importDto, req) {
+        var _a, _b, _c, _d;
         return this.contactsService.importContacts(importDto, {
-            organizationId: req.organization.id,
-            userId: req.user.id,
+            organizationId: (_b = (_a = req.organization) === null || _a === void 0 ? void 0 : _a.id) !== null && _b !== void 0 ? _b : (() => { throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.BadRequestException('Organization ID is required'); })(),
+            userId: (_d = (_c = req.user) === null || _c === void 0 ? void 0 : _c.id) !== null && _d !== void 0 ? _d : (() => { throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.BadRequestException('User ID is required'); })(),
         });
     }
     async exportContacts(exportDto, req) {
+        var _a, _b, _c, _d;
         return this.contactsService.exportContacts(exportDto, {
-            organizationId: req.organization.id,
-            userId: req.user.id,
+            organizationId: (_b = (_a = req.organization) === null || _a === void 0 ? void 0 : _a.id) !== null && _b !== void 0 ? _b : (() => { throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.BadRequestException('Organization ID is required'); })(),
+            userId: (_d = (_c = req.user) === null || _c === void 0 ? void 0 : _c.id) !== null && _d !== void 0 ? _d : (() => { throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.BadRequestException('User ID is required'); })(),
         });
     }
 };
@@ -5151,7 +4845,7 @@ __decorate([
     __param(0, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Query)()),
     __param(1, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Request)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [typeof (_a = typeof Object(function webpackMissingModule() { var e = new Error("Cannot find module '../dto/contact-query.dto'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()) !== "undefined" && Object(function webpackMissingModule() { var e = new Error("Cannot find module '../dto/contact-query.dto'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())) === "function" ? _a : Object, Object]),
+    __metadata("design:paramtypes", [_dto_contact_query_dto__WEBPACK_IMPORTED_MODULE_9__.ContactQueryDto, Object]),
     __metadata("design:returntype", Promise)
 ], ContactsController.prototype, "findAll", null);
 __decorate([
@@ -5163,7 +4857,7 @@ __decorate([
     __param(1, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Query)()),
     __param(2, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Request)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, typeof (_b = typeof Object(function webpackMissingModule() { var e = new Error("Cannot find module '../dto/contact-query.dto'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()) !== "undefined" && Object(function webpackMissingModule() { var e = new Error("Cannot find module '../dto/contact-query.dto'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())) === "function" ? _b : Object, Object]),
+    __metadata("design:paramtypes", [String, _dto_contact_query_dto__WEBPACK_IMPORTED_MODULE_9__.ContactQueryDto, Object]),
     __metadata("design:returntype", Promise)
 ], ContactsController.prototype, "search", null);
 __decorate([
@@ -5212,14 +4906,14 @@ __decorate([
     __param(1, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Body)()),
     __param(2, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Request)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, typeof (_c = typeof Object(function webpackMissingModule() { var e = new Error("Cannot find module '../dto/merge-contacts.dto'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()) !== "undefined" && Object(function webpackMissingModule() { var e = new Error("Cannot find module '../dto/merge-contacts.dto'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())) === "function" ? _c : Object, Object]),
+    __metadata("design:paramtypes", [String, _dto_merge_contacts_dto__WEBPACK_IMPORTED_MODULE_10__.MergeContactsDto, Object]),
     __metadata("design:returntype", Promise)
 ], ContactsController.prototype, "merge", null);
 __decorate([
     (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Get)(':id/relationships'),
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Get contact relationships' }),
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse)({ status: _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.OK, description: 'Return contact relationships' }),
-    _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 200, type: [Object] }),
+    _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 200, type: [(__webpack_require__(/*! ../entities/contact-relationship.entity */ "./src/modules/contacts/entities/contact-relationship.entity.ts").ContactRelationship)] }),
     __param(0, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Param)('id', _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.ParseUUIDPipe)),
     __param(1, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Request)()),
     __metadata("design:type", Function),
@@ -5231,7 +4925,7 @@ __decorate([
     (0,_common_decorators_roles_decorator__WEBPACK_IMPORTED_MODULE_4__.Roles)(_users_enums_role_enum__WEBPACK_IMPORTED_MODULE_5__.Role.ADMIN, _users_enums_role_enum__WEBPACK_IMPORTED_MODULE_5__.Role.STAFF),
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Add contact relationship' }),
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse)({ status: _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.CREATED, description: 'Relationship added successfully' }),
-    _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 201, type: Object }),
+    _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 201, type: (__webpack_require__(/*! ../entities/contact-relationship.entity */ "./src/modules/contacts/entities/contact-relationship.entity.ts").ContactRelationship) }),
     __param(0, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Param)('id', _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.ParseUUIDPipe)),
     __param(1, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Body)()),
     __param(2, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Request)()),
@@ -5243,7 +4937,7 @@ __decorate([
     (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Get)(':id/medical-history'),
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Get medical history' }),
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse)({ status: _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.OK, description: 'Return medical history' }),
-    _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 200, type: [Object] }),
+    _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 200, type: [(__webpack_require__(/*! ../../medical-history/medical-history.entity */ "./src/modules/medical-history/medical-history.entity.ts").MedicalHistory)] }),
     __param(0, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Param)('id', _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.ParseUUIDPipe)),
     __param(1, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Query)()),
     __param(2, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Request)()),
@@ -5252,22 +4946,10 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], ContactsController.prototype, "getMedicalHistory", null);
 __decorate([
-    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Get)(':id/appointments'),
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Get contact appointments' }),
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse)({ status: _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.OK, description: 'Return contact appointments' }),
-    _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 200, type: [(__webpack_require__(/*! ../../appointments/entities/appointment.entity */ "./src/modules/appointments/entities/appointment.entity.ts").Appointment)] }),
-    __param(0, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Param)('id', _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.ParseUUIDPipe)),
-    __param(1, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Query)()),
-    __param(2, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Request)()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, Object, Object]),
-    __metadata("design:returntype", Promise)
-], ContactsController.prototype, "getAppointments", null);
-__decorate([
     (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Get)(':id/documents'),
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Get contact documents' }),
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse)({ status: _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.OK, description: 'Return contact documents' }),
-    _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 200, type: [Object] }),
+    _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 200, type: [(__webpack_require__(/*! ../../documents/entities/document.entity */ "./src/modules/documents/entities/document.entity.ts").Document)] }),
     __param(0, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Param)('id', _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.ParseUUIDPipe)),
     __param(1, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Query)()),
     __param(2, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Request)()),
@@ -5280,7 +4962,7 @@ __decorate([
     (0,_common_decorators_roles_decorator__WEBPACK_IMPORTED_MODULE_4__.Roles)(_users_enums_role_enum__WEBPACK_IMPORTED_MODULE_5__.Role.ADMIN, _users_enums_role_enum__WEBPACK_IMPORTED_MODULE_5__.Role.STAFF),
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Add contact document' }),
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse)({ status: _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.CREATED, description: 'Document added successfully' }),
-    _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 201, type: Object }),
+    _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 201, type: [(__webpack_require__(/*! ../../documents/entities/document.entity */ "./src/modules/documents/entities/document.entity.ts").Document)] }),
     __param(0, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Param)('id', _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.ParseUUIDPipe)),
     __param(1, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Body)()),
     __param(2, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Request)()),
@@ -5336,6 +5018,421 @@ ContactsController = __decorate([
 
 /***/ }),
 
+/***/ "./src/modules/contacts/dto/contact-query.dto.ts":
+/*!*******************************************************!*\
+  !*** ./src/modules/contacts/dto/contact-query.dto.ts ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ContactQueryDto: () => (/* binding */ ContactQueryDto),
+/* harmony export */   ContactType: () => (/* binding */ ContactType),
+/* harmony export */   DateRangeDto: () => (/* binding */ DateRangeDto),
+/* harmony export */   SortField: () => (/* binding */ SortField),
+/* harmony export */   SortOrder: () => (/* binding */ SortOrder)
+/* harmony export */ });
+/* harmony import */ var _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/swagger */ "@nestjs/swagger");
+/* harmony import */ var _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var class_validator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! class-validator */ "class-validator");
+/* harmony import */ var class_validator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(class_validator__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! class-transformer */ "class-transformer");
+/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(class_transformer__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _enums_gender_enum__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../enums/gender.enum */ "./src/modules/contacts/enums/gender.enum.ts");
+/* harmony import */ var _enums_marital_status_enum__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../enums/marital-status.enum */ "./src/modules/contacts/enums/marital-status.enum.ts");
+/* harmony import */ var _enums_blood_group_enum__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../enums/blood-group.enum */ "./src/modules/contacts/enums/blood-group.enum.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+var ContactType;
+(function (ContactType) {
+    ContactType["PATIENT"] = "PATIENT";
+    ContactType["PROVIDER"] = "PROVIDER";
+    ContactType["STAFF"] = "STAFF";
+    ContactType["VENDOR"] = "VENDOR";
+    ContactType["OTHER"] = "OTHER";
+})(ContactType || (ContactType = {}));
+var SortOrder;
+(function (SortOrder) {
+    SortOrder["ASC"] = "ASC";
+    SortOrder["DESC"] = "DESC";
+})(SortOrder || (SortOrder = {}));
+var SortField;
+(function (SortField) {
+    SortField["FIRST_NAME"] = "firstName";
+    SortField["LAST_NAME"] = "lastName";
+    SortField["EMAIL"] = "email";
+    SortField["PHONE"] = "phone";
+    SortField["DATE_OF_BIRTH"] = "dateOfBirth";
+    SortField["CREATED_AT"] = "createdAt";
+    SortField["UPDATED_AT"] = "updatedAt";
+})(SortField || (SortField = {}));
+class DateRangeDto {
+    static _OPENAPI_METADATA_FACTORY() {
+        return { from: { required: false, type: () => String }, to: { required: false, type: () => String } };
+    }
+}
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Start date for filtering' }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsDateString)(),
+    __metadata("design:type", String)
+], DateRangeDto.prototype, "from", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'End date for filtering' }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsDateString)(),
+    __metadata("design:type", String)
+], DateRangeDto.prototype, "to", void 0);
+class ContactQueryDto {
+    static _OPENAPI_METADATA_FACTORY() {
+        return { search: { required: false, type: () => String }, type: { required: false, enum: (__webpack_require__(/*! ./contact-query.dto */ "./src/modules/contacts/dto/contact-query.dto.ts").ContactType) }, gender: { required: false, enum: (__webpack_require__(/*! ../enums/gender.enum */ "./src/modules/contacts/enums/gender.enum.ts").Gender) }, maritalStatus: { required: false, enum: (__webpack_require__(/*! ../enums/marital-status.enum */ "./src/modules/contacts/enums/marital-status.enum.ts").MaritalStatus) }, bloodGroup: { required: false, enum: (__webpack_require__(/*! ../enums/blood-group.enum */ "./src/modules/contacts/enums/blood-group.enum.ts").BloodGroup) }, isActive: { required: false, type: () => Boolean }, tags: { required: false, type: () => [String] }, groups: { required: false, type: () => [String] }, createdAt: { required: false, type: () => (__webpack_require__(/*! ./contact-query.dto */ "./src/modules/contacts/dto/contact-query.dto.ts").DateRangeDto) }, updatedAt: { required: false, type: () => (__webpack_require__(/*! ./contact-query.dto */ "./src/modules/contacts/dto/contact-query.dto.ts").DateRangeDto) }, dateOfBirth: { required: false, type: () => (__webpack_require__(/*! ./contact-query.dto */ "./src/modules/contacts/dto/contact-query.dto.ts").DateRangeDto) }, city: { required: false, type: () => String }, state: { required: false, type: () => String }, country: { required: false, type: () => String }, postalCode: { required: false, type: () => String }, email: { required: false, type: () => String }, phone: { required: false, type: () => String }, insuranceProvider: { required: false, type: () => String }, medicalConditions: { required: false, type: () => [String] }, allergies: { required: false, type: () => [String] }, createdBy: { required: false, type: () => String }, updatedBy: { required: false, type: () => String }, page: { required: false, type: () => Number, minimum: 1 }, limit: { required: false, type: () => Number, minimum: 1, maximum: 100 }, sortBy: { required: false, enum: (__webpack_require__(/*! ./contact-query.dto */ "./src/modules/contacts/dto/contact-query.dto.ts").SortField), enum: Object.values(SortField) }, sortOrder: { required: false, enum: (__webpack_require__(/*! ./contact-query.dto */ "./src/modules/contacts/dto/contact-query.dto.ts").SortOrder), enum: Object.values(SortOrder) }, includeInactive: { required: false, type: () => Boolean }, hasUpcomingAppointments: { required: false, type: () => Boolean }, recentActivityDays: { required: false, type: () => Number, minimum: 1 }, allowsEmail: { required: false, type: () => Boolean }, allowsSMS: { required: false, type: () => Boolean }, hasDocuments: { required: false, type: () => Boolean }, hasMedicalHistory: { required: false, type: () => Boolean }, preferredLanguage: { required: false, type: () => String } };
+    }
+}
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({
+        description: 'Search term to look in firstName, lastName, email, and phone',
+        example: 'john',
+    }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
+    __metadata("design:type", String)
+], ContactQueryDto.prototype, "search", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({
+        description: 'Type of contact',
+        enum: ContactType,
+        example: ContactType.PATIENT,
+    }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsEnum)(ContactType),
+    __metadata("design:type", String)
+], ContactQueryDto.prototype, "type", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({
+        description: 'Filter by gender',
+        enum: _enums_gender_enum__WEBPACK_IMPORTED_MODULE_3__.Gender,
+    }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsEnum)(_enums_gender_enum__WEBPACK_IMPORTED_MODULE_3__.Gender),
+    __metadata("design:type", String)
+], ContactQueryDto.prototype, "gender", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({
+        description: 'Filter by marital status',
+        enum: _enums_marital_status_enum__WEBPACK_IMPORTED_MODULE_4__.MaritalStatus,
+    }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsEnum)(_enums_marital_status_enum__WEBPACK_IMPORTED_MODULE_4__.MaritalStatus),
+    __metadata("design:type", String)
+], ContactQueryDto.prototype, "maritalStatus", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({
+        description: 'Filter by blood group',
+        enum: _enums_blood_group_enum__WEBPACK_IMPORTED_MODULE_5__.BloodGroup,
+    }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsEnum)(_enums_blood_group_enum__WEBPACK_IMPORTED_MODULE_5__.BloodGroup),
+    __metadata("design:type", String)
+], ContactQueryDto.prototype, "bloodGroup", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({
+        description: 'Filter by active status',
+        example: true,
+    }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsBoolean)(),
+    __metadata("design:type", Boolean)
+], ContactQueryDto.prototype, "isActive", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({
+        description: 'Filter by specific tags',
+        type: [String],
+        example: ['vip', 'recurring'],
+    }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsArray)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)({ each: true }),
+    __metadata("design:type", Array)
+], ContactQueryDto.prototype, "tags", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({
+        description: 'Filter by group IDs',
+        type: [String],
+        example: ['group1', 'group2'],
+    }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsArray)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)({ each: true }),
+    __metadata("design:type", Array)
+], ContactQueryDto.prototype, "groups", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({
+        description: 'Filter by creation date range',
+    }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.ValidateNested)(),
+    (0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Type)(() => DateRangeDto),
+    __metadata("design:type", DateRangeDto)
+], ContactQueryDto.prototype, "createdAt", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({
+        description: 'Filter by update date range',
+    }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.ValidateNested)(),
+    (0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Type)(() => DateRangeDto),
+    __metadata("design:type", DateRangeDto)
+], ContactQueryDto.prototype, "updatedAt", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({
+        description: 'Filter by date of birth range',
+    }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.ValidateNested)(),
+    (0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Type)(() => DateRangeDto),
+    __metadata("design:type", DateRangeDto)
+], ContactQueryDto.prototype, "dateOfBirth", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({
+        description: 'Filter by city',
+        example: 'New York',
+    }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
+    __metadata("design:type", String)
+], ContactQueryDto.prototype, "city", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({
+        description: 'Filter by state',
+        example: 'NY',
+    }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
+    __metadata("design:type", String)
+], ContactQueryDto.prototype, "state", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({
+        description: 'Filter by country',
+        example: 'USA',
+    }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
+    __metadata("design:type", String)
+], ContactQueryDto.prototype, "country", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({
+        description: 'Filter by postal code',
+        example: '10001',
+    }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
+    __metadata("design:type", String)
+], ContactQueryDto.prototype, "postalCode", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({
+        description: 'Filter by email',
+        example: 'john.doe@example.com',
+    }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsEmail)(),
+    __metadata("design:type", String)
+], ContactQueryDto.prototype, "email", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({
+        description: 'Filter by phone number',
+        example: '+1234567890',
+    }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsPhoneNumber)(),
+    __metadata("design:type", String)
+], ContactQueryDto.prototype, "phone", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({
+        description: 'Filter by insurance provider',
+        example: 'Blue Cross',
+    }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
+    __metadata("design:type", String)
+], ContactQueryDto.prototype, "insuranceProvider", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({
+        description: 'Filter by medical conditions',
+        type: [String],
+        example: ['diabetes', 'hypertension'],
+    }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsArray)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)({ each: true }),
+    __metadata("design:type", Array)
+], ContactQueryDto.prototype, "medicalConditions", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({
+        description: 'Filter by allergies',
+        type: [String],
+        example: ['penicillin', 'peanuts'],
+    }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsArray)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)({ each: true }),
+    __metadata("design:type", Array)
+], ContactQueryDto.prototype, "allergies", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({
+        description: 'Filter by created by user ID',
+        example: 'user123',
+    }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
+    __metadata("design:type", String)
+], ContactQueryDto.prototype, "createdBy", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({
+        description: 'Filter by updated by user ID',
+        example: 'user123',
+    }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
+    __metadata("design:type", String)
+], ContactQueryDto.prototype, "updatedBy", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({
+        description: 'Page number for pagination',
+        minimum: 1,
+        default: 1,
+        example: 1,
+    }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsInt)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.Min)(1),
+    __metadata("design:type", Number)
+], ContactQueryDto.prototype, "page", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({
+        description: 'Number of items per page',
+        minimum: 1,
+        maximum: 100,
+        default: 10,
+        example: 20,
+    }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsInt)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.Min)(1),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.Max)(100),
+    __metadata("design:type", Number)
+], ContactQueryDto.prototype, "limit", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({
+        description: 'Field to sort by',
+        enum: SortField,
+        default: SortField.CREATED_AT,
+    }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsIn)(Object.values(SortField)),
+    __metadata("design:type", String)
+], ContactQueryDto.prototype, "sortBy", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({
+        description: 'Sort order',
+        enum: SortOrder,
+        default: SortOrder.DESC,
+    }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsIn)(Object.values(SortOrder)),
+    __metadata("design:type", String)
+], ContactQueryDto.prototype, "sortOrder", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({
+        description: 'Include inactive contacts in results',
+        default: false,
+    }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsBoolean)(),
+    __metadata("design:type", Boolean)
+], ContactQueryDto.prototype, "includeInactive", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({
+        description: 'Include contacts with upcoming appointments',
+        default: false,
+    }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsBoolean)(),
+    __metadata("design:type", Boolean)
+], ContactQueryDto.prototype, "hasUpcomingAppointments", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({
+        description: 'Only include contacts with recent activity',
+        example: 30,
+    }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsInt)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.Min)(1),
+    __metadata("design:type", Number)
+], ContactQueryDto.prototype, "recentActivityDays", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({
+        description: 'Only include contacts with specific communication preferences',
+        example: true,
+    }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsBoolean)(),
+    __metadata("design:type", Boolean)
+], ContactQueryDto.prototype, "allowsEmail", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({
+        description: 'Only include contacts that allow SMS',
+        example: true,
+    }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsBoolean)(),
+    __metadata("design:type", Boolean)
+], ContactQueryDto.prototype, "allowsSMS", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({
+        description: 'Only include contacts with documents',
+        example: true,
+    }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsBoolean)(),
+    __metadata("design:type", Boolean)
+], ContactQueryDto.prototype, "hasDocuments", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({
+        description: 'Only include contacts with medical history',
+        example: true,
+    }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsBoolean)(),
+    __metadata("design:type", Boolean)
+], ContactQueryDto.prototype, "hasMedicalHistory", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({
+        description: 'Preferred language for filtering',
+        example: 'en',
+    }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
+    __metadata("design:type", String)
+], ContactQueryDto.prototype, "preferredLanguage", void 0);
+
+
+/***/ }),
+
 /***/ "./src/modules/contacts/dto/create-contact.dto.ts":
 /*!********************************************************!*\
   !*** ./src/modules/contacts/dto/create-contact.dto.ts ***!
@@ -5359,9 +5456,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var class_validator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(class_validator__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! class-transformer */ "class-transformer");
 /* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(class_transformer__WEBPACK_IMPORTED_MODULE_2__);
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../enums/gender.enum'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../enums/marital-status.enum'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../enums/blood-group.enum'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var _enums_gender_enum__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../enums/gender.enum */ "./src/modules/contacts/enums/gender.enum.ts");
+/* harmony import */ var _enums_marital_status_enum__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../enums/marital-status.enum */ "./src/modules/contacts/enums/marital-status.enum.ts");
+/* harmony import */ var _enums_blood_group_enum__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../enums/blood-group.enum */ "./src/modules/contacts/enums/blood-group.enum.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -5371,7 +5468,6 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var _a, _b, _c;
 
 
 
@@ -5381,7 +5477,7 @@ var _a, _b, _c;
 
 class ContactAddressDto {
     static _OPENAPI_METADATA_FACTORY() {
-        return { street: { required: true, type: () => String, maxLength: 100 }, street2: { required: false, type: () => String, maxLength: 100 }, city: { required: true, type: () => String, maxLength: 50 }, state: { required: true, type: () => String, maxLength: 50 }, postalCode: { required: true, type: () => String, maxLength: 20 }, country: { required: true, type: () => String, maxLength: 50 } };
+        return { street: { required: true, type: () => String, maxLength: 100 }, firstName: { required: true, type: () => String }, lastName: { required: true, type: () => String }, email: { required: true, type: () => String }, phone: { required: true, type: () => String }, createdBy: { required: false, type: () => Object }, street2: { required: false, type: () => String, maxLength: 100 }, city: { required: true, type: () => String, maxLength: 50 }, state: { required: true, type: () => String, maxLength: 50 }, postalCode: { required: true, type: () => String, maxLength: 20 }, country: { required: true, type: () => String, maxLength: 50 } };
     }
 }
 __decorate([
@@ -5460,14 +5556,14 @@ __decorate([
 ], EmergencyContactDto.prototype, "email", void 0);
 class MedicalInfoDto {
     static _OPENAPI_METADATA_FACTORY() {
-        return { bloodGroup: { required: false, type: () => Object }, allergies: { required: false, type: () => [String] }, medications: { required: false, type: () => [String] }, conditions: { required: false, type: () => [String] }, surgicalHistory: { required: false, type: () => String, maxLength: 1000 }, familyHistory: { required: false, type: () => String, maxLength: 1000 } };
+        return { bloodGroup: { required: false, enum: (__webpack_require__(/*! ../enums/blood-group.enum */ "./src/modules/contacts/enums/blood-group.enum.ts").BloodGroup) }, allergies: { required: false, type: () => [String] }, medications: { required: false, type: () => [String] }, conditions: { required: false, type: () => [String] }, surgicalHistory: { required: false, type: () => String, maxLength: 1000 }, familyHistory: { required: false, type: () => String, maxLength: 1000 } };
     }
 }
 __decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ enum: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../enums/blood-group.enum'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()) }),
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ enum: _enums_blood_group_enum__WEBPACK_IMPORTED_MODULE_5__.BloodGroup }),
     (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsEnum)(Object(function webpackMissingModule() { var e = new Error("Cannot find module '../enums/blood-group.enum'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())),
-    __metadata("design:type", typeof (_a = typeof Object(function webpackMissingModule() { var e = new Error("Cannot find module '../enums/blood-group.enum'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()) !== "undefined" && Object(function webpackMissingModule() { var e = new Error("Cannot find module '../enums/blood-group.enum'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())) === "function" ? _a : Object)
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsEnum)(_enums_blood_group_enum__WEBPACK_IMPORTED_MODULE_5__.BloodGroup),
+    __metadata("design:type", String)
 ], MedicalInfoDto.prototype, "bloodGroup", void 0);
 __decorate([
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)(),
@@ -5584,7 +5680,7 @@ __decorate([
 ], CommunicationPrefsDto.prototype, "preferredContactTime", void 0);
 class CreateContactDto {
     static _OPENAPI_METADATA_FACTORY() {
-        return { firstName: { required: true, type: () => String, minLength: 2, maxLength: 50 }, lastName: { required: true, type: () => String, minLength: 2, maxLength: 50 }, email: { required: true, type: () => String }, phone: { required: true, type: () => String }, whatsapp: { required: false, type: () => String }, dateOfBirth: { required: true, type: () => Date }, gender: { required: true, type: () => Object }, maritalStatus: { required: false, type: () => Object }, address: { required: true, type: () => (__webpack_require__(/*! ./create-contact.dto */ "./src/modules/contacts/dto/create-contact.dto.ts").ContactAddressDto) }, emergencyContact: { required: true, type: () => (__webpack_require__(/*! ./create-contact.dto */ "./src/modules/contacts/dto/create-contact.dto.ts").EmergencyContactDto) }, medicalInfo: { required: false, type: () => (__webpack_require__(/*! ./create-contact.dto */ "./src/modules/contacts/dto/create-contact.dto.ts").MedicalInfoDto) }, insuranceInfo: { required: false, type: () => (__webpack_require__(/*! ./create-contact.dto */ "./src/modules/contacts/dto/create-contact.dto.ts").InsuranceInfoDto) }, communicationPrefs: { required: true, type: () => (__webpack_require__(/*! ./create-contact.dto */ "./src/modules/contacts/dto/create-contact.dto.ts").CommunicationPrefsDto) }, notes: { required: false, type: () => String, maxLength: 500 }, documents: { required: false, type: () => [String] }, tags: { required: false, type: () => [String] }, groups: { required: false, type: () => [String] } };
+        return { firstName: { required: true, type: () => String, minLength: 2, maxLength: 50 }, lastName: { required: true, type: () => String, minLength: 2, maxLength: 50 }, email: { required: true, type: () => String }, phone: { required: true, type: () => String }, whatsapp: { required: false, type: () => String }, dateOfBirth: { required: true, type: () => Date }, gender: { required: true, enum: (__webpack_require__(/*! ../enums/gender.enum */ "./src/modules/contacts/enums/gender.enum.ts").Gender) }, maritalStatus: { required: false, enum: (__webpack_require__(/*! ../enums/marital-status.enum */ "./src/modules/contacts/enums/marital-status.enum.ts").MaritalStatus) }, address: { required: true, type: () => (__webpack_require__(/*! ./create-contact.dto */ "./src/modules/contacts/dto/create-contact.dto.ts").ContactAddressDto) }, emergencyContact: { required: true, type: () => (__webpack_require__(/*! ./create-contact.dto */ "./src/modules/contacts/dto/create-contact.dto.ts").EmergencyContactDto) }, medicalInfo: { required: false, type: () => (__webpack_require__(/*! ./create-contact.dto */ "./src/modules/contacts/dto/create-contact.dto.ts").MedicalInfoDto) }, insuranceInfo: { required: false, type: () => (__webpack_require__(/*! ./create-contact.dto */ "./src/modules/contacts/dto/create-contact.dto.ts").InsuranceInfoDto) }, communicationPrefs: { required: true, type: () => (__webpack_require__(/*! ./create-contact.dto */ "./src/modules/contacts/dto/create-contact.dto.ts").CommunicationPrefsDto) }, notes: { required: false, type: () => String, maxLength: 500 }, documents: { required: false, type: () => [String] }, tags: { required: false, type: () => [String] }, groups: { required: false, type: () => [String] } };
     }
 }
 __decorate([
@@ -5648,19 +5744,19 @@ __decorate([
 __decorate([
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)({
         description: 'Gender',
-        enum: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../enums/gender.enum'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+        enum: _enums_gender_enum__WEBPACK_IMPORTED_MODULE_3__.Gender,
     }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsEnum)(Object(function webpackMissingModule() { var e = new Error("Cannot find module '../enums/gender.enum'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())),
-    __metadata("design:type", typeof (_b = typeof Object(function webpackMissingModule() { var e = new Error("Cannot find module '../enums/gender.enum'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()) !== "undefined" && Object(function webpackMissingModule() { var e = new Error("Cannot find module '../enums/gender.enum'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())) === "function" ? _b : Object)
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsEnum)(_enums_gender_enum__WEBPACK_IMPORTED_MODULE_3__.Gender),
+    __metadata("design:type", String)
 ], CreateContactDto.prototype, "gender", void 0);
 __decorate([
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({
         description: 'Marital status',
-        enum: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../enums/marital-status.enum'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+        enum: _enums_marital_status_enum__WEBPACK_IMPORTED_MODULE_4__.MaritalStatus,
     }),
     (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsEnum)(Object(function webpackMissingModule() { var e = new Error("Cannot find module '../enums/marital-status.enum'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())),
-    __metadata("design:type", typeof (_c = typeof Object(function webpackMissingModule() { var e = new Error("Cannot find module '../enums/marital-status.enum'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()) !== "undefined" && Object(function webpackMissingModule() { var e = new Error("Cannot find module '../enums/marital-status.enum'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())) === "function" ? _c : Object)
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsEnum)(_enums_marital_status_enum__WEBPACK_IMPORTED_MODULE_4__.MaritalStatus),
+    __metadata("design:type", String)
 ], CreateContactDto.prototype, "maritalStatus", void 0);
 __decorate([
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)({
@@ -5752,6 +5848,198 @@ class CreateContactResponseDto {
 
 /***/ }),
 
+/***/ "./src/modules/contacts/dto/merge-contacts.dto.ts":
+/*!********************************************************!*\
+  !*** ./src/modules/contacts/dto/merge-contacts.dto.ts ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   MergeContactsDto: () => (/* binding */ MergeContactsDto),
+/* harmony export */   MergeContactsResponseDto: () => (/* binding */ MergeContactsResponseDto)
+/* harmony export */ });
+/* harmony import */ var _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/swagger */ "@nestjs/swagger");
+/* harmony import */ var _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var class_validator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! class-validator */ "class-validator");
+/* harmony import */ var class_validator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(class_validator__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! class-transformer */ "class-transformer");
+/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(class_transformer__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _enums_gender_enum__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../enums/gender.enum */ "./src/modules/contacts/enums/gender.enum.ts");
+/* harmony import */ var _enums_marital_status_enum__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../enums/marital-status.enum */ "./src/modules/contacts/enums/marital-status.enum.ts");
+/* harmony import */ var _update_contact_dto__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./update-contact.dto */ "./src/modules/contacts/dto/update-contact.dto.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+class MergeContactsDto {
+    static _OPENAPI_METADATA_FACTORY() {
+        return { primaryContactId: { required: true, type: () => String }, secondaryContactId: { required: true, type: () => String }, secondaryContactIds: { required: true, type: () => [String] }, firstName: { required: false, type: () => String, minLength: 2, maxLength: 50 }, lastName: { required: false, type: () => String, minLength: 2, maxLength: 50 }, email: { required: false, type: () => String }, phone: { required: false, type: () => String }, whatsapp: { required: false, type: () => String }, dateOfBirth: { required: false, type: () => Date }, gender: { required: false, enum: (__webpack_require__(/*! ../enums/gender.enum */ "./src/modules/contacts/enums/gender.enum.ts").Gender) }, maritalStatus: { required: false, enum: (__webpack_require__(/*! ../enums/marital-status.enum */ "./src/modules/contacts/enums/marital-status.enum.ts").MaritalStatus) }, address: { required: false, type: () => (__webpack_require__(/*! ./update-contact.dto */ "./src/modules/contacts/dto/update-contact.dto.ts").UpdateContactAddressDto) }, emergencyContact: { required: false, type: () => (__webpack_require__(/*! ./update-contact.dto */ "./src/modules/contacts/dto/update-contact.dto.ts").UpdateEmergencyContactDto) }, medicalInfo: { required: false, type: () => (__webpack_require__(/*! ./update-contact.dto */ "./src/modules/contacts/dto/update-contact.dto.ts").UpdateMedicalInfoDto) }, insuranceInfo: { required: false, type: () => (__webpack_require__(/*! ./update-contact.dto */ "./src/modules/contacts/dto/update-contact.dto.ts").UpdateInsuranceInfoDto) }, communicationPrefs: { required: false, type: () => (__webpack_require__(/*! ./update-contact.dto */ "./src/modules/contacts/dto/update-contact.dto.ts").UpdateCommunicationPrefsDto) }, notes: { required: false, type: () => String, maxLength: 500 }, documents: { required: false, type: () => [String] }, tags: { required: false, type: () => [String] }, groups: { required: false, type: () => [String] }, keepHistory: { required: false, type: () => Boolean }, deleteSecondaryContacts: { required: false, type: () => Boolean } };
+    }
+}
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)({ description: 'Primary contact ID that will be kept' }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsNotEmpty)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsUUID)(),
+    __metadata("design:type", String)
+], MergeContactsDto.prototype, "primaryContactId", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)({ description: 'Secondary contact IDs that will be merged into the primary contact', type: [String] }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsArray)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsUUID)('4', { each: true }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.ArrayMinSize)(1),
+    __metadata("design:type", Array)
+], MergeContactsDto.prototype, "secondaryContactIds", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.MinLength)(2),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.MaxLength)(50),
+    __metadata("design:type", String)
+], MergeContactsDto.prototype, "firstName", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.MinLength)(2),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.MaxLength)(50),
+    __metadata("design:type", String)
+], MergeContactsDto.prototype, "lastName", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsEmail)(),
+    __metadata("design:type", String)
+], MergeContactsDto.prototype, "email", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsPhoneNumber)(),
+    __metadata("design:type", String)
+], MergeContactsDto.prototype, "phone", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsPhoneNumber)(),
+    __metadata("design:type", String)
+], MergeContactsDto.prototype, "whatsapp", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsDate)(),
+    (0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Type)(() => Date),
+    __metadata("design:type", Date)
+], MergeContactsDto.prototype, "dateOfBirth", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ enum: _enums_gender_enum__WEBPACK_IMPORTED_MODULE_3__.Gender }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsEnum)(_enums_gender_enum__WEBPACK_IMPORTED_MODULE_3__.Gender),
+    __metadata("design:type", String)
+], MergeContactsDto.prototype, "gender", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ enum: _enums_marital_status_enum__WEBPACK_IMPORTED_MODULE_4__.MaritalStatus }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsEnum)(_enums_marital_status_enum__WEBPACK_IMPORTED_MODULE_4__.MaritalStatus),
+    __metadata("design:type", String)
+], MergeContactsDto.prototype, "maritalStatus", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.ValidateNested)(),
+    (0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Type)(() => _update_contact_dto__WEBPACK_IMPORTED_MODULE_5__.UpdateContactAddressDto),
+    __metadata("design:type", _update_contact_dto__WEBPACK_IMPORTED_MODULE_5__.UpdateContactAddressDto)
+], MergeContactsDto.prototype, "address", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.ValidateNested)(),
+    (0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Type)(() => _update_contact_dto__WEBPACK_IMPORTED_MODULE_5__.UpdateEmergencyContactDto),
+    __metadata("design:type", _update_contact_dto__WEBPACK_IMPORTED_MODULE_5__.UpdateEmergencyContactDto)
+], MergeContactsDto.prototype, "emergencyContact", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.ValidateNested)(),
+    (0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Type)(() => _update_contact_dto__WEBPACK_IMPORTED_MODULE_5__.UpdateMedicalInfoDto),
+    __metadata("design:type", _update_contact_dto__WEBPACK_IMPORTED_MODULE_5__.UpdateMedicalInfoDto)
+], MergeContactsDto.prototype, "medicalInfo", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.ValidateNested)(),
+    (0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Type)(() => _update_contact_dto__WEBPACK_IMPORTED_MODULE_5__.UpdateInsuranceInfoDto),
+    __metadata("design:type", _update_contact_dto__WEBPACK_IMPORTED_MODULE_5__.UpdateInsuranceInfoDto)
+], MergeContactsDto.prototype, "insuranceInfo", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.ValidateNested)(),
+    (0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Type)(() => _update_contact_dto__WEBPACK_IMPORTED_MODULE_5__.UpdateCommunicationPrefsDto),
+    __metadata("design:type", _update_contact_dto__WEBPACK_IMPORTED_MODULE_5__.UpdateCommunicationPrefsDto)
+], MergeContactsDto.prototype, "communicationPrefs", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.MaxLength)(500),
+    __metadata("design:type", String)
+], MergeContactsDto.prototype, "notes", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsUrl)({}, { each: true }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsArray)(),
+    __metadata("design:type", Array)
+], MergeContactsDto.prototype, "documents", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsArray)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)({ each: true }),
+    __metadata("design:type", Array)
+], MergeContactsDto.prototype, "tags", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)({ each: true }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsArray)(),
+    __metadata("design:type", Array)
+], MergeContactsDto.prototype, "groups", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Whether to keep the history of the merged contacts' }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsBoolean)(),
+    __metadata("design:type", Boolean)
+], MergeContactsDto.prototype, "keepHistory", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Whether to delete the secondary contacts after merging' }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsBoolean)(),
+    __metadata("design:type", Boolean)
+], MergeContactsDto.prototype, "deleteSecondaryContacts", void 0);
+class MergeContactsResponseDto {
+    static _OPENAPI_METADATA_FACTORY() {
+        return { id: { required: true, type: () => String }, firstName: { required: true, type: () => String }, lastName: { required: true, type: () => String }, email: { required: true, type: () => String }, phone: { required: true, type: () => String }, mergedContactIds: { required: true, type: () => [String] }, mergedAt: { required: true, type: () => Date }, mergedBy: { required: true, type: () => String } };
+    }
+}
+
+
+/***/ }),
+
 /***/ "./src/modules/contacts/dto/update-contact.dto.ts":
 /*!********************************************************!*\
   !*** ./src/modules/contacts/dto/update-contact.dto.ts ***!
@@ -5775,9 +6063,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var class_validator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(class_validator__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! class-transformer */ "class-transformer");
 /* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(class_transformer__WEBPACK_IMPORTED_MODULE_2__);
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../enums/gender.enum'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../enums/marital-status.enum'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../enums/blood-group.enum'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var _enums_gender_enum__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../enums/gender.enum */ "./src/modules/contacts/enums/gender.enum.ts");
+/* harmony import */ var _enums_marital_status_enum__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../enums/marital-status.enum */ "./src/modules/contacts/enums/marital-status.enum.ts");
+/* harmony import */ var _enums_blood_group_enum__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../enums/blood-group.enum */ "./src/modules/contacts/enums/blood-group.enum.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -5787,7 +6075,6 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var _a, _b, _c;
 
 
 
@@ -5876,14 +6163,14 @@ __decorate([
 ], UpdateEmergencyContactDto.prototype, "email", void 0);
 class UpdateMedicalInfoDto {
     static _OPENAPI_METADATA_FACTORY() {
-        return { bloodGroup: { required: false, type: () => Object }, allergies: { required: false, type: () => [String] }, medications: { required: false, type: () => [String] }, conditions: { required: false, type: () => [String] }, surgicalHistory: { required: false, type: () => String, maxLength: 1000 }, familyHistory: { required: false, type: () => String, maxLength: 1000 } };
+        return { bloodGroup: { required: false, enum: (__webpack_require__(/*! ../enums/blood-group.enum */ "./src/modules/contacts/enums/blood-group.enum.ts").BloodGroup) }, allergies: { required: false, type: () => [String] }, medications: { required: false, type: () => [String] }, conditions: { required: false, type: () => [String] }, surgicalHistory: { required: false, type: () => String, maxLength: 1000 }, familyHistory: { required: false, type: () => String, maxLength: 1000 } };
     }
 }
 __decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ enum: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../enums/blood-group.enum'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()) }),
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ enum: _enums_blood_group_enum__WEBPACK_IMPORTED_MODULE_5__.BloodGroup }),
     (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsEnum)(Object(function webpackMissingModule() { var e = new Error("Cannot find module '../enums/blood-group.enum'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())),
-    __metadata("design:type", typeof (_a = typeof Object(function webpackMissingModule() { var e = new Error("Cannot find module '../enums/blood-group.enum'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()) !== "undefined" && Object(function webpackMissingModule() { var e = new Error("Cannot find module '../enums/blood-group.enum'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())) === "function" ? _a : Object)
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsEnum)(_enums_blood_group_enum__WEBPACK_IMPORTED_MODULE_5__.BloodGroup),
+    __metadata("design:type", String)
 ], UpdateMedicalInfoDto.prototype, "bloodGroup", void 0);
 __decorate([
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)(),
@@ -6000,7 +6287,7 @@ __decorate([
 ], UpdateCommunicationPrefsDto.prototype, "preferredContactTime", void 0);
 class UpdateContactDto {
     static _OPENAPI_METADATA_FACTORY() {
-        return { firstName: { required: false, type: () => String, minLength: 2, maxLength: 50 }, lastName: { required: false, type: () => String, minLength: 2, maxLength: 50 }, email: { required: false, type: () => String }, phone: { required: false, type: () => String }, whatsapp: { required: false, type: () => String }, dateOfBirth: { required: false, type: () => Date }, gender: { required: false, type: () => Object }, maritalStatus: { required: false, type: () => Object }, address: { required: false, type: () => (__webpack_require__(/*! ./update-contact.dto */ "./src/modules/contacts/dto/update-contact.dto.ts").UpdateContactAddressDto) }, emergencyContact: { required: false, type: () => (__webpack_require__(/*! ./update-contact.dto */ "./src/modules/contacts/dto/update-contact.dto.ts").UpdateEmergencyContactDto) }, medicalInfo: { required: false, type: () => (__webpack_require__(/*! ./update-contact.dto */ "./src/modules/contacts/dto/update-contact.dto.ts").UpdateMedicalInfoDto) }, insuranceInfo: { required: false, type: () => (__webpack_require__(/*! ./update-contact.dto */ "./src/modules/contacts/dto/update-contact.dto.ts").UpdateInsuranceInfoDto) }, communicationPrefs: { required: false, type: () => (__webpack_require__(/*! ./update-contact.dto */ "./src/modules/contacts/dto/update-contact.dto.ts").UpdateCommunicationPrefsDto) }, notes: { required: false, type: () => String, maxLength: 500 }, documents: { required: false, type: () => [String] }, tags: { required: false, type: () => [String] }, groups: { required: false, type: () => [String] }, isActive: { required: false, type: () => Boolean } };
+        return { firstName: { required: false, type: () => String, minLength: 2, maxLength: 50 }, lastName: { required: false, type: () => String, minLength: 2, maxLength: 50 }, email: { required: false, type: () => String }, phone: { required: false, type: () => String }, whatsapp: { required: false, type: () => String }, dateOfBirth: { required: false, type: () => Date }, gender: { required: false, enum: (__webpack_require__(/*! ../enums/gender.enum */ "./src/modules/contacts/enums/gender.enum.ts").Gender) }, maritalStatus: { required: false, enum: (__webpack_require__(/*! ../enums/marital-status.enum */ "./src/modules/contacts/enums/marital-status.enum.ts").MaritalStatus) }, address: { required: false, type: () => (__webpack_require__(/*! ./update-contact.dto */ "./src/modules/contacts/dto/update-contact.dto.ts").UpdateContactAddressDto) }, emergencyContact: { required: false, type: () => (__webpack_require__(/*! ./update-contact.dto */ "./src/modules/contacts/dto/update-contact.dto.ts").UpdateEmergencyContactDto) }, medicalInfo: { required: false, type: () => (__webpack_require__(/*! ./update-contact.dto */ "./src/modules/contacts/dto/update-contact.dto.ts").UpdateMedicalInfoDto) }, insuranceInfo: { required: false, type: () => (__webpack_require__(/*! ./update-contact.dto */ "./src/modules/contacts/dto/update-contact.dto.ts").UpdateInsuranceInfoDto) }, communicationPrefs: { required: false, type: () => (__webpack_require__(/*! ./update-contact.dto */ "./src/modules/contacts/dto/update-contact.dto.ts").UpdateCommunicationPrefsDto) }, notes: { required: false, type: () => String, maxLength: 500 }, documents: { required: false, type: () => [String] }, tags: { required: false, type: () => [String] }, groups: { required: false, type: () => [String] }, isActive: { required: false, type: () => Boolean } };
     }
 }
 __decorate([
@@ -6045,16 +6332,16 @@ __decorate([
     __metadata("design:type", Date)
 ], UpdateContactDto.prototype, "dateOfBirth", void 0);
 __decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ enum: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../enums/gender.enum'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()) }),
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ enum: _enums_gender_enum__WEBPACK_IMPORTED_MODULE_3__.Gender }),
     (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsEnum)(Object(function webpackMissingModule() { var e = new Error("Cannot find module '../enums/gender.enum'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())),
-    __metadata("design:type", typeof (_b = typeof Object(function webpackMissingModule() { var e = new Error("Cannot find module '../enums/gender.enum'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()) !== "undefined" && Object(function webpackMissingModule() { var e = new Error("Cannot find module '../enums/gender.enum'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())) === "function" ? _b : Object)
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsEnum)(_enums_gender_enum__WEBPACK_IMPORTED_MODULE_3__.Gender),
+    __metadata("design:type", String)
 ], UpdateContactDto.prototype, "gender", void 0);
 __decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ enum: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../enums/marital-status.enum'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()) }),
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ enum: _enums_marital_status_enum__WEBPACK_IMPORTED_MODULE_4__.MaritalStatus }),
     (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsEnum)(Object(function webpackMissingModule() { var e = new Error("Cannot find module '../enums/marital-status.enum'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())),
-    __metadata("design:type", typeof (_c = typeof Object(function webpackMissingModule() { var e = new Error("Cannot find module '../enums/marital-status.enum'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()) !== "undefined" && Object(function webpackMissingModule() { var e = new Error("Cannot find module '../enums/marital-status.enum'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())) === "function" ? _c : Object)
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsEnum)(_enums_marital_status_enum__WEBPACK_IMPORTED_MODULE_4__.MaritalStatus),
+    __metadata("design:type", String)
 ], UpdateContactDto.prototype, "maritalStatus", void 0);
 __decorate([
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)(),
@@ -6134,6 +6421,160 @@ class UpdateContactResponseDto {
 
 /***/ }),
 
+/***/ "./src/modules/contacts/entities/contact-relationship.entity.ts":
+/*!**********************************************************************!*\
+  !*** ./src/modules/contacts/entities/contact-relationship.entity.ts ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ContactRelationship: () => (/* binding */ ContactRelationship),
+/* harmony export */   RelationshipType: () => (/* binding */ RelationshipType)
+/* harmony export */ });
+/* harmony import */ var _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/swagger */ "@nestjs/swagger");
+/* harmony import */ var _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! typeorm */ "typeorm");
+/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(typeorm__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _contact_entity__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./contact.entity */ "./src/modules/contacts/entities/contact.entity.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var RelationshipType;
+(function (RelationshipType) {
+    RelationshipType["SPOUSE"] = "SPOUSE";
+    RelationshipType["PARENT"] = "PARENT";
+    RelationshipType["CHILD"] = "CHILD";
+    RelationshipType["SIBLING"] = "SIBLING";
+    RelationshipType["GUARDIAN"] = "GUARDIAN";
+    RelationshipType["DEPENDENT"] = "DEPENDENT";
+    RelationshipType["EMERGENCY_CONTACT"] = "EMERGENCY_CONTACT";
+    RelationshipType["PRIMARY_CARE_PROVIDER"] = "PRIMARY_CARE_PROVIDER";
+    RelationshipType["SPECIALIST"] = "SPECIALIST";
+    RelationshipType["CAREGIVER"] = "CAREGIVER";
+    RelationshipType["RELATIVE"] = "RELATIVE";
+    RelationshipType["COLLEAGUE"] = "COLLEAGUE";
+    RelationshipType["FRIEND"] = "FRIEND";
+    RelationshipType["OTHER"] = "OTHER";
+})(RelationshipType || (RelationshipType = {}));
+let ContactRelationship = class ContactRelationship {
+    static _OPENAPI_METADATA_FACTORY() {
+        return { id: { required: true, type: () => String }, organizationId: { required: true, type: () => String }, contactId: { required: true, type: () => String }, contact: { required: true, type: () => (__webpack_require__(/*! ./contact.entity */ "./src/modules/contacts/entities/contact.entity.ts").Contact) }, relatedContactId: { required: true, type: () => String }, relatedContact: { required: true, type: () => (__webpack_require__(/*! ./contact.entity */ "./src/modules/contacts/entities/contact.entity.ts").Contact) }, type: { required: true, enum: (__webpack_require__(/*! ./contact-relationship.entity */ "./src/modules/contacts/entities/contact-relationship.entity.ts").RelationshipType) }, notes: { required: true, type: () => String }, isActive: { required: true, type: () => Boolean }, isPrimary: { required: true, type: () => Boolean }, createdById: { required: true, type: () => String }, updatedById: { required: true, type: () => String }, createdAt: { required: true, type: () => Date }, updatedAt: { required: true, type: () => Date }, deletedAt: { required: true, type: () => Date }, metadata: { required: true, type: () => Object, description: "Custom metadata for the relationship (JSON field)\nThis can store additional information specific to the relationship type\nFor example, for a PARENT-CHILD relationship, it might store custodial information" }, inverseType: { required: true, description: "Inverse relationship type (if applicable)\nFor example, if this relationship is PARENT, the inverse would be CHILD\nThis helps maintain consistency when querying from either direction", enum: (__webpack_require__(/*! ./contact-relationship.entity */ "./src/modules/contacts/entities/contact-relationship.entity.ts").RelationshipType) }, startDate: { required: true, type: () => Date, description: "Start date of the relationship (if applicable)\nFor example, when a provider became a patient's specialist" }, endDate: { required: true, type: () => Date, description: "End date of the relationship (if applicable)\nFor example, when a provider stopped being a patient's specialist" } };
+    }
+};
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.PrimaryGeneratedColumn)('uuid'),
+    __metadata("design:type", String)
+], ContactRelationship.prototype, "id", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'uuid' }),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Index)(),
+    __metadata("design:type", String)
+], ContactRelationship.prototype, "organizationId", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'uuid' }),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Index)(),
+    __metadata("design:type", String)
+], ContactRelationship.prototype, "contactId", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.ManyToOne)(() => _contact_entity__WEBPACK_IMPORTED_MODULE_2__.Contact, {
+        onDelete: 'CASCADE',
+    }),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.JoinColumn)({ name: 'contactId' }),
+    __metadata("design:type", _contact_entity__WEBPACK_IMPORTED_MODULE_2__.Contact)
+], ContactRelationship.prototype, "contact", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'uuid' }),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Index)(),
+    __metadata("design:type", String)
+], ContactRelationship.prototype, "relatedContactId", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.ManyToOne)(() => _contact_entity__WEBPACK_IMPORTED_MODULE_2__.Contact, {
+        onDelete: 'CASCADE',
+    }),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.JoinColumn)({ name: 'relatedContactId' }),
+    __metadata("design:type", _contact_entity__WEBPACK_IMPORTED_MODULE_2__.Contact)
+], ContactRelationship.prototype, "relatedContact", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({
+        type: 'enum',
+        enum: RelationshipType,
+        default: RelationshipType.OTHER,
+    }),
+    __metadata("design:type", String)
+], ContactRelationship.prototype, "type", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'text', nullable: true }),
+    __metadata("design:type", String)
+], ContactRelationship.prototype, "notes", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'boolean', default: true }),
+    __metadata("design:type", Boolean)
+], ContactRelationship.prototype, "isActive", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'boolean', default: false }),
+    __metadata("design:type", Boolean)
+], ContactRelationship.prototype, "isPrimary", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'uuid', nullable: true }),
+    __metadata("design:type", String)
+], ContactRelationship.prototype, "createdById", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'uuid', nullable: true }),
+    __metadata("design:type", String)
+], ContactRelationship.prototype, "updatedById", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.CreateDateColumn)({ type: 'timestamptz' }),
+    __metadata("design:type", Date)
+], ContactRelationship.prototype, "createdAt", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.UpdateDateColumn)({ type: 'timestamptz' }),
+    __metadata("design:type", Date)
+], ContactRelationship.prototype, "updatedAt", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.DeleteDateColumn)({ type: 'timestamptz', nullable: true }),
+    __metadata("design:type", Date)
+], ContactRelationship.prototype, "deletedAt", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'jsonb', nullable: true }),
+    __metadata("design:type", Object)
+], ContactRelationship.prototype, "metadata", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({
+        type: 'enum',
+        enum: RelationshipType,
+        nullable: true,
+    }),
+    __metadata("design:type", String)
+], ContactRelationship.prototype, "inverseType", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'date', nullable: true }),
+    __metadata("design:type", Date)
+], ContactRelationship.prototype, "startDate", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'date', nullable: true }),
+    __metadata("design:type", Date)
+], ContactRelationship.prototype, "endDate", void 0);
+ContactRelationship = __decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Entity)('contact_relationships'),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Index)(['organizationId', 'contactId']),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Index)(['organizationId', 'relatedContactId'])
+], ContactRelationship);
+
+
+
+/***/ }),
+
 /***/ "./src/modules/contacts/entities/contact.entity.ts":
 /*!*********************************************************!*\
   !*** ./src/modules/contacts/entities/contact.entity.ts ***!
@@ -6155,9 +6596,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _organizations_entities_organization_entity__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../organizations/entities/organization.entity */ "./src/modules/organizations/entities/organization.entity.ts");
 /* harmony import */ var _users_entities_user_entity__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts");
 /* harmony import */ var _appointments_entities_appointment_entity__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../appointments/entities/appointment.entity */ "./src/modules/appointments/entities/appointment.entity.ts");
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../documents/entities/document.entity'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../medical-history/entities/medical-history.entity'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module './contact-relationship.entity'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var _documents_entities_document_entity__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../documents/entities/document.entity */ "./src/modules/documents/entities/document.entity.ts");
+/* harmony import */ var _medical_history_medical_history_entity__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../medical-history/medical-history.entity */ "./src/modules/medical-history/medical-history.entity.ts");
+/* harmony import */ var _contact_relationship_entity__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./contact-relationship.entity */ "./src/modules/contacts/entities/contact-relationship.entity.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -6167,6 +6608,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -6219,7 +6661,7 @@ let Contact = class Contact {
         return age;
     }
     static _OPENAPI_METADATA_FACTORY() {
-        return { id: { required: true, type: () => String }, organizationId: { required: true, type: () => String }, type: { required: true, enum: (__webpack_require__(/*! ./contact.entity */ "./src/modules/contacts/entities/contact.entity.ts").ContactType) }, firstName: { required: true, type: () => String }, lastName: { required: true, type: () => String }, middleName: { required: false, type: () => String }, preferredName: { required: false, type: () => String }, email: { required: false, type: () => String }, phoneNumber: { required: false, type: () => String }, alternativePhoneNumber: { required: false, type: () => String }, gender: { required: false, enum: (__webpack_require__(/*! ./contact.entity */ "./src/modules/contacts/entities/contact.entity.ts").Gender) }, dateOfBirth: { required: false, type: () => Date }, bloodType: { required: true, enum: (__webpack_require__(/*! ./contact.entity */ "./src/modules/contacts/entities/contact.entity.ts").BloodType) }, address: { required: false, type: () => ({ street: { required: true, type: () => String }, city: { required: true, type: () => String }, state: { required: true, type: () => String }, postalCode: { required: true, type: () => String }, country: { required: true, type: () => String } }) }, emergencyContact: { required: false, type: () => ({ name: { required: true, type: () => String }, relationship: { required: true, type: () => String }, phoneNumber: { required: true, type: () => String }, address: { required: false, type: () => String } }) }, allergies: { required: false, type: () => [String] }, medications: { required: false, type: () => [String] }, occupation: { required: false, type: () => String }, notes: { required: false, type: () => String }, customFields: { required: false, type: () => Object }, isActive: { required: true, type: () => Boolean }, lastVisitDate: { required: false, type: () => Date }, nextAppointmentDate: { required: false, type: () => Date }, createdById: { required: true, type: () => String }, updatedById: { required: false, type: () => String }, createdAt: { required: true, type: () => Date }, updatedAt: { required: true, type: () => Date }, deletedAt: { required: false, type: () => Date }, organization: { required: true, type: () => (__webpack_require__(/*! ../../organizations/entities/organization.entity */ "./src/modules/organizations/entities/organization.entity.ts").Organization) }, createdBy: { required: true, type: () => (__webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts").User) }, updatedBy: { required: true, type: () => (__webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts").User) }, appointments: { required: true, type: () => [(__webpack_require__(/*! ../../appointments/entities/appointment.entity */ "./src/modules/appointments/entities/appointment.entity.ts").Appointment)] }, documents: { required: true, type: () => [Object] }, medicalHistory: { required: true, type: () => [Object] }, relationships: { required: true, type: () => [Object] }, mergedRecords: { required: true, type: () => [(__webpack_require__(/*! ./contact.entity */ "./src/modules/contacts/entities/contact.entity.ts").Contact)] } };
+        return { id: { required: true, type: () => String }, status: { required: true, type: () => String }, createdBy: { required: true, type: () => (__webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts").User) }, metadata: { required: false, type: () => Object }, phone: { required: true, type: () => String }, organizationId: { required: true, type: () => String }, type: { required: true, enum: (__webpack_require__(/*! ./contact.entity */ "./src/modules/contacts/entities/contact.entity.ts").ContactType) }, firstName: { required: true, type: () => String }, lastName: { required: true, type: () => String }, middleName: { required: false, type: () => String }, preferredName: { required: false, type: () => String }, email: { required: false, type: () => String }, phoneNumber: { required: false, type: () => String }, alternativePhoneNumber: { required: false, type: () => String }, gender: { required: false, enum: (__webpack_require__(/*! ./contact.entity */ "./src/modules/contacts/entities/contact.entity.ts").Gender) }, dateOfBirth: { required: false, type: () => Date }, bloodType: { required: true, enum: (__webpack_require__(/*! ./contact.entity */ "./src/modules/contacts/entities/contact.entity.ts").BloodType) }, address: { required: false, type: () => ({ street: { required: true, type: () => String }, city: { required: true, type: () => String }, state: { required: true, type: () => String }, postalCode: { required: true, type: () => String }, country: { required: true, type: () => String } }) }, emergencyContact: { required: false, type: () => ({ name: { required: true, type: () => String }, relationship: { required: true, type: () => String }, phoneNumber: { required: true, type: () => String }, address: { required: false, type: () => String } }) }, allergies: { required: false, type: () => [String] }, medications: { required: false, type: () => [String] }, occupation: { required: false, type: () => String }, notes: { required: false, type: () => String }, customFields: { required: false, type: () => Object }, isActive: { required: true, type: () => Boolean }, lastVisitDate: { required: false, type: () => Date }, nextAppointmentDate: { required: false, type: () => Date }, createdById: { required: true, type: () => String }, updatedById: { required: false, type: () => String }, createdAt: { required: true, type: () => Date }, updatedAt: { required: true, type: () => Date }, deletedAt: { required: false, type: () => Date }, organization: { required: true, type: () => (__webpack_require__(/*! ../../organizations/entities/organization.entity */ "./src/modules/organizations/entities/organization.entity.ts").Organization) }, updatedBy: { required: true, type: () => (__webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts").User) }, appointments: { required: true, type: () => [(__webpack_require__(/*! ../../appointments/entities/appointment.entity */ "./src/modules/appointments/entities/appointment.entity.ts").Appointment)] }, documents: { required: true, type: () => [(__webpack_require__(/*! ../../documents/entities/document.entity */ "./src/modules/documents/entities/document.entity.ts").Document)] }, medicalHistory: { required: true, type: () => [(__webpack_require__(/*! ../../medical-history/medical-history.entity */ "./src/modules/medical-history/medical-history.entity.ts").MedicalHistory)] }, relationships: { required: true, type: () => [(__webpack_require__(/*! ./contact-relationship.entity */ "./src/modules/contacts/entities/contact-relationship.entity.ts").ContactRelationship)] }, mergedRecords: { required: true, type: () => [(__webpack_require__(/*! ./contact.entity */ "./src/modules/contacts/entities/contact.entity.ts").Contact)] } };
     }
 };
 __decorate([
@@ -6227,6 +6669,11 @@ __decorate([
     (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.PrimaryGeneratedColumn)('uuid'),
     __metadata("design:type", String)
 ], Contact.prototype, "id", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.ManyToOne)(() => _users_entities_user_entity__WEBPACK_IMPORTED_MODULE_3__.User),
+    JoinColumn({ name: 'createdById' }),
+    __metadata("design:type", Object)
+], Contact.prototype, "metadata", void 0);
 __decorate([
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)(),
     (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)(),
@@ -6366,9 +6813,6 @@ __decorate([
 ], Contact.prototype, "organization", void 0);
 __decorate([
     (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.ManyToOne)(() => _users_entities_user_entity__WEBPACK_IMPORTED_MODULE_3__.User),
-    __metadata("design:type", _users_entities_user_entity__WEBPACK_IMPORTED_MODULE_3__.User)
-], Contact.prototype, "createdBy", void 0);
-__decorate([
     (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.ManyToOne)(() => _users_entities_user_entity__WEBPACK_IMPORTED_MODULE_3__.User),
     __metadata("design:type", _users_entities_user_entity__WEBPACK_IMPORTED_MODULE_3__.User)
 ], Contact.prototype, "updatedBy", void 0);
@@ -6377,15 +6821,15 @@ __decorate([
     __metadata("design:type", Array)
 ], Contact.prototype, "appointments", void 0);
 __decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.OneToMany)(() => Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../documents/entities/document.entity'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), document => document.contact),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.OneToMany)(() => _documents_entities_document_entity__WEBPACK_IMPORTED_MODULE_5__.Document, document => document.contact),
     __metadata("design:type", Array)
 ], Contact.prototype, "documents", void 0);
 __decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.OneToMany)(() => Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../medical-history/entities/medical-history.entity'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), medicalHistory => medicalHistory.contact),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.OneToMany)(() => _medical_history_medical_history_entity__WEBPACK_IMPORTED_MODULE_6__.MedicalHistory, medicalHistory => medicalHistory.contact),
     __metadata("design:type", Array)
 ], Contact.prototype, "medicalHistory", void 0);
 __decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.OneToMany)(() => Object(function webpackMissingModule() { var e = new Error("Cannot find module './contact-relationship.entity'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), relationship => relationship.contact),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.OneToMany)(() => _contact_relationship_entity__WEBPACK_IMPORTED_MODULE_7__.ContactRelationship, relationship => relationship.contact),
     __metadata("design:type", Array)
 ], Contact.prototype, "relationships", void 0);
 __decorate([
@@ -6413,6 +6857,83 @@ Contact = __decorate([
     (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Index)(['organizationId', 'phoneNumber'])
 ], Contact);
 
+function JoinColumn(arg0) {
+    return (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.JoinColumn)(arg0);
+}
+
+
+/***/ }),
+
+/***/ "./src/modules/contacts/enums/blood-group.enum.ts":
+/*!********************************************************!*\
+  !*** ./src/modules/contacts/enums/blood-group.enum.ts ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   BloodGroup: () => (/* binding */ BloodGroup)
+/* harmony export */ });
+var BloodGroup;
+(function (BloodGroup) {
+    BloodGroup["A_POSITIVE"] = "A+";
+    BloodGroup["A_NEGATIVE"] = "A-";
+    BloodGroup["B_POSITIVE"] = "B+";
+    BloodGroup["B_NEGATIVE"] = "B-";
+    BloodGroup["AB_POSITIVE"] = "AB+";
+    BloodGroup["AB_NEGATIVE"] = "AB-";
+    BloodGroup["O_POSITIVE"] = "O+";
+    BloodGroup["O_NEGATIVE"] = "O-";
+    BloodGroup["UNKNOWN"] = "UNKNOWN";
+})(BloodGroup || (BloodGroup = {}));
+
+
+/***/ }),
+
+/***/ "./src/modules/contacts/enums/gender.enum.ts":
+/*!***************************************************!*\
+  !*** ./src/modules/contacts/enums/gender.enum.ts ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Gender: () => (/* binding */ Gender)
+/* harmony export */ });
+var Gender;
+(function (Gender) {
+    Gender["MALE"] = "MALE";
+    Gender["FEMALE"] = "FEMALE";
+    Gender["OTHER"] = "OTHER";
+    Gender["PREFER_NOT_TO_SAY"] = "PREFER_NOT_TO_SAY";
+})(Gender || (Gender = {}));
+
+
+/***/ }),
+
+/***/ "./src/modules/contacts/enums/marital-status.enum.ts":
+/*!***********************************************************!*\
+  !*** ./src/modules/contacts/enums/marital-status.enum.ts ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   MaritalStatus: () => (/* binding */ MaritalStatus)
+/* harmony export */ });
+var MaritalStatus;
+(function (MaritalStatus) {
+    MaritalStatus["SINGLE"] = "SINGLE";
+    MaritalStatus["MARRIED"] = "MARRIED";
+    MaritalStatus["DIVORCED"] = "DIVORCED";
+    MaritalStatus["WIDOWED"] = "WIDOWED";
+    MaritalStatus["SEPARATED"] = "SEPARATED";
+    MaritalStatus["DOMESTIC_PARTNERSHIP"] = "DOMESTIC_PARTNERSHIP";
+    MaritalStatus["OTHER"] = "OTHER";
+})(MaritalStatus || (MaritalStatus = {}));
 
 
 /***/ }),
@@ -6434,13 +6955,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! typeorm */ "typeorm");
 /* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(typeorm__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var nestjs_typeorm_paginate__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! nestjs-typeorm-paginate */ "../node_modules/nestjs-typeorm-paginate/dist/index.js");
+/* harmony import */ var nestjs_typeorm_paginate__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! nestjs-typeorm-paginate */ "nestjs-typeorm-paginate");
 /* harmony import */ var nestjs_typeorm_paginate__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(nestjs_typeorm_paginate__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _entities_contact_entity__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../entities/contact.entity */ "./src/modules/contacts/entities/contact.entity.ts");
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../entities/contact-relationship.entity'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../medical-history/entities/medical-history.entity'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-/* harmony import */ var _appointments_entities_appointment_entity__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../appointments/entities/appointment.entity */ "./src/modules/appointments/entities/appointment.entity.ts");
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../documents/entities/document.entity'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var _entities_contact_relationship_entity__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../entities/contact-relationship.entity */ "./src/modules/contacts/entities/contact-relationship.entity.ts");
+/* harmony import */ var _medical_history_medical_history_entity__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../medical-history/medical-history.entity */ "./src/modules/medical-history/medical-history.entity.ts");
+/* harmony import */ var _appointments_entities_appointment_entity__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../appointments/entities/appointment.entity */ "./src/modules/appointments/entities/appointment.entity.ts");
+/* harmony import */ var _documents_entities_document_entity__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../documents/entities/document.entity */ "./src/modules/documents/entities/document.entity.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -6473,6 +6994,25 @@ var __rest = (undefined && undefined.__rest) || function (s, e) {
 
 
 
+function getInverseRelationshipType(type) {
+    const inverseMap = {
+        [_entities_contact_relationship_entity__WEBPACK_IMPORTED_MODULE_5__.RelationshipType.SPOUSE]: _entities_contact_relationship_entity__WEBPACK_IMPORTED_MODULE_5__.RelationshipType.SPOUSE,
+        [_entities_contact_relationship_entity__WEBPACK_IMPORTED_MODULE_5__.RelationshipType.PARENT]: _entities_contact_relationship_entity__WEBPACK_IMPORTED_MODULE_5__.RelationshipType.CHILD,
+        [_entities_contact_relationship_entity__WEBPACK_IMPORTED_MODULE_5__.RelationshipType.CHILD]: _entities_contact_relationship_entity__WEBPACK_IMPORTED_MODULE_5__.RelationshipType.PARENT,
+        [_entities_contact_relationship_entity__WEBPACK_IMPORTED_MODULE_5__.RelationshipType.SIBLING]: _entities_contact_relationship_entity__WEBPACK_IMPORTED_MODULE_5__.RelationshipType.SIBLING,
+        [_entities_contact_relationship_entity__WEBPACK_IMPORTED_MODULE_5__.RelationshipType.GUARDIAN]: _entities_contact_relationship_entity__WEBPACK_IMPORTED_MODULE_5__.RelationshipType.DEPENDENT,
+        [_entities_contact_relationship_entity__WEBPACK_IMPORTED_MODULE_5__.RelationshipType.DEPENDENT]: _entities_contact_relationship_entity__WEBPACK_IMPORTED_MODULE_5__.RelationshipType.GUARDIAN,
+        [_entities_contact_relationship_entity__WEBPACK_IMPORTED_MODULE_5__.RelationshipType.EMERGENCY_CONTACT]: _entities_contact_relationship_entity__WEBPACK_IMPORTED_MODULE_5__.RelationshipType.OTHER,
+        [_entities_contact_relationship_entity__WEBPACK_IMPORTED_MODULE_5__.RelationshipType.PRIMARY_CARE_PROVIDER]: _entities_contact_relationship_entity__WEBPACK_IMPORTED_MODULE_5__.RelationshipType.OTHER,
+        [_entities_contact_relationship_entity__WEBPACK_IMPORTED_MODULE_5__.RelationshipType.SPECIALIST]: _entities_contact_relationship_entity__WEBPACK_IMPORTED_MODULE_5__.RelationshipType.OTHER,
+        [_entities_contact_relationship_entity__WEBPACK_IMPORTED_MODULE_5__.RelationshipType.CAREGIVER]: _entities_contact_relationship_entity__WEBPACK_IMPORTED_MODULE_5__.RelationshipType.OTHER,
+        [_entities_contact_relationship_entity__WEBPACK_IMPORTED_MODULE_5__.RelationshipType.RELATIVE]: _entities_contact_relationship_entity__WEBPACK_IMPORTED_MODULE_5__.RelationshipType.RELATIVE,
+        [_entities_contact_relationship_entity__WEBPACK_IMPORTED_MODULE_5__.RelationshipType.COLLEAGUE]: _entities_contact_relationship_entity__WEBPACK_IMPORTED_MODULE_5__.RelationshipType.COLLEAGUE,
+        [_entities_contact_relationship_entity__WEBPACK_IMPORTED_MODULE_5__.RelationshipType.FRIEND]: _entities_contact_relationship_entity__WEBPACK_IMPORTED_MODULE_5__.RelationshipType.FRIEND,
+        [_entities_contact_relationship_entity__WEBPACK_IMPORTED_MODULE_5__.RelationshipType.OTHER]: _entities_contact_relationship_entity__WEBPACK_IMPORTED_MODULE_5__.RelationshipType.OTHER,
+    };
+    return inverseMap[type];
+}
 let ContactsService = class ContactsService {
     constructor(contactRepository, relationshipRepository, medicalHistoryRepository, appointmentRepository, documentRepository, dataSource) {
         this.contactRepository = contactRepository;
@@ -6486,17 +7026,18 @@ let ContactsService = class ContactsService {
         const existingContact = await this.contactRepository.findOne({
             where: [
                 { email: data.email, organizationId: data.organizationId },
-                { phoneNumber: data.phoneNumber, organizationId: data.organizationId },
+                { phone: data.phone, organizationId: data.organizationId },
             ],
         });
         if (existingContact) {
             throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.ConflictException('Contact with this email or phone number already exists');
         }
-        const contact = this.contactRepository.create(data);
-        return this.contactRepository.save(contact);
+        const contact = this.contactRepository.create(Object.assign(Object.assign({}, data), { createdBy: { id: data.createdBy } }));
+        const [savedContact] = await this.contactRepository.save([contact]);
+        return savedContact;
     }
     async findAll(query) {
-        const { organizationId, search, type, isActive, page = 1, limit = 10 } = query, filters = __rest(query, ["organizationId", "search", "type", "isActive", "page", "limit"]);
+        const _a = query, { organizationId, search, type, isActive, page = 1, limit = 10 } = _a, filters = __rest(_a, ["organizationId", "search", "type", "isActive", "page", "limit"]);
         const queryBuilder = this.contactRepository.createQueryBuilder('contact')
             .where('contact.organizationId = :organizationId', { organizationId });
         if (search) {
@@ -6517,7 +7058,7 @@ let ContactsService = class ContactsService {
         const { organizationId, page = 1, limit = 10 } = query;
         const queryBuilder = this.contactRepository.createQueryBuilder('contact')
             .where('contact.organizationId = :organizationId', { organizationId })
-            .andWhere('(LOWER(contact.firstName) LIKE LOWER(:search) OR LOWER(contact.lastName) LIKE LOWER(:search) OR LOWER(contact.email) LIKE LOWER(:search) OR contact.phoneNumber LIKE :search)', { search: `%${searchTerm}%` });
+            .andWhere('(LOWER(contact.firstName) LIKE LOWER(:search) OR LOWER(contact.lastName) LIKE LOWER(:search) OR LOWER(contact.email) LIKE LOWER(:search) OR contact.phone LIKE :search)', { search: `%${searchTerm}%` });
         return (0,nestjs_typeorm_paginate__WEBPACK_IMPORTED_MODULE_3__.paginate)(queryBuilder, { page, limit });
     }
     async findOne(id, organizationId) {
@@ -6532,18 +7073,22 @@ let ContactsService = class ContactsService {
     }
     async update(id, data) {
         const contact = await this.findOne(id, data.organizationId);
-        if (data.email || data.phoneNumber) {
+        if (data.email || data.phone) {
+            const whereCondition = [];
+            if (data.email) {
+                whereCondition.push({ email: data.email, organizationId: data.organizationId, id: (0,typeorm__WEBPACK_IMPORTED_MODULE_2__.Not)(id) });
+            }
+            if (data.phone) {
+                whereCondition.push({ phone: data.phone, organizationId: data.organizationId, id: (0,typeorm__WEBPACK_IMPORTED_MODULE_2__.Not)(id) });
+            }
             const existingContact = await this.contactRepository.findOne({
-                where: [
-                    { email: data.email, organizationId: data.organizationId, id: Not(id) },
-                    { phoneNumber: data.phoneNumber, organizationId: data.organizationId, id: Not(id) },
-                ],
+                where: whereCondition,
             });
             if (existingContact) {
                 throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.ConflictException('Contact with this email or phone number already exists');
             }
         }
-        Object.assign(contact, data);
+        Object.assign(contact, Object.assign(Object.assign({}, data), { updatedById: data.updatedBy }));
         return this.contactRepository.save(contact);
     }
     async remove(id, organizationId) {
@@ -6561,20 +7106,52 @@ let ContactsService = class ContactsService {
             ]);
             if (!primary.middleName)
                 primary.middleName = secondary.middleName;
-            if (!primary.alternativePhoneNumber)
-                primary.alternativePhoneNumber = secondary.alternativePhoneNumber;
-            if (!primary.allergies)
-                primary.allergies = secondary.allergies;
-            if (!primary.medications)
-                primary.medications = secondary.medications;
-            primary.allergies = [...new Set([...(primary.allergies || []), ...(secondary.allergies || [])])];
-            primary.medications = [...new Set([...(primary.medications || []), ...(secondary.medications || [])])];
-            primary.customFields = Object.assign(Object.assign({}, secondary.customFields), primary.customFields);
-            await queryRunner.manager.update(_appointments_entities_appointment_entity__WEBPACK_IMPORTED_MODULE_6__.Appointment, { contactId: secondaryId }, { contactId: primaryId });
-            await queryRunner.manager.update(Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../documents/entities/document.entity'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), { contactId: secondaryId }, { contactId: primaryId });
-            await queryRunner.manager.update(Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../medical-history/entities/medical-history.entity'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), { contactId: secondaryId }, { contactId: primaryId });
+            if ('alternativePhoneNumber' in primary && 'alternativePhoneNumber' in secondary) {
+                if (!primary.alternativePhoneNumber)
+                    primary.alternativePhoneNumber = secondary.alternativePhoneNumber;
+            }
+            if ('allergies' in primary && 'allergies' in secondary) {
+                if (!primary.allergies)
+                    primary.allergies = secondary.allergies;
+                if (primary.allergies && secondary.allergies) {
+                    primary.allergies = [...new Set([...primary.allergies, ...secondary.allergies])];
+                }
+            }
+            if ('medications' in primary && 'medications' in secondary) {
+                if (!primary.medications)
+                    primary.medications = secondary.medications;
+                if (primary.medications && secondary.medications) {
+                    primary.medications = [...new Set([...primary.medications, ...secondary.medications])];
+                }
+            }
+            if (primary.metadata && secondary.metadata) {
+                primary.metadata = Object.assign(Object.assign({}, secondary.metadata), primary.metadata);
+            }
+            else if (secondary.metadata) {
+                primary.metadata = secondary.metadata;
+            }
+            await queryRunner.manager
+                .createQueryBuilder()
+                .update(_appointments_entities_appointment_entity__WEBPACK_IMPORTED_MODULE_7__.Appointment)
+                .set({ contactId: primaryId })
+                .where("contactId = :secondaryId", { secondaryId })
+                .execute();
+            await queryRunner.manager
+                .createQueryBuilder()
+                .update(_documents_entities_document_entity__WEBPACK_IMPORTED_MODULE_8__.Document)
+                .set({ contactId: primaryId })
+                .where("contactId = :secondaryId", { secondaryId })
+                .execute();
+            await queryRunner.manager
+                .createQueryBuilder()
+                .update(_medical_history_medical_history_entity__WEBPACK_IMPORTED_MODULE_6__.MedicalHistory)
+                .set({ contactId: primaryId })
+                .where("contactId = :secondaryId", { secondaryId });
             primary.mergedRecords = [...(primary.mergedRecords || []), secondary];
-            secondary.isActive = false;
+            if ('mergedRecords' in primary) {
+                primary.mergedRecords = [...(primary.mergedRecords || []), secondary];
+            }
+            secondary.status = 'INACTIVE';
             await queryRunner.manager.save(_entities_contact_entity__WEBPACK_IMPORTED_MODULE_4__.Contact, primary);
             await queryRunner.manager.save(_entities_contact_entity__WEBPACK_IMPORTED_MODULE_4__.Contact, secondary);
             await queryRunner.commitTransaction();
@@ -6588,47 +7165,250 @@ let ContactsService = class ContactsService {
             await queryRunner.release();
         }
     }
-    async getRelationships(id, organizationId) {
+    async getRelationships(id, organizationId, includeInactive = false) {
+        const queryBuilder = this.relationshipRepository.createQueryBuilder('relationship')
+            .leftJoinAndSelect('relationship.relatedContact', 'relatedContact')
+            .where('relationship.contactId = :id', { id })
+            .andWhere('relationship.organizationId = :organizationId', { organizationId });
+        if (!includeInactive) {
+            queryBuilder.andWhere('relationship.isActive = true');
+        }
+        return queryBuilder.getMany();
+    }
+    async createRelationship(contactId, relationshipDto, context) {
+        var _a, _b, _c, _d, _e, _f;
+        const [contact, relatedContact] = await Promise.all([
+            this.findOne(contactId, context.organizationId),
+            this.findOne(relationshipDto.relatedContactId, context.organizationId),
+        ]);
+        const existingRelationship = await this.relationshipRepository.findOne({
+            where: {
+                contactId,
+                relatedContactId: relationshipDto.relatedContactId,
+                organizationId: context.organizationId,
+            },
+        });
+        if (existingRelationship) {
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.BadRequestException('Relationship already exists between these contacts');
+        }
+        const queryRunner = this.dataSource.createQueryRunner();
+        await queryRunner.connect();
+        await queryRunner.startTransaction();
+        try {
+            const inverseType = relationshipDto.inverseType || getInverseRelationshipType(relationshipDto.type);
+            const relationship = new _entities_contact_relationship_entity__WEBPACK_IMPORTED_MODULE_5__.ContactRelationship();
+            relationship.contactId = contactId;
+            relationship.relatedContactId = relationshipDto.relatedContactId;
+            relationship.type = relationshipDto.type;
+            relationship.inverseType = inverseType !== null && inverseType !== void 0 ? inverseType : _entities_contact_relationship_entity__WEBPACK_IMPORTED_MODULE_5__.RelationshipType.OTHER;
+            relationship.notes = (_a = relationshipDto.notes) !== null && _a !== void 0 ? _a : '';
+            relationship.isPrimary = relationshipDto.isPrimary || false;
+            relationship.startDate = (_b = relationshipDto.startDate) !== null && _b !== void 0 ? _b : new Date();
+            if (relationshipDto.endDate) {
+                relationship.endDate = relationshipDto.endDate;
+            }
+            relationship.metadata = (_c = relationshipDto.metadata) !== null && _c !== void 0 ? _c : {};
+            relationship.organizationId = context.organizationId;
+            relationship.createdById = context.userId;
+            const savedRelationship = await queryRunner.manager.save(relationship);
+            if (inverseType && inverseType !== _entities_contact_relationship_entity__WEBPACK_IMPORTED_MODULE_5__.RelationshipType.OTHER) {
+                const inverseRelationship = new _entities_contact_relationship_entity__WEBPACK_IMPORTED_MODULE_5__.ContactRelationship();
+                inverseRelationship.contactId = relationshipDto.relatedContactId;
+                inverseRelationship.relatedContactId = contactId;
+                inverseRelationship.type = inverseType;
+                inverseRelationship.inverseType = relationshipDto.type;
+                inverseRelationship.notes = (_d = relationshipDto.notes) !== null && _d !== void 0 ? _d : '';
+                inverseRelationship.isPrimary = relationshipDto.isPrimary || false;
+                inverseRelationship.startDate = (_e = relationshipDto.startDate) !== null && _e !== void 0 ? _e : new Date();
+                if (relationshipDto.endDate !== undefined) {
+                    inverseRelationship.endDate = relationshipDto.endDate;
+                }
+                inverseRelationship.metadata = (_f = relationshipDto.metadata) !== null && _f !== void 0 ? _f : {};
+                inverseRelationship.organizationId = context.organizationId;
+                inverseRelationship.createdById = context.userId;
+                await queryRunner.manager.save(inverseRelationship);
+            }
+            await queryRunner.commitTransaction();
+            return savedRelationship;
+        }
+        catch (error) {
+            await queryRunner.rollbackTransaction();
+            throw error;
+        }
+        finally {
+            await queryRunner.release();
+        }
+    }
+    async updateRelationship(id, updateDto, context) {
+        var _a;
+        const relationship = await this.relationshipRepository.findOne({
+            where: { id, organizationId: context.organizationId },
+            relations: ['contact', 'relatedContact'],
+        });
+        if (!relationship) {
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.NotFoundException('Relationship not found');
+        }
+        const queryRunner = this.dataSource.createQueryRunner();
+        await queryRunner.connect();
+        await queryRunner.startTransaction();
+        try {
+            if (updateDto.type !== undefined) {
+                relationship.type = updateDto.type;
+            }
+            if (updateDto.inverseType !== undefined) {
+                relationship.inverseType = updateDto.inverseType;
+            }
+            else if (updateDto.type !== undefined) {
+                relationship.inverseType = (_a = getInverseRelationshipType(updateDto.type)) !== null && _a !== void 0 ? _a : _entities_contact_relationship_entity__WEBPACK_IMPORTED_MODULE_5__.RelationshipType.OTHER;
+            }
+            if (updateDto.notes !== undefined) {
+                relationship.notes = updateDto.notes;
+            }
+            if (updateDto.isPrimary !== undefined) {
+                relationship.isPrimary = updateDto.isPrimary;
+            }
+            if (updateDto.isActive !== undefined) {
+                relationship.isActive = updateDto.isActive;
+            }
+            if (updateDto.startDate !== undefined) {
+                relationship.startDate = updateDto.startDate;
+            }
+            if (updateDto.endDate !== undefined) {
+                relationship.endDate = updateDto.endDate;
+            }
+            if (updateDto.metadata !== undefined) {
+                relationship.metadata = updateDto.metadata;
+            }
+            relationship.updatedById = context.userId;
+            const savedRelationship = await queryRunner.manager.save(relationship);
+            const inverseRelationship = await this.relationshipRepository.findOne({
+                where: {
+                    contactId: relationship.relatedContactId,
+                    relatedContactId: relationship.contactId,
+                    organizationId: context.organizationId,
+                },
+            });
+            if (inverseRelationship) {
+                if (relationship.inverseType !== undefined) {
+                    inverseRelationship.type = relationship.inverseType;
+                }
+                if (relationship.type !== undefined) {
+                    inverseRelationship.inverseType = relationship.type;
+                }
+                if (updateDto.notes !== undefined) {
+                    inverseRelationship.notes = updateDto.notes;
+                }
+                if (updateDto.isPrimary !== undefined) {
+                    inverseRelationship.isPrimary = updateDto.isPrimary;
+                }
+                if (updateDto.isActive !== undefined) {
+                    inverseRelationship.isActive = updateDto.isActive;
+                }
+                if (updateDto.startDate !== undefined) {
+                    inverseRelationship.startDate = updateDto.startDate;
+                }
+                if (updateDto.endDate !== undefined) {
+                    inverseRelationship.endDate = updateDto.endDate;
+                }
+                if (updateDto.metadata !== undefined) {
+                    inverseRelationship.metadata = updateDto.metadata;
+                }
+                inverseRelationship.updatedById = context.userId;
+                await queryRunner.manager.save(inverseRelationship);
+            }
+            await queryRunner.commitTransaction();
+            return savedRelationship;
+        }
+        catch (error) {
+            await queryRunner.rollbackTransaction();
+            throw error;
+        }
+        finally {
+            await queryRunner.release();
+        }
+    }
+    async deleteRelationship(id, context) {
+        const relationship = await this.relationshipRepository.findOne({
+            where: { id, organizationId: context.organizationId },
+        });
+        if (!relationship) {
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.NotFoundException('Relationship not found');
+        }
+        const queryRunner = this.dataSource.createQueryRunner();
+        await queryRunner.connect();
+        await queryRunner.startTransaction();
+        try {
+            const inverseRelationship = await this.relationshipRepository.findOne({
+                where: {
+                    contactId: relationship.relatedContactId,
+                    relatedContactId: relationship.contactId,
+                    organizationId: context.organizationId,
+                },
+            });
+            await queryRunner.manager.softRemove(relationship);
+            if (inverseRelationship) {
+                await queryRunner.manager.softRemove(inverseRelationship);
+            }
+            await queryRunner.commitTransaction();
+        }
+        catch (error) {
+            await queryRunner.rollbackTransaction();
+            throw error;
+        }
+        finally {
+            await queryRunner.release();
+        }
+    }
+    async getContactsByRelationshipType(contactId, type, query) {
         const relationships = await this.relationshipRepository.find({
-            where: { contactId: id, organizationId },
+            where: {
+                contactId,
+                type,
+                organizationId: query.organizationId,
+                isActive: true,
+            },
             relations: ['relatedContact'],
         });
-        return relationships;
+        return relationships.map(rel => ({
+            relationshipId: rel.id,
+            relationshipType: rel.type,
+            contact: {
+                id: rel.relatedContact.id,
+                firstName: rel.relatedContact.firstName,
+                lastName: rel.relatedContact.lastName,
+                email: rel.relatedContact.email,
+                phone: rel.relatedContact.phone,
+            },
+            notes: rel.notes,
+            isPrimary: rel.isPrimary,
+            startDate: rel.startDate,
+            endDate: rel.endDate,
+        }));
     }
     async addRelationship(id, relationshipDto, context) {
-        const contact = await this.findOne(id, context.organizationId);
-        const relatedContact = await this.findOne(relationshipDto.relatedContactId, context.organizationId);
-        const relationship = this.relationshipRepository.create({
-            contact,
-            relatedContact,
-            type: relationshipDto.type,
-            notes: relationshipDto.notes,
-            organizationId: context.organizationId,
-            createdById: context.userId,
-        });
-        return this.relationshipRepository.save(relationship);
+        return this.createRelationship(id, relationshipDto, context);
     }
     async getMedicalHistory(id, query) {
         return this.medicalHistoryRepository.find({
-            where: { contactId: id, organizationId: query.organizationId },
+            where: {
+                contactId: id,
+                organizationId: query.organizationId
+            },
             order: { date: 'DESC' },
-        });
-    }
-    async getAppointments(id, query) {
-        return this.appointmentRepository.find({
-            where: { contactId: id, organizationId: query.organizationId },
-            order: { startTime: 'DESC' },
         });
     }
     async getDocuments(id, query) {
         return this.documentRepository.find({
-            where: { contactId: id, organizationId: query.organizationId },
+            where: {
+                contactId: id,
+                organizationId: query.organizationId
+            },
             order: { createdAt: 'DESC' },
         });
     }
     async addDocument(id, documentDto, context) {
-        const contact = await this.findOne(id, context.organizationId);
-        const document = this.documentRepository.create(Object.assign(Object.assign({}, documentDto), { contact, organizationId: context.organizationId, createdById: context.userId }));
+        await this.findOne(id, context.organizationId);
+        const document = this.documentRepository.create(Object.assign(Object.assign({}, documentDto), { contactId: id, organizationId: context.organizationId, createdById: context.userId }));
         return this.documentRepository.save(document);
     }
     async getStatistics(query) {
@@ -6638,7 +7418,7 @@ let ContactsService = class ContactsService {
             .select([
             'COUNT(*) as total',
             'COUNT(CASE WHEN contact.type = \'PATIENT\' THEN 1 END) as patients',
-            'COUNT(CASE WHEN contact.isActive = true THEN 1 END) as active',
+            'COUNT(CASE WHEN contact.status = \'ACTIVE\' THEN 1 END) as active',
             'COUNT(CASE WHEN contact.createdAt >= NOW() - INTERVAL \'30 days\' THEN 1 END) as newLast30Days',
         ])
             .getRawOne();
@@ -6649,7 +7429,7 @@ let ContactsService = class ContactsService {
         await queryRunner.connect();
         await queryRunner.startTransaction();
         try {
-            const contacts = importDto.contacts.map(contactData => (Object.assign(Object.assign({}, contactData), { organizationId: context.organizationId, createdById: context.userId })));
+            const contacts = importDto.contacts.map((contactData) => (Object.assign(Object.assign({}, contactData), { organizationId: context.organizationId, createdById: context.userId })));
             const savedContacts = await queryRunner.manager.save(_entities_contact_entity__WEBPACK_IMPORTED_MODULE_4__.Contact, contacts);
             await queryRunner.commitTransaction();
             return {
@@ -6676,7 +7456,7 @@ let ContactsService = class ContactsService {
             firstName: contact.firstName,
             lastName: contact.lastName,
             email: contact.email,
-            phoneNumber: contact.phoneNumber,
+            phone: contact.phone,
             type: contact.type,
         }));
         return {
@@ -6688,10 +7468,10 @@ let ContactsService = class ContactsService {
 ContactsService = __decorate([
     (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.Injectable)(),
     __param(0, (0,_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__.InjectRepository)(_entities_contact_entity__WEBPACK_IMPORTED_MODULE_4__.Contact)),
-    __param(1, (0,_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__.InjectRepository)(Object(function webpackMissingModule() { var e = new Error("Cannot find module '../entities/contact-relationship.entity'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()))),
-    __param(2, (0,_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__.InjectRepository)(Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../medical-history/entities/medical-history.entity'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()))),
-    __param(3, (0,_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__.InjectRepository)(_appointments_entities_appointment_entity__WEBPACK_IMPORTED_MODULE_6__.Appointment)),
-    __param(4, (0,_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__.InjectRepository)(Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../documents/entities/document.entity'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()))),
+    __param(1, (0,_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__.InjectRepository)(_entities_contact_relationship_entity__WEBPACK_IMPORTED_MODULE_5__.ContactRelationship)),
+    __param(2, (0,_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__.InjectRepository)(_medical_history_medical_history_entity__WEBPACK_IMPORTED_MODULE_6__.MedicalHistory)),
+    __param(3, (0,_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__.InjectRepository)(_appointments_entities_appointment_entity__WEBPACK_IMPORTED_MODULE_7__.Appointment)),
+    __param(4, (0,_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__.InjectRepository)(_documents_entities_document_entity__WEBPACK_IMPORTED_MODULE_8__.Document)),
     __metadata("design:paramtypes", [typeorm__WEBPACK_IMPORTED_MODULE_2__.Repository,
         typeorm__WEBPACK_IMPORTED_MODULE_2__.Repository,
         typeorm__WEBPACK_IMPORTED_MODULE_2__.Repository,
@@ -7715,6 +8495,7 @@ let DepartmentAssignmentListener = class DepartmentAssignmentListener {
                     organizationId: event.organizationId,
                 },
                 organizationId: event.organizationId,
+                priority: 'MEDIUM',
             };
             await this.notificationsService.send(notification);
         }
@@ -7742,6 +8523,7 @@ let DepartmentAssignmentListener = class DepartmentAssignmentListener {
                     organizationId: event.organizationId,
                 },
                 organizationId: event.organizationId,
+                priority: 'MEDIUM',
             };
             await this.notificationsService.send(notification);
         }
@@ -7771,6 +8553,7 @@ let DepartmentAssignmentListener = class DepartmentAssignmentListener {
                     organizationId: event.organizationId,
                 },
                 organizationId: event.organizationId,
+                priority: 'MEDIUM',
             };
             await this.notificationsService.send(notification);
         }
@@ -7796,6 +8579,7 @@ let DepartmentAssignmentListener = class DepartmentAssignmentListener {
                 organizationId: event.organizationId,
             },
             organizationId: event.organizationId,
+            priority: 'MEDIUM',
         };
         await this.notificationsService.send(newManagerNotification);
         if (event.previousManagerId) {
@@ -7809,6 +8593,7 @@ let DepartmentAssignmentListener = class DepartmentAssignmentListener {
                     organizationId: event.organizationId,
                 },
                 organizationId: event.organizationId,
+                priority: 'MEDIUM',
             };
             await this.notificationsService.send(previousManagerNotification);
         }
@@ -8681,6 +9466,199 @@ DepartmentsService = __decorate([
         _organizations_services_organizations_service__WEBPACK_IMPORTED_MODULE_5__.OrganizationsService,
         _nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_3__.EventEmitter2])
 ], DepartmentsService);
+
+
+
+/***/ }),
+
+/***/ "./src/modules/documents/entities/document.entity.ts":
+/*!***********************************************************!*\
+  !*** ./src/modules/documents/entities/document.entity.ts ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Document: () => (/* binding */ Document),
+/* harmony export */   DocumentStatus: () => (/* binding */ DocumentStatus),
+/* harmony export */   DocumentType: () => (/* binding */ DocumentType)
+/* harmony export */ });
+/* harmony import */ var _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/swagger */ "@nestjs/swagger");
+/* harmony import */ var _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! typeorm */ "typeorm");
+/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(typeorm__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _contacts_entities_contact_entity__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../contacts/entities/contact.entity */ "./src/modules/contacts/entities/contact.entity.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var DocumentType;
+(function (DocumentType) {
+    DocumentType["MEDICAL_RECORD"] = "MEDICAL_RECORD";
+    DocumentType["LAB_RESULT"] = "LAB_RESULT";
+    DocumentType["PRESCRIPTION"] = "PRESCRIPTION";
+    DocumentType["IMAGING"] = "IMAGING";
+    DocumentType["INSURANCE"] = "INSURANCE";
+    DocumentType["CONSENT_FORM"] = "CONSENT_FORM";
+    DocumentType["IDENTIFICATION"] = "IDENTIFICATION";
+    DocumentType["INVOICE"] = "INVOICE";
+    DocumentType["RECEIPT"] = "RECEIPT";
+    DocumentType["CORRESPONDENCE"] = "CORRESPONDENCE";
+    DocumentType["REFERRAL"] = "REFERRAL";
+    DocumentType["OTHER"] = "OTHER";
+})(DocumentType || (DocumentType = {}));
+var DocumentStatus;
+(function (DocumentStatus) {
+    DocumentStatus["DRAFT"] = "DRAFT";
+    DocumentStatus["PENDING_REVIEW"] = "PENDING_REVIEW";
+    DocumentStatus["APPROVED"] = "APPROVED";
+    DocumentStatus["REJECTED"] = "REJECTED";
+    DocumentStatus["EXPIRED"] = "EXPIRED";
+    DocumentStatus["ARCHIVED"] = "ARCHIVED";
+})(DocumentStatus || (DocumentStatus = {}));
+let Document = class Document {
+    static _OPENAPI_METADATA_FACTORY() {
+        return { id: { required: true, type: () => String }, organizationId: { required: true, type: () => String }, contactId: { required: true, type: () => String }, contact: { required: true, type: () => (__webpack_require__(/*! ../../contacts/entities/contact.entity */ "./src/modules/contacts/entities/contact.entity.ts").Contact) }, name: { required: true, type: () => String }, type: { required: true, enum: (__webpack_require__(/*! ./document.entity */ "./src/modules/documents/entities/document.entity.ts").DocumentType) }, fileName: { required: true, type: () => String }, fileType: { required: true, type: () => String }, fileSize: { required: true, type: () => Number }, filePath: { required: true, type: () => String }, fileUrl: { required: true, type: () => String }, description: { required: true, type: () => String }, status: { required: true, enum: (__webpack_require__(/*! ./document.entity */ "./src/modules/documents/entities/document.entity.ts").DocumentStatus) }, isPrivate: { required: true, type: () => Boolean }, documentDate: { required: true, type: () => Date }, expiryDate: { required: true, type: () => Date }, metadata: { required: true, type: () => ({ author: { required: false, type: () => String }, source: { required: false, type: () => String }, keywords: { required: false, type: () => [String] }, version: { required: false, type: () => String }, pageCount: { required: false, type: () => Number }, isOriginal: { required: false, type: () => Boolean }, relatedDocuments: { required: false, type: () => [String] }, customProperties: { required: false, type: () => Object } }) }, notes: { required: true, type: () => String }, tags: { required: true, type: () => [String] }, shareWith: { required: true, type: () => [String] }, appointmentId: { required: true, type: () => String }, medicalHistoryId: { required: true, type: () => String }, contentText: { required: true, type: () => String }, createdById: { required: true, type: () => String }, updatedById: { required: true, type: () => String }, createdAt: { required: true, type: () => Date }, updatedAt: { required: true, type: () => Date }, deletedAt: { required: true, type: () => Date } };
+    }
+};
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.PrimaryGeneratedColumn)('uuid'),
+    __metadata("design:type", String)
+], Document.prototype, "id", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'uuid' }),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Index)(),
+    __metadata("design:type", String)
+], Document.prototype, "organizationId", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'uuid', nullable: true }),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Index)(),
+    __metadata("design:type", String)
+], Document.prototype, "contactId", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.ManyToOne)(() => _contacts_entities_contact_entity__WEBPACK_IMPORTED_MODULE_2__.Contact, contact => contact.documents, { onDelete: 'SET NULL' }),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.JoinColumn)({ name: 'contactId' }),
+    __metadata("design:type", _contacts_entities_contact_entity__WEBPACK_IMPORTED_MODULE_2__.Contact)
+], Document.prototype, "contact", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ length: 255 }),
+    __metadata("design:type", String)
+], Document.prototype, "name", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({
+        type: 'enum',
+        enum: DocumentType,
+        default: DocumentType.OTHER,
+    }),
+    __metadata("design:type", String)
+], Document.prototype, "type", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ length: 255 }),
+    __metadata("design:type", String)
+], Document.prototype, "fileName", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ length: 255 }),
+    __metadata("design:type", String)
+], Document.prototype, "fileType", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'bigint' }),
+    __metadata("design:type", Number)
+], Document.prototype, "fileSize", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ length: 1024 }),
+    __metadata("design:type", String)
+], Document.prototype, "filePath", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ length: 1024, nullable: true }),
+    __metadata("design:type", String)
+], Document.prototype, "fileUrl", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'text', nullable: true }),
+    __metadata("design:type", String)
+], Document.prototype, "description", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({
+        type: 'enum',
+        enum: DocumentStatus,
+        default: DocumentStatus.APPROVED,
+    }),
+    __metadata("design:type", String)
+], Document.prototype, "status", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'boolean', default: false }),
+    __metadata("design:type", Boolean)
+], Document.prototype, "isPrivate", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'date', nullable: true }),
+    __metadata("design:type", Date)
+], Document.prototype, "documentDate", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'date', nullable: true }),
+    __metadata("design:type", Date)
+], Document.prototype, "expiryDate", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'jsonb', nullable: true }),
+    __metadata("design:type", Object)
+], Document.prototype, "metadata", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'text', nullable: true }),
+    __metadata("design:type", String)
+], Document.prototype, "notes", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'jsonb', nullable: true }),
+    __metadata("design:type", Array)
+], Document.prototype, "tags", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'jsonb', nullable: true }),
+    __metadata("design:type", Array)
+], Document.prototype, "shareWith", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'uuid', nullable: true }),
+    __metadata("design:type", String)
+], Document.prototype, "appointmentId", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'uuid', nullable: true }),
+    __metadata("design:type", String)
+], Document.prototype, "medicalHistoryId", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'text', nullable: true }),
+    __metadata("design:type", String)
+], Document.prototype, "contentText", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'uuid', nullable: true }),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Index)(),
+    __metadata("design:type", String)
+], Document.prototype, "createdById", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'uuid', nullable: true }),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Index)(),
+    __metadata("design:type", String)
+], Document.prototype, "updatedById", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.CreateDateColumn)({ type: 'timestamptz' }),
+    __metadata("design:type", Date)
+], Document.prototype, "createdAt", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.UpdateDateColumn)({ type: 'timestamptz' }),
+    __metadata("design:type", Date)
+], Document.prototype, "updatedAt", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.DeleteDateColumn)({ type: 'timestamptz', nullable: true }),
+    __metadata("design:type", Date)
+], Document.prototype, "deletedAt", void 0);
+Document = __decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Entity)('documents'),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Index)(['organizationId', 'contact'])
+], Document);
 
 
 
@@ -9598,108 +10576,6 @@ DomainVerificationService = DomainVerificationService_1 = __decorate([
 
 /***/ }),
 
-/***/ "./src/modules/email/email.service.ts":
-/*!********************************************!*\
-  !*** ./src/modules/email/email.service.ts ***!
-  \********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   EmailService: () => (/* binding */ EmailService)
-/* harmony export */ });
-/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
-/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nestjs/typeorm */ "@nestjs/typeorm");
-/* harmony import */ var _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! typeorm */ "typeorm");
-/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(typeorm__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _notifications_entities_email_template_entity__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../notifications/entities/email-template.entity */ "./src/modules/notifications/entities/email-template.entity.ts");
-/* harmony import */ var _notifications_entities_email_queue_entity__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../notifications/entities/email-queue.entity */ "./src/modules/notifications/entities/email-queue.entity.ts");
-/* harmony import */ var _notifications_entities_email_log_entity__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../notifications/entities/email-log.entity */ "./src/modules/notifications/entities/email-log.entity.ts");
-/* harmony import */ var _notifications_enums_email_status_enum__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../notifications/enums/email-status.enum */ "./src/modules/notifications/enums/email-status.enum.ts");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
-    return function (target, key) { decorator(target, key, paramIndex); }
-};
-var EmailService_1;
-
-
-
-
-
-
-
-let EmailService = EmailService_1 = class EmailService {
-    constructor(emailTemplateRepository, emailQueueRepository, emailLogRepository) {
-        this.emailTemplateRepository = emailTemplateRepository;
-        this.emailQueueRepository = emailQueueRepository;
-        this.emailLogRepository = emailLogRepository;
-        this.logger = new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.Logger(EmailService_1.name);
-    }
-    async sendAppointmentReminder(to, data) {
-        try {
-            const template = await this.emailTemplateRepository.findOne({
-                where: { type: 'APPOINTMENT_REMINDER' },
-            });
-            if (!template) {
-                throw new Error('Appointment reminder template not found');
-            }
-            const emailContent = this.compileTemplate(template.content, data);
-            const subject = this.compileTemplate(template.subject, data);
-            await this.emailQueueRepository.save({
-                to,
-                subject,
-                content: emailContent,
-                status: _notifications_enums_email_status_enum__WEBPACK_IMPORTED_MODULE_6__.EmailStatus.PENDING,
-                metadata: {
-                    appointmentId: data.appointmentId,
-                    type: 'APPOINTMENT_REMINDER',
-                },
-                priority: 'high',
-            });
-            await this.emailLogRepository.save({
-                to,
-                subject,
-                type: 'APPOINTMENT_REMINDER',
-                status: _notifications_enums_email_status_enum__WEBPACK_IMPORTED_MODULE_6__.EmailStatus.QUEUED,
-                metadata: {
-                    appointmentId: data.appointmentId,
-                },
-            });
-        }
-        catch (error) {
-            this.logger.error(`Failed to send appointment reminder email to ${to}:`, error);
-            throw error;
-        }
-    }
-    compileTemplate(template, data) {
-        return template.replace(/\{\{([^}]+)\}\}/g, (match, key) => data[key.trim()] || '');
-    }
-};
-EmailService = EmailService_1 = __decorate([
-    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.Injectable)(),
-    __param(0, (0,_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__.InjectRepository)(_notifications_entities_email_template_entity__WEBPACK_IMPORTED_MODULE_3__.EmailTemplate)),
-    __param(1, (0,_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__.InjectRepository)(_notifications_entities_email_queue_entity__WEBPACK_IMPORTED_MODULE_4__.EmailQueue)),
-    __param(2, (0,_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__.InjectRepository)(_notifications_entities_email_log_entity__WEBPACK_IMPORTED_MODULE_5__.EmailLog)),
-    __metadata("design:paramtypes", [typeorm__WEBPACK_IMPORTED_MODULE_2__.Repository,
-        typeorm__WEBPACK_IMPORTED_MODULE_2__.Repository,
-        typeorm__WEBPACK_IMPORTED_MODULE_2__.Repository])
-], EmailService);
-
-
-
-/***/ }),
-
 /***/ "./src/modules/integrations/slack/services/slack.service.ts":
 /*!******************************************************************!*\
   !*** ./src/modules/integrations/slack/services/slack.service.ts ***!
@@ -9913,6 +10789,645 @@ SlackService = SlackService_1 = __decorate([
 
 /***/ }),
 
+/***/ "./src/modules/medical-history/medical-history.entity.ts":
+/*!***************************************************************!*\
+  !*** ./src/modules/medical-history/medical-history.entity.ts ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   EncounterType: () => (/* binding */ EncounterType),
+/* harmony export */   HealthcareProviderType: () => (/* binding */ HealthcareProviderType),
+/* harmony export */   MedicalHistory: () => (/* binding */ MedicalHistory)
+/* harmony export */ });
+/* harmony import */ var _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/swagger */ "@nestjs/swagger");
+/* harmony import */ var _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! typeorm */ "typeorm");
+/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(typeorm__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _contacts_entities_contact_entity__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../contacts/entities/contact.entity */ "./src/modules/contacts/entities/contact.entity.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var EncounterType;
+(function (EncounterType) {
+    EncounterType["CONSULTATION"] = "CONSULTATION";
+    EncounterType["CHECKUP"] = "CHECKUP";
+    EncounterType["PROCEDURE"] = "PROCEDURE";
+    EncounterType["TREATMENT"] = "TREATMENT";
+    EncounterType["FOLLOW_UP"] = "FOLLOW_UP";
+    EncounterType["EMERGENCY"] = "EMERGENCY";
+    EncounterType["LABORATORY"] = "LABORATORY";
+    EncounterType["IMAGING"] = "IMAGING";
+    EncounterType["TELEMEDICINE"] = "TELEMEDICINE";
+    EncounterType["OTHER"] = "OTHER";
+})(EncounterType || (EncounterType = {}));
+var HealthcareProviderType;
+(function (HealthcareProviderType) {
+    HealthcareProviderType["PRIMARY_CARE"] = "PRIMARY_CARE";
+    HealthcareProviderType["SPECIALIST"] = "SPECIALIST";
+    HealthcareProviderType["DENTIST"] = "DENTIST";
+    HealthcareProviderType["NURSE"] = "NURSE";
+    HealthcareProviderType["THERAPIST"] = "THERAPIST";
+    HealthcareProviderType["PHARMACIST"] = "PHARMACIST";
+    HealthcareProviderType["OTHER"] = "OTHER";
+})(HealthcareProviderType || (HealthcareProviderType = {}));
+let MedicalHistory = class MedicalHistory {
+    static _OPENAPI_METADATA_FACTORY() {
+        return { id: { required: true, type: () => String }, organizationId: { required: true, type: () => String }, contactId: { required: true, type: () => String }, contact: { required: true, type: () => (__webpack_require__(/*! ../contacts/entities/contact.entity */ "./src/modules/contacts/entities/contact.entity.ts").Contact) }, encounterType: { required: true, enum: (__webpack_require__(/*! ./medical-history.entity */ "./src/modules/medical-history/medical-history.entity.ts").EncounterType) }, date: { required: true, type: () => Date }, description: { required: true, type: () => String }, diagnosis: { required: true, type: () => String }, treatment: { required: true, type: () => String }, medications: { required: true, type: () => String }, symptoms: { required: true, type: () => String }, vitalSigns: { required: true, type: () => ({ bloodPressure: { required: false, type: () => String }, temperature: { required: false, type: () => Number }, heartRate: { required: false, type: () => Number }, respiratoryRate: { required: false, type: () => Number }, oxygenSaturation: { required: false, type: () => Number }, height: { required: false, type: () => Number }, weight: { required: false, type: () => Number }, bmi: { required: false, type: () => Number } }) }, notes: { required: true, type: () => String }, referrals: { required: true }, attachments: { required: true }, labResults: { required: true }, isFlagged: { required: true, type: () => Boolean }, flaggedReason: { required: true, type: () => String }, requiresFollowUp: { required: true, type: () => Boolean }, followUpDate: { required: true, type: () => Date }, providerName: { required: true, type: () => String }, providerType: { required: true, enum: (__webpack_require__(/*! ./medical-history.entity */ "./src/modules/medical-history/medical-history.entity.ts").HealthcareProviderType) }, facilityName: { required: true, type: () => String }, facilityLocation: { required: true, type: () => String }, isInsuranceClaim: { required: true, type: () => Boolean }, insuranceClaimNumber: { required: true, type: () => String }, costAmount: { required: true, type: () => Number }, costCurrency: { required: true, type: () => String }, customFields: { required: true, type: () => Object }, createdById: { required: true, type: () => String }, updatedById: { required: true, type: () => String }, createdAt: { required: true, type: () => Date }, updatedAt: { required: true, type: () => Date }, deletedAt: { required: true, type: () => Date } };
+    }
+};
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.PrimaryGeneratedColumn)('uuid'),
+    __metadata("design:type", String)
+], MedicalHistory.prototype, "id", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'uuid' }),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Index)(),
+    __metadata("design:type", String)
+], MedicalHistory.prototype, "organizationId", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'uuid' }),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Index)(),
+    __metadata("design:type", String)
+], MedicalHistory.prototype, "contactId", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.ManyToOne)(() => _contacts_entities_contact_entity__WEBPACK_IMPORTED_MODULE_2__.Contact, contact => contact.medicalHistory, { onDelete: 'CASCADE' }),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.JoinColumn)({ name: 'contactId' }),
+    __metadata("design:type", _contacts_entities_contact_entity__WEBPACK_IMPORTED_MODULE_2__.Contact)
+], MedicalHistory.prototype, "contact", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({
+        type: 'enum',
+        enum: EncounterType,
+        default: EncounterType.CONSULTATION,
+    }),
+    __metadata("design:type", String)
+], MedicalHistory.prototype, "encounterType", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'date' }),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Index)(),
+    __metadata("design:type", Date)
+], MedicalHistory.prototype, "date", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'text' }),
+    __metadata("design:type", String)
+], MedicalHistory.prototype, "description", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'text', nullable: true }),
+    __metadata("design:type", String)
+], MedicalHistory.prototype, "diagnosis", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'text', nullable: true }),
+    __metadata("design:type", String)
+], MedicalHistory.prototype, "treatment", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'text', nullable: true }),
+    __metadata("design:type", String)
+], MedicalHistory.prototype, "medications", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'text', nullable: true }),
+    __metadata("design:type", String)
+], MedicalHistory.prototype, "symptoms", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'jsonb', nullable: true }),
+    __metadata("design:type", Object)
+], MedicalHistory.prototype, "vitalSigns", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'text', nullable: true }),
+    __metadata("design:type", String)
+], MedicalHistory.prototype, "notes", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'jsonb', nullable: true }),
+    __metadata("design:type", Array)
+], MedicalHistory.prototype, "referrals", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'jsonb', nullable: true }),
+    __metadata("design:type", Array)
+], MedicalHistory.prototype, "attachments", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'jsonb', nullable: true }),
+    __metadata("design:type", Array)
+], MedicalHistory.prototype, "labResults", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'boolean', default: false }),
+    __metadata("design:type", Boolean)
+], MedicalHistory.prototype, "isFlagged", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'text', nullable: true }),
+    __metadata("design:type", String)
+], MedicalHistory.prototype, "flaggedReason", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'boolean', default: false }),
+    __metadata("design:type", Boolean)
+], MedicalHistory.prototype, "requiresFollowUp", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'date', nullable: true }),
+    __metadata("design:type", Date)
+], MedicalHistory.prototype, "followUpDate", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'varchar', nullable: true }),
+    __metadata("design:type", String)
+], MedicalHistory.prototype, "providerName", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({
+        type: 'enum',
+        enum: HealthcareProviderType,
+        nullable: true,
+    }),
+    __metadata("design:type", String)
+], MedicalHistory.prototype, "providerType", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'varchar', nullable: true }),
+    __metadata("design:type", String)
+], MedicalHistory.prototype, "facilityName", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'varchar', nullable: true }),
+    __metadata("design:type", String)
+], MedicalHistory.prototype, "facilityLocation", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'boolean', default: false }),
+    __metadata("design:type", Boolean)
+], MedicalHistory.prototype, "isInsuranceClaim", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'varchar', nullable: true }),
+    __metadata("design:type", String)
+], MedicalHistory.prototype, "insuranceClaimNumber", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'decimal', precision: 10, scale: 2, nullable: true }),
+    __metadata("design:type", Number)
+], MedicalHistory.prototype, "costAmount", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'varchar', nullable: true }),
+    __metadata("design:type", String)
+], MedicalHistory.prototype, "costCurrency", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'jsonb', nullable: true }),
+    __metadata("design:type", Object)
+], MedicalHistory.prototype, "customFields", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'uuid', nullable: true }),
+    __metadata("design:type", String)
+], MedicalHistory.prototype, "createdById", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'uuid', nullable: true }),
+    __metadata("design:type", String)
+], MedicalHistory.prototype, "updatedById", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.CreateDateColumn)({ type: 'timestamptz' }),
+    __metadata("design:type", Date)
+], MedicalHistory.prototype, "createdAt", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.UpdateDateColumn)({ type: 'timestamptz' }),
+    __metadata("design:type", Date)
+], MedicalHistory.prototype, "updatedAt", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.DeleteDateColumn)({ type: 'timestamptz', nullable: true }),
+    __metadata("design:type", Date)
+], MedicalHistory.prototype, "deletedAt", void 0);
+MedicalHistory = __decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Entity)('medical_histories'),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Index)(['organizationId', 'contact'])
+], MedicalHistory);
+
+
+
+/***/ }),
+
+/***/ "./src/modules/messages/controllers/messages.controller.ts":
+/*!*****************************************************************!*\
+  !*** ./src/modules/messages/controllers/messages.controller.ts ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   MessagesController: () => (/* binding */ MessagesController)
+/* harmony export */ });
+/* harmony import */ var _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/swagger */ "@nestjs/swagger");
+/* harmony import */ var _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _auth_guards_jwt_auth_guard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../auth/guards/jwt-auth.guard */ "./src/modules/auth/guards/jwt-auth.guard.ts");
+/* harmony import */ var _auth_guards_roles_guard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../auth/guards/roles.guard */ "./src/modules/auth/guards/roles.guard.ts");
+/* harmony import */ var _auth_decorators_roles_decorator__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../auth/decorators/roles.decorator */ "./src/modules/auth/decorators/roles.decorator.ts");
+/* harmony import */ var _users_enums_role_enum__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../users/enums/role.enum */ "./src/modules/users/enums/role.enum.ts");
+/* harmony import */ var _services_messages_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../services/messages.service */ "./src/modules/messages/services/messages.service.ts");
+/* harmony import */ var _dto_create_message_dto__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../dto/create-message.dto */ "./src/modules/messages/dto/create-message.dto.ts");
+/* harmony import */ var _dto_update_message_dto__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../dto/update-message.dto */ "./src/modules/messages/dto/update-message.dto.ts");
+/* harmony import */ var _dto_message_query_dto__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../dto/message-query.dto */ "./src/modules/messages/dto/message-query.dto.ts");
+/* harmony import */ var _dto_message_template_dto__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../dto/message-template.dto */ "./src/modules/messages/dto/message-template.dto.ts");
+/* harmony import */ var _dto_bulk_message_dto__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../dto/bulk-message.dto */ "./src/modules/messages/dto/bulk-message.dto.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+let MessagesController = class MessagesController {
+    constructor(messagesService) {
+        this.messagesService = messagesService;
+    }
+    async create(createMessageDto, req) {
+        if (!req.organization)
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.BadRequestException('Organization information not available');
+        if (!req.user)
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.BadRequestException('User information not available');
+        return this.messagesService.create(Object.assign(Object.assign({}, createMessageDto), { organizationId: req.organization.id, senderId: req.user.id }));
+    }
+    async findAll(query, req) {
+        if (!req.organization)
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.BadRequestException('Organization information not available');
+        return this.messagesService.findAll(Object.assign(Object.assign({}, query), { organizationId: req.organization.id }));
+    }
+    async getConversations(query, req) {
+        if (!req.organization)
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.BadRequestException('Organization information not available');
+        return this.messagesService.getConversations(Object.assign(Object.assign({}, query), { organizationId: req.organization.id }));
+    }
+    async getConversation(contactId, query, req) {
+        if (!req.organization)
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.BadRequestException('Organization information not available');
+        return this.messagesService.getConversation(contactId, Object.assign(Object.assign({}, query), { organizationId: req.organization.id }));
+    }
+    async findOne(id, req) {
+        if (!req.organization)
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.BadRequestException('Organization information not available');
+        const message = await this.messagesService.findOne(id, req.organization.id);
+        if (!message) {
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.NotFoundException('Message not found');
+        }
+        return message;
+    }
+    async update(id, updateMessageDto, req) {
+        if (!req.organization)
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.BadRequestException('Organization information not available');
+        if (!req.user)
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.BadRequestException('User information not available');
+        return this.messagesService.update(id, Object.assign(Object.assign({}, updateMessageDto), { organizationId: req.organization.id, updatedBy: req.user.id }));
+    }
+    async remove(id, req) {
+        if (!req.organization)
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.BadRequestException('Organization information not available');
+        await this.messagesService.remove(id, req.organization.id);
+    }
+    async createTemplate(templateDto, req) {
+        if (!req.organization)
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.BadRequestException('Organization information not available');
+        if (!req.user)
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.BadRequestException('User information not available');
+        return this.messagesService.createTemplate(Object.assign(Object.assign({}, templateDto), { organizationId: req.organization.id, createdBy: req.user.id }));
+    }
+    async getTemplates(query, req) {
+        if (!req.organization)
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.BadRequestException('Organization information not available');
+        return this.messagesService.getTemplates(Object.assign(Object.assign({}, query), { organizationId: req.organization.id }));
+    }
+    async sendBulk(bulkMessageDto, req) {
+        if (!req.organization)
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.BadRequestException('Organization information not available');
+        if (!req.user)
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.BadRequestException('User information not available');
+        if (!bulkMessageDto.contactIds || bulkMessageDto.contactIds.length === 0) {
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.BadRequestException('Contact IDs are required for bulk messaging');
+        }
+        return this.messagesService.sendBulk(Object.assign(Object.assign({}, bulkMessageDto), { organizationId: req.organization.id, senderId: req.user.id }));
+    }
+    async getStatistics(query, req) {
+        if (!req.organization)
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.BadRequestException('Organization information not available');
+        return this.messagesService.getStatistics(Object.assign(Object.assign({}, query), { organizationId: req.organization.id }));
+    }
+    async resend(id, req) {
+        if (!req.organization)
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.BadRequestException('Organization information not available');
+        if (!req.user)
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.BadRequestException('User information not available');
+        return this.messagesService.resend(id, {
+            organizationId: req.organization.id,
+            userId: req.user.id,
+        });
+    }
+    async markAsRead(id, req) {
+        if (!req.organization)
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.BadRequestException('Organization information not available');
+        if (!req.user)
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.BadRequestException('User information not available');
+        return this.messagesService.markAsRead(id, {
+            organizationId: req.organization.id,
+            userId: req.user.id,
+        });
+    }
+};
+__decorate([
+    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Post)(),
+    (0,_auth_decorators_roles_decorator__WEBPACK_IMPORTED_MODULE_4__.Roles)(_users_enums_role_enum__WEBPACK_IMPORTED_MODULE_5__.Role.ADMIN, _users_enums_role_enum__WEBPACK_IMPORTED_MODULE_5__.Role.STAFF),
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Create new message' }),
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse)({ status: _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.CREATED, description: 'Message sent successfully' }),
+    _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 201, type: (__webpack_require__(/*! ../entities/message.entity */ "./src/modules/messages/entities/message.entity.ts").Message) }),
+    __param(0, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Body)()),
+    __param(1, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Request)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [_dto_create_message_dto__WEBPACK_IMPORTED_MODULE_7__.CreateMessageDto, Object]),
+    __metadata("design:returntype", Promise)
+], MessagesController.prototype, "create", null);
+__decorate([
+    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Get)(),
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Get all messages' }),
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse)({ status: _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.OK, description: 'Return all messages' }),
+    _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 200 }),
+    __param(0, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Query)()),
+    __param(1, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Request)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [_dto_message_query_dto__WEBPACK_IMPORTED_MODULE_9__.MessageQueryDto, Object]),
+    __metadata("design:returntype", Promise)
+], MessagesController.prototype, "findAll", null);
+__decorate([
+    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Get)('conversations'),
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Get all conversations' }),
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse)({ status: _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.OK, description: 'Return all conversations' }),
+    _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 200 }),
+    __param(0, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Query)()),
+    __param(1, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Request)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [_dto_message_query_dto__WEBPACK_IMPORTED_MODULE_9__.MessageQueryDto, Object]),
+    __metadata("design:returntype", Promise)
+], MessagesController.prototype, "getConversations", null);
+__decorate([
+    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Get)('conversations/:contactId'),
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Get conversation with contact' }),
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse)({ status: _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.OK, description: 'Return conversation messages' }),
+    _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 200 }),
+    __param(0, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Param)('contactId', _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.ParseUUIDPipe)),
+    __param(1, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Query)()),
+    __param(2, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Request)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, _dto_message_query_dto__WEBPACK_IMPORTED_MODULE_9__.MessageQueryDto, Object]),
+    __metadata("design:returntype", Promise)
+], MessagesController.prototype, "getConversation", null);
+__decorate([
+    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Get)(':id'),
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Get message by id' }),
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse)({ status: _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.OK, description: 'Return message details' }),
+    _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 200, type: (__webpack_require__(/*! ../entities/message.entity */ "./src/modules/messages/entities/message.entity.ts").Message) }),
+    __param(0, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Param)('id', _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.ParseUUIDPipe)),
+    __param(1, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Request)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, Object]),
+    __metadata("design:returntype", Promise)
+], MessagesController.prototype, "findOne", null);
+__decorate([
+    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Put)(':id'),
+    (0,_auth_decorators_roles_decorator__WEBPACK_IMPORTED_MODULE_4__.Roles)(_users_enums_role_enum__WEBPACK_IMPORTED_MODULE_5__.Role.ADMIN, _users_enums_role_enum__WEBPACK_IMPORTED_MODULE_5__.Role.STAFF),
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Update message' }),
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse)({ status: _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.OK, description: 'Message updated successfully' }),
+    _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 200, type: (__webpack_require__(/*! ../entities/message.entity */ "./src/modules/messages/entities/message.entity.ts").Message) }),
+    __param(0, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Param)('id', _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.ParseUUIDPipe)),
+    __param(1, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Body)()),
+    __param(2, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Request)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, _dto_update_message_dto__WEBPACK_IMPORTED_MODULE_8__.UpdateMessageDto, Object]),
+    __metadata("design:returntype", Promise)
+], MessagesController.prototype, "update", null);
+__decorate([
+    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Delete)(':id'),
+    (0,_auth_decorators_roles_decorator__WEBPACK_IMPORTED_MODULE_4__.Roles)(_users_enums_role_enum__WEBPACK_IMPORTED_MODULE_5__.Role.ADMIN),
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Delete message' }),
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse)({ status: _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.NO_CONTENT, description: 'Message deleted successfully' }),
+    _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 200 }),
+    __param(0, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Param)('id', _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.ParseUUIDPipe)),
+    __param(1, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Request)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, Object]),
+    __metadata("design:returntype", Promise)
+], MessagesController.prototype, "remove", null);
+__decorate([
+    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Post)('templates'),
+    (0,_auth_decorators_roles_decorator__WEBPACK_IMPORTED_MODULE_4__.Roles)(_users_enums_role_enum__WEBPACK_IMPORTED_MODULE_5__.Role.ADMIN, _users_enums_role_enum__WEBPACK_IMPORTED_MODULE_5__.Role.STAFF),
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Create message template' }),
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse)({ status: _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.CREATED, description: 'Template created successfully' }),
+    _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 201, type: (__webpack_require__(/*! ../entities/message-template.entity */ "./src/modules/messages/entities/message-template.entity.ts").MessageTemplate) }),
+    __param(0, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Body)()),
+    __param(1, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Request)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [_dto_message_template_dto__WEBPACK_IMPORTED_MODULE_10__.MessageTemplateDto, Object]),
+    __metadata("design:returntype", Promise)
+], MessagesController.prototype, "createTemplate", null);
+__decorate([
+    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Get)('templates'),
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Get message templates' }),
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse)({ status: _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.OK, description: 'Return message templates' }),
+    _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 200, type: [(__webpack_require__(/*! ../entities/message-template.entity */ "./src/modules/messages/entities/message-template.entity.ts").MessageTemplate)] }),
+    __param(0, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Query)()),
+    __param(1, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Request)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [_dto_message_query_dto__WEBPACK_IMPORTED_MODULE_9__.MessageQueryDto, Object]),
+    __metadata("design:returntype", Promise)
+], MessagesController.prototype, "getTemplates", null);
+__decorate([
+    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Post)('bulk'),
+    (0,_auth_decorators_roles_decorator__WEBPACK_IMPORTED_MODULE_4__.Roles)(_users_enums_role_enum__WEBPACK_IMPORTED_MODULE_5__.Role.ADMIN),
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Send bulk messages' }),
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse)({ status: _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.CREATED, description: 'Bulk messages queued successfully' }),
+    _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 201 }),
+    __param(0, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Body)()),
+    __param(1, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Request)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [_dto_bulk_message_dto__WEBPACK_IMPORTED_MODULE_11__.BulkMessageDto, Object]),
+    __metadata("design:returntype", Promise)
+], MessagesController.prototype, "sendBulk", null);
+__decorate([
+    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Get)('statistics'),
+    (0,_auth_decorators_roles_decorator__WEBPACK_IMPORTED_MODULE_4__.Roles)(_users_enums_role_enum__WEBPACK_IMPORTED_MODULE_5__.Role.ADMIN),
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Get messaging statistics' }),
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse)({ status: _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.OK, description: 'Return messaging statistics' }),
+    _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 200, type: Object }),
+    __param(0, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Query)()),
+    __param(1, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Request)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [_dto_message_query_dto__WEBPACK_IMPORTED_MODULE_9__.MessageQueryDto, Object]),
+    __metadata("design:returntype", Promise)
+], MessagesController.prototype, "getStatistics", null);
+__decorate([
+    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Post)(':id/resend'),
+    (0,_auth_decorators_roles_decorator__WEBPACK_IMPORTED_MODULE_4__.Roles)(_users_enums_role_enum__WEBPACK_IMPORTED_MODULE_5__.Role.ADMIN, _users_enums_role_enum__WEBPACK_IMPORTED_MODULE_5__.Role.STAFF),
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Resend failed message' }),
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse)({ status: _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.OK, description: 'Message resent successfully' }),
+    _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 201, type: (__webpack_require__(/*! ../entities/message.entity */ "./src/modules/messages/entities/message.entity.ts").Message) }),
+    __param(0, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Param)('id', _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.ParseUUIDPipe)),
+    __param(1, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Request)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, Object]),
+    __metadata("design:returntype", Promise)
+], MessagesController.prototype, "resend", null);
+__decorate([
+    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Post)(':id/mark-read'),
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Mark message as read' }),
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse)({ status: _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.OK, description: 'Message marked as read' }),
+    _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 201, type: (__webpack_require__(/*! ../entities/message.entity */ "./src/modules/messages/entities/message.entity.ts").Message) }),
+    __param(0, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Param)('id', _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.ParseUUIDPipe)),
+    __param(1, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Request)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, Object]),
+    __metadata("design:returntype", Promise)
+], MessagesController.prototype, "markAsRead", null);
+MessagesController = __decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiTags)('Messages'),
+    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Controller)('messages'),
+    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.UseGuards)(_auth_guards_jwt_auth_guard__WEBPACK_IMPORTED_MODULE_2__.JwtAuthGuard, _auth_guards_roles_guard__WEBPACK_IMPORTED_MODULE_3__.RolesGuard),
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiBearerAuth)(),
+    __metadata("design:paramtypes", [_services_messages_service__WEBPACK_IMPORTED_MODULE_6__.MessagesService])
+], MessagesController);
+
+
+
+/***/ }),
+
+/***/ "./src/modules/messages/dto/bulk-message.dto.ts":
+/*!******************************************************!*\
+  !*** ./src/modules/messages/dto/bulk-message.dto.ts ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   AttachmentDto: () => (/* binding */ AttachmentDto),
+/* harmony export */   BulkMessageDto: () => (/* binding */ BulkMessageDto)
+/* harmony export */ });
+/* harmony import */ var _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/swagger */ "@nestjs/swagger");
+/* harmony import */ var _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var class_validator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! class-validator */ "class-validator");
+/* harmony import */ var class_validator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(class_validator__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! class-transformer */ "class-transformer");
+/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(class_transformer__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _enums_message_type_enum__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../enums/message-type.enum */ "./src/modules/messages/enums/message-type.enum.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+class AttachmentDto {
+    static _OPENAPI_METADATA_FACTORY() {
+        return { filename: { required: true, type: () => String }, contentType: { required: true, type: () => String }, content: { required: true, type: () => String } };
+    }
+}
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)({ description: 'Attachment filename' }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsNotEmpty)(),
+    __metadata("design:type", String)
+], AttachmentDto.prototype, "filename", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)({ description: 'Attachment content type' }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsNotEmpty)(),
+    __metadata("design:type", String)
+], AttachmentDto.prototype, "contentType", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)({ description: 'Attachment URL or content ID' }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsNotEmpty)(),
+    __metadata("design:type", String)
+], AttachmentDto.prototype, "content", void 0);
+class BulkMessageDto {
+    static _OPENAPI_METADATA_FACTORY() {
+        return { contactIds: { required: true, type: () => [String] }, messageData: { required: true, type: () => (__webpack_require__(/*! ./create-message.dto */ "./src/modules/messages/dto/create-message.dto.ts").CreateMessageDto) }, subject: { required: false, type: () => String }, content: { required: true, type: () => String }, type: { required: true, enum: (__webpack_require__(/*! ../enums/message-type.enum */ "./src/modules/messages/enums/message-type.enum.ts").MessageType) }, templateId: { required: false, type: () => String }, variables: { required: false, type: () => Object }, attachments: { required: false, type: () => [(__webpack_require__(/*! ./bulk-message.dto */ "./src/modules/messages/dto/bulk-message.dto.ts").AttachmentDto)] }, scheduledFor: { required: false, type: () => String }, organizationId: { required: false, type: () => String }, senderId: { required: false, type: () => String } };
+    }
+}
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)({ description: 'Array of contact IDs to send messages to', type: [String] }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsArray)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsUUID)('4', { each: true }),
+    __metadata("design:type", Array)
+], BulkMessageDto.prototype, "contactIds", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)({ description: 'Message sender ID' }),
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)({ description: 'Message subject (for email)', required: false }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    __metadata("design:type", String)
+], BulkMessageDto.prototype, "subject", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)({ description: 'Message content body' }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsNotEmpty)(),
+    __metadata("design:type", String)
+], BulkMessageDto.prototype, "content", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)({ description: 'Type of message', enum: _enums_message_type_enum__WEBPACK_IMPORTED_MODULE_3__.MessageType }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsEnum)(_enums_message_type_enum__WEBPACK_IMPORTED_MODULE_3__.MessageType),
+    __metadata("design:type", String)
+], BulkMessageDto.prototype, "type", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Template ID to use', required: false }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsUUID)('4'),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    __metadata("design:type", String)
+], BulkMessageDto.prototype, "templateId", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Template variables', required: false }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsObject)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    __metadata("design:type", Object)
+], BulkMessageDto.prototype, "variables", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Message attachments', type: [AttachmentDto], required: false }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsArray)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.ValidateNested)({ each: true }),
+    (0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Type)(() => AttachmentDto),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    __metadata("design:type", Array)
+], BulkMessageDto.prototype, "attachments", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Schedule message for a later time', required: false }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    __metadata("design:type", String)
+], BulkMessageDto.prototype, "scheduledFor", void 0);
+
+
+/***/ }),
+
 /***/ "./src/modules/messages/dto/create-message.dto.ts":
 /*!********************************************************!*\
   !*** ./src/modules/messages/dto/create-message.dto.ts ***!
@@ -9970,6 +11485,9 @@ var MessageStatus;
     MessageStatus["SENT"] = "SENT";
     MessageStatus["DELIVERED"] = "DELIVERED";
     MessageStatus["FAILED"] = "FAILED";
+    MessageStatus["SCHEDULED"] = "SCHEDULED";
+    MessageStatus["DELIVERING"] = "DELIVERING";
+    MessageStatus["PENDING"] = "PENDING";
 })(MessageStatus || (MessageStatus = {}));
 class Attachment {
     static _OPENAPI_METADATA_FACTORY() {
@@ -10123,6 +11641,525 @@ __decorate([
 
 /***/ }),
 
+/***/ "./src/modules/messages/dto/message-query.dto.ts":
+/*!*******************************************************!*\
+  !*** ./src/modules/messages/dto/message-query.dto.ts ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   MessageQueryDto: () => (/* binding */ MessageQueryDto)
+/* harmony export */ });
+/* harmony import */ var _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/swagger */ "@nestjs/swagger");
+/* harmony import */ var _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var class_validator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! class-validator */ "class-validator");
+/* harmony import */ var class_validator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(class_validator__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! class-transformer */ "class-transformer");
+/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(class_transformer__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _enums_message_status_enum__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../enums/message-status.enum */ "./src/modules/messages/enums/message-status.enum.ts");
+/* harmony import */ var _enums_message_type_enum__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../enums/message-type.enum */ "./src/modules/messages/enums/message-type.enum.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+class MessageQueryDto {
+    constructor() {
+        this.page = 1;
+        this.limit = 10;
+    }
+    static _OPENAPI_METADATA_FACTORY() {
+        return { status: { required: false, enum: (__webpack_require__(/*! ../enums/message-status.enum */ "./src/modules/messages/enums/message-status.enum.ts").MessageStatus) }, startDate: { required: false, type: () => Date }, endDate: { required: false, type: () => Date }, type: { required: false, enum: (__webpack_require__(/*! ../enums/message-type.enum */ "./src/modules/messages/enums/message-type.enum.ts").MessageType) }, contactId: { required: false, type: () => String }, senderId: { required: false, type: () => String }, search: { required: false, type: () => String }, isRead: { required: false, type: () => Boolean }, fromDate: { required: false, type: () => Date }, toDate: { required: false, type: () => Date }, page: { required: false, type: () => Number, default: 1, minimum: 1 }, limit: { required: false, type: () => Number, default: 10, minimum: 1, maximum: 100 }, organizationId: { required: false, type: () => String } };
+    }
+}
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Filter by message status' }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsEnum)(_enums_message_status_enum__WEBPACK_IMPORTED_MODULE_3__.MessageStatus, { each: true }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    __metadata("design:type", String)
+], MessageQueryDto.prototype, "status", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Filter by message type' }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsEnum)(_enums_message_type_enum__WEBPACK_IMPORTED_MODULE_4__.MessageType, { each: true }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    __metadata("design:type", String)
+], MessageQueryDto.prototype, "type", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Filter by contact ID' }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsUUID)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    __metadata("design:type", String)
+], MessageQueryDto.prototype, "contactId", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Filter by sender ID' }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsUUID)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    __metadata("design:type", String)
+], MessageQueryDto.prototype, "senderId", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Search messages by content' }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    __metadata("design:type", String)
+], MessageQueryDto.prototype, "search", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Filter by read status' }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsBoolean)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    __metadata("design:type", Boolean)
+], MessageQueryDto.prototype, "isRead", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Filter messages from date', type: Date }),
+    (0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Type)(() => Date),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsDate)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    __metadata("design:type", Date)
+], MessageQueryDto.prototype, "fromDate", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Filter messages to date', type: Date }),
+    (0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Type)(() => Date),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsDate)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    __metadata("design:type", Date)
+], MessageQueryDto.prototype, "toDate", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Page number for pagination', default: 1 }),
+    (0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Type)(() => Number),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsInt)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.Min)(1),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    __metadata("design:type", Number)
+], MessageQueryDto.prototype, "page", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Items per page for pagination', default: 10 }),
+    (0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Type)(() => Number),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsInt)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.Min)(1),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.Max)(100),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    __metadata("design:type", Number)
+], MessageQueryDto.prototype, "limit", void 0);
+
+
+/***/ }),
+
+/***/ "./src/modules/messages/dto/message-template.dto.ts":
+/*!**********************************************************!*\
+  !*** ./src/modules/messages/dto/message-template.dto.ts ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   MessageTemplateDto: () => (/* binding */ MessageTemplateDto),
+/* harmony export */   TemplateVariablesDto: () => (/* binding */ TemplateVariablesDto)
+/* harmony export */ });
+/* harmony import */ var _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/swagger */ "@nestjs/swagger");
+/* harmony import */ var _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var class_validator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! class-validator */ "class-validator");
+/* harmony import */ var class_validator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(class_validator__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! class-transformer */ "class-transformer");
+/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(class_transformer__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _enums_message_type_enum__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../enums/message-type.enum */ "./src/modules/messages/enums/message-type.enum.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+class TemplateVariablesDto {
+    static _OPENAPI_METADATA_FACTORY() {
+        return { contact: { required: false, type: () => Object }, organization: { required: false, type: () => Object }, custom: { required: false, type: () => Object } };
+    }
+}
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Contact variables' }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsObject)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    __metadata("design:type", Object)
+], TemplateVariablesDto.prototype, "contact", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Organization variables' }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsObject)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    __metadata("design:type", Object)
+], TemplateVariablesDto.prototype, "organization", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Custom variables' }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsObject)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    __metadata("design:type", Object)
+], TemplateVariablesDto.prototype, "custom", void 0);
+class MessageTemplateDto {
+    static _OPENAPI_METADATA_FACTORY() {
+        return { name: { required: true, type: () => String }, description: { required: false, type: () => String }, type: { required: true, enum: (__webpack_require__(/*! ../enums/message-type.enum */ "./src/modules/messages/enums/message-type.enum.ts").MessageType) }, subject: { required: false, type: () => String }, content: { required: true, type: () => String }, variables: { required: false, type: () => (__webpack_require__(/*! ./message-template.dto */ "./src/modules/messages/dto/message-template.dto.ts").TemplateVariablesDto) }, isDefault: { required: false, type: () => Boolean }, category: { required: false, type: () => String }, organizationId: { required: false, type: () => String }, createdBy: { required: false, type: () => String } };
+    }
+}
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)({ description: 'Template name' }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsNotEmpty)(),
+    __metadata("design:type", String)
+], MessageTemplateDto.prototype, "name", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)({ description: 'Template description' }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    __metadata("design:type", String)
+], MessageTemplateDto.prototype, "description", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)({ description: 'Message type', enum: _enums_message_type_enum__WEBPACK_IMPORTED_MODULE_3__.MessageType }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsEnum)(_enums_message_type_enum__WEBPACK_IMPORTED_MODULE_3__.MessageType),
+    __metadata("design:type", String)
+], MessageTemplateDto.prototype, "type", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)({ description: 'Template subject (for email)' }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    __metadata("design:type", String)
+], MessageTemplateDto.prototype, "subject", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)({ description: 'Template content' }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsNotEmpty)(),
+    __metadata("design:type", String)
+], MessageTemplateDto.prototype, "content", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Template variables' }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.ValidateNested)(),
+    (0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Type)(() => TemplateVariablesDto),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    __metadata("design:type", TemplateVariablesDto)
+], MessageTemplateDto.prototype, "variables", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Is this a default template?' }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsBoolean)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    __metadata("design:type", Boolean)
+], MessageTemplateDto.prototype, "isDefault", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Category or tag for the template' }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    __metadata("design:type", String)
+], MessageTemplateDto.prototype, "category", void 0);
+
+
+/***/ }),
+
+/***/ "./src/modules/messages/dto/update-message.dto.ts":
+/*!********************************************************!*\
+  !*** ./src/modules/messages/dto/update-message.dto.ts ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   UpdateMessageDto: () => (/* binding */ UpdateMessageDto)
+/* harmony export */ });
+/* harmony import */ var _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/swagger */ "@nestjs/swagger");
+/* harmony import */ var _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _create_message_dto__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./create-message.dto */ "./src/modules/messages/dto/create-message.dto.ts");
+/* harmony import */ var class_validator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! class-validator */ "class-validator");
+/* harmony import */ var class_validator__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(class_validator__WEBPACK_IMPORTED_MODULE_2__);
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+class UpdateMessageDto extends (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.PartialType)((0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.OmitType)(_create_message_dto__WEBPACK_IMPORTED_MODULE_1__.CreateMessageDto, ['type', 'contactId'])) {
+    static _OPENAPI_METADATA_FACTORY() {
+        return { status: { required: false, enum: (__webpack_require__(/*! ./create-message.dto */ "./src/modules/messages/dto/create-message.dto.ts").MessageStatus) } };
+    }
+}
+__decorate([
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_2__.IsOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_2__.IsEnum)(_create_message_dto__WEBPACK_IMPORTED_MODULE_1__.MessageStatus),
+    __metadata("design:type", String)
+], UpdateMessageDto.prototype, "status", void 0);
+
+
+/***/ }),
+
+/***/ "./src/modules/messages/entities/message-attachment.entity.ts":
+/*!********************************************************************!*\
+  !*** ./src/modules/messages/entities/message-attachment.entity.ts ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   AttachmentType: () => (/* binding */ AttachmentType),
+/* harmony export */   MessageAttachment: () => (/* binding */ MessageAttachment)
+/* harmony export */ });
+/* harmony import */ var _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/swagger */ "@nestjs/swagger");
+/* harmony import */ var _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! typeorm */ "typeorm");
+/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(typeorm__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _message_entity__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./message.entity */ "./src/modules/messages/entities/message.entity.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var AttachmentType;
+(function (AttachmentType) {
+    AttachmentType["IMAGE"] = "image";
+    AttachmentType["DOCUMENT"] = "document";
+    AttachmentType["AUDIO"] = "audio";
+    AttachmentType["VIDEO"] = "video";
+    AttachmentType["OTHER"] = "other";
+})(AttachmentType || (AttachmentType = {}));
+let MessageAttachment = class MessageAttachment {
+    static _OPENAPI_METADATA_FACTORY() {
+        return { id: { required: true, type: () => String }, fileName: { required: true, type: () => String }, fileSize: { required: true, type: () => Number }, mimeType: { required: true, type: () => String }, type: { required: true, enum: (__webpack_require__(/*! ./message-attachment.entity */ "./src/modules/messages/entities/message-attachment.entity.ts").AttachmentType) }, filePath: { required: true, type: () => String }, publicUrl: { required: true, type: () => String }, isUploaded: { required: true, type: () => Boolean }, message: { required: true, type: () => (__webpack_require__(/*! ./message.entity */ "./src/modules/messages/entities/message.entity.ts").Message) }, messageId: { required: true, type: () => String }, metadata: { required: true, type: () => Object }, createdAt: { required: true, type: () => Date }, updatedAt: { required: true, type: () => Date } };
+    }
+};
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.PrimaryGeneratedColumn)('uuid'),
+    __metadata("design:type", String)
+], MessageAttachment.prototype, "id", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)(),
+    __metadata("design:type", String)
+], MessageAttachment.prototype, "fileName", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)(),
+    __metadata("design:type", Number)
+], MessageAttachment.prototype, "fileSize", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)(),
+    __metadata("design:type", String)
+], MessageAttachment.prototype, "mimeType", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({
+        type: 'enum',
+        enum: AttachmentType,
+        default: AttachmentType.OTHER
+    }),
+    __metadata("design:type", String)
+], MessageAttachment.prototype, "type", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)(),
+    __metadata("design:type", String)
+], MessageAttachment.prototype, "filePath", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true }),
+    __metadata("design:type", String)
+], MessageAttachment.prototype, "publicUrl", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ default: false }),
+    __metadata("design:type", Boolean)
+], MessageAttachment.prototype, "isUploaded", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.ManyToOne)(() => _message_entity__WEBPACK_IMPORTED_MODULE_2__.Message, message => message.attachments, {
+        onDelete: 'CASCADE'
+    }),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.JoinColumn)({ name: 'message_id' }),
+    __metadata("design:type", _message_entity__WEBPACK_IMPORTED_MODULE_2__.Message)
+], MessageAttachment.prototype, "message", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.ManyToOne)(() => _message_entity__WEBPACK_IMPORTED_MODULE_2__.Message),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ name: 'message_id' }),
+    __metadata("design:type", String)
+], MessageAttachment.prototype, "messageId", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'jsonb', nullable: true }),
+    __metadata("design:type", Object)
+], MessageAttachment.prototype, "metadata", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.CreateDateColumn)(),
+    __metadata("design:type", Date)
+], MessageAttachment.prototype, "createdAt", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.UpdateDateColumn)(),
+    __metadata("design:type", Date)
+], MessageAttachment.prototype, "updatedAt", void 0);
+MessageAttachment = __decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Entity)('message_attachments')
+], MessageAttachment);
+
+
+
+/***/ }),
+
+/***/ "./src/modules/messages/entities/message-template.entity.ts":
+/*!******************************************************************!*\
+  !*** ./src/modules/messages/entities/message-template.entity.ts ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   MessageTemplate: () => (/* binding */ MessageTemplate),
+/* harmony export */   TemplateCategory: () => (/* binding */ TemplateCategory),
+/* harmony export */   TemplateType: () => (/* binding */ TemplateType)
+/* harmony export */ });
+/* harmony import */ var _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/swagger */ "@nestjs/swagger");
+/* harmony import */ var _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! typeorm */ "typeorm");
+/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(typeorm__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _users_entities_user_entity__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts");
+/* harmony import */ var _organizations_entities_organization_entity__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../organizations/entities/organization.entity */ "./src/modules/organizations/entities/organization.entity.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var TemplateCategory;
+(function (TemplateCategory) {
+    TemplateCategory["WELCOME"] = "welcome";
+    TemplateCategory["NOTIFICATION"] = "notification";
+    TemplateCategory["REMINDER"] = "reminder";
+    TemplateCategory["MARKETING"] = "marketing";
+    TemplateCategory["SUPPORT"] = "support";
+    TemplateCategory["CUSTOM"] = "custom";
+})(TemplateCategory || (TemplateCategory = {}));
+var TemplateType;
+(function (TemplateType) {
+    TemplateType["SMS"] = "sms";
+    TemplateType["EMAIL"] = "email";
+    TemplateType["PUSH"] = "push";
+    TemplateType["IN_APP"] = "in_app";
+})(TemplateType || (TemplateType = {}));
+let MessageTemplate = class MessageTemplate {
+    static _OPENAPI_METADATA_FACTORY() {
+        return { id: { required: true, type: () => String }, name: { required: true, type: () => String }, description: { required: true, type: () => String }, category: { required: true, enum: (__webpack_require__(/*! ./message-template.entity */ "./src/modules/messages/entities/message-template.entity.ts").TemplateCategory) }, type: { required: true, enum: (__webpack_require__(/*! ./message-template.entity */ "./src/modules/messages/entities/message-template.entity.ts").TemplateType) }, subject: { required: true, type: () => String }, content: { required: true, type: () => String }, parameters: { required: true, type: () => Object }, isDefault: { required: true, type: () => Boolean }, isActive: { required: true, type: () => Boolean }, createdBy: { required: true, type: () => (__webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts").User) }, createdById: { required: true, type: () => String }, organization: { required: true, type: () => (__webpack_require__(/*! ../../organizations/entities/organization.entity */ "./src/modules/organizations/entities/organization.entity.ts").Organization) }, organizationId: { required: true, type: () => String }, metadata: { required: true, type: () => Object }, createdAt: { required: true, type: () => Date }, updatedAt: { required: true, type: () => Date } };
+    }
+};
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.PrimaryGeneratedColumn)('uuid'),
+    __metadata("design:type", String)
+], MessageTemplate.prototype, "id", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)(),
+    __metadata("design:type", String)
+], MessageTemplate.prototype, "name", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true }),
+    __metadata("design:type", String)
+], MessageTemplate.prototype, "description", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({
+        type: 'enum',
+        enum: TemplateCategory,
+        default: TemplateCategory.CUSTOM
+    }),
+    __metadata("design:type", String)
+], MessageTemplate.prototype, "category", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({
+        type: 'enum',
+        enum: TemplateType
+    }),
+    __metadata("design:type", String)
+], MessageTemplate.prototype, "type", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)(),
+    __metadata("design:type", String)
+], MessageTemplate.prototype, "subject", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'text' }),
+    __metadata("design:type", String)
+], MessageTemplate.prototype, "content", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'jsonb', nullable: true }),
+    __metadata("design:type", Object)
+], MessageTemplate.prototype, "parameters", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ default: false }),
+    __metadata("design:type", Boolean)
+], MessageTemplate.prototype, "isDefault", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ default: true }),
+    __metadata("design:type", Boolean)
+], MessageTemplate.prototype, "isActive", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.ManyToOne)(() => _users_entities_user_entity__WEBPACK_IMPORTED_MODULE_2__.User, { nullable: true }),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.JoinColumn)({ name: 'created_by_id' }),
+    __metadata("design:type", _users_entities_user_entity__WEBPACK_IMPORTED_MODULE_2__.User)
+], MessageTemplate.prototype, "createdBy", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ name: 'created_by_id', nullable: true }),
+    __metadata("design:type", String)
+], MessageTemplate.prototype, "createdById", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.ManyToOne)(() => _organizations_entities_organization_entity__WEBPACK_IMPORTED_MODULE_3__.Organization, { nullable: true }),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.JoinColumn)({ name: 'organization_id' }),
+    __metadata("design:type", _organizations_entities_organization_entity__WEBPACK_IMPORTED_MODULE_3__.Organization)
+], MessageTemplate.prototype, "organization", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ name: 'organization_id', nullable: true }),
+    __metadata("design:type", String)
+], MessageTemplate.prototype, "organizationId", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'jsonb', nullable: true }),
+    __metadata("design:type", Object)
+], MessageTemplate.prototype, "metadata", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.CreateDateColumn)(),
+    __metadata("design:type", Date)
+], MessageTemplate.prototype, "createdAt", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.UpdateDateColumn)(),
+    __metadata("design:type", Date)
+], MessageTemplate.prototype, "updatedAt", void 0);
+MessageTemplate = __decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Entity)('message_templates')
+], MessageTemplate);
+
+
+
+/***/ }),
+
 /***/ "./src/modules/messages/entities/message.entity.ts":
 /*!*********************************************************!*\
   !*** ./src/modules/messages/entities/message.entity.ts ***!
@@ -10142,8 +12179,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _organizations_entities_organization_entity__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../organizations/entities/organization.entity */ "./src/modules/organizations/entities/organization.entity.ts");
 /* harmony import */ var _users_entities_user_entity__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts");
 /* harmony import */ var _contacts_entities_contact_entity__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../contacts/entities/contact.entity */ "./src/modules/contacts/entities/contact.entity.ts");
-Object(function webpackMissingModule() { var e = new Error("Cannot find module './message-template.entity'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module './message-attachment.entity'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var _message_template_entity__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./message-template.entity */ "./src/modules/messages/entities/message-template.entity.ts");
+/* harmony import */ var _message_attachment_entity__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./message-attachment.entity */ "./src/modules/messages/entities/message-attachment.entity.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -10153,7 +12190,6 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var _a;
 
 
 
@@ -10180,7 +12216,7 @@ let Message = class Message {
         return this.status === _dto_create_message_dto__WEBPACK_IMPORTED_MODULE_2__.MessageStatus.FAILED;
     }
     static _OPENAPI_METADATA_FACTORY() {
-        return { id: { required: true, type: () => String }, organizationId: { required: true, type: () => String }, type: { required: true, enum: (__webpack_require__(/*! ../dto/create-message.dto */ "./src/modules/messages/dto/create-message.dto.ts").MessageType) }, contactId: { required: true, type: () => String }, senderId: { required: true, type: () => String }, content: { required: true, type: () => String }, priority: { required: true, enum: (__webpack_require__(/*! ../dto/create-message.dto */ "./src/modules/messages/dto/create-message.dto.ts").MessagePriority) }, status: { required: true, enum: (__webpack_require__(/*! ../dto/create-message.dto */ "./src/modules/messages/dto/create-message.dto.ts").MessageStatus) }, emailOptions: { required: false, type: () => ({ subject: { required: true, type: () => String }, cc: { required: false, type: () => String }, bcc: { required: false, type: () => String }, trackOpens: { required: false, type: () => Boolean }, trackClicks: { required: false, type: () => Boolean } }) }, templateId: { required: false, type: () => String }, scheduledFor: { required: false, type: () => Date }, requireConfirmation: { required: true, type: () => Boolean }, confirmedAt: { required: false, type: () => Date }, confirmedById: { required: false, type: () => String }, deliveredAt: { required: false, type: () => Date }, readAt: { required: false, type: () => Date }, notes: { required: false, type: () => String }, externalId: { required: false, type: () => String }, deliveryDetails: { required: false, type: () => ({ provider: { required: true, type: () => String }, providerMessageId: { required: false, type: () => String }, attempts: { required: false, type: () => Number }, lastAttempt: { required: false, type: () => Date }, errorCode: { required: false, type: () => String }, errorMessage: { required: false, type: () => String } }) }, metadata: { required: false, type: () => Object }, parentMessageId: { required: false, type: () => String }, updatedById: { required: false, type: () => String }, createdAt: { required: true, type: () => Date }, updatedAt: { required: true, type: () => Date }, deletedAt: { required: false, type: () => Date }, organization: { required: true, type: () => (__webpack_require__(/*! ../../organizations/entities/organization.entity */ "./src/modules/organizations/entities/organization.entity.ts").Organization) }, sender: { required: true, type: () => (__webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts").User) }, updatedBy: { required: false, type: () => (__webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts").User) }, confirmedBy: { required: false, type: () => (__webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts").User) }, contact: { required: true, type: () => (__webpack_require__(/*! ../../contacts/entities/contact.entity */ "./src/modules/contacts/entities/contact.entity.ts").Contact) }, template: { required: false, type: () => Object }, parentMessage: { required: false, type: () => (__webpack_require__(/*! ./message.entity */ "./src/modules/messages/entities/message.entity.ts").Message) }, replies: { required: false, type: () => [(__webpack_require__(/*! ./message.entity */ "./src/modules/messages/entities/message.entity.ts").Message)] }, attachments: { required: false, type: () => [Object] } };
+        return { id: { required: true, type: () => String }, organizationId: { required: true, type: () => String }, type: { required: true, enum: (__webpack_require__(/*! ../dto/create-message.dto */ "./src/modules/messages/dto/create-message.dto.ts").MessageType) }, contactId: { required: true, type: () => String }, senderId: { required: true, type: () => String }, content: { required: true, type: () => String }, priority: { required: true, enum: (__webpack_require__(/*! ../dto/create-message.dto */ "./src/modules/messages/dto/create-message.dto.ts").MessagePriority) }, status: { required: true, enum: (__webpack_require__(/*! ../dto/create-message.dto */ "./src/modules/messages/dto/create-message.dto.ts").MessageStatus) }, emailOptions: { required: false, type: () => ({ subject: { required: true, type: () => String }, cc: { required: false, type: () => String }, bcc: { required: false, type: () => String }, trackOpens: { required: false, type: () => Boolean }, trackClicks: { required: false, type: () => Boolean } }) }, templateId: { required: false, type: () => String }, scheduledFor: { required: false, type: () => Date }, requireConfirmation: { required: true, type: () => Boolean }, confirmedAt: { required: false, type: () => Date }, confirmedById: { required: false, type: () => String }, deliveredAt: { required: false, type: () => Date }, readAt: { required: false, type: () => Date }, notes: { required: false, type: () => String }, externalId: { required: false, type: () => String }, deliveryDetails: { required: false, type: () => ({ provider: { required: true, type: () => String }, providerMessageId: { required: false, type: () => String }, attempts: { required: false, type: () => Number }, lastAttempt: { required: false, type: () => Date }, errorCode: { required: false, type: () => String }, errorMessage: { required: false, type: () => String } }) }, metadata: { required: false, type: () => Object }, parentMessageId: { required: false, type: () => String }, updatedById: { required: false, type: () => String }, createdAt: { required: true, type: () => Date }, updatedAt: { required: true, type: () => Date }, deletedAt: { required: false, type: () => Date }, organization: { required: true, type: () => (__webpack_require__(/*! ../../organizations/entities/organization.entity */ "./src/modules/organizations/entities/organization.entity.ts").Organization) }, sender: { required: true, type: () => (__webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts").User) }, updatedBy: { required: false, type: () => (__webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts").User) }, confirmedBy: { required: false, type: () => (__webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts").User) }, contact: { required: true, type: () => (__webpack_require__(/*! ../../contacts/entities/contact.entity */ "./src/modules/contacts/entities/contact.entity.ts").Contact) }, template: { required: false, type: () => (__webpack_require__(/*! ./message-template.entity */ "./src/modules/messages/entities/message-template.entity.ts").MessageTemplate) }, parentMessage: { required: false, type: () => (__webpack_require__(/*! ./message.entity */ "./src/modules/messages/entities/message.entity.ts").Message) }, replies: { required: false, type: () => [(__webpack_require__(/*! ./message.entity */ "./src/modules/messages/entities/message.entity.ts").Message)] }, attachments: { required: false, type: () => [(__webpack_require__(/*! ./message-attachment.entity */ "./src/modules/messages/entities/message-attachment.entity.ts").MessageAttachment)] } };
     }
 };
 __decorate([
@@ -10339,9 +12375,9 @@ __decorate([
     __metadata("design:type", _contacts_entities_contact_entity__WEBPACK_IMPORTED_MODULE_5__.Contact)
 ], Message.prototype, "contact", void 0);
 __decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.ManyToOne)(() => Object(function webpackMissingModule() { var e = new Error("Cannot find module './message-template.entity'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.ManyToOne)(() => _message_template_entity__WEBPACK_IMPORTED_MODULE_6__.MessageTemplate),
     (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.JoinColumn)({ name: 'templateId' }),
-    __metadata("design:type", typeof (_a = typeof Object(function webpackMissingModule() { var e = new Error("Cannot find module './message-template.entity'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()) !== "undefined" && Object(function webpackMissingModule() { var e = new Error("Cannot find module './message-template.entity'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())) === "function" ? _a : Object)
+    __metadata("design:type", _message_template_entity__WEBPACK_IMPORTED_MODULE_6__.MessageTemplate)
 ], Message.prototype, "template", void 0);
 __decorate([
     (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.ManyToOne)(() => Message),
@@ -10353,7 +12389,7 @@ __decorate([
     __metadata("design:type", Array)
 ], Message.prototype, "replies", void 0);
 __decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.OneToMany)(() => Object(function webpackMissingModule() { var e = new Error("Cannot find module './message-attachment.entity'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), attachment => attachment.message),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.OneToMany)(() => _message_attachment_entity__WEBPACK_IMPORTED_MODULE_7__.MessageAttachment, attachment => attachment.message),
     __metadata("design:type", Array)
 ], Message.prototype, "attachments", void 0);
 __decorate([
@@ -10392,13 +12428,901 @@ Message = __decorate([
 
 /***/ }),
 
+/***/ "./src/modules/messages/enums/message-status.enum.ts":
+/*!***********************************************************!*\
+  !*** ./src/modules/messages/enums/message-status.enum.ts ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   MessageStatus: () => (/* binding */ MessageStatus)
+/* harmony export */ });
+var MessageStatus;
+(function (MessageStatus) {
+    MessageStatus["DRAFT"] = "DRAFT";
+    MessageStatus["QUEUED"] = "QUEUED";
+    MessageStatus["SENDING"] = "SENDING";
+    MessageStatus["SENT"] = "SENT";
+    MessageStatus["DELIVERED"] = "DELIVERED";
+    MessageStatus["READ"] = "READ";
+    MessageStatus["FAILED"] = "FAILED";
+    MessageStatus["CANCELLED"] = "CANCELLED";
+    MessageStatus["SCHEDULED"] = "SCHEDULED";
+})(MessageStatus || (MessageStatus = {}));
+
+
+/***/ }),
+
+/***/ "./src/modules/messages/enums/message-type.enum.ts":
+/*!*********************************************************!*\
+  !*** ./src/modules/messages/enums/message-type.enum.ts ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   MessageType: () => (/* binding */ MessageType)
+/* harmony export */ });
+var MessageType;
+(function (MessageType) {
+    MessageType["EMAIL"] = "EMAIL";
+    MessageType["SMS"] = "SMS";
+    MessageType["PUSH"] = "PUSH";
+    MessageType["IN_APP"] = "IN_APP";
+    MessageType["VOICE"] = "VOICE";
+    MessageType["WHATSAPP"] = "WHATSAPP";
+    MessageType["TELEGRAM"] = "TELEGRAM";
+    MessageType["INTERNAL"] = "INTERNAL";
+})(MessageType || (MessageType = {}));
+
+
+/***/ }),
+
+/***/ "./src/modules/messages/listeners/message-delivery.listener.ts":
+/*!*********************************************************************!*\
+  !*** ./src/modules/messages/listeners/message-delivery.listener.ts ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   MessageDeliveryListener: () => (/* binding */ MessageDeliveryListener)
+/* harmony export */ });
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nestjs/event-emitter */ "@nestjs/event-emitter");
+/* harmony import */ var _nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @nestjs/typeorm */ "@nestjs/typeorm");
+/* harmony import */ var _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! typeorm */ "typeorm");
+/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(typeorm__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _entities_message_entity__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../entities/message.entity */ "./src/modules/messages/entities/message.entity.ts");
+/* harmony import */ var _dto_create_message_dto__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../dto/create-message.dto */ "./src/modules/messages/dto/create-message.dto.ts");
+/* harmony import */ var _notifications_services_notifications_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../notifications/services/notifications.service */ "./src/modules/notifications/services/notifications.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+
+
+
+
+
+let MessageDeliveryListener = class MessageDeliveryListener {
+    constructor(messageRepository, notificationsService) {
+        this.messageRepository = messageRepository;
+        this.notificationsService = notificationsService;
+    }
+    async handleMessageDelivered(payload) {
+        const { message, deliveryDetails } = payload;
+        message.status = _dto_create_message_dto__WEBPACK_IMPORTED_MODULE_5__.MessageStatus.DELIVERED;
+        message.deliveredAt = new Date();
+        message.deliveryDetails = deliveryDetails;
+        await this.messageRepository.save(message);
+        await this.notificationsService.notifyMessageDelivery(message);
+    }
+    async handleMessageFailed(payload) {
+        var _a;
+        const { message, error } = payload;
+        message.status = _dto_create_message_dto__WEBPACK_IMPORTED_MODULE_5__.MessageStatus.FAILED;
+        if (!message.deliveryDetails) {
+            message.deliveryDetails = {
+                provider: '',
+                errorCode: error.code,
+                errorMessage: error.message,
+                lastAttempt: new Date(),
+                attempts: 1
+            };
+        }
+        else {
+            message.deliveryDetails = Object.assign(Object.assign({}, message.deliveryDetails), { errorCode: error.code, errorMessage: error.message, lastAttempt: new Date(), attempts: (message.deliveryDetails.attempts || 0) + 1 });
+        }
+        await this.messageRepository.save(message);
+        const attempts = ((_a = message.deliveryDetails) === null || _a === void 0 ? void 0 : _a.attempts) || 0;
+        if (attempts >= 3) {
+            await this.notificationsService.notifyMessageFailure(message);
+        }
+    }
+};
+__decorate([
+    (0,_nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_1__.OnEvent)('message.delivered'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], MessageDeliveryListener.prototype, "handleMessageDelivered", null);
+__decorate([
+    (0,_nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_1__.OnEvent)('message.failed'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], MessageDeliveryListener.prototype, "handleMessageFailed", null);
+MessageDeliveryListener = __decorate([
+    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.Injectable)(),
+    __param(0, (0,_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_2__.InjectRepository)(_entities_message_entity__WEBPACK_IMPORTED_MODULE_4__.Message)),
+    __metadata("design:paramtypes", [typeorm__WEBPACK_IMPORTED_MODULE_3__.Repository,
+        _notifications_services_notifications_service__WEBPACK_IMPORTED_MODULE_6__.NotificationsService])
+], MessageDeliveryListener);
+
+
+
+/***/ }),
+
+/***/ "./src/modules/messages/listeners/message-queue.listener.ts":
+/*!******************************************************************!*\
+  !*** ./src/modules/messages/listeners/message-queue.listener.ts ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   MessageQueueListener: () => (/* binding */ MessageQueueListener)
+/* harmony export */ });
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nestjs/event-emitter */ "@nestjs/event-emitter");
+/* harmony import */ var _nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _entities_message_entity__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../entities/message.entity */ "./src/modules/messages/entities/message.entity.ts");
+/* harmony import */ var _services_message_delivery_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/message-delivery.service */ "./src/modules/messages/services/message-delivery.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+let MessageQueueListener = class MessageQueueListener {
+    constructor(deliveryService) {
+        this.deliveryService = deliveryService;
+    }
+    handleMessageCreated(message) {
+        return this.deliveryService.processMessage(message);
+    }
+    handleMessageResend(message) {
+        return this.deliveryService.processMessage(message);
+    }
+    handleBulkMessages(messages) {
+        return this.deliveryService.processBulkMessages(messages);
+    }
+};
+__decorate([
+    (0,_nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_1__.OnEvent)('message.created'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [_entities_message_entity__WEBPACK_IMPORTED_MODULE_2__.Message]),
+    __metadata("design:returntype", void 0)
+], MessageQueueListener.prototype, "handleMessageCreated", null);
+__decorate([
+    (0,_nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_1__.OnEvent)('message.resend'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [_entities_message_entity__WEBPACK_IMPORTED_MODULE_2__.Message]),
+    __metadata("design:returntype", void 0)
+], MessageQueueListener.prototype, "handleMessageResend", null);
+__decorate([
+    (0,_nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_1__.OnEvent)('messages.bulk.created'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Array]),
+    __metadata("design:returntype", void 0)
+], MessageQueueListener.prototype, "handleBulkMessages", null);
+MessageQueueListener = __decorate([
+    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.Injectable)(),
+    __metadata("design:paramtypes", [_services_message_delivery_service__WEBPACK_IMPORTED_MODULE_3__.MessageDeliveryService])
+], MessageQueueListener);
+
+
+
+/***/ }),
+
 /***/ "./src/modules/messages/messages.module.ts":
 /*!*************************************************!*\
   !*** ./src/modules/messages/messages.module.ts ***!
   \*************************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-throw new Error("Module parse failed: Identifier 'MessageQueueListener' has already been declared (66:4)\nFile was processed with these loaders:\n * ./node_modules/ts-loader/index.js\nYou may need an additional loader to handle the result of these loaders.\n| import { Injectable } from '@nestjs/common';\n| import { OnEvent } from '@nestjs/event-emitter';\n> let MessageQueueListener = class MessageQueueListener {\n|     constructor(deliveryService) {\n|         this.deliveryService = deliveryService;");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   MessagesModule: () => (/* binding */ MessagesModule)
+/* harmony export */ });
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nestjs/typeorm */ "@nestjs/typeorm");
+/* harmony import */ var _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @nestjs/event-emitter */ "@nestjs/event-emitter");
+/* harmony import */ var _nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _controllers_messages_controller__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./controllers/messages.controller */ "./src/modules/messages/controllers/messages.controller.ts");
+/* harmony import */ var _services_messages_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./services/messages.service */ "./src/modules/messages/services/messages.service.ts");
+/* harmony import */ var _entities_message_entity__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./entities/message.entity */ "./src/modules/messages/entities/message.entity.ts");
+/* harmony import */ var _entities_message_template_entity__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./entities/message-template.entity */ "./src/modules/messages/entities/message-template.entity.ts");
+/* harmony import */ var _entities_message_attachment_entity__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./entities/message-attachment.entity */ "./src/modules/messages/entities/message-attachment.entity.ts");
+/* harmony import */ var _contacts_entities_contact_entity__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../contacts/entities/contact.entity */ "./src/modules/contacts/entities/contact.entity.ts");
+/* harmony import */ var _auth_auth_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../auth/auth.module */ "./src/modules/auth/auth.module.ts");
+/* harmony import */ var _users_users_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../users/users.module */ "./src/modules/users/users.module.ts");
+/* harmony import */ var _organizations_organizations_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../organizations/organizations.module */ "./src/modules/organizations/organizations.module.ts");
+/* harmony import */ var _notifications_notifications_module__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../notifications/notifications.module */ "./src/modules/notifications/notifications.module.ts");
+/* harmony import */ var _listeners_message_queue_listener__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./listeners/message-queue.listener */ "./src/modules/messages/listeners/message-queue.listener.ts");
+/* harmony import */ var _listeners_message_delivery_listener__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./listeners/message-delivery.listener */ "./src/modules/messages/listeners/message-delivery.listener.ts");
+/* harmony import */ var _services_message_scheduler_service__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./services/message-scheduler.service */ "./src/modules/messages/services/message-scheduler.service.ts");
+/* harmony import */ var _services_message_delivery_service__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./services/message-delivery.service */ "./src/modules/messages/services/message-delivery.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+let MessagesModule = class MessagesModule {
+};
+MessagesModule = __decorate([
+    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.Module)({
+        imports: [
+            _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__.TypeOrmModule.forFeature([
+                _entities_message_entity__WEBPACK_IMPORTED_MODULE_5__.Message,
+                _entities_message_template_entity__WEBPACK_IMPORTED_MODULE_6__.MessageTemplate,
+                _entities_message_attachment_entity__WEBPACK_IMPORTED_MODULE_7__.MessageAttachment,
+                _contacts_entities_contact_entity__WEBPACK_IMPORTED_MODULE_8__.Contact
+            ]),
+            _nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_2__.EventEmitterModule.forRoot({
+                wildcard: true,
+                maxListeners: 20,
+                verboseMemoryLeak: true,
+            }),
+            _auth_auth_module__WEBPACK_IMPORTED_MODULE_9__.AuthModule,
+            _users_users_module__WEBPACK_IMPORTED_MODULE_10__.UsersModule,
+            _organizations_organizations_module__WEBPACK_IMPORTED_MODULE_11__.OrganizationsModule,
+            _notifications_notifications_module__WEBPACK_IMPORTED_MODULE_12__.NotificationsModule
+        ],
+        controllers: [_controllers_messages_controller__WEBPACK_IMPORTED_MODULE_3__.MessagesController],
+        providers: [
+            _services_messages_service__WEBPACK_IMPORTED_MODULE_4__.MessagesService,
+            _listeners_message_queue_listener__WEBPACK_IMPORTED_MODULE_13__.MessageQueueListener,
+            _listeners_message_delivery_listener__WEBPACK_IMPORTED_MODULE_14__.MessageDeliveryListener,
+            _services_message_scheduler_service__WEBPACK_IMPORTED_MODULE_15__.MessageSchedulerService,
+            _services_message_delivery_service__WEBPACK_IMPORTED_MODULE_16__.MessageDeliveryService
+        ],
+        exports: [_services_messages_service__WEBPACK_IMPORTED_MODULE_4__.MessagesService, _services_message_delivery_service__WEBPACK_IMPORTED_MODULE_16__.MessageDeliveryService]
+    })
+], MessagesModule);
+
+
+
+/***/ }),
+
+/***/ "./src/modules/messages/services/message-delivery.service.ts":
+/*!*******************************************************************!*\
+  !*** ./src/modules/messages/services/message-delivery.service.ts ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   MessageDeliveryService: () => (/* binding */ MessageDeliveryService)
+/* harmony export */ });
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nestjs/typeorm */ "@nestjs/typeorm");
+/* harmony import */ var _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! typeorm */ "typeorm");
+/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(typeorm__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @nestjs/event-emitter */ "@nestjs/event-emitter");
+/* harmony import */ var _nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _entities_message_entity__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../entities/message.entity */ "./src/modules/messages/entities/message.entity.ts");
+/* harmony import */ var _dto_create_message_dto__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../dto/create-message.dto */ "./src/modules/messages/dto/create-message.dto.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+var MessageDeliveryService_1;
+
+
+
+
+
+
+let MessageDeliveryService = MessageDeliveryService_1 = class MessageDeliveryService {
+    constructor(messageRepository, eventEmitter) {
+        this.messageRepository = messageRepository;
+        this.eventEmitter = eventEmitter;
+        this.logger = new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.Logger(MessageDeliveryService_1.name);
+    }
+    async processMessage(message) {
+        try {
+            if (message.status === _dto_create_message_dto__WEBPACK_IMPORTED_MODULE_5__.MessageStatus.DELIVERED) {
+                return;
+            }
+            if (message.scheduledFor && message.scheduledFor > new Date()) {
+                return;
+            }
+            message.status = _dto_create_message_dto__WEBPACK_IMPORTED_MODULE_5__.MessageStatus.DELIVERING;
+            await this.messageRepository.save(message);
+            const deliveryResult = await this.deliverMessage(message);
+            if (deliveryResult.success) {
+                this.eventEmitter.emit('message.delivered', {
+                    message,
+                    deliveryDetails: {
+                        provider: deliveryResult.provider,
+                        providerMessageId: deliveryResult.providerMessageId,
+                        deliveredAt: new Date(),
+                    },
+                });
+            }
+            else {
+                this.eventEmitter.emit('message.failed', {
+                    message,
+                    error: {
+                        code: deliveryResult.errorCode || 'DELIVERY_FAILED',
+                        message: deliveryResult.errorMessage || 'Unknown delivery error',
+                    },
+                });
+            }
+        }
+        catch (error) {
+            this.logger.error(`Error processing message ${message.id}: ${error.message}`, error.stack);
+            this.eventEmitter.emit('message.failed', {
+                message,
+                error: {
+                    code: 'PROCESS_ERROR',
+                    message: error.message,
+                },
+            });
+        }
+    }
+    async processBulkMessages(messages) {
+        try {
+            const promises = messages.map(message => this.processMessage(message));
+            await Promise.all(promises);
+        }
+        catch (error) {
+            this.logger.error(`Error processing bulk messages: ${error.message}`, error.stack);
+        }
+    }
+    async deliverMessage(message) {
+        try {
+            const isSuccessful = Math.random() > 0.2;
+            if (isSuccessful) {
+                return {
+                    success: true,
+                    provider: 'demo-provider',
+                    providerMessageId: `msg-${Date.now()}-${Math.floor(Math.random() * 10000)}`,
+                };
+            }
+            else {
+                return {
+                    success: false,
+                    provider: 'demo-provider',
+                    errorCode: 'PROVIDER_ERROR',
+                    errorMessage: 'Simulated provider error',
+                };
+            }
+        }
+        catch (error) {
+            this.logger.error(`Delivery error for message ${message.id}: ${error.message}`, error.stack);
+            return {
+                success: false,
+                errorCode: 'DELIVERY_EXCEPTION',
+                errorMessage: error.message,
+            };
+        }
+    }
+    async retryMessage(messageId) {
+        const message = await this.messageRepository.findOne({ where: { id: messageId } });
+        if (!message) {
+            throw new Error(`Message with ID ${messageId} not found`);
+        }
+        message.status = _dto_create_message_dto__WEBPACK_IMPORTED_MODULE_5__.MessageStatus.SENDING;
+        await this.messageRepository.save(message);
+        this.eventEmitter.emit('message.resend', message);
+    }
+};
+MessageDeliveryService = MessageDeliveryService_1 = __decorate([
+    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.Injectable)(),
+    __param(0, (0,_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__.InjectRepository)(_entities_message_entity__WEBPACK_IMPORTED_MODULE_4__.Message)),
+    __metadata("design:paramtypes", [typeorm__WEBPACK_IMPORTED_MODULE_2__.Repository,
+        _nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_3__.EventEmitter2])
+], MessageDeliveryService);
+
+
+
+/***/ }),
+
+/***/ "./src/modules/messages/services/message-scheduler.service.ts":
+/*!********************************************************************!*\
+  !*** ./src/modules/messages/services/message-scheduler.service.ts ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   MessageSchedulerService: () => (/* binding */ MessageSchedulerService)
+/* harmony export */ });
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nestjs/typeorm */ "@nestjs/typeorm");
+/* harmony import */ var _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! typeorm */ "typeorm");
+/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(typeorm__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @nestjs/event-emitter */ "@nestjs/event-emitter");
+/* harmony import */ var _nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _nestjs_schedule__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @nestjs/schedule */ "@nestjs/schedule");
+/* harmony import */ var _nestjs_schedule__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_nestjs_schedule__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _entities_message_entity__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../entities/message.entity */ "./src/modules/messages/entities/message.entity.ts");
+/* harmony import */ var _dto_create_message_dto__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../dto/create-message.dto */ "./src/modules/messages/dto/create-message.dto.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+var MessageSchedulerService_1;
+
+
+
+
+
+
+
+let MessageSchedulerService = MessageSchedulerService_1 = class MessageSchedulerService {
+    constructor(messageRepository, eventEmitter) {
+        this.messageRepository = messageRepository;
+        this.eventEmitter = eventEmitter;
+        this.logger = new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.Logger(MessageSchedulerService_1.name);
+    }
+    async onModuleInit() {
+        this.logger.log('Message scheduler service initialized');
+        await this.processScheduledMessages();
+    }
+    onModuleDestroy() {
+        if (this.schedulerInterval) {
+            clearInterval(this.schedulerInterval);
+        }
+    }
+    async scheduleMessage(message, scheduledFor) {
+        message.scheduledFor = scheduledFor;
+        message.status = _dto_create_message_dto__WEBPACK_IMPORTED_MODULE_6__.MessageStatus.SCHEDULED;
+        return this.messageRepository.save(message);
+    }
+    async cancelScheduledMessage(messageId) {
+        const message = await this.messageRepository.findOne({ where: { id: messageId } });
+        if (!message) {
+            throw new Error(`Message with ID ${messageId} not found`);
+        }
+        if (message.status !== _dto_create_message_dto__WEBPACK_IMPORTED_MODULE_6__.MessageStatus.SCHEDULED) {
+            throw new Error(`Message is not scheduled: ${messageId}`);
+        }
+        message.status = _dto_create_message_dto__WEBPACK_IMPORTED_MODULE_6__.MessageStatus.SENDING;
+        message.scheduledFor = undefined;
+        await this.messageRepository.save(message);
+        this.logger.log(`Scheduled message ${messageId} has been canceled`);
+    }
+    async rescheduleMessage(messageId, newScheduledFor) {
+        const message = await this.messageRepository.findOne({ where: { id: messageId } });
+        if (!message) {
+            throw new Error(`Message with ID ${messageId} not found`);
+        }
+        message.scheduledFor = newScheduledFor;
+        message.status = _dto_create_message_dto__WEBPACK_IMPORTED_MODULE_6__.MessageStatus.SCHEDULED;
+        const updatedMessage = await this.messageRepository.save(message);
+        this.logger.log(`Message ${messageId} rescheduled for ${newScheduledFor}`);
+        return updatedMessage;
+    }
+    async processScheduledMessages() {
+        try {
+            this.logger.debug('Checking for scheduled messages...');
+            const now = new Date();
+            const dueSendMessages = await this.messageRepository.find({
+                where: {
+                    status: _dto_create_message_dto__WEBPACK_IMPORTED_MODULE_6__.MessageStatus.SCHEDULED,
+                    scheduledFor: (0,typeorm__WEBPACK_IMPORTED_MODULE_2__.LessThanOrEqual)(now),
+                },
+            });
+            if (dueSendMessages.length === 0) {
+                return;
+            }
+            this.logger.log(`Found ${dueSendMessages.length} scheduled messages to process`);
+            await Promise.all(dueSendMessages.map(async (message) => {
+                message.status = _dto_create_message_dto__WEBPACK_IMPORTED_MODULE_6__.MessageStatus.SENDING;
+                await this.messageRepository.save(message);
+                this.eventEmitter.emit('message.created', message);
+            }));
+        }
+        catch (error) {
+            this.logger.error('Error processing scheduled messages:', error.stack);
+        }
+    }
+    async getAllScheduledMessages() {
+        return this.messageRepository.find({
+            where: { status: _dto_create_message_dto__WEBPACK_IMPORTED_MODULE_6__.MessageStatus.SCHEDULED },
+            order: { scheduledFor: 'ASC' },
+        });
+    }
+    async getScheduledMessagesForPeriod(startDate, endDate) {
+        return this.messageRepository.find({
+            where: {
+                status: _dto_create_message_dto__WEBPACK_IMPORTED_MODULE_6__.MessageStatus.SCHEDULED,
+                scheduledFor: (0,typeorm__WEBPACK_IMPORTED_MODULE_2__.Between)(startDate, endDate),
+            },
+            order: { scheduledFor: 'ASC' },
+        });
+    }
+};
+__decorate([
+    (0,_nestjs_schedule__WEBPACK_IMPORTED_MODULE_4__.Cron)(_nestjs_schedule__WEBPACK_IMPORTED_MODULE_4__.CronExpression.EVERY_MINUTE),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Promise)
+], MessageSchedulerService.prototype, "processScheduledMessages", null);
+MessageSchedulerService = MessageSchedulerService_1 = __decorate([
+    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.Injectable)(),
+    __param(0, (0,_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__.InjectRepository)(_entities_message_entity__WEBPACK_IMPORTED_MODULE_5__.Message)),
+    __metadata("design:paramtypes", [typeorm__WEBPACK_IMPORTED_MODULE_2__.Repository,
+        _nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_3__.EventEmitter2])
+], MessageSchedulerService);
+
+
+
+/***/ }),
+
+/***/ "./src/modules/messages/services/messages.service.ts":
+/*!***********************************************************!*\
+  !*** ./src/modules/messages/services/messages.service.ts ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   MessagesService: () => (/* binding */ MessagesService)
+/* harmony export */ });
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nestjs/typeorm */ "@nestjs/typeorm");
+/* harmony import */ var _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! typeorm */ "typeorm");
+/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(typeorm__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _entities_message_entity__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../entities/message.entity */ "./src/modules/messages/entities/message.entity.ts");
+/* harmony import */ var _entities_message_template_entity__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../entities/message-template.entity */ "./src/modules/messages/entities/message-template.entity.ts");
+/* harmony import */ var _entities_message_attachment_entity__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../entities/message-attachment.entity */ "./src/modules/messages/entities/message-attachment.entity.ts");
+/* harmony import */ var _dto_create_message_dto__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../dto/create-message.dto */ "./src/modules/messages/dto/create-message.dto.ts");
+/* harmony import */ var _contacts_entities_contact_entity__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../contacts/entities/contact.entity */ "./src/modules/contacts/entities/contact.entity.ts");
+/* harmony import */ var _nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @nestjs/event-emitter */ "@nestjs/event-emitter");
+/* harmony import */ var _nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var nestjs_typeorm_paginate__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! nestjs-typeorm-paginate */ "nestjs-typeorm-paginate");
+/* harmony import */ var nestjs_typeorm_paginate__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(nestjs_typeorm_paginate__WEBPACK_IMPORTED_MODULE_9__);
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+var __rest = (undefined && undefined.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
+
+
+
+
+
+
+
+
+
+
+let MessagesService = class MessagesService {
+    constructor(messageRepository, templateRepository, attachmentRepository, contactRepository, dataSource, eventEmitter) {
+        this.messageRepository = messageRepository;
+        this.templateRepository = templateRepository;
+        this.attachmentRepository = attachmentRepository;
+        this.contactRepository = contactRepository;
+        this.dataSource = dataSource;
+        this.eventEmitter = eventEmitter;
+    }
+    async create(data) {
+        const queryRunner = this.dataSource.createQueryRunner();
+        await queryRunner.connect();
+        await queryRunner.startTransaction();
+        try {
+            const contact = await this.contactRepository.findOne({
+                where: { id: data.contactId, organizationId: data.organizationId },
+            });
+            if (!contact) {
+                throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.NotFoundException('Contact not found');
+            }
+            if (data.type === _dto_create_message_dto__WEBPACK_IMPORTED_MODULE_6__.MessageType.EMAIL && !contact.email) {
+                throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.BadRequestException('Contact has no email address');
+            }
+            if (data.type === _dto_create_message_dto__WEBPACK_IMPORTED_MODULE_6__.MessageType.SMS && !contact.phoneNumber) {
+                throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.BadRequestException('Contact has no phone number');
+            }
+            const message = this.messageRepository.create(Object.assign(Object.assign({}, data), { status: data.scheduledFor ? _dto_create_message_dto__WEBPACK_IMPORTED_MODULE_6__.MessageStatus.QUEUED : _dto_create_message_dto__WEBPACK_IMPORTED_MODULE_6__.MessageStatus.SENDING, attachments: data.attachments }));
+            if (data.templateId) {
+                const template = await this.templateRepository.findOne({
+                    where: { id: data.templateId, organizationId: data.organizationId },
+                });
+                if (!template) {
+                    throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.NotFoundException('Template not found');
+                }
+                message.content = this.processTemplate(template.content, contact);
+            }
+            await queryRunner.manager.save(_entities_message_entity__WEBPACK_IMPORTED_MODULE_3__.Message, message);
+            if (data.attachments && data.attachments.length > 0) {
+                const attachmentEntities = data.attachments.map(attachment => {
+                    return this.attachmentRepository.create(Object.assign(Object.assign({}, attachment), { message: message, fileSize: attachment.fileSize ? Number(attachment.fileSize) : undefined }));
+                });
+                await queryRunner.manager.save(_entities_message_attachment_entity__WEBPACK_IMPORTED_MODULE_5__.MessageAttachment, attachmentEntities);
+            }
+            await queryRunner.commitTransaction();
+            if (!data.scheduledFor) {
+                this.eventEmitter.emit('message.created', message);
+            }
+            return message;
+        }
+        catch (error) {
+            await queryRunner.rollbackTransaction();
+            throw error;
+        }
+        finally {
+            await queryRunner.release();
+        }
+    }
+    async findAll(query) {
+        const { organizationId, type, status, startDate, endDate, page = 1, limit = 10 } = query;
+        const queryBuilder = this.messageRepository
+            .createQueryBuilder('message')
+            .where('message.organizationId = :organizationId', { organizationId })
+            .leftJoinAndSelect('message.contact', 'contact')
+            .leftJoinAndSelect('message.sender', 'sender')
+            .leftJoinAndSelect('message.attachments', 'attachments');
+        if (type) {
+            queryBuilder.andWhere('message.type = :type', { type });
+        }
+        if (status) {
+            queryBuilder.andWhere('message.status = :status', { status });
+        }
+        if (startDate) {
+            queryBuilder.andWhere('message.createdAt >= :startDate', { startDate });
+        }
+        if (endDate) {
+            queryBuilder.andWhere('message.createdAt <= :endDate', { endDate });
+        }
+        queryBuilder.orderBy('message.createdAt', 'DESC');
+        return (0,nestjs_typeorm_paginate__WEBPACK_IMPORTED_MODULE_9__.paginate)(queryBuilder, { page, limit });
+    }
+    async getConversations(query) {
+        const { organizationId, page = 1, limit = 10 } = query;
+        const queryBuilder = this.messageRepository
+            .createQueryBuilder('message')
+            .select('DISTINCT ON (message.contactId) message.*')
+            .where('message.organizationId = :organizationId', { organizationId })
+            .orderBy('message.contactId')
+            .addOrderBy('message.createdAt', 'DESC');
+        return (0,nestjs_typeorm_paginate__WEBPACK_IMPORTED_MODULE_9__.paginate)(queryBuilder, { page, limit });
+    }
+    async getConversation(contactId, query) {
+        const { organizationId, page = 1, limit = 20 } = query;
+        const queryBuilder = this.messageRepository
+            .createQueryBuilder('message')
+            .where('message.organizationId = :organizationId', { organizationId })
+            .andWhere('message.contactId = :contactId', { contactId })
+            .leftJoinAndSelect('message.attachments', 'attachments')
+            .orderBy('message.createdAt', 'DESC');
+        return (0,nestjs_typeorm_paginate__WEBPACK_IMPORTED_MODULE_9__.paginate)(queryBuilder, { page, limit });
+    }
+    async findOne(id, organizationId) {
+        const message = await this.messageRepository.findOne({
+            where: { id, organizationId },
+            relations: ['contact', 'sender', 'attachments'],
+        });
+        if (!message) {
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.NotFoundException('Message not found');
+        }
+        return message;
+    }
+    async update(id, data) {
+        const message = await this.findOne(id, data.organizationId);
+        if (message.status === _dto_create_message_dto__WEBPACK_IMPORTED_MODULE_6__.MessageStatus.SENT || message.status === _dto_create_message_dto__WEBPACK_IMPORTED_MODULE_6__.MessageStatus.DELIVERED) {
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.BadRequestException('Cannot update sent or delivered messages');
+        }
+        Object.assign(message, data);
+        return this.messageRepository.save(message);
+    }
+    async remove(id, organizationId) {
+        const message = await this.findOne(id, organizationId);
+        await this.messageRepository.softRemove(message);
+    }
+    async createTemplate(data) {
+        const { category } = data, restData = __rest(data, ["category"]);
+        const template = this.templateRepository.create(restData);
+        if (category) {
+            if (typeof category === 'string') {
+                template.category = { id: category };
+            }
+            else {
+                template.category = category;
+            }
+        }
+        return this.templateRepository.save(template);
+    }
+    async getTemplates(query) {
+        return this.templateRepository.find({
+            where: { organizationId: query.organizationId },
+            order: { name: 'ASC' },
+        });
+    }
+    async sendBulk(data) {
+        const contacts = await this.contactRepository.find({
+            where: {
+                id: (0,typeorm__WEBPACK_IMPORTED_MODULE_2__.In)(data.contactIds),
+                organizationId: data.organizationId,
+            },
+        });
+        if (contacts.length !== data.contactIds.length) {
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.BadRequestException('Some contacts were not found');
+        }
+        if (!data.messageData) {
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.BadRequestException('Message data is required');
+        }
+        const messages = contacts.map(contact => this.messageRepository.create(Object.assign(Object.assign({}, data.messageData), { contactId: contact.id, organizationId: data.organizationId, senderId: data.senderId, attachments: data.messageData.attachments })));
+        const savedMessages = await this.messageRepository.save(messages.flat());
+        this.eventEmitter.emit('messages.bulk.created', savedMessages);
+        return {
+            success: true,
+            count: savedMessages.length,
+            messageIds: savedMessages.map(m => m.id),
+        };
+    }
+    async getStatistics(query) {
+        const { organizationId, startDate, endDate } = query;
+        const queryBuilder = this.messageRepository
+            .createQueryBuilder('message')
+            .where('message.organizationId = :organizationId', { organizationId });
+        if (startDate) {
+            queryBuilder.andWhere('message.createdAt >= :startDate', { startDate });
+        }
+        if (endDate) {
+            queryBuilder.andWhere('message.createdAt <= :endDate', { endDate });
+        }
+        const stats = await queryBuilder
+            .select([
+            'COUNT(*) as total',
+            'COUNT(CASE WHEN status = :sent THEN 1 END) as sent',
+            'COUNT(CASE WHEN status = :delivered THEN 1 END) as delivered',
+            'COUNT(CASE WHEN status = :failed THEN 1 END) as failed',
+            'COUNT(CASE WHEN readAt IS NOT NULL THEN 1 END) as read',
+        ])
+            .setParameter('sent', _dto_create_message_dto__WEBPACK_IMPORTED_MODULE_6__.MessageStatus.SENT)
+            .setParameter('delivered', _dto_create_message_dto__WEBPACK_IMPORTED_MODULE_6__.MessageStatus.DELIVERED)
+            .setParameter('failed', _dto_create_message_dto__WEBPACK_IMPORTED_MODULE_6__.MessageStatus.FAILED)
+            .getRawOne();
+        return stats;
+    }
+    async resend(id, context) {
+        const message = await this.findOne(id, context.organizationId);
+        if (message.status !== _dto_create_message_dto__WEBPACK_IMPORTED_MODULE_6__.MessageStatus.FAILED) {
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.BadRequestException('Only failed messages can be resent');
+        }
+        message.status = _dto_create_message_dto__WEBPACK_IMPORTED_MODULE_6__.MessageStatus.QUEUED;
+        message.updatedById = context.userId;
+        const deliveryDetails = message.deliveryDetails || {};
+        message.deliveryDetails = Object.assign(Object.assign({}, deliveryDetails), { provider: deliveryDetails.provider || '', attempts: 0, lastAttempt: undefined, errorCode: undefined, errorMessage: undefined });
+        await this.messageRepository.save(message);
+        this.eventEmitter.emit('message.resend', message);
+        return message;
+    }
+    async markAsRead(id, context) {
+        const message = await this.findOne(id, context.organizationId);
+        if (!message.readAt) {
+            message.readAt = new Date();
+            await this.messageRepository.save(message);
+        }
+        return message;
+    }
+    processTemplate(template, contact) {
+        return template.replace(/\{\{(\w+)\}\}/g, (match, key) => {
+            const value = contact[key];
+            return value !== undefined && value !== null ? String(value) : match;
+        });
+    }
+};
+MessagesService = __decorate([
+    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.Injectable)(),
+    __param(0, (0,_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__.InjectRepository)(_entities_message_entity__WEBPACK_IMPORTED_MODULE_3__.Message)),
+    __param(1, (0,_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__.InjectRepository)(_entities_message_template_entity__WEBPACK_IMPORTED_MODULE_4__.MessageTemplate)),
+    __param(2, (0,_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__.InjectRepository)(_entities_message_attachment_entity__WEBPACK_IMPORTED_MODULE_5__.MessageAttachment)),
+    __param(3, (0,_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__.InjectRepository)(_contacts_entities_contact_entity__WEBPACK_IMPORTED_MODULE_7__.Contact)),
+    __metadata("design:paramtypes", [typeorm__WEBPACK_IMPORTED_MODULE_2__.Repository,
+        typeorm__WEBPACK_IMPORTED_MODULE_2__.Repository,
+        typeorm__WEBPACK_IMPORTED_MODULE_2__.Repository,
+        typeorm__WEBPACK_IMPORTED_MODULE_2__.Repository,
+        typeorm__WEBPACK_IMPORTED_MODULE_2__.DataSource,
+        _nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_8__.EventEmitter2])
+], MessagesService);
+
+
 
 /***/ }),
 
@@ -10419,7 +13343,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _auth_guards_jwt_auth_guard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../auth/guards/jwt-auth.guard */ "./src/modules/auth/guards/jwt-auth.guard.ts");
 /* harmony import */ var _auth_guards_roles_guard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../auth/guards/roles.guard */ "./src/modules/auth/guards/roles.guard.ts");
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../auth/decorators/roles.decorator'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var _auth_decorators_roles_decorator__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../auth/decorators/roles.decorator */ "./src/modules/auth/decorators/roles.decorator.ts");
 /* harmony import */ var _users_enums_role_enum__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../users/enums/role.enum */ "./src/modules/users/enums/role.enum.ts");
 /* harmony import */ var _services_notifications_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../services/notifications.service */ "./src/modules/notifications/services/notifications.service.ts");
 /* harmony import */ var _dto_create_notification_dto__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../dto/create-notification.dto */ "./src/modules/notifications/dto/create-notification.dto.ts");
@@ -10455,52 +13379,94 @@ let NotificationsController = class NotificationsController {
         this.notificationsService = notificationsService;
     }
     async create(createNotificationDto, req) {
+        if (!req.organization || !req.user) {
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.BadRequestException('User or organization not found');
+        }
         return this.notificationsService.create(Object.assign(Object.assign({}, createNotificationDto), { organizationId: req.organization.id, senderId: req.user.id }));
     }
     async findAll(query, req) {
-        return this.notificationsService.findAll(Object.assign(Object.assign({}, query), { organizationId: req.organization.id, userId: req.user.id }));
+        if (!req.organization || !req.user) {
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.BadRequestException('User or organization not found');
+        }
+        const notificationQuery = {
+            skip: query.skip,
+            take: query.take,
+            includeRead: query.includeRead,
+            organizationId: req.organization.id,
+        };
+        return this.notificationsService.getUserNotifications(req.user.id, notificationQuery);
     }
     async getUnreadCount(req) {
-        return this.notificationsService.getUnreadCount(req.user.id, req.organization.id);
+        if (!req.organization || !req.user) {
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.BadRequestException('User or organization not found');
+        }
+        return this.notificationsService.getUnreadCount(req.user.id);
     }
     async findOne(id, req) {
-        const notification = await this.notificationsService.findOne(id, req.organization.id, req.user.id);
+        if (!req.organization || !req.user) {
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.BadRequestException('User or organization not found');
+        }
+        const notification = await this.notificationsService.getNotificationById(id, req.organization.id, req.user.id);
         if (!notification) {
             throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.NotFoundException('Notification not found');
         }
         return notification;
     }
     async update(id, updateNotificationDto, req) {
-        return this.notificationsService.update(id, Object.assign(Object.assign({}, updateNotificationDto), { organizationId: req.organization.id, userId: req.user.id }));
+        if (!req.organization || !req.user) {
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.BadRequestException('User or organization not found');
+        }
+        return this.notificationsService.updateNotification(id, Object.assign(Object.assign({}, updateNotificationDto), { organizationId: req.organization.id }));
     }
     async remove(id, req) {
-        await this.notificationsService.remove(id, req.organization.id, req.user.id);
+        if (!req.organization || !req.user) {
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.BadRequestException('User or organization not found');
+        }
+        await this.notificationsService.updateNotification(id, { isDeleted: true, organizationId: req.organization.id });
     }
     async markAsRead(id, req) {
-        return this.notificationsService.markAsRead(id, req.organization.id, req.user.id);
+        if (!req.organization || !req.user) {
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.BadRequestException('User or organization not found');
+        }
+        return this.notificationsService.markAsRead(id, req.user.id);
     }
     async markAllAsRead(req) {
-        return this.notificationsService.markAllAsRead(req.organization.id, req.user.id);
+        if (!req.organization || !req.user) {
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.BadRequestException('User or organization not found');
+        }
+        return this.notificationsService.markAllAsRead(req.user.id);
     }
     async getPreferences(req) {
-        return this.notificationsService.getPreferences(req.organization.id, req.user.id);
+        if (!req.organization || !req.user) {
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.BadRequestException('User or organization not found');
+        }
+        return this.notificationsService.getUserPreferences(req.organization.id, req.user.id);
     }
     async updatePreferences(preferencesDto, req) {
-        return this.notificationsService.updatePreferences(preferencesDto, req.organization.id, req.user.id);
+        if (!req.organization || !req.user) {
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.BadRequestException('User or organization not found');
+        }
+        return this.notificationsService.getUserPreferences(req.organization.id, req.user.id);
     }
     async sendTestNotification(data, req) {
-        return this.notificationsService.sendTestNotification(Object.assign(Object.assign({}, data), { organizationId: req.organization.id, userId: req.user.id }));
+        if (!req.organization || !req.user) {
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.BadRequestException('User or organization not found');
+        }
+        return this.notificationsService.sendNotification(req.user.id, data.type, Object.assign(Object.assign({}, data), { organizationId: req.organization.id, userId: req.user.id }));
     }
     async getChannels(req) {
-        return this.notificationsService.getAvailableChannels(req.organization.id, req.user.id);
+        if (!req.organization || !req.user) {
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.BadRequestException('User or organization not found');
+        }
+        return this.notificationsService.getNotificationChannels(req.organization.id, req.user.id);
     }
 };
 __decorate([
     (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Post)(),
-    Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../auth/decorators/roles.decorator'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_users_enums_role_enum__WEBPACK_IMPORTED_MODULE_5__.Role.ADMIN, _users_enums_role_enum__WEBPACK_IMPORTED_MODULE_5__.Role.STAFF),
+    (0,_auth_decorators_roles_decorator__WEBPACK_IMPORTED_MODULE_4__.Roles)(_users_enums_role_enum__WEBPACK_IMPORTED_MODULE_5__.Role.ADMIN, _users_enums_role_enum__WEBPACK_IMPORTED_MODULE_5__.Role.STAFF),
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Create new notification' }),
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse)({ status: _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.CREATED, description: 'Notification created successfully' }),
-    _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 201, type: Object }),
+    _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 201 }),
     __param(0, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Body)()),
     __param(1, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Request)()),
     __metadata("design:type", Function),
@@ -10511,7 +13477,7 @@ __decorate([
     (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Get)(),
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Get user notifications' }),
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse)({ status: _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.OK, description: 'Return user notifications' }),
-    _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 200, type: Object }),
+    _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 200 }),
     __param(0, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Query)()),
     __param(1, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Request)()),
     __metadata("design:type", Function),
@@ -10532,7 +13498,7 @@ __decorate([
     (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Get)(':id'),
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Get notification by id' }),
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse)({ status: _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.OK, description: 'Return notification details' }),
-    _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 200, type: Object }),
+    _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 200, type: (__webpack_require__(/*! ../entities/notification.entity */ "./src/modules/notifications/entities/notification.entity.ts").Notification) }),
     __param(0, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Param)('id', _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.ParseUUIDPipe)),
     __param(1, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Request)()),
     __metadata("design:type", Function),
@@ -10543,7 +13509,7 @@ __decorate([
     (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Put)(':id'),
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Update notification' }),
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse)({ status: _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.OK, description: 'Notification updated successfully' }),
-    _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 200, type: Object }),
+    _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 200, type: (__webpack_require__(/*! ../entities/notification.entity */ "./src/modules/notifications/entities/notification.entity.ts").Notification) }),
     __param(0, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Param)('id', _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.ParseUUIDPipe)),
     __param(1, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Body)()),
     __param(2, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Request)()),
@@ -10606,10 +13572,10 @@ __decorate([
 ], NotificationsController.prototype, "updatePreferences", null);
 __decorate([
     (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Post)('test'),
-    Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../auth/decorators/roles.decorator'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_users_enums_role_enum__WEBPACK_IMPORTED_MODULE_5__.Role.ADMIN),
+    (0,_auth_decorators_roles_decorator__WEBPACK_IMPORTED_MODULE_4__.Roles)(_users_enums_role_enum__WEBPACK_IMPORTED_MODULE_5__.Role.ADMIN),
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Send test notification' }),
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse)({ status: _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.CREATED, description: 'Test notification sent successfully' }),
-    _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 201, type: Object }),
+    _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 201 }),
     __param(0, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Body)()),
     __param(1, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Request)()),
     __metadata("design:type", Function),
@@ -11073,6 +14039,7 @@ var NotificationPriority;
 (function (NotificationPriority) {
     NotificationPriority["LOW"] = "LOW";
     NotificationPriority["NORMAL"] = "NORMAL";
+    NotificationPriority["MEDIUM"] = "MEDIUM";
     NotificationPriority["HIGH"] = "HIGH";
     NotificationPriority["URGENT"] = "URGENT";
 })(NotificationPriority || (NotificationPriority = {}));
@@ -11117,7 +14084,7 @@ __decorate([
 ], NotificationAction.prototype, "data", void 0);
 class NotificationRecipient {
     static _OPENAPI_METADATA_FACTORY() {
-        return { userId: { required: true, type: () => String }, channels: { required: false, enum: (__webpack_require__(/*! ./create-notification.dto */ "./src/modules/notifications/dto/create-notification.dto.ts").NotificationChannel), isArray: true }, metadata: { required: false, type: () => Object } };
+        return { userId: { required: true, type: () => String }, role: { required: true, type: () => String }, organizationId: { required: false, type: () => String }, channels: { required: false, enum: (__webpack_require__(/*! ./create-notification.dto */ "./src/modules/notifications/dto/create-notification.dto.ts").NotificationChannel), isArray: true }, metadata: { required: false, type: () => Object } };
     }
 }
 __decorate([
@@ -11143,7 +14110,7 @@ class CreateNotificationDto {
         this.priority = NotificationPriority.NORMAL;
     }
     static _OPENAPI_METADATA_FACTORY() {
-        return { type: { required: true, enum: (__webpack_require__(/*! ./create-notification.dto */ "./src/modules/notifications/dto/create-notification.dto.ts").NotificationType) }, title: { required: true, type: () => String, maxLength: 200 }, content: { required: true, type: () => String, maxLength: 1000 }, priority: { required: false, default: NotificationPriority.NORMAL, enum: (__webpack_require__(/*! ./create-notification.dto */ "./src/modules/notifications/dto/create-notification.dto.ts").NotificationPriority) }, recipients: { required: true, type: () => [(__webpack_require__(/*! ./create-notification.dto */ "./src/modules/notifications/dto/create-notification.dto.ts").NotificationRecipient)] }, actions: { required: false, type: () => [(__webpack_require__(/*! ./create-notification.dto */ "./src/modules/notifications/dto/create-notification.dto.ts").NotificationAction)] }, scheduledFor: { required: false, type: () => String }, expiresAt: { required: false, type: () => String }, requireConfirmation: { required: false, type: () => Boolean }, data: { required: false, type: () => Object }, channels: { required: false, enum: (__webpack_require__(/*! ./create-notification.dto */ "./src/modules/notifications/dto/create-notification.dto.ts").NotificationChannel), isArray: true }, category: { required: false, type: () => String, maxLength: 100 }, groupId: { required: false, type: () => String, maxLength: 100 }, referenceId: { required: false, type: () => String }, referenceType: { required: false, type: () => String, maxLength: 50 }, silent: { required: false, type: () => Boolean } };
+        return { type: { required: true, enum: (__webpack_require__(/*! ./create-notification.dto */ "./src/modules/notifications/dto/create-notification.dto.ts").NotificationType) }, title: { required: true, type: () => String, maxLength: 200 }, content: { required: true, type: () => String, maxLength: 1000 }, priority: { required: false, default: NotificationPriority.NORMAL, enum: (__webpack_require__(/*! ./create-notification.dto */ "./src/modules/notifications/dto/create-notification.dto.ts").NotificationPriority) }, recipients: { required: true, type: () => [(__webpack_require__(/*! ./create-notification.dto */ "./src/modules/notifications/dto/create-notification.dto.ts").NotificationRecipient)] }, actions: { required: false, type: () => [(__webpack_require__(/*! ./create-notification.dto */ "./src/modules/notifications/dto/create-notification.dto.ts").NotificationAction)] }, scheduledFor: { required: false, type: () => String }, expiresAt: { required: false, type: () => String }, requireConfirmation: { required: false, type: () => Boolean }, data: { required: false, type: () => Object }, channels: { required: false, enum: (__webpack_require__(/*! ./create-notification.dto */ "./src/modules/notifications/dto/create-notification.dto.ts").NotificationChannel), isArray: true }, category: { required: false, type: () => String, maxLength: 100 }, groupId: { required: false, type: () => String, maxLength: 100 }, referenceId: { required: false, type: () => String }, referenceType: { required: false, type: () => String, maxLength: 50 }, silent: { required: false, type: () => Boolean }, organizationId: { required: true, type: () => String }, senderId: { required: false, type: () => String }, metadata: { required: false, type: () => Object } };
     }
 }
 __decorate([
@@ -11250,6 +14217,12 @@ __decorate([
     (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsBoolean)(),
     __metadata("design:type", Boolean)
 ], CreateNotificationDto.prototype, "silent", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsUUID)(),
+    __metadata("design:type", String)
+], CreateNotificationDto.prototype, "organizationId", void 0);
 
 
 /***/ }),
@@ -11720,15 +14693,15 @@ class NotificationQueryDto {
         this.sortOrder = 'DESC';
     }
     static _OPENAPI_METADATA_FACTORY() {
-        return { organizationId: { required: false, type: () => String }, categories: { required: false, enum: (__webpack_require__(/*! ../entities/notification-preference.entity */ "./src/modules/notifications/entities/notification-preference.entity.ts").NotificationCategory), isArray: true }, userId: { required: false, type: () => String }, channels: { required: false, enum: (__webpack_require__(/*! ../entities/notification-preference.entity */ "./src/modules/notifications/entities/notification-preference.entity.ts").NotificationChannel), isArray: true }, isRead: { required: false, type: () => Boolean }, isArchived: { required: false, type: () => Boolean }, userIds: { required: false, type: () => [String] }, status: { required: false, type: () => String }, recipientIds: { required: false, type: () => [String] }, type: { required: false, type: () => String }, read: { required: false, type: () => Boolean }, priority: { required: false, type: () => String }, startDate: { required: false, type: () => Date }, endDate: { required: false, type: () => Date }, senderIds: { required: false, type: () => [String] }, dateRange: { required: false, type: () => (__webpack_require__(/*! ./notification-query.dto */ "./src/modules/notifications/dto/notification-query.dto.ts").DateRangeDto) }, priorities: { required: false, type: () => [String] }, statuses: { required: false, type: () => [String] }, tags: { required: false, type: () => [String] }, isActionable: { required: false, type: () => Boolean }, isActionTaken: { required: false, type: () => Boolean }, includeDeleted: { required: false, type: () => Boolean }, groupBy: { required: false, type: () => String }, page: { required: false, type: () => Number, default: 1, minimum: 1 }, limit: { required: false, type: () => Number, default: 10, minimum: 1, maximum: 100 }, sortBy: { required: false, type: () => String, default: "createdAt" }, sortOrder: { required: false, type: () => Object, default: "DESC" }, templateIds: { required: false, type: () => [String] }, deliveryStatuses: { required: false, type: () => [String] }, hasAttachments: { required: false, type: () => Boolean }, sources: { required: false, type: () => [String] }, includeMetadata: { required: false, type: () => Boolean }, includeReadReceipts: { required: false, type: () => Boolean }, importanceLevel: { required: false, type: () => Number, minimum: 1, maximum: 5 } };
+        return { skip: { required: false, type: () => Number }, take: { required: false, type: () => Number }, includeRead: { required: false, type: () => Boolean }, categories: { required: false, enum: (__webpack_require__(/*! ../entities/notification-preference.entity */ "./src/modules/notifications/entities/notification-preference.entity.ts").NotificationCategory), isArray: true }, userId: { required: false, type: () => String }, organizationId: { required: false, type: () => String }, channels: { required: false, enum: (__webpack_require__(/*! ../entities/notification-preference.entity */ "./src/modules/notifications/entities/notification-preference.entity.ts").NotificationChannel), isArray: true }, isRead: { required: false, type: () => Boolean }, isArchived: { required: false, type: () => Boolean }, userIds: { required: false, type: () => [String] }, status: { required: false, type: () => String }, recipientIds: { required: false, type: () => [String] }, type: { required: false, type: () => String }, read: { required: false, type: () => Boolean }, priority: { required: false, type: () => String }, startDate: { required: false, type: () => Date }, endDate: { required: false, type: () => Date }, senderIds: { required: false, type: () => [String] }, dateRange: { required: false, type: () => (__webpack_require__(/*! ./notification-query.dto */ "./src/modules/notifications/dto/notification-query.dto.ts").DateRangeDto) }, priorities: { required: false, type: () => [String] }, statuses: { required: false, type: () => [String] }, tags: { required: false, type: () => [String] }, isActionable: { required: false, type: () => Boolean }, isActionTaken: { required: false, type: () => Boolean }, includeDeleted: { required: false, type: () => Boolean }, groupBy: { required: false, type: () => String }, page: { required: false, type: () => Number, default: 1, minimum: 1 }, limit: { required: false, type: () => Number, default: 10, minimum: 1, maximum: 100 }, sortBy: { required: false, type: () => String, default: "createdAt" }, sortOrder: { required: false, type: () => Object, default: "DESC" }, templateIds: { required: false, type: () => [String] }, deliveryStatuses: { required: false, type: () => [String] }, hasAttachments: { required: false, type: () => Boolean }, sources: { required: false, type: () => [String] }, includeMetadata: { required: false, type: () => Boolean }, includeReadReceipts: { required: false, type: () => Boolean }, importanceLevel: { required: false, type: () => Number, minimum: 1, maximum: 5 } };
     }
 }
 __decorate([
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ description: 'Search term for notification content' }),
     (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
     (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsUUID)(),
-    __metadata("design:type", String)
-], NotificationQueryDto.prototype, "organizationId", void 0);
+    __metadata("design:type", Number)
+], NotificationQueryDto.prototype, "skip", void 0);
 __decorate([
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ enum: _entities_notification_preference_entity__WEBPACK_IMPORTED_MODULE_3__.NotificationCategory, isArray: true }),
     (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
@@ -11957,7 +14930,7 @@ var NotificationStatus;
 })(NotificationStatus || (NotificationStatus = {}));
 class UpdateNotificationDto extends (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.PartialType)((0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.OmitType)(_create_notification_dto__WEBPACK_IMPORTED_MODULE_1__.CreateNotificationDto, ['type', 'recipients'])) {
     static _OPENAPI_METADATA_FACTORY() {
-        return { status: { required: false, enum: (__webpack_require__(/*! ./update-notification.dto */ "./src/modules/notifications/dto/update-notification.dto.ts").NotificationStatus) }, read: { required: false, type: () => Boolean } };
+        return { status: { required: false, enum: (__webpack_require__(/*! ./update-notification.dto */ "./src/modules/notifications/dto/update-notification.dto.ts").NotificationStatus) }, isDeleted: { required: false, type: () => Boolean }, read: { required: false, type: () => Boolean } };
     }
 }
 __decorate([
@@ -12271,7 +15244,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 let EmailTemplate = class EmailTemplate {
     static _OPENAPI_METADATA_FACTORY() {
-        return { id: { required: true, type: () => String }, name: { required: true, type: () => String }, subject: { required: true, type: () => String }, htmlContent: { required: true, type: () => String }, textContent: { required: true, type: () => String }, variables: { required: true, type: () => Object }, description: { required: true, type: () => String }, isActive: { required: true, type: () => Boolean }, organizationId: { required: true, type: () => String }, organization: { required: true, type: () => (__webpack_require__(/*! ../../organizations/entities/organization.entity */ "./src/modules/organizations/entities/organization.entity.ts").Organization) }, createdAt: { required: true, type: () => Date }, updatedAt: { required: true, type: () => Date } };
+        return { id: { required: true, type: () => String }, content: { required: true, type: () => String }, type: { required: true, type: () => String }, name: { required: true, type: () => String }, subject: { required: true, type: () => String }, htmlContent: { required: true, type: () => String }, textContent: { required: true, type: () => String }, variables: { required: true, type: () => Object }, description: { required: true, type: () => String }, isActive: { required: true, type: () => Boolean }, organizationId: { required: true, type: () => String }, organization: { required: true, type: () => (__webpack_require__(/*! ../../organizations/entities/organization.entity */ "./src/modules/organizations/entities/organization.entity.ts").Organization) }, createdAt: { required: true, type: () => Date }, updatedAt: { required: true, type: () => Date } };
     }
 };
 __decorate([
@@ -12397,7 +15370,7 @@ var NotificationFrequency;
 })(NotificationFrequency || (NotificationFrequency = {}));
 let NotificationPreference = class NotificationPreference {
     static _OPENAPI_METADATA_FACTORY() {
-        return { id: { required: true, type: () => String }, organizationId: { required: true, type: () => String }, userId: { required: true, type: () => String }, category: { required: true, enum: (__webpack_require__(/*! ./notification-preference.entity */ "./src/modules/notifications/entities/notification-preference.entity.ts").NotificationCategory) }, channels: { required: true, enum: (__webpack_require__(/*! ./notification-preference.entity */ "./src/modules/notifications/entities/notification-preference.entity.ts").NotificationChannel), isArray: true }, enabledChannels: { required: true, enum: (__webpack_require__(/*! ./notification-preference.entity */ "./src/modules/notifications/entities/notification-preference.entity.ts").NotificationChannel), isArray: true }, frequency: { required: true, enum: (__webpack_require__(/*! ./notification-preference.entity */ "./src/modules/notifications/entities/notification-preference.entity.ts").NotificationFrequency) }, enabled: { required: true, type: () => Boolean }, startTime: { required: false, type: () => String }, endTime: { required: false, type: () => String }, workDays: { required: false, type: () => [String] }, customSchedule: { required: false, type: () => ({ days: { required: true, type: () => [String] }, times: { required: true, type: () => [String] }, timezone: { required: true, type: () => String } }) }, channelSpecificSettings: { required: false, type: () => ({ email: { required: false, type: () => ({ addresses: { required: false, type: () => [String] }, format: { required: false, type: () => Object }, includeAttachments: { required: false, type: () => Boolean } }) }, sms: { required: false, type: () => ({ phoneNumbers: { required: false, type: () => [String] }, includeMedia: { required: false, type: () => Boolean } }) }, push: { required: false, type: () => ({ deviceTokens: { required: false, type: () => [String] }, sound: { required: false, type: () => Boolean }, badge: { required: false, type: () => Boolean } }) }, inApp: { required: false, type: () => ({ showBadge: { required: false, type: () => Boolean }, playSound: { required: false, type: () => Boolean }, markAsRead: { required: false, type: () => Boolean } }) }, whatsapp: { required: false, type: () => ({ numbers: { required: false, type: () => [String] }, allowMedia: { required: false, type: () => Boolean } }) }, slack: { required: false, type: () => ({ channels: { required: false, type: () => [String] }, mentionUser: { required: false, type: () => Boolean } }) } }) }, filters: { required: false, type: () => ({ priority: { required: false, type: () => [String] }, status: { required: false, type: () => [String] }, types: { required: false, type: () => [String] }, senders: { required: false, type: () => [String] }, keywords: { required: false, type: () => [String] }, excludeKeywords: { required: false, type: () => [String] } }) }, importanceThreshold: { required: true, type: () => Number }, muteAll: { required: true, type: () => Boolean }, muteUntil: { required: false, type: () => Date }, digestSettings: { required: false, type: () => ({ groupBy: { required: false, type: () => [String] }, sortBy: { required: false, type: () => String }, maxItems: { required: false, type: () => Number }, format: { required: false, type: () => String } }) }, allowReminders: { required: true, type: () => Boolean }, reminderInterval: { required: false, type: () => Number }, maxReminders: { required: true, type: () => Number }, metadata: { required: false, type: () => Object }, createdAt: { required: true, type: () => Date }, updatedAt: { required: true, type: () => Date }, deletedAt: { required: false, type: () => Date }, createdById: { required: false, type: () => String }, updatedById: { required: false, type: () => String }, organization: { required: true, type: () => (__webpack_require__(/*! ../../organizations/entities/organization.entity */ "./src/modules/organizations/entities/organization.entity.ts").Organization) }, user: { required: true, type: () => (__webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts").User) }, createdBy: { required: false, type: () => (__webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts").User) }, updatedBy: { required: false, type: () => (__webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts").User) }, phone: { required: true, type: () => Boolean } };
+        return { id: { required: true, type: () => String }, organizationId: { required: true, type: () => String }, userId: { required: true, type: () => String }, category: { required: true, enum: (__webpack_require__(/*! ./notification-preference.entity */ "./src/modules/notifications/entities/notification-preference.entity.ts").NotificationCategory) }, channels: { required: true, enum: (__webpack_require__(/*! ./notification-preference.entity */ "./src/modules/notifications/entities/notification-preference.entity.ts").NotificationChannel), isArray: true }, enabledChannels: { required: true, enum: (__webpack_require__(/*! ./notification-preference.entity */ "./src/modules/notifications/entities/notification-preference.entity.ts").NotificationChannel), isArray: true }, frequency: { required: true, enum: (__webpack_require__(/*! ./notification-preference.entity */ "./src/modules/notifications/entities/notification-preference.entity.ts").NotificationFrequency) }, enabled: { required: true, type: () => Boolean }, startTime: { required: false, type: () => String }, endTime: { required: false, type: () => String }, workDays: { required: false, type: () => [String] }, customSchedule: { required: false, type: () => ({ days: { required: true, type: () => [String] }, times: { required: true, type: () => [String] }, timezone: { required: true, type: () => String } }) }, channelSpecificSettings: { required: false, type: () => ({ email: { required: false, type: () => ({ addresses: { required: false, type: () => [String] }, format: { required: false, type: () => Object }, includeAttachments: { required: false, type: () => Boolean } }) }, sms: { required: false, type: () => ({ phoneNumbers: { required: false, type: () => [String] }, includeMedia: { required: false, type: () => Boolean } }) }, push: { required: false, type: () => ({ deviceTokens: { required: false, type: () => [String] }, sound: { required: false, type: () => Boolean }, badge: { required: false, type: () => Boolean } }) }, inApp: { required: false, type: () => ({ showBadge: { required: false, type: () => Boolean }, playSound: { required: false, type: () => Boolean }, markAsRead: { required: false, type: () => Boolean } }) }, whatsapp: { required: false, type: () => ({ numbers: { required: false, type: () => [String] }, allowMedia: { required: false, type: () => Boolean } }) }, slack: { required: false, type: () => ({ channels: { required: false, type: () => [String] }, mentionUser: { required: false, type: () => Boolean } }) } }) }, filters: { required: false, type: () => ({ priority: { required: false, type: () => [String] }, status: { required: false, type: () => [String] }, types: { required: false, type: () => [String] }, senders: { required: false, type: () => [String] }, keywords: { required: false, type: () => [String] }, excludeKeywords: { required: false, type: () => [String] } }) }, importanceThreshold: { required: true, type: () => Number }, muteAll: { required: true, type: () => Boolean }, muteUntil: { required: false, type: () => Date }, digestSettings: { required: false, type: () => ({ groupBy: { required: false, type: () => [String] }, sortBy: { required: false, type: () => String }, maxItems: { required: false, type: () => Number }, format: { required: false, type: () => String } }) }, allowReminders: { required: true, type: () => Boolean }, reminderInterval: { required: false, type: () => Number }, maxReminders: { required: true, type: () => Number }, metadata: { required: false, type: () => Object }, createdAt: { required: true, type: () => Date }, updatedAt: { required: true, type: () => Date }, deletedAt: { required: false, type: () => Date }, createdById: { required: false, type: () => String }, updatedById: { required: false, type: () => String }, organization: { required: true, type: () => (__webpack_require__(/*! ../../organizations/entities/organization.entity */ "./src/modules/organizations/entities/organization.entity.ts").Organization) }, user: { required: true, type: () => (__webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts").User) }, createdBy: { required: false, type: () => (__webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts").User) }, updatedBy: { required: false, type: () => (__webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts").User) } };
     }
 };
 __decorate([
@@ -12417,7 +15390,7 @@ __decorate([
 __decorate([
     (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({
         type: 'enum',
-        enum: NotificationCategory
+        enum: NotificationCategory,
     }),
     __metadata("design:type", String)
 ], NotificationPreference.prototype, "category", void 0);
@@ -12426,7 +15399,7 @@ __decorate([
         type: 'enum',
         enum: NotificationChannel,
         array: true,
-        default: [NotificationChannel.EMAIL, NotificationChannel.IN_APP]
+        default: [NotificationChannel.EMAIL, NotificationChannel.IN_APP],
     }),
     __metadata("design:type", Array)
 ], NotificationPreference.prototype, "channels", void 0);
@@ -12435,7 +15408,7 @@ __decorate([
         type: 'enum',
         enum: NotificationChannel,
         array: true,
-        default: [NotificationChannel.EMAIL, NotificationChannel.IN_APP]
+        default: [NotificationChannel.EMAIL, NotificationChannel.IN_APP],
     }),
     __metadata("design:type", Array)
 ], NotificationPreference.prototype, "enabledChannels", void 0);
@@ -12443,7 +15416,7 @@ __decorate([
     (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({
         type: 'enum',
         enum: NotificationFrequency,
-        default: NotificationFrequency.IMMEDIATELY
+        default: NotificationFrequency.IMMEDIATELY,
     }),
     __metadata("design:type", String)
 ], NotificationPreference.prototype, "frequency", void 0);
@@ -12725,7 +15698,7 @@ let Notification = class Notification {
             .map(c => c.channel);
     }
     static _OPENAPI_METADATA_FACTORY() {
-        return { id: { required: true, type: () => String }, organizationId: { required: true, type: () => String }, userId: { required: true, type: () => String }, senderId: { required: true, type: () => String }, type: { required: true, enum: (__webpack_require__(/*! ../dto/create-notification.dto */ "./src/modules/notifications/dto/create-notification.dto.ts").NotificationType) }, title: { required: true, type: () => String }, content: { required: true, type: () => String }, priority: { required: true, enum: (__webpack_require__(/*! ../dto/create-notification.dto */ "./src/modules/notifications/dto/create-notification.dto.ts").NotificationPriority) }, status: { required: true, enum: (__webpack_require__(/*! ../dto/update-notification.dto */ "./src/modules/notifications/dto/update-notification.dto.ts").NotificationStatus) }, actions: { required: false }, scheduledFor: { required: false, type: () => Date }, expiresAt: { required: false, type: () => Date }, requireConfirmation: { required: true, type: () => Boolean }, data: { required: false, type: () => Object }, channels: { required: true, enum: (__webpack_require__(/*! ../dto/create-notification.dto */ "./src/modules/notifications/dto/create-notification.dto.ts").NotificationChannel), isArray: true }, category: { required: false, type: () => String }, groupId: { required: false, type: () => String }, referenceId: { required: false, type: () => String }, referenceType: { required: false, type: () => String }, silent: { required: true, type: () => Boolean }, read: { required: true, type: () => Boolean }, readAt: { required: false, type: () => Date }, deliveredAt: { required: false, type: () => Date }, deliveryDetails: { required: false, type: () => ({ attempts: { required: true, type: () => Number }, lastAttempt: { required: true, type: () => Date }, channels: { required: true }, error: { required: false, type: () => String }, timeoutAt: { required: false, type: () => Date } }) }, recipientDetails: { required: false, type: () => ({ slackUserId: { required: true, type: () => Object }, email: { required: false, type: () => String }, phone: { required: false, type: () => String }, deviceTokens: { required: false, type: () => [String] }, webhookUrl: { required: false, type: () => String } }) }, updatedById: { required: false, type: () => String }, createdAt: { required: true, type: () => Date }, updatedAt: { required: true, type: () => Date }, deletedAt: { required: false, type: () => Date }, organization: { required: true, type: () => (__webpack_require__(/*! ../../organizations/entities/organization.entity */ "./src/modules/organizations/entities/organization.entity.ts").Organization) }, user: { required: true, type: () => (__webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts").User) }, sender: { required: true, type: () => (__webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts").User) }, updatedBy: { required: false, type: () => (__webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts").User) } };
+        return { id: { required: true, type: () => String }, userId: { required: true, type: () => String }, type: { required: true, type: () => String }, content: { required: true, type: () => String }, metadata: { required: false, type: () => Object }, status: { required: true, type: () => String }, createdAt: { required: true, type: () => Date }, updatedAt: { required: true, type: () => Date }, readAt: { required: false, type: () => Date }, organizationId: { required: true, type: () => String }, senderId: { required: true, type: () => String }, title: { required: true, type: () => String }, priority: { required: true, enum: (__webpack_require__(/*! ../dto/create-notification.dto */ "./src/modules/notifications/dto/create-notification.dto.ts").NotificationPriority) }, actions: { required: false }, scheduledFor: { required: false, type: () => Date }, expiresAt: { required: false, type: () => Date }, requireConfirmation: { required: true, type: () => Boolean }, data: { required: false, type: () => Object }, channels: { required: true, enum: (__webpack_require__(/*! ../dto/create-notification.dto */ "./src/modules/notifications/dto/create-notification.dto.ts").NotificationChannel), isArray: true }, category: { required: false, type: () => String }, groupId: { required: false, type: () => String }, referenceId: { required: false, type: () => String }, referenceType: { required: false, type: () => String }, silent: { required: true, type: () => Boolean }, read: { required: true, type: () => Boolean }, deliveredAt: { required: false, type: () => Date }, deliveryDetails: { required: false, type: () => ({ attempts: { required: true, type: () => Number }, lastAttempt: { required: true, type: () => Date }, channels: { required: true }, error: { required: false, type: () => String }, timeoutAt: { required: false, type: () => Date } }) }, recipientDetails: { required: false, type: () => ({ slackUserId: { required: true, type: () => Object }, email: { required: false, type: () => String }, phone: { required: false, type: () => String }, deviceTokens: { required: false, type: () => [String] }, webhookUrl: { required: false, type: () => String } }) }, updatedById: { required: false, type: () => String }, deletedAt: { required: false, type: () => Date }, organization: { required: true, type: () => (__webpack_require__(/*! ../../organizations/entities/organization.entity */ "./src/modules/organizations/entities/organization.entity.ts").Organization) }, user: { required: true, type: () => (__webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts").User) }, sender: { required: true, type: () => (__webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts").User) }, updatedBy: { required: false, type: () => (__webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts").User) } };
     }
 };
 __decorate([
@@ -12734,6 +15707,38 @@ __decorate([
     __metadata("design:type", String)
 ], Notification.prototype, "id", void 0);
 __decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)(),
+    __metadata("design:type", String)
+], Notification.prototype, "userId", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)(),
+    __metadata("design:type", String)
+], Notification.prototype, "type", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)(),
+    __metadata("design:type", String)
+], Notification.prototype, "content", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)('jsonb', { nullable: true }),
+    __metadata("design:type", Object)
+], Notification.prototype, "metadata", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)(),
+    __metadata("design:type", String)
+], Notification.prototype, "status", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.CreateDateColumn)(),
+    __metadata("design:type", Date)
+], Notification.prototype, "createdAt", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.UpdateDateColumn)(),
+    __metadata("design:type", Date)
+], Notification.prototype, "updatedAt", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true }),
+    __metadata("design:type", Date)
+], Notification.prototype, "readAt", void 0);
+__decorate([
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)(),
     (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)(),
     __metadata("design:type", String)
@@ -12741,9 +15746,6 @@ __decorate([
 __decorate([
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)(),
     (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)(),
-    __metadata("design:type", String)
-], Notification.prototype, "userId", void 0);
-__decorate([
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)(),
     (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)(),
     __metadata("design:type", String)
@@ -12751,9 +15753,6 @@ __decorate([
 __decorate([
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)(),
     (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'enum', enum: _dto_create_notification_dto__WEBPACK_IMPORTED_MODULE_2__.NotificationType }),
-    __metadata("design:type", String)
-], Notification.prototype, "type", void 0);
-__decorate([
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)(),
     (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ length: 200 }),
     __metadata("design:type", String)
@@ -12761,9 +15760,6 @@ __decorate([
 __decorate([
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)(),
     (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'text' }),
-    __metadata("design:type", String)
-], Notification.prototype, "content", void 0);
-__decorate([
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)(),
     (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({
         type: 'enum',
@@ -12779,9 +15775,6 @@ __decorate([
         enum: _dto_update_notification_dto__WEBPACK_IMPORTED_MODULE_3__.NotificationStatus,
         default: _dto_update_notification_dto__WEBPACK_IMPORTED_MODULE_3__.NotificationStatus.PENDING,
     }),
-    __metadata("design:type", String)
-], Notification.prototype, "status", void 0);
-__decorate([
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)(),
     (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'jsonb', nullable: true }),
     __metadata("design:type", Array)
@@ -12844,9 +15837,6 @@ __decorate([
 __decorate([
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)(),
     (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'timestamp', nullable: true }),
-    __metadata("design:type", Date)
-], Notification.prototype, "readAt", void 0);
-__decorate([
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)(),
     (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'timestamp', nullable: true }),
     __metadata("design:type", Date)
@@ -12866,14 +15856,6 @@ __decorate([
     (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true }),
     __metadata("design:type", String)
 ], Notification.prototype, "updatedById", void 0);
-__decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.CreateDateColumn)(),
-    __metadata("design:type", Date)
-], Notification.prototype, "createdAt", void 0);
-__decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.UpdateDateColumn)(),
-    __metadata("design:type", Date)
-], Notification.prototype, "updatedAt", void 0);
 __decorate([
     (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.DeleteDateColumn)(),
     __metadata("design:type", Date)
@@ -13349,10 +16331,11 @@ let NotificationListener = NotificationListener_1 = class NotificationListener {
             lastUsedAt: new Date(),
             useCount: () => 'use_count + 1'
         });
-        notification.subject = this.interpolateVariables(template.subject, notification.metadata);
-        notification.content = this.interpolateVariables(template.content, notification.metadata);
+        const metadata = notification.metadata || {};
+        notification.subject = this.interpolateVariables(template.subject, metadata);
+        notification.content = this.interpolateVariables(template.content, metadata);
         if (template.channelSpecificContent) {
-            notification.channelContent = Object.assign(Object.assign({}, notification.channelContent), this.processChannelContent(template.channelSpecificContent, notification.metadata));
+            notification.channelContent = Object.assign(Object.assign({}, notification.channelContent), this.processChannelContent(template.channelSpecificContent, metadata));
         }
         if (!((_a = notification.channels) === null || _a === void 0 ? void 0 : _a.length) && ((_b = template.channels) === null || _b === void 0 ? void 0 : _b.length)) {
             notification.channels = template.channels.map(channel => ({
@@ -13417,6 +16400,7 @@ NotificationListener = NotificationListener_1 = __decorate([
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   AppointmentEventTypes: () => (/* binding */ AppointmentEventTypes),
 /* harmony export */   NotificationsModule: () => (/* binding */ NotificationsModule)
 /* harmony export */ });
 /* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
@@ -13441,7 +16425,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shared_services_sms_service__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../../shared/services/sms.service */ "./src/shared/services/sms.service.ts");
 /* harmony import */ var _shared_services_push_notification_service__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../../shared/services/push-notification.service */ "./src/shared/services/push-notification.service.ts");
 /* harmony import */ var _shared_services_webhook_service__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../../shared/services/webhook.service */ "./src/shared/services/webhook.service.ts");
-/* harmony import */ var _services_notification_delivery_service__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./services/notification-delivery.service */ "./src/modules/notifications/services/notification-delivery.service.ts");
+/* harmony import */ var _whatsapp_services_whatsapp_services__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../whatsapp/services/whatsapp.services */ "./src/modules/whatsapp/services/whatsapp.services.ts");
+/* harmony import */ var _services_notification_delivery_service__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./services/notification-delivery.service */ "./src/modules/notifications/services/notification-delivery.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -13468,6 +16453,15 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
+var AppointmentEventTypes;
+(function (AppointmentEventTypes) {
+    AppointmentEventTypes["CREATED"] = "appointment.created";
+    AppointmentEventTypes["UPDATED"] = "appointment.updated";
+    AppointmentEventTypes["CANCELLED"] = "appointment.cancelled";
+    AppointmentEventTypes["COMPLETED"] = "appointment.completed";
+    AppointmentEventTypes["RESCHEDULED"] = "appointment.rescheduled";
+})(AppointmentEventTypes || (AppointmentEventTypes = {}));
 let NotificationsModule = class NotificationsModule {
 };
 NotificationsModule = __decorate([
@@ -13491,7 +16485,7 @@ NotificationsModule = __decorate([
         providers: [
             _services_notifications_service__WEBPACK_IMPORTED_MODULE_4__.NotificationsService,
             _services_notification_scheduler_service__WEBPACK_IMPORTED_MODULE_5__.NotificationSchedulerService,
-            _services_notification_delivery_service__WEBPACK_IMPORTED_MODULE_19__.NotificationDeliveryService,
+            _services_notification_delivery_service__WEBPACK_IMPORTED_MODULE_20__.NotificationDeliveryService,
             _listeners_notification_listener__WEBPACK_IMPORTED_MODULE_9__.NotificationListener,
             _listeners_notification_schedule_listener__WEBPACK_IMPORTED_MODULE_10__.NotificationScheduleListener,
             _listeners_notification_delivery_listener__WEBPACK_IMPORTED_MODULE_11__.NotificationDeliveryListener,
@@ -13499,10 +16493,11 @@ NotificationsModule = __decorate([
             _shared_services_sms_service__WEBPACK_IMPORTED_MODULE_16__.SmsService,
             _shared_services_push_notification_service__WEBPACK_IMPORTED_MODULE_17__.PushNotificationService,
             _shared_services_webhook_service__WEBPACK_IMPORTED_MODULE_18__.WebhookService,
+            _whatsapp_services_whatsapp_services__WEBPACK_IMPORTED_MODULE_19__.WhatsappService,
         ],
         exports: [
             _services_notifications_service__WEBPACK_IMPORTED_MODULE_4__.NotificationsService,
-            _services_notification_delivery_service__WEBPACK_IMPORTED_MODULE_19__.NotificationDeliveryService
+            _services_notification_delivery_service__WEBPACK_IMPORTED_MODULE_20__.NotificationDeliveryService
         ]
     })
 ], NotificationsModule);
@@ -13830,7 +16825,7 @@ let NotificationSchedulerService = NotificationSchedulerService_1 = class Notifi
                 await this.sendPushNotification(notification);
                 break;
             case _dto_create_notification_dto__WEBPACK_IMPORTED_MODULE_7__.NotificationChannel.WHATSAPP:
-                await this.sendWhatsappNotification(notification);
+                await this.sendWhatsappNotification(notification, notification.recipientDetails);
                 break;
             case _dto_create_notification_dto__WEBPACK_IMPORTED_MODULE_7__.NotificationChannel.SLACK:
                 await this.sendSlackNotification(notification);
@@ -13950,16 +16945,19 @@ let NotificationSchedulerService = NotificationSchedulerService_1 = class Notifi
             failedChannels: []
         });
     }
-    async sendWhatsappNotification(notification) {
-        var _a, _b;
-        if (!((_a = notification.recipientDetails) === null || _a === void 0 ? void 0 : _a.phone)) {
-            throw new Error('Phone number not provided');
+    async sendWhatsappNotification(notification, user) {
+        try {
+            const whatsappService = this.whatsappService;
+            await whatsappService.sendMessage({
+                to: user.phoneNumber,
+                text: notification.content,
+            });
+            return true;
         }
-        await this.whatsappService.send({
-            to: notification.recipientDetails.phone,
-            message: notification.content,
-            media: (_b = notification.data) === null || _b === void 0 ? void 0 : _b.media,
-        });
+        catch (error) {
+            this.logger.error(`Failed to send WhatsApp notification: ${error.message}`, error.stack);
+            return false;
+        }
     }
     async sendSlackNotification(notification) {
         var _a;
@@ -14037,9 +17035,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _entities_notification_entity__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../entities/notification.entity */ "./src/modules/notifications/entities/notification.entity.ts");
 /* harmony import */ var _entities_notification_template_entity__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../entities/notification-template.entity */ "./src/modules/notifications/entities/notification-template.entity.ts");
 /* harmony import */ var _entities_notification_preference_entity__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../entities/notification-preference.entity */ "./src/modules/notifications/entities/notification-preference.entity.ts");
-/* harmony import */ var _email_email_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../email/email.service */ "./src/modules/email/email.service.ts");
-/* harmony import */ var _sms_sms_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../sms/sms.service */ "./src/modules/sms/sms.service.ts");
+/* harmony import */ var _shared_services_email_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../shared/services/email.service */ "./src/shared/services/email.service.ts");
+/* harmony import */ var _shared_services_sms_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../shared/services/sms.service */ "./src/shared/services/sms.service.ts");
 /* harmony import */ var _whatsapp_services_whatsapp_services__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../whatsapp/services/whatsapp.services */ "./src/modules/whatsapp/services/whatsapp.services.ts");
+/* harmony import */ var _dto_update_notification_dto__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../dto/update-notification.dto */ "./src/modules/notifications/dto/update-notification.dto.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -14062,6 +17061,7 @@ var NotificationsService_1;
 
 
 
+
 let NotificationsService = NotificationsService_1 = class NotificationsService {
     constructor(notificationRepository, templateRepository, preferenceRepository, emailService, smsService, whatsappService) {
         this.notificationRepository = notificationRepository;
@@ -14072,26 +17072,138 @@ let NotificationsService = NotificationsService_1 = class NotificationsService {
         this.whatsappService = whatsappService;
         this.logger = new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.Logger(NotificationsService_1.name);
     }
+    async notifyMessageFailure(message) {
+    }
+    async getNotificationChannels(organizationId, userId) {
+        return [];
+    }
+    async getUserPreferences(organizationId, userId) {
+        return {};
+    }
+    async getNotificationById(id, organizationId, userId) {
+        return null;
+    }
+    async updateNotification(id, updateNotificationDto) {
+        const notification = await this.notificationRepository.findOne({ where: { id } });
+        if (!notification) {
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.NotFoundException('Notification not found');
+        }
+        Object.assign(notification, updateNotificationDto);
+        return this.notificationRepository.save(notification);
+    }
+    async notifyMessageDelivery(message) {
+        console.log(`Message delivered: ${message.id}`);
+    }
+    async create(notificationData) {
+        console.log('Notification created:', notificationData);
+    }
+    async send(dto) {
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
+        try {
+            const preferences = await this.preferenceRepository.findOne({
+                where: {
+                    userId: dto.userId,
+                    category: dto.type,
+                },
+            });
+            if (!preferences) {
+                this.logger.warn(`No notification preferences found for user ${dto.userId}`);
+                return;
+            }
+            const template = await this.templateRepository.findOne({
+                where: { type: dto.type },
+            });
+            const content = template
+                ? this.compileTemplate(template.content, Object.assign(Object.assign({}, dto.data), { title: dto.title, message: dto.message }))
+                : dto.message;
+            const notification = await this.notificationRepository.save({
+                userId: dto.userId,
+                type: dto.type,
+                content,
+                title: dto.title,
+                metadata: Object.assign(Object.assign({}, dto.data), { organizationId: dto.organizationId, priority: dto.priority }),
+                status: String(_dto_update_notification_dto__WEBPACK_IMPORTED_MODULE_9__.NotificationStatus.PENDING),
+                organizationId: dto.organizationId || '',
+                senderId: dto.userId,
+                channels: preferences.enabledChannels,
+            });
+            const notificationPromises = [];
+            if (preferences.enabledChannels.includes(_entities_notification_entity__WEBPACK_IMPORTED_MODULE_3__.NotificationChannel.EMAIL) &&
+                ((_c = (_b = (_a = preferences.channelSpecificSettings) === null || _a === void 0 ? void 0 : _a.email) === null || _b === void 0 ? void 0 : _b.addresses) === null || _c === void 0 ? void 0 : _c.length)) {
+                const email = preferences.channelSpecificSettings.email.addresses[0];
+                notificationPromises.push(this.sendEmailNotification(email, {
+                    appointmentId: ((_d = dto.data) === null || _d === void 0 ? void 0 : _d.userId) || 'N/A',
+                    patientName: 'User',
+                    doctorName: 'N/A',
+                    dateTime: new Date(),
+                    location: 'N/A',
+                    notes: `${dto.title}: ${dto.message}`,
+                    organizationName: dto.organizationId || 'System',
+                }));
+            }
+            if (preferences.enabledChannels.includes(_entities_notification_entity__WEBPACK_IMPORTED_MODULE_3__.NotificationChannel.SMS) &&
+                ((_g = (_f = (_e = preferences.channelSpecificSettings) === null || _e === void 0 ? void 0 : _e.sms) === null || _f === void 0 ? void 0 : _f.phoneNumbers) === null || _g === void 0 ? void 0 : _g.length)) {
+                const phone = preferences.channelSpecificSettings.sms.phoneNumbers[0];
+                notificationPromises.push(this.sendSmsNotification(phone, {
+                    appointmentId: ((_h = dto.data) === null || _h === void 0 ? void 0 : _h.userId) || 'N/A',
+                    patientName: 'User',
+                    dateTime: new Date(),
+                    organizationName: dto.organizationId || 'System',
+                }));
+            }
+            if (preferences.enabledChannels.includes(_entities_notification_entity__WEBPACK_IMPORTED_MODULE_3__.NotificationChannel.WHATSAPP) &&
+                ((_l = (_k = (_j = preferences.channelSpecificSettings) === null || _j === void 0 ? void 0 : _j.whatsapp) === null || _k === void 0 ? void 0 : _k.numbers) === null || _l === void 0 ? void 0 : _l.length)) {
+                const whatsappNumber = preferences.channelSpecificSettings.whatsapp.numbers[0];
+                notificationPromises.push(this.whatsappService.sendAppointmentReminder(whatsappNumber, {
+                    appointmentId: ((_m = dto.data) === null || _m === void 0 ? void 0 : _m.userId) || 'N/A',
+                    patientName: 'User',
+                    doctorName: 'N/A',
+                    dateTime: new Date(),
+                    location: 'N/A',
+                    organizationName: dto.organizationId || 'System',
+                }));
+            }
+            await Promise.all(notificationPromises);
+            await this.notificationRepository
+                .createQueryBuilder()
+                .update(_entities_notification_entity__WEBPACK_IMPORTED_MODULE_3__.Notification)
+                .set({ status: String(_dto_update_notification_dto__WEBPACK_IMPORTED_MODULE_9__.NotificationStatus.SENT) })
+                .where('id = :id', { id: notification.id })
+                .execute();
+            this.logger.log(`Successfully sent notification ${notification.id} to user ${dto.userId}`);
+        }
+        catch (error) {
+            this.logger.error(`Failed to send notification to user ${dto.userId}:`, error);
+            throw error;
+        }
+    }
     async notifyError(source, error) {
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j;
         try {
             const notification = await this.notificationRepository.save({
                 type: 'ERROR',
                 source,
                 content: error.message,
+                title: 'System Error',
                 metadata: {
                     stack: error.stack,
                     timestamp: new Date().toISOString(),
                 },
-                status: 'PENDING',
+                status: String(_dto_update_notification_dto__WEBPACK_IMPORTED_MODULE_9__.NotificationStatus.PENDING),
+                organizationId: '',
+                senderId: 'system',
+                channels: [_entities_notification_entity__WEBPACK_IMPORTED_MODULE_3__.NotificationChannel.EMAIL],
             });
             const adminPreferences = await this.preferenceRepository.find({
-                where: { role: 'ADMIN', notificationType: 'ERROR' },
+                where: { category: 'ERROR' },
             });
             for (const pref of adminPreferences) {
                 try {
                     const notificationPromises = [];
-                    if (pref.email && pref.emailEnabled) {
-                        notificationPromises.push(this.emailService.sendAppointmentReminder(pref.email, {
+                    if (pref.enabledChannels.includes(_entities_notification_entity__WEBPACK_IMPORTED_MODULE_3__.NotificationChannel.EMAIL) &&
+                        ((_c = (_b = (_a = pref.channelSpecificSettings) === null || _a === void 0 ? void 0 : _a.email) === null || _b === void 0 ? void 0 : _b.addresses) === null || _c === void 0 ? void 0 : _c.length)) {
+                        const email = pref.channelSpecificSettings.email.addresses[0];
+                        notificationPromises.push(this.sendEmailNotification(email, {
                             appointmentId: 'N/A',
                             patientName: 'N/A',
                             doctorName: 'N/A',
@@ -14101,16 +17213,20 @@ let NotificationsService = NotificationsService_1 = class NotificationsService {
                             organizationName: 'System',
                         }));
                     }
-                    if (pref.phone && pref.smsEnabled) {
-                        notificationPromises.push(this.smsService.sendAppointmentReminder(pref.phone, {
+                    if (pref.enabledChannels.includes(_entities_notification_entity__WEBPACK_IMPORTED_MODULE_3__.NotificationChannel.SMS) &&
+                        ((_f = (_e = (_d = pref.channelSpecificSettings) === null || _d === void 0 ? void 0 : _d.sms) === null || _e === void 0 ? void 0 : _e.phoneNumbers) === null || _f === void 0 ? void 0 : _f.length)) {
+                        const phone = pref.channelSpecificSettings.sms.phoneNumbers[0];
+                        notificationPromises.push(this.sendSmsNotification(phone, {
                             appointmentId: 'N/A',
                             patientName: 'Admin',
                             dateTime: new Date(),
                             organizationName: `System Error: ${source}`,
                         }));
                     }
-                    if (pref.whatsapp && pref.whatsappEnabled) {
-                        notificationPromises.push(this.whatsappService.sendAppointmentReminder(pref.whatsapp, {
+                    if (pref.enabledChannels.includes(_entities_notification_entity__WEBPACK_IMPORTED_MODULE_3__.NotificationChannel.WHATSAPP) &&
+                        ((_j = (_h = (_g = pref.channelSpecificSettings) === null || _g === void 0 ? void 0 : _g.whatsapp) === null || _h === void 0 ? void 0 : _h.numbers) === null || _j === void 0 ? void 0 : _j.length)) {
+                        const whatsappNumber = pref.channelSpecificSettings.whatsapp.numbers[0];
+                        notificationPromises.push(this.whatsappService.sendAppointmentReminder(whatsappNumber, {
                             appointmentId: 'N/A',
                             patientName: 'Admin',
                             doctorName: 'N/A',
@@ -14125,7 +17241,12 @@ let NotificationsService = NotificationsService_1 = class NotificationsService {
                     this.logger.error(`Failed to notify admin ${pref.userId}:`, notifyError);
                 }
             }
-            await this.notificationRepository.update(notification.id, { status: 'SENT' });
+            await this.notificationRepository
+                .createQueryBuilder()
+                .update(_entities_notification_entity__WEBPACK_IMPORTED_MODULE_3__.Notification)
+                .set({ status: String(_dto_update_notification_dto__WEBPACK_IMPORTED_MODULE_9__.NotificationStatus.SENT) })
+                .where('id = :id', { id: notification.id })
+                .execute();
         }
         catch (error) {
             this.logger.error('Failed to process error notification:', error);
@@ -14135,7 +17256,10 @@ let NotificationsService = NotificationsService_1 = class NotificationsService {
     async sendNotification(userId, type, data) {
         try {
             const preferences = await this.preferenceRepository.findOne({
-                where: { userId, notificationType: type },
+                where: {
+                    userId,
+                    category: type,
+                },
             });
             if (!preferences) {
                 this.logger.warn(`No notification preferences found for user ${userId}`);
@@ -14151,12 +17275,17 @@ let NotificationsService = NotificationsService_1 = class NotificationsService {
                 userId,
                 type,
                 content: this.compileTemplate(template.content, data),
+                title: data.title || 'Notification',
                 metadata: data,
-                status: 'PENDING',
+                status: String(_dto_update_notification_dto__WEBPACK_IMPORTED_MODULE_9__.NotificationStatus.PENDING),
+                organizationId: data.organizationId || '',
+                senderId: userId,
+                channels: preferences.enabledChannels,
             });
             const notificationPromises = [];
-            if (preferences.emailEnabled && data.email) {
-                notificationPromises.push(this.emailService.sendAppointmentReminder(data.email, {
+            if (preferences.enabledChannels.includes(_entities_notification_entity__WEBPACK_IMPORTED_MODULE_3__.NotificationChannel.EMAIL) &&
+                data.email) {
+                notificationPromises.push(this.sendEmailNotification(data.email, {
                     appointmentId: data.appointmentId || 'N/A',
                     patientName: data.patientName || 'N/A',
                     doctorName: data.doctorName || 'N/A',
@@ -14166,15 +17295,17 @@ let NotificationsService = NotificationsService_1 = class NotificationsService {
                     organizationName: data.organizationName || 'System',
                 }));
             }
-            if (preferences.smsEnabled && data.phone) {
-                notificationPromises.push(this.smsService.sendAppointmentReminder(data.phone, {
+            if (preferences.enabledChannels.includes(_entities_notification_entity__WEBPACK_IMPORTED_MODULE_3__.NotificationChannel.SMS) &&
+                data.phone) {
+                notificationPromises.push(this.sendSmsNotification(data.phone, {
                     appointmentId: data.appointmentId || 'N/A',
                     patientName: data.patientName || 'N/A',
                     dateTime: data.dateTime || new Date(),
                     organizationName: data.organizationName || 'System',
                 }));
             }
-            if (preferences.whatsappEnabled && data.whatsapp) {
+            if (preferences.enabledChannels.includes(_entities_notification_entity__WEBPACK_IMPORTED_MODULE_3__.NotificationChannel.WHATSAPP) &&
+                data.whatsapp) {
                 notificationPromises.push(this.whatsappService.sendAppointmentReminder(data.whatsapp, {
                     appointmentId: data.appointmentId || 'N/A',
                     patientName: data.patientName || 'N/A',
@@ -14185,7 +17316,12 @@ let NotificationsService = NotificationsService_1 = class NotificationsService {
                 }));
             }
             await Promise.all(notificationPromises);
-            await this.notificationRepository.update(notification.id, { status: 'SENT' });
+            await this.notificationRepository
+                .createQueryBuilder()
+                .update(_entities_notification_entity__WEBPACK_IMPORTED_MODULE_3__.Notification)
+                .set({ status: String(_dto_update_notification_dto__WEBPACK_IMPORTED_MODULE_9__.NotificationStatus.SENT) })
+                .where('id = :id', { id: notification.id })
+                .execute();
             this.logger.log(`Successfully sent notification ${notification.id} to user ${userId}`);
         }
         catch (error) {
@@ -14200,14 +17336,33 @@ let NotificationsService = NotificationsService_1 = class NotificationsService {
         });
     }
     async markAsRead(notificationId, userId) {
-        await this.notificationRepository.update({ id: notificationId, userId }, { readAt: new Date() });
+        await this.notificationRepository
+            .createQueryBuilder()
+            .update(_entities_notification_entity__WEBPACK_IMPORTED_MODULE_3__.Notification)
+            .set({
+            readAt: new Date(),
+            read: true
+        })
+            .where('id = :id AND userId = :userId', { id: notificationId, userId })
+            .execute();
     }
     async markAllAsRead(userId) {
-        await this.notificationRepository.update({ userId, readAt: null }, { readAt: new Date() });
+        await this.notificationRepository
+            .createQueryBuilder()
+            .update(_entities_notification_entity__WEBPACK_IMPORTED_MODULE_3__.Notification)
+            .set({
+            readAt: new Date(),
+            read: true
+        })
+            .where('userId = :userId AND readAt IS NULL', { userId })
+            .execute();
     }
     async getUnreadCount(userId) {
         return this.notificationRepository.count({
-            where: { userId, readAt: null },
+            where: {
+                userId,
+                readAt: null
+            },
         });
     }
     async getUserNotifications(userId, options = {}) {
@@ -14225,6 +17380,47 @@ let NotificationsService = NotificationsService_1 = class NotificationsService {
             .getManyAndCount();
         return { notifications, total };
     }
+    async sendEmailNotification(email, data) {
+        var _a, _b;
+        try {
+            await ((_b = (_a = this.emailService).sendEmail) === null || _b === void 0 ? void 0 : _b.call(_a, {
+                to: email,
+                subject: `Appointment Reminder: ${data.organizationName}`,
+                html: this.formatEmailContent(data)
+            }));
+            this.logger.log(`Sent email notification to ${email}`);
+        }
+        catch (error) {
+            this.logger.error(`Error sending email to ${email}:`, error);
+            this.logger.log(`Would send email to ${email} with content: ${JSON.stringify(data)}`);
+        }
+    }
+    async sendSmsNotification(phone, data) {
+        var _a, _b;
+        try {
+            await ((_b = (_a = this.smsService).sendSms) === null || _b === void 0 ? void 0 : _b.call(_a, phone, this.formatSmsContent(data)));
+            this.logger.log(`Sent SMS notification to ${phone}`);
+        }
+        catch (error) {
+            this.logger.error(`Error sending SMS to ${phone}:`, error);
+            this.logger.log(`Would send SMS to ${phone} with content: ${JSON.stringify(data)}`);
+        }
+    }
+    formatEmailContent(data) {
+        return `
+      <div>
+        <h2>Appointment Reminder</h2>
+        <p>Hello ${data.patientName},</p>
+        <p>This is a reminder of your appointment with ${data.doctorName} on ${data.dateTime.toLocaleString()}</p>
+        <p>Location: ${data.location}</p>
+        ${data.notes ? `<p>Notes: ${data.notes}</p>` : ''}
+        <p>Regards,<br>${data.organizationName}</p>
+      </div>
+    `;
+    }
+    formatSmsContent(data) {
+        return `Hi ${data.patientName}, reminder of your appointment with ${data.organizationName} on ${data.dateTime.toLocaleString()}`;
+    }
 };
 NotificationsService = NotificationsService_1 = __decorate([
     (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.Injectable)(),
@@ -14234,8 +17430,8 @@ NotificationsService = NotificationsService_1 = __decorate([
     __metadata("design:paramtypes", [typeorm__WEBPACK_IMPORTED_MODULE_2__.Repository,
         typeorm__WEBPACK_IMPORTED_MODULE_2__.Repository,
         typeorm__WEBPACK_IMPORTED_MODULE_2__.Repository,
-        _email_email_service__WEBPACK_IMPORTED_MODULE_6__.EmailService,
-        _sms_sms_service__WEBPACK_IMPORTED_MODULE_7__.SmsService,
+        _shared_services_email_service__WEBPACK_IMPORTED_MODULE_6__.EmailService,
+        _shared_services_sms_service__WEBPACK_IMPORTED_MODULE_7__.SmsService,
         _whatsapp_services_whatsapp_services__WEBPACK_IMPORTED_MODULE_8__.WhatsappService])
 ], NotificationsService);
 
@@ -15703,7 +18899,7 @@ let OrganizationInvitation = class OrganizationInvitation {
         return this.status === InvitationStatus.PENDING;
     }
     static _OPENAPI_METADATA_FACTORY() {
-        return { id: { required: true, type: () => String }, organizationId: { required: true, type: () => String }, organization: { required: true, type: () => (__webpack_require__(/*! ./organization.entity */ "./src/modules/organizations/entities/organization.entity.ts").Organization) }, email: { required: true, type: () => String }, invitedUserId: { required: true, type: () => String }, invitedUser: { required: true, type: () => (__webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts").User) }, invitedById: { required: true, type: () => String }, invitedBy: { required: true, type: () => (__webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts").User) }, status: { required: true, enum: (__webpack_require__(/*! ./organization-invitation.entity */ "./src/modules/organizations/entities/organization-invitation.entity.ts").InvitationStatus) }, roles: { required: true, type: () => [String] }, departmentIds: { required: true, type: () => [String] }, expiresAt: { required: true, type: () => Date }, acceptedAt: { required: true, type: () => Date }, declinedAt: { required: true, type: () => Date }, revokedAt: { required: true, type: () => Date }, revokedById: { required: true, type: () => String }, revokedBy: { required: true, type: () => (__webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts").User) }, token: { required: true, type: () => String }, message: { required: true, type: () => String }, metadata: { required: true, type: () => Object }, isResent: { required: true, type: () => Boolean }, lastResentAt: { required: true, type: () => Date }, resendCount: { required: true, type: () => Number }, createdAt: { required: true, type: () => Date }, updatedAt: { required: true, type: () => Date } };
+        return { id: { required: true, type: () => String }, organizationId: { required: true, type: () => String }, organization: { required: true, type: () => (__webpack_require__(/*! ./organization.entity */ "./src/modules/organizations/entities/organization.entity.ts").Organization) }, email: { required: true, type: () => String }, roles: { required: true, type: () => [String] }, invitedBy: { required: true, type: () => (__webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts").User) }, token: { required: true, type: () => String }, expiresAt: { required: true, type: () => Date }, status: { required: true, enum: (__webpack_require__(/*! ./organization-invitation.entity */ "./src/modules/organizations/entities/organization-invitation.entity.ts").InvitationStatus) }, invitedUserId: { required: true, type: () => String }, invitedUser: { required: true, type: () => (__webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts").User) }, invitedById: { required: true, type: () => String }, departmentIds: { required: true, type: () => [String] }, acceptedAt: { required: true, type: () => Date }, declinedAt: { required: true, type: () => Date }, revokedAt: { required: true, type: () => Date }, revokedById: { required: true, type: () => String }, revokedBy: { required: true, type: () => (__webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts").User) }, message: { required: true, type: () => String }, metadata: { required: true, type: () => Object }, isResent: { required: true, type: () => Boolean }, lastResentAt: { required: true, type: () => Date }, resendCount: { required: true, type: () => Number }, createdAt: { required: true, type: () => Date }, updatedAt: { required: true, type: () => Date } };
     }
 };
 __decorate([
@@ -15711,12 +18907,12 @@ __decorate([
     __metadata("design:type", String)
 ], OrganizationInvitation.prototype, "id", void 0);
 __decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)('uuid'),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.PrimaryGeneratedColumn)('uuid'),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)(),
     __metadata("design:type", String)
 ], OrganizationInvitation.prototype, "organizationId", void 0);
 __decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.ManyToOne)(() => _organization_entity__WEBPACK_IMPORTED_MODULE_2__.Organization),
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.JoinColumn)({ name: 'organizationId' }),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.ManyToOne)(() => _organization_entity__WEBPACK_IMPORTED_MODULE_2__.Organization, organization => organization.invitations),
     __metadata("design:type", _organization_entity__WEBPACK_IMPORTED_MODULE_2__.Organization)
 ], OrganizationInvitation.prototype, "organization", void 0);
 __decorate([
@@ -15724,6 +18920,37 @@ __decorate([
     __metadata("design:type", String)
 ], OrganizationInvitation.prototype, "email", void 0);
 __decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)('simple-array'),
+    __metadata("design:type", Array)
+], OrganizationInvitation.prototype, "roles", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.ManyToOne)(() => _users_entities_user_entity__WEBPACK_IMPORTED_MODULE_3__.User),
+    __metadata("design:type", _users_entities_user_entity__WEBPACK_IMPORTED_MODULE_3__.User)
+], OrganizationInvitation.prototype, "invitedBy", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)(),
+    __metadata("design:type", String)
+], OrganizationInvitation.prototype, "token", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)(),
+    __metadata("design:type", Date)
+], OrganizationInvitation.prototype, "expiresAt", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({
+        type: 'enum',
+        enum: InvitationStatus,
+        default: InvitationStatus.PENDING
+    }),
+    __metadata("design:type", String)
+], OrganizationInvitation.prototype, "status", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true }),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true }),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)('json', { nullable: true }),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)('uuid'),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.ManyToOne)(() => _organization_entity__WEBPACK_IMPORTED_MODULE_2__.Organization),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.JoinColumn)({ name: 'organizationId' }),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)(),
     (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)('uuid', { nullable: true }),
     __metadata("design:type", String)
 ], OrganizationInvitation.prototype, "invitedUserId", void 0);
@@ -15739,29 +18966,17 @@ __decorate([
 __decorate([
     (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.ManyToOne)(() => _users_entities_user_entity__WEBPACK_IMPORTED_MODULE_3__.User),
     (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.JoinColumn)({ name: 'invitedById' }),
-    __metadata("design:type", _users_entities_user_entity__WEBPACK_IMPORTED_MODULE_3__.User)
-], OrganizationInvitation.prototype, "invitedBy", void 0);
-__decorate([
     (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({
         type: 'enum',
         enum: InvitationStatus,
         default: InvitationStatus.PENDING
     }),
-    __metadata("design:type", String)
-], OrganizationInvitation.prototype, "status", void 0);
-__decorate([
     (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)('simple-array'),
-    __metadata("design:type", Array)
-], OrganizationInvitation.prototype, "roles", void 0);
-__decorate([
     (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)('uuid', { array: true, nullable: true }),
     __metadata("design:type", Array)
 ], OrganizationInvitation.prototype, "departmentIds", void 0);
 __decorate([
     (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'timestamp' }),
-    __metadata("design:type", Date)
-], OrganizationInvitation.prototype, "expiresAt", void 0);
-__decorate([
     (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true }),
     __metadata("design:type", Date)
 ], OrganizationInvitation.prototype, "acceptedAt", void 0);
@@ -15784,9 +18999,6 @@ __decorate([
 ], OrganizationInvitation.prototype, "revokedBy", void 0);
 __decorate([
     (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ unique: true }),
-    __metadata("design:type", String)
-], OrganizationInvitation.prototype, "token", void 0);
-__decorate([
     (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true }),
     __metadata("design:type", String)
 ], OrganizationInvitation.prototype, "message", void 0);
@@ -16008,6 +19220,29 @@ Organization = __decorate([
     (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Index)(['domain'])
 ], Organization);
 
+
+
+/***/ }),
+
+/***/ "./src/modules/organizations/enums/subscription-plan.enum.ts":
+/*!*******************************************************************!*\
+  !*** ./src/modules/organizations/enums/subscription-plan.enum.ts ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   SubscriptionPlan: () => (/* binding */ SubscriptionPlan)
+/* harmony export */ });
+var SubscriptionPlan;
+(function (SubscriptionPlan) {
+    SubscriptionPlan["FREE"] = "FREE";
+    SubscriptionPlan["BASIC"] = "BASIC";
+    SubscriptionPlan["STANDARD"] = "STANDARD";
+    SubscriptionPlan["PREMIUM"] = "PREMIUM";
+    SubscriptionPlan["ENTERPRISE"] = "ENTERPRISE";
+})(SubscriptionPlan || (SubscriptionPlan = {}));
 
 
 /***/ }),
@@ -17076,38 +20311,45 @@ let OrganizationInvitationService = OrganizationInvitationService_1 = class Orga
                 throw new Error(`Organization has reached member limit (${current}/${limit})`);
             }
             const existingMember = await this.userRepository.findOne({
-                where: { email, organizations: { id: organizationId } }
+                where: {
+                    email,
+                    organizationId
+                }
             });
             if (existingMember) {
                 throw new Error(`User ${email} is already a member of the organization`);
             }
-            const existingInvitation = await this.invitationRepository.findOne({
-                where: {
-                    organizationId,
-                    email,
-                    status: 'pending'
-                }
-            });
-            if (existingInvitation) {
+            const existingInvitations = await this.invitationRepository.createQueryBuilder("invitation")
+                .where("invitation.organizationId = :organizationId", { organizationId })
+                .andWhere("invitation.email = :email", { email })
+                .andWhere("invitation.status = :status", { status: "PENDING" })
+                .getMany();
+            if (existingInvitations.length > 0) {
                 throw new Error(`Pending invitation already exists for ${email}`);
             }
-            const invitation = this.invitationRepository.create({
-                organizationId,
-                email,
-                role,
-                invitedBy,
-                token: this.generateInvitationToken(),
-                expiresAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
+            const invitation = new _entities_organization_invitation_entity__WEBPACK_IMPORTED_MODULE_6__.OrganizationInvitation();
+            invitation.organizationId = organizationId;
+            invitation.email = email;
+            invitation.roles = [role];
+            const inviter = await this.userRepository.findOne({
+                where: { id: invitedBy }
             });
-            await this.invitationRepository.save(invitation);
-            await this.sendInvitationEmail(invitation, organization);
+            if (!inviter) {
+                throw new Error(`Inviter ${invitedBy} not found`);
+            }
+            invitation.invitedBy = inviter;
+            invitation.token = this.generateInvitationToken();
+            invitation.expiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
+            invitation.status = "PENDING";
+            const savedInvitation = await this.invitationRepository.save(invitation);
+            await this.sendInvitationEmail(savedInvitation, organization);
             this.eventEmitter.emit('organization.invitation.created', {
                 organizationId,
                 email,
                 role,
                 invitedBy,
             });
-            return invitation;
+            return savedInvitation;
         }
         catch (error) {
             this.logger.error('Error creating invitation:', error);
@@ -17116,9 +20358,11 @@ let OrganizationInvitationService = OrganizationInvitationService_1 = class Orga
     }
     async acceptInvitation(token, userId) {
         try {
-            const invitation = await this.invitationRepository.findOne({
-                where: { token, status: 'pending' }
-            });
+            const invitations = await this.invitationRepository.createQueryBuilder("invitation")
+                .where("invitation.token = :token", { token })
+                .andWhere("invitation.status = :status", { status: "PENDING" })
+                .getMany();
+            const invitation = invitations.length > 0 ? invitations[0] : null;
             if (!invitation) {
                 throw new Error('Invalid or expired invitation');
             }
@@ -17144,18 +20388,18 @@ let OrganizationInvitationService = OrganizationInvitationService_1 = class Orga
                 ...(organization.members || []),
                 {
                     userId,
-                    role: invitation.role,
+                    role: invitation.roles,
                     joinedAt: new Date(),
                 }
             ];
             await this.organizationRepository.save(organization);
-            invitation.status = 'accepted';
-            invitation.acceptedAt = new Date();
+            invitation.status = "ACCEPTED";
+            invitation.metadata = Object.assign(Object.assign({}, (invitation.metadata || {})), { acceptedAt: new Date() });
             await this.invitationRepository.save(invitation);
             this.eventEmitter.emit('organization.member.added', {
                 organizationId: organization.id,
                 userId,
-                role: invitation.role,
+                role: invitation.roles,
                 invitedBy: invitation.invitedBy,
             });
         }
@@ -17166,15 +20410,16 @@ let OrganizationInvitationService = OrganizationInvitationService_1 = class Orga
     }
     async cancelInvitation(invitationId, cancelledBy) {
         try {
-            const invitation = await this.invitationRepository.findOne({
-                where: { id: invitationId, status: 'pending' }
-            });
+            const invitations = await this.invitationRepository.createQueryBuilder("invitation")
+                .where("invitation.id = :id", { id: invitationId })
+                .andWhere("invitation.status = :status", { status: "PENDING" })
+                .getMany();
+            const invitation = invitations.length > 0 ? invitations[0] : null;
             if (!invitation) {
                 throw new Error('Invitation not found or already processed');
             }
-            invitation.status = 'cancelled';
-            invitation.cancelledAt = new Date();
-            invitation.cancelledBy = cancelledBy;
+            invitation.status = "CANCELLED";
+            invitation.metadata = Object.assign(Object.assign({}, (invitation.metadata || {})), { cancelledAt: new Date(), cancelledBy: cancelledBy });
             await this.invitationRepository.save(invitation);
             this.eventEmitter.emit('organization.invitation.cancelled', {
                 organizationId: invitation.organizationId,
@@ -17195,7 +20440,7 @@ let OrganizationInvitationService = OrganizationInvitationService_1 = class Orga
             if (!invitation) {
                 throw new Error('Invitation not found');
             }
-            if (invitation.status !== 'pending') {
+            if (String(invitation.status) !== "PENDING") {
                 throw new Error('Can only resend pending invitations');
             }
             const organization = await this.organizationRepository.findOne({
@@ -17222,15 +20467,11 @@ let OrganizationInvitationService = OrganizationInvitationService_1 = class Orga
     }
     async listPendingInvitations(organizationId) {
         try {
-            return await this.invitationRepository.find({
-                where: {
-                    organizationId,
-                    status: 'pending'
-                },
-                order: {
-                    createdAt: 'DESC'
-                }
-            });
+            return await this.invitationRepository.createQueryBuilder("invitation")
+                .where("invitation.organizationId = :organizationId", { organizationId })
+                .andWhere("invitation.status = :status", { status: "PENDING" })
+                .orderBy("invitation.createdAt", "DESC")
+                .getMany();
         }
         catch (error) {
             this.logger.error('Error listing pending invitations:', error);
@@ -17242,18 +20483,36 @@ let OrganizationInvitationService = OrganizationInvitationService_1 = class Orga
     }
     async sendInvitationEmail(invitation, organization) {
         try {
-            await this.emailService.send({
-                recipient: { email: invitation.email },
+            let inviterName = 'An organization administrator';
+            if (invitation.invitedBy) {
+                if (typeof invitation.invitedBy === 'object' && invitation.invitedBy.firstName) {
+                    inviterName = `${invitation.invitedBy.firstName} ${invitation.invitedBy.lastName || ''}`.trim();
+                }
+                else if (typeof invitation.invitedBy === 'string') {
+                    inviterName = invitation.invitedBy;
+                }
+            }
+            const roleValue = Array.isArray(invitation.roles)
+                ? invitation.roles.join(', ')
+                : String(invitation.roles || '');
+            const emailData = {
+                to: invitation.email,
                 subject: `Invitation to join ${organization.name}`,
                 template: 'organization-invitation',
-                metadata: {
+                context: {
                     organizationName: organization.name,
-                    inviterName: invitation.invitedBy,
-                    role: invitation.role,
+                    inviterName: inviterName,
+                    role: roleValue,
                     acceptUrl: `${process.env.APP_URL}/invitations/accept?token=${invitation.token}`,
                     expiresAt: invitation.expiresAt,
                 }
-            });
+            };
+            if (typeof this.emailService.sendEmail === 'function') {
+                await this.emailService.sendEmail(emailData);
+            }
+            else {
+                this.logger.warn('No suitable email service method found. Please implement a proper email sending method.');
+            }
         }
         catch (error) {
             this.logger.error('Error sending invitation email:', error);
@@ -17262,16 +20521,12 @@ let OrganizationInvitationService = OrganizationInvitationService_1 = class Orga
     }
     async cleanupExpiredInvitations() {
         try {
-            const expiredInvitations = await this.invitationRepository.find({
-                where: {
-                    status: 'pending',
-                    expiresAt: {
-                        lte: new Date()
-                    }
-                }
-            });
+            const expiredInvitations = await this.invitationRepository.createQueryBuilder("invitation")
+                .where("invitation.status = :status", { status: "PENDING" })
+                .andWhere("invitation.expiresAt <= :now", { now: new Date() })
+                .getMany();
             for (const invitation of expiredInvitations) {
-                invitation.status = 'expired';
+                invitation.status = "EXPIRED";
                 await this.invitationRepository.save(invitation);
                 this.eventEmitter.emit('organization.invitation.expired', {
                     organizationId: invitation.organizationId,
@@ -17599,9 +20854,8 @@ let OrganizationsService = class OrganizationsService {
         const savedOrg = await this.organizationRepository.save(organization);
         await this.createAuditLog({
             organizationId: savedOrg.id,
-            userId: createOrganizationDto.createdBy,
             action: 'CREATE_ORGANIZATION',
-            details: { organizationId: savedOrg.id }
+            metadata: { userId: createOrganizationDto.createdBy.id, organizationId: savedOrg.id }
         });
         return savedOrg;
     }
@@ -17646,9 +20900,12 @@ let OrganizationsService = class OrganizationsService {
         const updatedOrg = await this.organizationRepository.save(organization);
         await this.createAuditLog({
             organizationId: id,
-            userId: updateOrganizationDto.updatedBy,
             action: 'UPDATE_ORGANIZATION',
-            details: { organizationId: id, changes: updateOrganizationDto }
+            metadata: {
+                userId: updateOrganizationDto.updatedBy,
+                organizationId: id,
+                changes: updateOrganizationDto
+            }
         });
         return updatedOrg;
     }
@@ -17658,7 +20915,7 @@ let OrganizationsService = class OrganizationsService {
         await this.createAuditLog({
             organizationId: id,
             action: 'DELETE_ORGANIZATION',
-            details: { organizationId: id }
+            metadata: { organizationId: id }
         });
     }
     async addUser(id, addUserDto) {
@@ -17669,15 +20926,14 @@ let OrganizationsService = class OrganizationsService {
         }
         const user = this.userRepository.create(Object.assign(Object.assign({}, addUserDto), { organizationId: id, requirePasswordChange: true }));
         const savedUser = await this.userRepository.save(user);
-        await this.emailService.sendWelcomeEmail(savedUser.email, {
+        await this.sendWelcomeEmail(savedUser.email, {
             organizationName: organization.name,
             temporaryPassword: addUserDto.password
         });
         await this.createAuditLog({
             organizationId: id,
-            userId: savedUser.id,
             action: 'ADD_USER',
-            details: { userId: savedUser.id }
+            metadata: { userId: savedUser.id }
         });
         return savedUser;
     }
@@ -17691,9 +20947,8 @@ let OrganizationsService = class OrganizationsService {
         await this.userRepository.softDelete(userId);
         await this.createAuditLog({
             organizationId: id,
-            userId: userId,
             action: 'REMOVE_USER',
-            details: { userId }
+            metadata: { userId }
         });
     }
     async getAdminCount(organizationId) {
@@ -17719,7 +20974,7 @@ let OrganizationsService = class OrganizationsService {
         await this.createAuditLog({
             organizationId: id,
             action: 'UPDATE_SUBSCRIPTION',
-            details: { changes: updateSubscriptionDto }
+            metadata: { changes: updateSubscriptionDto }
         });
         return updatedOrg;
     }
@@ -17731,7 +20986,7 @@ let OrganizationsService = class OrganizationsService {
         const activeUsers = await this.userRepository.count({
             where: { organizationId: id, isActive: true }
         });
-        const storageUsed = await this.storageService.getUsage(id);
+        const storageUsed = await this.getStorageUsage(id);
         return {
             totalUsers,
             activeUsers,
@@ -17743,7 +20998,7 @@ let OrganizationsService = class OrganizationsService {
     }
     async verifyDomain(id, domain) {
         const organization = await this.findOne(id);
-        const isVerified = await this.domainVerificationService.verify(domain);
+        const isVerified = await this.verifyDomainOwnership(domain);
         if (isVerified) {
             organization.domain = domain;
             organization.isDomainVerified = true;
@@ -17751,7 +21006,7 @@ let OrganizationsService = class OrganizationsService {
             await this.createAuditLog({
                 organizationId: id,
                 action: 'VERIFY_DOMAIN',
-                details: { domain }
+                metadata: { domain }
             });
         }
         return isVerified;
@@ -17763,7 +21018,7 @@ let OrganizationsService = class OrganizationsService {
             queryBuilder.andWhere('audit_log.action = :action', { action: query.action });
         }
         if (query.userId) {
-            queryBuilder.andWhere('audit_log.userId = :userId', { userId: query.userId });
+            queryBuilder.andWhere('audit_log.metadata->\'userId\' = :userId', { userId: query.userId });
         }
         if (query.startDate && query.endDate) {
             queryBuilder.andWhere('audit_log.createdAt BETWEEN :startDate AND :endDate', {
@@ -17809,6 +21064,17 @@ let OrganizationsService = class OrganizationsService {
         const auditLog = this.auditLogRepository.create(data);
         await this.auditLogRepository.save(auditLog);
     }
+    async sendWelcomeEmail(email, data) {
+        console.log(`Sending welcome email to ${email} for organization ${data.organizationName}`);
+    }
+    async getStorageUsage(organizationId) {
+        console.log(`Getting storage usage for organization ${organizationId}`);
+        return 0;
+    }
+    async verifyDomainOwnership(domain) {
+        console.log(`Verifying domain ownership for ${domain}`);
+        return true;
+    }
 };
 OrganizationsService = __decorate([
     (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.Injectable)(),
@@ -17822,69 +21088,6 @@ OrganizationsService = __decorate([
         _shared_services_email_service__WEBPACK_IMPORTED_MODULE_9__.EmailService,
         _storage_services_storage_service__WEBPACK_IMPORTED_MODULE_10__.StorageService])
 ], OrganizationsService);
-
-
-
-/***/ }),
-
-/***/ "./src/modules/sms/sms.service.ts":
-/*!****************************************!*\
-  !*** ./src/modules/sms/sms.service.ts ***!
-  \****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   SmsService: () => (/* binding */ SmsService)
-/* harmony export */ });
-/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
-/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _nestjs_config__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nestjs/config */ "@nestjs/config");
-/* harmony import */ var _nestjs_config__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_config__WEBPACK_IMPORTED_MODULE_1__);
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var SmsService_1;
-
-
-let SmsService = SmsService_1 = class SmsService {
-    constructor(configService) {
-        this.configService = configService;
-        this.logger = new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.Logger(SmsService_1.name);
-    }
-    async sendAppointmentReminder(phoneNumber, data) {
-        try {
-            const message = this.formatReminderMessage(data);
-            await this.sendSms(phoneNumber, message);
-            this.logger.log(`Successfully sent SMS reminder to ${phoneNumber} for appointment ${data.appointmentId}`);
-        }
-        catch (error) {
-            this.logger.error(`Failed to send SMS reminder to ${phoneNumber}:`, error);
-            throw error;
-        }
-    }
-    async sendSms(to, message) {
-    }
-    formatReminderMessage(data) {
-        const date = data.dateTime.toLocaleDateString();
-        const time = data.dateTime.toLocaleTimeString([], {
-            hour: '2-digit',
-            minute: '2-digit'
-        });
-        return `Hi ${data.patientName}, this is a reminder of your appointment with ${data.organizationName} on ${date} at ${time}. Reply CONFIRM to confirm your attendance.`;
-    }
-};
-SmsService = SmsService_1 = __decorate([
-    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.Injectable)(),
-    __metadata("design:paramtypes", [_nestjs_config__WEBPACK_IMPORTED_MODULE_1__.ConfigService])
-], SmsService);
 
 
 
@@ -18084,14 +21287,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _auth_guards_jwt_auth_guard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../auth/guards/jwt-auth.guard */ "./src/modules/auth/guards/jwt-auth.guard.ts");
 /* harmony import */ var _auth_guards_roles_guard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../auth/guards/roles.guard */ "./src/modules/auth/guards/roles.guard.ts");
-/* harmony import */ var _common_decorators_roles_decorator__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../common/decorators/roles.decorator */ "./src/common/decorators/roles.decorator.ts");
-/* harmony import */ var _users_enums_role_enum__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../users/enums/role.enum */ "./src/modules/users/enums/role.enum.ts");
-/* harmony import */ var _services_tickets_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../services/tickets.service */ "./src/modules/tickets/services/tickets.service.ts");
-/* harmony import */ var _dto_create_ticket_dto__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../dto/create-ticket.dto */ "./src/modules/tickets/dto/create-ticket.dto.ts");
-/* harmony import */ var _dto_update_ticket_dto__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../dto/update-ticket.dto */ "./src/modules/tickets/dto/update-ticket.dto.ts");
-/* harmony import */ var _dto_ticket_comment_dto__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../dto/ticket-comment.dto */ "./src/modules/tickets/dto/ticket-comment.dto.ts");
-/* harmony import */ var _dto_ticket_assignment_dto__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../dto/ticket-assignment.dto */ "./src/modules/tickets/dto/ticket-assignment.dto.ts");
-/* harmony import */ var _dto_ticket_query_dto__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../dto/ticket-query.dto */ "./src/modules/tickets/dto/ticket-query.dto.ts");
+/* harmony import */ var _common_guards_organization_guard__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../common/guards/organization.guard */ "./src/common/guards/organization.guard.ts");
+/* harmony import */ var _common_decorators_roles_decorator__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../common/decorators/roles.decorator */ "./src/common/decorators/roles.decorator.ts");
+/* harmony import */ var _users_enums_role_enum__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../users/enums/role.enum */ "./src/modules/users/enums/role.enum.ts");
+/* harmony import */ var _services_tickets_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../services/tickets.service */ "./src/modules/tickets/services/tickets.service.ts");
+/* harmony import */ var _dto_create_ticket_dto__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../dto/create-ticket.dto */ "./src/modules/tickets/dto/create-ticket.dto.ts");
+/* harmony import */ var _dto_update_ticket_dto__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../dto/update-ticket.dto */ "./src/modules/tickets/dto/update-ticket.dto.ts");
+/* harmony import */ var _dto_ticket_comment_dto__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../dto/ticket-comment.dto */ "./src/modules/tickets/dto/ticket-comment.dto.ts");
+/* harmony import */ var _dto_ticket_assignment_dto__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../dto/ticket-assignment.dto */ "./src/modules/tickets/dto/ticket-assignment.dto.ts");
+/* harmony import */ var _dto_ticket_query_dto__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../dto/ticket-query.dto */ "./src/modules/tickets/dto/ticket-query.dto.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18104,7 +21308,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
-var _a, _b;
+
 
 
 
@@ -18151,7 +21355,7 @@ let TicketsController = class TicketsController {
         return this.ticketsService.addComment(id, Object.assign(Object.assign({}, commentDto), { organizationId: req.organization.id, userId: req.user.id }));
     }
     async assignTicket(id, assignmentDto, req) {
-        return this.ticketsService.assignTicket(id, Object.assign(Object.assign({}, assignmentDto), { organizationId: req.organization.id, assignedBy: req.user.id }));
+        return this.ticketsService.assignTicket(id, Object.assign(Object.assign({}, assignmentDto), { organizationId: req.organization.id, assignedBy: req.user.id, ticketIds: [id] }));
     }
     async escalateTicket(id, reason, req) {
         return this.ticketsService.escalateTicket(id, {
@@ -18189,7 +21393,7 @@ __decorate([
     __param(0, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Body)()),
     __param(1, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Request)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [_dto_create_ticket_dto__WEBPACK_IMPORTED_MODULE_7__.CreateTicketDto, Object]),
+    __metadata("design:paramtypes", [_dto_create_ticket_dto__WEBPACK_IMPORTED_MODULE_8__.CreateTicketDto, Object]),
     __metadata("design:returntype", Promise)
 ], TicketsController.prototype, "create", null);
 __decorate([
@@ -18200,7 +21404,7 @@ __decorate([
     __param(0, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Query)()),
     __param(1, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Request)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [_dto_ticket_query_dto__WEBPACK_IMPORTED_MODULE_11__.TicketQueryDto, Object]),
+    __metadata("design:paramtypes", [_dto_ticket_query_dto__WEBPACK_IMPORTED_MODULE_12__.TicketQueryDto, Object]),
     __metadata("design:returntype", Promise)
 ], TicketsController.prototype, "findAll", null);
 __decorate([
@@ -18217,11 +21421,11 @@ __decorate([
     (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Get)('assigned'),
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Get tickets assigned to current user' }),
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse)({ status: _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.OK, description: 'Return assigned tickets' }),
-    _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 200, type: Object }),
+    _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 200 }),
     __param(0, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Query)()),
     __param(1, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Request)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [_dto_ticket_query_dto__WEBPACK_IMPORTED_MODULE_11__.TicketQueryDto, Object]),
+    __metadata("design:paramtypes", [_dto_ticket_query_dto__WEBPACK_IMPORTED_MODULE_12__.TicketQueryDto, Object]),
     __metadata("design:returntype", Promise)
 ], TicketsController.prototype, "getAssignedTickets", null);
 __decorate([
@@ -18244,12 +21448,12 @@ __decorate([
     __param(1, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Body)()),
     __param(2, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Request)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, _dto_update_ticket_dto__WEBPACK_IMPORTED_MODULE_8__.UpdateTicketDto, Object]),
+    __metadata("design:paramtypes", [String, _dto_update_ticket_dto__WEBPACK_IMPORTED_MODULE_9__.UpdateTicketDto, Object]),
     __metadata("design:returntype", Promise)
 ], TicketsController.prototype, "update", null);
 __decorate([
     (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Delete)(':id'),
-    (0,_common_decorators_roles_decorator__WEBPACK_IMPORTED_MODULE_4__.Roles)(_users_enums_role_enum__WEBPACK_IMPORTED_MODULE_5__.Role.ADMIN),
+    (0,_common_decorators_roles_decorator__WEBPACK_IMPORTED_MODULE_5__.Roles)(_users_enums_role_enum__WEBPACK_IMPORTED_MODULE_6__.Role.ADMIN),
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Delete ticket' }),
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse)({ status: _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.NO_CONTENT, description: 'Ticket deleted successfully' }),
     _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 200 }),
@@ -18268,12 +21472,12 @@ __decorate([
     __param(1, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Body)()),
     __param(2, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Request)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, typeof (_a = typeof _dto_ticket_comment_dto__WEBPACK_IMPORTED_MODULE_9__.TicketCommentDto !== "undefined" && _dto_ticket_comment_dto__WEBPACK_IMPORTED_MODULE_9__.TicketCommentDto) === "function" ? _a : Object, Object]),
+    __metadata("design:paramtypes", [String, _dto_ticket_comment_dto__WEBPACK_IMPORTED_MODULE_10__.CreateTicketCommentDto, Object]),
     __metadata("design:returntype", Promise)
 ], TicketsController.prototype, "addComment", null);
 __decorate([
     (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Put)(':id/assign'),
-    (0,_common_decorators_roles_decorator__WEBPACK_IMPORTED_MODULE_4__.Roles)(_users_enums_role_enum__WEBPACK_IMPORTED_MODULE_5__.Role.ADMIN, _users_enums_role_enum__WEBPACK_IMPORTED_MODULE_5__.Role.STAFF),
+    (0,_common_decorators_roles_decorator__WEBPACK_IMPORTED_MODULE_5__.Roles)(_users_enums_role_enum__WEBPACK_IMPORTED_MODULE_6__.Role.ADMIN, _users_enums_role_enum__WEBPACK_IMPORTED_MODULE_6__.Role.STAFF),
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Assign ticket' }),
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse)({ status: _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.OK, description: 'Ticket assigned successfully' }),
     _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 200, type: (__webpack_require__(/*! ../entities/ticket.entity */ "./src/modules/tickets/entities/ticket.entity.ts").Ticket) }),
@@ -18281,12 +21485,12 @@ __decorate([
     __param(1, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Body)()),
     __param(2, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Request)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, typeof (_b = typeof _dto_ticket_assignment_dto__WEBPACK_IMPORTED_MODULE_10__.TicketAssignmentDto !== "undefined" && _dto_ticket_assignment_dto__WEBPACK_IMPORTED_MODULE_10__.TicketAssignmentDto) === "function" ? _b : Object, Object]),
+    __metadata("design:paramtypes", [String, _dto_ticket_assignment_dto__WEBPACK_IMPORTED_MODULE_11__.TicketAssignmentDto, Object]),
     __metadata("design:returntype", Promise)
 ], TicketsController.prototype, "assignTicket", null);
 __decorate([
     (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Post)(':id/escalate'),
-    (0,_common_decorators_roles_decorator__WEBPACK_IMPORTED_MODULE_4__.Roles)(_users_enums_role_enum__WEBPACK_IMPORTED_MODULE_5__.Role.ADMIN, _users_enums_role_enum__WEBPACK_IMPORTED_MODULE_5__.Role.STAFF),
+    (0,_common_decorators_roles_decorator__WEBPACK_IMPORTED_MODULE_5__.Roles)(_users_enums_role_enum__WEBPACK_IMPORTED_MODULE_6__.Role.ADMIN, _users_enums_role_enum__WEBPACK_IMPORTED_MODULE_6__.Role.STAFF),
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Escalate ticket' }),
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse)({ status: _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.OK, description: 'Ticket escalated successfully' }),
     _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 201, type: (__webpack_require__(/*! ../entities/ticket.entity */ "./src/modules/tickets/entities/ticket.entity.ts").Ticket) }),
@@ -18301,7 +21505,7 @@ __decorate([
     (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Post)(':id/resolve'),
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Resolve ticket' }),
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse)({ status: _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.OK, description: 'Ticket resolved successfully' }),
-    _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 201, type: Object }),
+    _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 201, type: (__webpack_require__(/*! ../entities/ticket.entity */ "./src/modules/tickets/entities/ticket.entity.ts").Ticket) }),
     __param(0, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Param)('id', _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.ParseUUIDPipe)),
     __param(1, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Body)('resolution')),
     __param(2, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Request)()),
@@ -18313,7 +21517,7 @@ __decorate([
     (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Post)(':id/reopen'),
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Reopen ticket' }),
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse)({ status: _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.OK, description: 'Ticket reopened successfully' }),
-    _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 201, type: Object }),
+    _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 201, type: (__webpack_require__(/*! ../entities/ticket.entity */ "./src/modules/tickets/entities/ticket.entity.ts").Ticket) }),
     __param(0, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Param)('id', _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.ParseUUIDPipe)),
     __param(1, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Body)('reason')),
     __param(2, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Request)()),
@@ -18346,9 +21550,9 @@ __decorate([
 TicketsController = __decorate([
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiTags)('Tickets'),
     (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Controller)('tickets'),
-    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.UseGuards)(_auth_guards_jwt_auth_guard__WEBPACK_IMPORTED_MODULE_2__.JwtAuthGuard, _auth_guards_roles_guard__WEBPACK_IMPORTED_MODULE_3__.RolesGuard),
+    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.UseGuards)(_auth_guards_jwt_auth_guard__WEBPACK_IMPORTED_MODULE_2__.JwtAuthGuard, _auth_guards_roles_guard__WEBPACK_IMPORTED_MODULE_3__.RolesGuard, _common_guards_organization_guard__WEBPACK_IMPORTED_MODULE_4__.OrganizationGuard),
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiBearerAuth)(),
-    __metadata("design:paramtypes", [_services_tickets_service__WEBPACK_IMPORTED_MODULE_6__.TicketsService])
+    __metadata("design:paramtypes", [_services_tickets_service__WEBPACK_IMPORTED_MODULE_7__.TicketsService])
 ], TicketsController);
 
 
@@ -18416,6 +21620,8 @@ var TicketStatus;
     TicketStatus["RESOLVED"] = "RESOLVED";
     TicketStatus["CLOSED"] = "CLOSED";
     TicketStatus["ESCALATED"] = "ESCALATED";
+    TicketStatus["REOPENED"] = "REOPENED";
+    TicketStatus["DELETED"] = "DELETED";
 })(TicketStatus || (TicketStatus = {}));
 var TicketSource;
 (function (TicketSource) {
@@ -18599,6 +21805,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   AssignmentType: () => (/* binding */ AssignmentType),
 /* harmony export */   BulkTicketAssignmentDto: () => (/* binding */ BulkTicketAssignmentDto),
 /* harmony export */   CreateTicketAssignmentDto: () => (/* binding */ CreateTicketAssignmentDto),
+/* harmony export */   TicketAssignmentDto: () => (/* binding */ TicketAssignmentDto),
 /* harmony export */   UpdateTicketAssignmentDto: () => (/* binding */ UpdateTicketAssignmentDto)
 /* harmony export */ });
 /* harmony import */ var _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/swagger */ "@nestjs/swagger");
@@ -18616,6 +21823,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -18664,6 +21872,28 @@ __decorate([
     (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
     __metadata("design:type", String)
 ], AssignmentNotification.prototype, "customMessage", void 0);
+class TicketAssignmentDto {
+    static _OPENAPI_METADATA_FACTORY() {
+        return { assigneeId: { required: true, type: () => String }, note: { required: false, type: () => String } };
+    }
+}
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)({
+        description: 'The ID of the user to assign the ticket to',
+        example: '123e4567-e89b-12d3-a456-426614174000'
+    }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsUUID)(),
+    __metadata("design:type", String)
+], TicketAssignmentDto.prototype, "assigneeId", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({
+        description: 'Optional note about the assignment',
+        example: 'Assigning to support team lead for escalated issue'
+    }),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    __metadata("design:type", String)
+], TicketAssignmentDto.prototype, "note", void 0);
 class AssignmentRules {
     constructor() {
         this.considerWorkload = true;
@@ -18842,39 +22072,38 @@ __decorate([
     __metadata("design:type", String)
 ], UpdateTicketAssignmentDto.prototype, "reason", void 0);
 class BulkTicketAssignmentDto {
-    constructor() {
-        this.continueOnError = false;
-    }
     static _OPENAPI_METADATA_FACTORY() {
-        return { ticketIds: { required: true, type: () => [String] }, assignment: { required: true, type: () => (__webpack_require__(/*! ./ticket-assignment.dto */ "./src/modules/tickets/dto/ticket-assignment.dto.ts").CreateTicketAssignmentDto) }, continueOnError: { required: false, type: () => Boolean, default: false } };
+        return { ticketIds: { required: true, type: () => [String] }, assigneeId: { required: true, type: () => String }, note: { required: false, type: () => String } };
     }
 }
 __decorate([
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)({
         description: 'Array of ticket IDs to assign',
+        example: ['123e4567-e89b-12d3-a456-426614174000', '123e4567-e89b-12d3-a456-426614174001'],
         type: [String]
     }),
     (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsArray)(),
     (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsUUID)('4', { each: true }),
+    ArrayMinSize(1),
     __metadata("design:type", Array)
 ], BulkTicketAssignmentDto.prototype, "ticketIds", void 0);
 __decorate([
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)({
-        description: 'Assignment details'
+        description: 'The ID of the user to assign the tickets to',
+        example: '123e4567-e89b-12d3-a456-426614174000'
     }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.ValidateNested)(),
-    (0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Type)(() => CreateTicketAssignmentDto),
-    __metadata("design:type", CreateTicketAssignmentDto)
-], BulkTicketAssignmentDto.prototype, "assignment", void 0);
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsUUID)(),
+    __metadata("design:type", String)
+], BulkTicketAssignmentDto.prototype, "assigneeId", void 0);
 __decorate([
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({
-        description: 'Whether to apply assignment even if some fail',
-        default: false
+        description: 'Optional note about the bulk assignment',
+        example: 'Assigning all pending tickets to the new support agent'
     }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsBoolean)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
     (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    __metadata("design:type", Boolean)
-], BulkTicketAssignmentDto.prototype, "continueOnError", void 0);
+    __metadata("design:type", String)
+], BulkTicketAssignmentDto.prototype, "note", void 0);
 class AssignmentResponseDto {
     static _OPENAPI_METADATA_FACTORY() {
         return { success: { required: true, type: () => Boolean }, ticketId: { required: true, type: () => String }, assigneeId: { required: true, type: () => String }, type: { required: true, enum: (__webpack_require__(/*! ./ticket-assignment.dto */ "./src/modules/tickets/dto/ticket-assignment.dto.ts").AssignmentType) }, error: { required: false, type: () => String }, timestamp: { required: true, type: () => Date }, details: { required: false, type: () => Object } };
@@ -18923,6 +22152,27 @@ __decorate([
     }),
     __metadata("design:type", Object)
 ], AssignmentResponseDto.prototype, "details", void 0);
+function ArrayMinSize(min, validationOptions) {
+    return function (object, propertyName) {
+        (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.registerDecorator)({
+            name: 'arrayMinSize',
+            target: object.constructor,
+            propertyName: propertyName,
+            options: validationOptions,
+            constraints: [min],
+            validator: {
+                validate(value, args) {
+                    const [minSize] = args.constraints;
+                    return Array.isArray(value) && value.length >= minSize;
+                },
+                defaultMessage(args) {
+                    const [minSize] = args.constraints;
+                    return `Array must contain at least ${minSize} elements`;
+                }
+            }
+        });
+    };
+}
 
 
 /***/ }),
@@ -18997,7 +22247,7 @@ __decorate([
 ], CommentAttachment.prototype, "fileUrl", void 0);
 class CreateTicketCommentDto {
     static _OPENAPI_METADATA_FACTORY() {
-        return { content: { required: true, type: () => String }, visibility: { required: false, enum: (__webpack_require__(/*! ./ticket-comment.dto */ "./src/modules/tickets/dto/ticket-comment.dto.ts").CommentVisibility) }, parentId: { required: false, type: () => String }, attachments: { required: false, type: () => [(__webpack_require__(/*! ./ticket-comment.dto */ "./src/modules/tickets/dto/ticket-comment.dto.ts").CommentAttachment)] }, mentionedUserIds: { required: false, type: () => [String] }, sendNotifications: { required: false, type: () => Boolean } };
+        return { content: { required: true, type: () => String }, isInternal: { required: true, type: () => Boolean }, visibility: { required: false, enum: (__webpack_require__(/*! ./ticket-comment.dto */ "./src/modules/tickets/dto/ticket-comment.dto.ts").CommentVisibility) }, parentId: { required: false, type: () => String }, attachments: { required: false, type: () => [(__webpack_require__(/*! ./ticket-comment.dto */ "./src/modules/tickets/dto/ticket-comment.dto.ts").CommentAttachment)] }, mentionedUserIds: { required: false, type: () => [String] }, sendNotifications: { required: false, type: () => Boolean } };
     }
 }
 __decorate([
@@ -19240,11 +22490,12 @@ var SortOrder;
 })(SortOrder || (SortOrder = {}));
 class TicketQueryDto {
     constructor() {
-        this.limit = 20;
+        this.page = 1;
+        this.limit = 10;
         this.offset = 0;
     }
     static _OPENAPI_METADATA_FACTORY() {
-        return { searchTerm: { required: false, type: () => String }, status: { required: false, type: () => [String] }, priority: { required: false, type: () => [String] }, category: { required: false, type: () => [String] }, assigneeIds: { required: false, type: () => [String] }, creatorIds: { required: false, type: () => [String] }, tags: { required: false, type: () => [String] }, createdAfter: { required: false, type: () => Date }, createdBefore: { required: false, type: () => Date }, updatedAfter: { required: false, type: () => Date }, updatedBefore: { required: false, type: () => Date }, dueDateStart: { required: false, type: () => Date }, dueDateEnd: { required: false, type: () => Date }, includeArchived: { required: false, type: () => Boolean }, hasUnreadUpdates: { required: false, type: () => Boolean }, hasAttachments: { required: false, type: () => Boolean }, sortField: { required: false, enum: (__webpack_require__(/*! ./ticket-query.dto */ "./src/modules/tickets/dto/ticket-query.dto.ts").TicketSortField) }, sortOrder: { required: false, enum: (__webpack_require__(/*! ./ticket-query.dto */ "./src/modules/tickets/dto/ticket-query.dto.ts").SortOrder) }, limit: { required: false, type: () => Number, default: 20, minimum: 1, maximum: 100 }, offset: { required: false, type: () => Number, default: 0, minimum: 0 }, customFields: { required: false, type: () => Object }, relatedTicketIds: { required: false, type: () => [String] }, requiresAttention: { required: false, type: () => Boolean }, hasSlaBreach: { required: false, type: () => Boolean }, slaStatus: { required: false, type: () => [String] }, fields: { required: false, type: () => [String] } };
+        return { searchTerm: { required: false, type: () => String }, priority: { required: false, type: () => String }, type: { required: false, type: () => String }, assigneeId: { required: false, type: () => String }, contactId: { required: false, type: () => String }, departmentId: { required: false, type: () => String }, search: { required: false, type: () => String }, startDate: { required: false, type: () => String }, endDate: { required: false, type: () => String }, page: { required: false, type: () => Number, default: 1, minimum: 1 }, limit: { required: false, type: () => Number, default: 10, minimum: 1 }, status: { required: false, type: () => [String] }, category: { required: false, type: () => [String] }, assigneeIds: { required: false, type: () => [String] }, creatorIds: { required: false, type: () => [String] }, tags: { required: false, type: () => [String] }, createdAfter: { required: false, type: () => Date }, createdBefore: { required: false, type: () => Date }, updatedAfter: { required: false, type: () => Date }, updatedBefore: { required: false, type: () => Date }, dueDateStart: { required: false, type: () => Date }, dueDateEnd: { required: false, type: () => Date }, includeArchived: { required: false, type: () => Boolean }, hasUnreadUpdates: { required: false, type: () => Boolean }, hasAttachments: { required: false, type: () => Boolean }, sortField: { required: false, enum: (__webpack_require__(/*! ./ticket-query.dto */ "./src/modules/tickets/dto/ticket-query.dto.ts").TicketSortField) }, sortOrder: { required: false, enum: (__webpack_require__(/*! ./ticket-query.dto */ "./src/modules/tickets/dto/ticket-query.dto.ts").SortOrder) }, offset: { required: false, type: () => Number, default: 0, minimum: 1, maximum: 100 }, customFields: { required: false, type: () => Object }, relatedTicketIds: { required: false, type: () => [String] }, requiresAttention: { required: false, type: () => Boolean }, hasSlaBreach: { required: false, type: () => Boolean }, slaStatus: { required: false, type: () => [String] }, fields: { required: false, type: () => [String] } };
     }
 }
 __decorate([
@@ -19256,6 +22507,58 @@ __decorate([
     (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
     __metadata("design:type", String)
 ], TicketQueryDto.prototype, "searchTerm", void 0);
+__decorate([
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
+    __metadata("design:type", String)
+], TicketQueryDto.prototype, "priority", void 0);
+__decorate([
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
+    __metadata("design:type", String)
+], TicketQueryDto.prototype, "type", void 0);
+__decorate([
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsUUID)(),
+    __metadata("design:type", String)
+], TicketQueryDto.prototype, "assigneeId", void 0);
+__decorate([
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsUUID)(),
+    __metadata("design:type", String)
+], TicketQueryDto.prototype, "contactId", void 0);
+__decorate([
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsUUID)(),
+    __metadata("design:type", String)
+], TicketQueryDto.prototype, "departmentId", void 0);
+__decorate([
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
+    __metadata("design:type", String)
+], TicketQueryDto.prototype, "search", void 0);
+__decorate([
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    __metadata("design:type", String)
+], TicketQueryDto.prototype, "startDate", void 0);
+__decorate([
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    __metadata("design:type", String)
+], TicketQueryDto.prototype, "endDate", void 0);
+__decorate([
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Type)(() => Number),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsInt)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.Min)(1),
+    __metadata("design:type", Number)
+], TicketQueryDto.prototype, "page", void 0);
+__decorate([
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
+    (0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Type)(() => Number),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsInt)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.Min)(1),
+    __metadata("design:type", Number)
+], TicketQueryDto.prototype, "limit", void 0);
 __decorate([
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({
         description: 'Filter tickets by status',
@@ -19276,9 +22579,6 @@ __decorate([
     (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
     (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsArray)(),
     (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)({ each: true }),
-    __metadata("design:type", Array)
-], TicketQueryDto.prototype, "priority", void 0);
-__decorate([
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({
         description: 'Filter tickets by category',
         isArray: true,
@@ -19438,9 +22738,6 @@ __decorate([
     (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsInt)(),
     (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.Min)(1),
     (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.Max)(100),
-    __metadata("design:type", Number)
-], TicketQueryDto.prototype, "limit", void 0);
-__decorate([
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({
         description: 'Number of tickets to skip',
         minimum: 0,
@@ -19603,7 +22900,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 let TicketActivity = class TicketActivity {
     static _OPENAPI_METADATA_FACTORY() {
-        return { id: { required: true, type: () => String }, ticketId: { required: true, type: () => String }, ticket: { required: true, type: () => (__webpack_require__(/*! ./ticket.entity */ "./src/modules/tickets/entities/ticket.entity.ts").Ticket) }, performedById: { required: true, type: () => String }, performedBy: { required: true, type: () => (__webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts").User) }, type: { required: true, enum: (__webpack_require__(/*! ../enums/ticket-activity-type.enum */ "./src/modules/tickets/enums/ticket-activity-type.enum.ts").TicketActivityType) }, data: { required: true, type: () => Object }, metadata: { required: false, type: () => Object }, timestamp: { required: true, type: () => Date }, ipAddress: { required: false, type: () => String }, userAgent: { required: false, type: () => String }, changes: { required: false }, tags: { required: false, type: () => [String] }, parentActivityId: { required: false, type: () => String }, parentActivity: { required: false, type: () => (__webpack_require__(/*! ./ticket-activity.entity */ "./src/modules/tickets/entities/ticket-activity.entity.ts").TicketActivity) }, context: { required: false, type: () => ({ location: { required: false, type: () => String }, deviceInfo: { required: false, type: () => String }, sessionId: { required: false, type: () => String }, referrer: { required: false, type: () => String } }) }, isSystem: { required: true, type: () => Boolean }, isAutomated: { required: true, type: () => Boolean }, requiresAttention: { required: true, type: () => Boolean }, expiresAt: { required: false, type: () => Date }, relatedEntities: { required: false }, duration: { required: false, type: () => Number }, status: { required: false, type: () => String }, importance: { required: true, type: () => Number }, isHidden: { required: true, type: () => Boolean }, customFields: { required: false, type: () => Object }, createdAt: { required: true, type: () => Date }, updatedAt: { required: true, type: () => Date }, processedAt: { required: false, type: () => Date }, categories: { required: false, type: () => [String] }, validationResults: { required: false, type: () => ({ isValid: { required: true, type: () => Boolean }, errors: { required: false, type: () => [String] }, warnings: { required: false, type: () => [String] } }) }, metrics: { required: false, type: () => ({ responseTime: { required: false, type: () => Number }, resourceUsage: { required: false, type: () => Object }, performance: { required: false, type: () => Object } }) }, securityContext: { required: false, type: () => ({ permissions: { required: false, type: () => [String] }, roles: { required: false, type: () => [String] }, accessLevel: { required: false, type: () => String }, authenticationType: { required: false, type: () => String } }) }, businessContext: { required: false, type: () => ({ department: { required: false, type: () => String }, costCenter: { required: false, type: () => String }, projectCode: { required: false, type: () => String }, priority: { required: false, type: () => String } }) }, audit: { required: false, type: () => ({ version: { required: true, type: () => Number }, changedBy: { required: true, type: () => String }, changedAt: { required: true, type: () => Date }, reason: { required: false, type: () => String } }) } };
+        return { id: { required: true, type: () => String }, organizationId: { required: true, type: () => String }, userId: { required: true, type: () => String }, action: { required: true, type: () => String }, details: { required: true, type: () => Object }, ticketId: { required: true, type: () => String }, ticket: { required: true, type: () => (__webpack_require__(/*! ./ticket.entity */ "./src/modules/tickets/entities/ticket.entity.ts").Ticket) }, performedById: { required: true, type: () => String }, performedBy: { required: true, type: () => (__webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts").User) }, type: { required: true, enum: (__webpack_require__(/*! ../enums/ticket-activity-type.enum */ "./src/modules/tickets/enums/ticket-activity-type.enum.ts").TicketActivityType) }, data: { required: true, type: () => Object }, metadata: { required: false, type: () => Object }, timestamp: { required: true, type: () => Date }, ipAddress: { required: false, type: () => String }, userAgent: { required: false, type: () => String }, changes: { required: false }, tags: { required: false, type: () => [String] }, parentActivityId: { required: false, type: () => String }, parentActivity: { required: false, type: () => (__webpack_require__(/*! ./ticket-activity.entity */ "./src/modules/tickets/entities/ticket-activity.entity.ts").TicketActivity) }, context: { required: false, type: () => ({ location: { required: false, type: () => String }, deviceInfo: { required: false, type: () => String }, sessionId: { required: false, type: () => String }, referrer: { required: false, type: () => String } }) }, isSystem: { required: true, type: () => Boolean }, isAutomated: { required: true, type: () => Boolean }, requiresAttention: { required: true, type: () => Boolean }, expiresAt: { required: false, type: () => Date }, relatedEntities: { required: false }, duration: { required: false, type: () => Number }, status: { required: false, type: () => String }, importance: { required: true, type: () => Number }, isHidden: { required: true, type: () => Boolean }, customFields: { required: false, type: () => Object }, createdAt: { required: true, type: () => Date }, updatedAt: { required: true, type: () => Date }, processedAt: { required: false, type: () => Date }, categories: { required: false, type: () => [String] }, validationResults: { required: false, type: () => ({ isValid: { required: true, type: () => Boolean }, errors: { required: false, type: () => [String] }, warnings: { required: false, type: () => [String] } }) }, metrics: { required: false, type: () => ({ responseTime: { required: false, type: () => Number }, resourceUsage: { required: false, type: () => Object }, performance: { required: false, type: () => Object } }) }, securityContext: { required: false, type: () => ({ permissions: { required: false, type: () => [String] }, roles: { required: false, type: () => [String] }, accessLevel: { required: false, type: () => String }, authenticationType: { required: false, type: () => String } }) }, businessContext: { required: false, type: () => ({ department: { required: false, type: () => String }, costCenter: { required: false, type: () => String }, projectCode: { required: false, type: () => String }, priority: { required: false, type: () => String } }) }, audit: { required: false, type: () => ({ version: { required: true, type: () => Number }, changedBy: { required: true, type: () => String }, changedAt: { required: true, type: () => Date }, reason: { required: false, type: () => String } }) } };
     }
 };
 __decorate([
@@ -19802,7 +23099,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 let TicketAttachment = class TicketAttachment {
     static _OPENAPI_METADATA_FACTORY() {
-        return { id: { required: true, type: () => String }, fileName: { required: true, type: () => String }, fileSize: { required: true, type: () => Number }, mimeType: { required: true, type: () => String }, storageKey: { required: true, type: () => String }, description: { required: true, type: () => String }, ticketId: { required: true, type: () => String }, ticket: { required: true, type: () => (__webpack_require__(/*! ./ticket.entity */ "./src/modules/tickets/entities/ticket.entity.ts").Ticket) }, commentId: { required: true, type: () => String }, comment: { required: true, type: () => (__webpack_require__(/*! ./ticket-comment.entity */ "./src/modules/tickets/entities/ticket-comment.entity.ts").TicketComment) }, uploadedById: { required: true, type: () => String }, uploadedBy: { required: true, type: () => (__webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts").User) }, metadata: { required: true, type: () => Object }, createdAt: { required: true, type: () => Date }, isPrivate: { required: true, type: () => Boolean }, isActive: { required: true, type: () => Boolean } };
+        return { id: { required: true, type: () => String }, organizationId: { required: true, type: () => String }, fileName: { required: true, type: () => String }, fileSize: { required: true, type: () => Number }, mimeType: { required: true, type: () => String }, storageKey: { required: true, type: () => String }, description: { required: true, type: () => String }, ticketId: { required: true, type: () => String }, ticket: { required: true, type: () => (__webpack_require__(/*! ./ticket.entity */ "./src/modules/tickets/entities/ticket.entity.ts").Ticket) }, commentId: { required: true, type: () => String }, comment: { required: true, type: () => (__webpack_require__(/*! ./ticket-comment.entity */ "./src/modules/tickets/entities/ticket-comment.entity.ts").TicketComment) }, uploadedById: { required: true, type: () => String }, uploadedBy: { required: true, type: () => (__webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts").User) }, metadata: { required: true, type: () => Object }, createdAt: { required: true, type: () => Date }, isPrivate: { required: true, type: () => Boolean }, isActive: { required: true, type: () => Boolean } };
     }
 };
 __decorate([
@@ -19914,7 +23211,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 let TicketComment = class TicketComment {
     static _OPENAPI_METADATA_FACTORY() {
-        return { id: { required: true, type: () => String }, content: { required: true, type: () => String }, isInternal: { required: true, type: () => Boolean }, ticketId: { required: true, type: () => String }, ticket: { required: true, type: () => (__webpack_require__(/*! ./ticket.entity */ "./src/modules/tickets/entities/ticket.entity.ts").Ticket) }, authorId: { required: true, type: () => String }, author: { required: true, type: () => (__webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts").User) }, attachments: { required: true, type: () => [(__webpack_require__(/*! ./ticket-attachment.entity */ "./src/modules/tickets/entities/ticket-attachment.entity.ts").TicketAttachment)] }, parentId: { required: true, type: () => String }, parent: { required: true, type: () => (__webpack_require__(/*! ./ticket-comment.entity */ "./src/modules/tickets/entities/ticket-comment.entity.ts").TicketComment) }, metadata: { required: true, type: () => Object }, createdAt: { required: true, type: () => Date }, updatedAt: { required: true, type: () => Date }, editedAt: { required: true, type: () => Date }, editedBy: { required: true, type: () => String } };
+        return { id: { required: true, type: () => String }, organizationId: { required: true, type: () => String }, userId: { required: true, type: () => String }, content: { required: true, type: () => String }, isInternal: { required: true, type: () => Boolean }, ticketId: { required: true, type: () => String }, ticket: { required: true, type: () => (__webpack_require__(/*! ./ticket.entity */ "./src/modules/tickets/entities/ticket.entity.ts").Ticket) }, authorId: { required: true, type: () => String }, author: { required: true, type: () => (__webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts").User) }, attachments: { required: true, type: () => [(__webpack_require__(/*! ./ticket-attachment.entity */ "./src/modules/tickets/entities/ticket-attachment.entity.ts").TicketAttachment)] }, parentId: { required: true, type: () => String }, parent: { required: true, type: () => (__webpack_require__(/*! ./ticket-comment.entity */ "./src/modules/tickets/entities/ticket-comment.entity.ts").TicketComment) }, metadata: { required: true, type: () => Object }, createdAt: { required: true, type: () => Date }, updatedAt: { required: true, type: () => Date }, editedAt: { required: true, type: () => Date }, editedBy: { required: true, type: () => String } };
     }
 };
 __decorate([
@@ -20392,6 +23689,9 @@ var TicketActivityType;
     TicketActivityType["STATUS_CHANGED"] = "status_changed";
     TicketActivityType["PRIORITY_CHANGED"] = "priority_changed";
     TicketActivityType["CATEGORY_CHANGED"] = "category_changed";
+    TicketActivityType["ESCALATION"] = "ESCALATION";
+    TicketActivityType["RESPONSE"] = "RESPONSE";
+    TicketActivityType["RESOLUTION"] = "RESOLUTION";
     TicketActivityType["ASSIGNED"] = "assigned";
     TicketActivityType["UNASSIGNED"] = "unassigned";
     TicketActivityType["SELF_ASSIGNED"] = "self_assigned";
@@ -20464,6 +23764,29 @@ var TicketActivityType;
 
 /***/ }),
 
+/***/ "./src/modules/tickets/enums/ticket-status.enum.ts":
+/*!*********************************************************!*\
+  !*** ./src/modules/tickets/enums/ticket-status.enum.ts ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   TicketStatus: () => (/* binding */ TicketStatus)
+/* harmony export */ });
+var TicketStatus;
+(function (TicketStatus) {
+    TicketStatus["NEW"] = "NEW";
+    TicketStatus["OPEN"] = "OPEN";
+    TicketStatus["IN_PROGRESS"] = "IN_PROGRESS";
+    TicketStatus["RESOLVED"] = "RESOLVED";
+    TicketStatus["CLOSED"] = "CLOSED";
+})(TicketStatus || (TicketStatus = {}));
+
+
+/***/ }),
+
 /***/ "./src/modules/tickets/listeners/ticket-assignment.listener.ts":
 /*!*********************************************************************!*\
   !*** ./src/modules/tickets/listeners/ticket-assignment.listener.ts ***!
@@ -20523,7 +23846,7 @@ let TicketAssignmentListener = class TicketAssignmentListener {
     async createAssignmentActivity(event) {
         const activity = this.activityRepository.create({
             ticketId: event.ticketId,
-            type: _enums_ticket_activity_type_enum__WEBPACK_IMPORTED_MODULE_8__.TicketActivityType.ASSIGNMENT,
+            type: _enums_ticket_activity_type_enum__WEBPACK_IMPORTED_MODULE_8__.TicketActivityType.ASSIGNED,
             metadata: {
                 previousAssigneeId: event.previousAssigneeId,
                 newAssigneeId: event.newAssigneeId,
@@ -20589,14 +23912,18 @@ let TicketAssignmentListener = class TicketAssignmentListener {
         }
     }
     async findAvailableAgent(organizationId, priority) {
-        return this.usersService.findAvailableAgent(organizationId, priority);
+        const supportAgents = await this.usersService.findByRole('SUPPORT', organizationId);
+        if (!supportAgents || supportAgents.length === 0) {
+            return null;
+        }
+        return supportAgents[0];
     }
     async handleAgentAvailabilityChange(payload) {
         if (!payload.isAvailable) {
             const assignedTickets = await this.ticketRepository.find({
                 where: {
                     assigneeId: payload.userId,
-                    status: ['OPEN', 'IN_PROGRESS']
+                    status: (0,typeorm__WEBPACK_IMPORTED_MODULE_3__.In)(['OPEN', 'IN_PROGRESS'])
                 }
             });
             for (const ticket of assignedTickets) {
@@ -20656,8 +23983,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nestjs/event-emitter */ "@nestjs/event-emitter");
 /* harmony import */ var _nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _services_ticket_escalation_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/ticket-escalation.service */ "./src/modules/tickets/services/ticket-escalation.service.ts");
+/* harmony import */ var _services_tickets_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/tickets.service */ "./src/modules/tickets/services/tickets.service.ts");
 /* harmony import */ var _notifications_services_notifications_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../notifications/services/notifications.service */ "./src/modules/notifications/services/notifications.service.ts");
+/* harmony import */ var _users_services_users_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../users/services/users.service */ "./src/modules/users/services/users.service.ts");
+/* harmony import */ var _users_enums_role_enum__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../users/enums/role.enum */ "./src/modules/users/enums/role.enum.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -20671,81 +24000,106 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
+
 let TicketEscalationListener = class TicketEscalationListener {
-    constructor(escalationService, notificationsService) {
-        this.escalationService = escalationService;
+    constructor(ticketsService, notificationsService, usersService) {
+        this.ticketsService = ticketsService;
         this.notificationsService = notificationsService;
+        this.usersService = usersService;
     }
-    async handleTicketActivity(event) {
-        await this.escalationService.checkSlaBreachEscalation(event.ticketId);
-    }
-    async handleTicketUpdate(payload) {
-        if (payload.changes.priority) {
-            await this.escalationService.checkSlaBreachEscalation(payload.ticketId);
+    async handleSlaBreachEvent(payload) {
+        const { ticketId, organizationId, slaType, elapsedTime } = payload;
+        const ticket = await this.ticketsService.findOne(ticketId, organizationId);
+        const admins = await this.findAdmins(organizationId);
+        if (admins.length === 0) {
+            console.warn('No admins to notify for SLA breach');
+            return;
+        }
+        const typeMessage = slaType === 'response'
+            ? 'Response time SLA breached'
+            : 'Resolution time SLA breached';
+        const formattedTime = this.formatElapsedTime(elapsedTime);
+        for (const admin of admins) {
+            await this.notificationsService.create({
+                type: 'SLA_BREACH',
+                title: `${typeMessage} for Ticket #${ticket.referenceNumber}`,
+                content: `${typeMessage} (${formattedTime}) for Ticket #${ticket.referenceNumber}`,
+                priority: 'HIGH',
+                recipients: [{ userId: admin.id }],
+                organizationId: organizationId,
+                senderId: 'system'
+            });
         }
     }
-    async handleSlaBreached(payload) {
-        await this.notificationsService.send({
-            type: 'TICKET_SLA_BREACH',
-            title: `SLA Breached for Ticket #${payload.ticketId}`,
-            message: `${payload.slaType.toUpperCase()} SLA has been breached. Elapsed time: ${payload.elapsedTime} hours`,
-            data: {
-                ticketId: payload.ticketId,
-                slaType: payload.slaType,
-                elapsedTime: payload.elapsedTime
-            }
-        });
+    async handleEscalationLevelChanged(payload) {
+        const { ticketId, organizationId, previousLevel, newLevel } = payload;
+        const ticket = await this.ticketsService.findOne(ticketId, organizationId);
+        const admins = await this.findAdmins(organizationId);
+        if (admins.length === 0) {
+            console.warn('No admins to notify for escalation level change');
+            return;
+        }
+        for (const admin of admins) {
+            await this.notificationsService.create({
+                type: 'ESCALATION_LEVEL_CHANGED',
+                title: `Ticket #${ticket.referenceNumber} Escalation Level Changed`,
+                content: `Ticket #${ticket.referenceNumber} escalation level changed from ${previousLevel} to ${newLevel}`,
+                priority: 'MEDIUM',
+                recipients: [{ userId: admin.id }],
+                organizationId: organizationId,
+                senderId: 'system'
+            });
+        }
     }
-    async handleTicketEscalated(payload) {
-        await this.notificationsService.send({
-            type: 'TICKET_ESCALATED',
-            title: `Ticket #${payload.ticketId} Escalated`,
-            message: `Ticket has been escalated from level ${payload.previousLevel} to level ${payload.newLevel}`,
-            data: {
-                ticketId: payload.ticketId,
-                previousLevel: payload.previousLevel,
-                newLevel: payload.newLevel
-            }
-        });
+    async findAdmins(organizationId) {
+        try {
+            const result = await this.usersService.findAll({
+                organizationId,
+                role: _users_enums_role_enum__WEBPACK_IMPORTED_MODULE_5__.Role.ADMIN,
+                isActive: true,
+                page: 1,
+                limit: 50
+            });
+            return result.items;
+        }
+        catch (error) {
+            console.error('Error finding admin users:', error);
+            return [];
+        }
     }
-    async handleHourlyCheck() {
-        await this.escalationService.checkTicketsForEscalation();
+    formatElapsedTime(milliseconds) {
+        const seconds = Math.floor(milliseconds / 1000);
+        const minutes = Math.floor(seconds / 60);
+        const hours = Math.floor(minutes / 60);
+        if (hours > 0) {
+            return `${hours}h ${minutes % 60}m`;
+        }
+        else if (minutes > 0) {
+            return `${minutes}m ${seconds % 60}s`;
+        }
+        else {
+            return `${seconds}s`;
+        }
     }
 };
 __decorate([
-    (0,_nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_1__.OnEvent)('ticket.activity.created'),
+    (0,_nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_1__.OnEvent)('ticket.sla.breach'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
-], TicketEscalationListener.prototype, "handleTicketActivity", null);
+], TicketEscalationListener.prototype, "handleSlaBreachEvent", null);
 __decorate([
-    (0,_nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_1__.OnEvent)('ticket.updated'),
+    (0,_nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_1__.OnEvent)('ticket.escalation.levelchanged'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
-], TicketEscalationListener.prototype, "handleTicketUpdate", null);
-__decorate([
-    (0,_nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_1__.OnEvent)('ticket.sla.breached'),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", Promise)
-], TicketEscalationListener.prototype, "handleSlaBreached", null);
-__decorate([
-    (0,_nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_1__.OnEvent)('ticket.escalated'),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", Promise)
-], TicketEscalationListener.prototype, "handleTicketEscalated", null);
-__decorate([
-    (0,_nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_1__.OnEvent)('cron.hourly'),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", Promise)
-], TicketEscalationListener.prototype, "handleHourlyCheck", null);
+], TicketEscalationListener.prototype, "handleEscalationLevelChanged", null);
 TicketEscalationListener = __decorate([
     (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.Injectable)(),
-    __metadata("design:paramtypes", [_services_ticket_escalation_service__WEBPACK_IMPORTED_MODULE_2__.TicketEscalationService,
-        _notifications_services_notifications_service__WEBPACK_IMPORTED_MODULE_3__.NotificationsService])
+    __metadata("design:paramtypes", [_services_tickets_service__WEBPACK_IMPORTED_MODULE_2__.TicketsService,
+        _notifications_services_notifications_service__WEBPACK_IMPORTED_MODULE_3__.NotificationsService,
+        _users_services_users_service__WEBPACK_IMPORTED_MODULE_4__.UsersService])
 ], TicketEscalationListener);
 
 
@@ -20771,6 +24125,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_ticket_activity_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/ticket-activity.service */ "./src/modules/tickets/services/ticket-activity.service.ts");
 /* harmony import */ var _notifications_services_notifications_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../notifications/services/notifications.service */ "./src/modules/notifications/services/notifications.service.ts");
 /* harmony import */ var _modules_notifications_dto_create_notification_dto__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/modules/notifications/dto/create-notification.dto */ "./src/modules/notifications/dto/create-notification.dto.ts");
+/* harmony import */ var _users_services_users_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../users/services/users.service */ "./src/modules/users/services/users.service.ts");
+/* harmony import */ var _users_enums_role_enum__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../users/enums/role.enum */ "./src/modules/users/enums/role.enum.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -20786,10 +24142,13 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
+
 let TicketListener = class TicketListener {
-    constructor(activityService, notificationsService) {
+    constructor(activityService, notificationsService, usersService) {
         this.activityService = activityService;
         this.notificationsService = notificationsService;
+        this.usersService = usersService;
     }
     async handleTicketCreated(ticket) {
         await this.activityService.recordActivity({
@@ -20815,19 +24174,38 @@ let TicketListener = class TicketListener {
         await this.activityService.recordActivity({
             ticketId: ticket.id,
             organizationId: ticket.organizationId,
-            userId: ticket.escalatedById,
+            userId: ticket.escalatedById || '',
             action: 'ESCALATED',
-            details: { reason },
+            details: { status: ticket.status },
         });
-        await this.notificationsService.create({
-            type: _modules_notifications_dto_create_notification_dto__WEBPACK_IMPORTED_MODULE_5__.NotificationType.TICKET_ESCALATED,
-            title: 'Ticket Escalated',
-            content: `Ticket #${ticket.referenceNumber} has been escalated: ${reason}`,
-            priority: _modules_notifications_dto_create_notification_dto__WEBPACK_IMPORTED_MODULE_5__.NotificationPriority.HIGH,
-            recipients: [{ role: 'ADMIN' }],
-            organizationId: ticket.organizationId,
-            senderId: ticket.escalatedById,
-        });
+        const adminUsers = await this.findAdminUsers(ticket.organizationId);
+        if (adminUsers.length > 0) {
+            await this.notificationsService.create({
+                type: _modules_notifications_dto_create_notification_dto__WEBPACK_IMPORTED_MODULE_5__.NotificationType.TICKET_ESCALATED,
+                title: 'Ticket Escalated',
+                content: `Ticket #${ticket.referenceNumber} has been escalated: ${reason}`,
+                priority: _modules_notifications_dto_create_notification_dto__WEBPACK_IMPORTED_MODULE_5__.NotificationPriority.HIGH,
+                recipients: adminUsers.map((admin) => ({ userId: admin.id })),
+                organizationId: ticket.organizationId,
+                senderId: ticket.escalatedById || '',
+            });
+        }
+    }
+    async findAdminUsers(organizationId) {
+        try {
+            const result = await this.usersService.findAll({
+                organizationId,
+                role: _users_enums_role_enum__WEBPACK_IMPORTED_MODULE_7__.Role.ADMIN,
+                isActive: true,
+                page: 1,
+                limit: 50
+            });
+            return result.items.map(user => ({ id: user.id }));
+        }
+        catch (error) {
+            console.error('Error finding admin users:', error);
+            return [];
+        }
     }
 };
 __decorate([
@@ -20845,7 +24223,8 @@ __decorate([
 TicketListener = __decorate([
     (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.Injectable)(),
     __metadata("design:paramtypes", [_services_ticket_activity_service__WEBPACK_IMPORTED_MODULE_3__.TicketActivityService,
-        _notifications_services_notifications_service__WEBPACK_IMPORTED_MODULE_4__.NotificationsService])
+        _notifications_services_notifications_service__WEBPACK_IMPORTED_MODULE_4__.NotificationsService,
+        _users_services_users_service__WEBPACK_IMPORTED_MODULE_6__.UsersService])
 ], TicketListener);
 
 
@@ -21050,7 +24429,7 @@ let TicketActivityService = TicketActivityService_1 = class TicketActivityServic
             const activities = await this.activityRepository.find({
                 where: {
                     ticketId,
-                    timestamp: { $between: [startDate, endDate] }
+                    timestamp: Between(startDate, endDate)
                 },
                 relations: ['performedBy'],
                 order: { timestamp: 'ASC' }
@@ -21106,6 +24485,9 @@ TicketActivityService = TicketActivityService_1 = __decorate([
         _nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_3__.EventEmitter2])
 ], TicketActivityService);
 
+function Between(startDate, endDate) {
+    throw new Error('Function not implemented.');
+}
 
 
 /***/ }),
@@ -21132,8 +24514,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _entities_ticket_entity__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../entities/ticket.entity */ "./src/modules/tickets/entities/ticket.entity.ts");
 /* harmony import */ var _entities_ticket_activity_entity__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../entities/ticket-activity.entity */ "./src/modules/tickets/entities/ticket-activity.entity.ts");
 /* harmony import */ var _enums_ticket_activity_type_enum__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../enums/ticket-activity-type.enum */ "./src/modules/tickets/enums/ticket-activity-type.enum.ts");
-/* harmony import */ var _notifications_services_notifications_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../notifications/services/notifications.service */ "./src/modules/notifications/services/notifications.service.ts");
-/* harmony import */ var _organizations_services_organizations_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../organizations/services/organizations.service */ "./src/modules/organizations/services/organizations.service.ts");
+/* harmony import */ var _enums_ticket_status_enum__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../enums/ticket-status.enum */ "./src/modules/tickets/enums/ticket-status.enum.ts");
+/* harmony import */ var _notifications_services_notifications_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../notifications/services/notifications.service */ "./src/modules/notifications/services/notifications.service.ts");
+/* harmony import */ var _organizations_services_organizations_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../organizations/services/organizations.service */ "./src/modules/organizations/services/organizations.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -21147,6 +24530,7 @@ var __param = (undefined && undefined.__param) || function (paramIndex, decorato
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 var TicketEscalationService_1;
+
 
 
 
@@ -21221,21 +24605,32 @@ let TicketEscalationService = TicketEscalationService_1 = class TicketEscalation
     async checkTicketsForEscalation() {
         const unresolved = await this.ticketRepository.find({
             where: {
-                status: ['OPEN', 'IN_PROGRESS'],
-                escalationLevel: (0,typeorm__WEBPACK_IMPORTED_MODULE_2__.LessThan)(3)
+                status: (0,typeorm__WEBPACK_IMPORTED_MODULE_2__.In)([_enums_ticket_status_enum__WEBPACK_IMPORTED_MODULE_7__.TicketStatus.OPEN, _enums_ticket_status_enum__WEBPACK_IMPORTED_MODULE_7__.TicketStatus.IN_PROGRESS])
             },
-            relations: ['assignee', 'organization']
+            relations: ['assignee', 'organization', 'activities']
         });
         for (const ticket of unresolved) {
-            await this.checkTicketEscalation(ticket);
+            const currentLevel = this.getCurrentEscalationLevel(ticket);
+            if (currentLevel < 3) {
+                await this.checkTicketEscalation(ticket);
+            }
         }
+    }
+    getCurrentEscalationLevel(ticket) {
+        var _a, _b;
+        const escalationActivities = ((_a = ticket.activities) === null || _a === void 0 ? void 0 : _a.filter(activity => activity.type === _enums_ticket_activity_type_enum__WEBPACK_IMPORTED_MODULE_6__.TicketActivityType.ESCALATION)) || [];
+        if (escalationActivities.length > 0) {
+            const latestEscalation = escalationActivities.sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime())[0];
+            return ((_b = latestEscalation.metadata) === null || _b === void 0 ? void 0 : _b.newLevel) || 0;
+        }
+        return 0;
     }
     async checkTicketEscalation(ticket) {
         const rule = this.escalationRules[ticket.priority];
         if (!rule)
             return;
         const timeElapsed = this.getHoursElapsed(ticket.createdAt);
-        const currentLevel = ticket.escalationLevel || 0;
+        const currentLevel = this.getCurrentEscalationLevel(ticket);
         const nextEscalation = rule.escalationLevels.find(level => level.level === currentLevel + 1 && timeElapsed >= level.timeThreshold);
         if (nextEscalation) {
             await this.escalateTicket(ticket, nextEscalation);
@@ -21243,19 +24638,17 @@ let TicketEscalationService = TicketEscalationService_1 = class TicketEscalation
     }
     async escalateTicket(ticket, escalation) {
         try {
-            await this.ticketRepository.update(ticket.id, {
-                escalationLevel: escalation.level
-            });
-            const activity = this.activityRepository.create({
+            const activityData = {
                 ticket,
                 type: _enums_ticket_activity_type_enum__WEBPACK_IMPORTED_MODULE_6__.TicketActivityType.ESCALATION,
-                description: `Ticket escalated to level ${escalation.level}`,
                 metadata: {
-                    previousLevel: ticket.escalationLevel,
+                    description: `Ticket escalated to level ${escalation.level}`,
+                    previousLevel: this.getCurrentEscalationLevel(ticket),
                     newLevel: escalation.level,
                     reason: 'SLA breach'
                 }
-            });
+            };
+            const activity = this.activityRepository.create(activityData);
             await this.activityRepository.save(activity);
             await this.notifyEscalation(ticket, escalation);
         }
@@ -21264,19 +24657,37 @@ let TicketEscalationService = TicketEscalationService_1 = class TicketEscalation
         }
     }
     async notifyEscalation(ticket, escalation) {
-        const staff = await this.organizationsService.getStaffByRoles(ticket.organizationId, escalation.notifyRoles);
-        for (const user of staff) {
-            await this.notificationsService.send({
-                userId: user.id,
-                type: 'TICKET_ESCALATION',
-                title: `Ticket #${ticket.id} Escalated`,
-                message: `Ticket has been escalated to level ${escalation.level}`,
-                data: {
-                    ticketId: ticket.id,
-                    escalationLevel: escalation.level,
-                    priority: ticket.priority
-                }
-            });
+        try {
+            const staff = await this.getOrganizationStaffByRoles(ticket.organizationId, escalation.notifyRoles);
+            for (const user of staff) {
+                await this.notificationsService.send({
+                    userId: user.id,
+                    type: 'TICKET_ESCALATION',
+                    title: `Ticket #${ticket.id} Escalated`,
+                    message: `Ticket has been escalated to level ${escalation.level}`,
+                    data: {
+                        ticketId: ticket.id,
+                        escalationLevel: escalation.level,
+                        priority: ticket.priority
+                    }
+                });
+            }
+        }
+        catch (error) {
+            this.logger.error(`Failed to notify escalation for ticket ${ticket.id}:`, error);
+        }
+    }
+    async getOrganizationStaffByRoles(organizationId, roles) {
+        try {
+            const organization = await this.organizationsService.findOne(organizationId);
+            if (!organization)
+                return [];
+            const staff = organization.staff || [];
+            return staff.filter((member) => roles.includes(member.role));
+        }
+        catch (error) {
+            this.logger.error(`Failed to get staff for organization ${organizationId}:`, error);
+            return [];
         }
     }
     getHoursElapsed(date) {
@@ -21313,12 +24724,15 @@ let TicketEscalationService = TicketEscalationService_1 = class TicketEscalation
     }
     async checkSlaBreachEscalation(ticketId) {
         const slaStatus = await this.getTicketSlaStatus(ticketId);
-        const ticket = await this.ticketRepository.findOneBy({ id: ticketId });
+        const ticket = await this.ticketRepository.findOne({
+            where: { id: ticketId },
+            relations: ['activities']
+        });
         if (!ticket)
             return;
         if (slaStatus.responseTime.breached || slaStatus.resolutionTime.breached) {
             const rule = this.escalationRules[ticket.priority];
-            const currentLevel = ticket.escalationLevel || 0;
+            const currentLevel = this.getCurrentEscalationLevel(ticket);
             const nextLevel = rule.escalationLevels.find(level => level.level === currentLevel + 1);
             if (nextLevel) {
                 await this.escalateTicket(ticket, nextLevel);
@@ -21332,8 +24746,8 @@ TicketEscalationService = TicketEscalationService_1 = __decorate([
     __param(1, (0,_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__.InjectRepository)(_entities_ticket_activity_entity__WEBPACK_IMPORTED_MODULE_5__.TicketActivity)),
     __metadata("design:paramtypes", [typeorm__WEBPACK_IMPORTED_MODULE_2__.Repository,
         typeorm__WEBPACK_IMPORTED_MODULE_2__.Repository,
-        _notifications_services_notifications_service__WEBPACK_IMPORTED_MODULE_7__.NotificationsService,
-        _organizations_services_organizations_service__WEBPACK_IMPORTED_MODULE_8__.OrganizationsService,
+        _notifications_services_notifications_service__WEBPACK_IMPORTED_MODULE_8__.NotificationsService,
+        _organizations_services_organizations_service__WEBPACK_IMPORTED_MODULE_9__.OrganizationsService,
         _nestjs_config__WEBPACK_IMPORTED_MODULE_3__.ConfigService])
 ], TicketEscalationService);
 
@@ -21366,8 +24780,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _entities_ticket_activity_entity__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../entities/ticket-activity.entity */ "./src/modules/tickets/entities/ticket-activity.entity.ts");
 /* harmony import */ var _dto_create_ticket_dto__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../dto/create-ticket.dto */ "./src/modules/tickets/dto/create-ticket.dto.ts");
 /* harmony import */ var _notifications_services_notifications_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../notifications/services/notifications.service */ "./src/modules/notifications/services/notifications.service.ts");
-/* harmony import */ var nestjs_typeorm_paginate__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! nestjs-typeorm-paginate */ "../node_modules/nestjs-typeorm-paginate/dist/index.js");
-/* harmony import */ var nestjs_typeorm_paginate__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(nestjs_typeorm_paginate__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _users_entities_user_entity__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts");
+/* harmony import */ var nestjs_typeorm_paginate__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! nestjs-typeorm-paginate */ "nestjs-typeorm-paginate");
+/* harmony import */ var nestjs_typeorm_paginate__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(nestjs_typeorm_paginate__WEBPACK_IMPORTED_MODULE_11__);
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -21391,35 +24806,76 @@ var __param = (undefined && undefined.__param) || function (paramIndex, decorato
 
 
 
+
 let TicketsService = class TicketsService {
-    constructor(ticketRepository, commentRepository, attachmentRepository, activityRepository, dataSource, eventEmitter, notificationsService) {
+    constructor(ticketRepository, commentRepository, attachmentRepository, activityRepository, dataSource, userRepository, eventEmitter, notificationsService) {
         this.ticketRepository = ticketRepository;
         this.commentRepository = commentRepository;
         this.attachmentRepository = attachmentRepository;
         this.activityRepository = activityRepository;
         this.dataSource = dataSource;
+        this.userRepository = userRepository;
         this.eventEmitter = eventEmitter;
         this.notificationsService = notificationsService;
     }
+    async getRelatedTickets(ticketId, organizationId) {
+        return [];
+    }
+    async remove(id, organizationId) {
+        const ticket = await this.findOne(id, organizationId);
+        ticket.status = _dto_create_ticket_dto__WEBPACK_IMPORTED_MODULE_8__.TicketStatus.DELETED;
+        ticket.deletedAt = new Date();
+        await this.ticketRepository.save(ticket);
+    }
+    async reopenTicket(id, reopenDetails) {
+        const ticket = await this.ticketRepository.findOne({ where: { id, organizationId: reopenDetails.organizationId } });
+        if (!ticket) {
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.NotFoundException('Ticket not found');
+        }
+        ticket.status = _dto_create_ticket_dto__WEBPACK_IMPORTED_MODULE_8__.TicketStatus.REOPENED;
+        ticket.reopenReason = reopenDetails.reason;
+        const reopenedByUser = await this.userRepository.findOne({ where: { id: reopenDetails.reopenedBy } });
+        if (!reopenedByUser) {
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.NotFoundException('User not found');
+        }
+        ticket.reopenedBy = reopenedByUser;
+        await this.ticketRepository.save(ticket);
+        return ticket;
+    }
     async create(data) {
-        var _a;
+        var _a, _b;
         const queryRunner = this.dataSource.createQueryRunner();
         await queryRunner.connect();
         await queryRunner.startTransaction();
         try {
-            const ticket = this.ticketRepository.create(Object.assign(Object.assign({}, data), { status: _dto_create_ticket_dto__WEBPACK_IMPORTED_MODULE_8__.TicketStatus.OPEN }));
-            await queryRunner.manager.save(ticket);
-            if ((_a = data.attachments) === null || _a === void 0 ? void 0 : _a.length) {
-                const attachments = data.attachments.map(attachment => this.attachmentRepository.create(Object.assign(Object.assign({}, attachment), { ticketId: ticket.id, organizationId: data.organizationId, uploadedById: data.createdBy })));
-                await queryRunner.manager.save(_entities_ticket_attachment_entity__WEBPACK_IMPORTED_MODULE_6__.TicketAttachment, attachments);
+            const createdByUser = await this.userRepository.findOne({ where: { id: data.createdBy } });
+            if (!createdByUser) {
+                throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.NotFoundException('User not found');
             }
-            const activity = this.activityRepository.create({
-                ticketId: ticket.id,
-                organizationId: data.organizationId,
-                userId: data.createdBy,
-                action: 'CREATED',
-                details: { status: ticket.status },
-            });
+            const ticket = this.ticketRepository.create(Object.assign(Object.assign({}, data), { status: _dto_create_ticket_dto__WEBPACK_IMPORTED_MODULE_8__.TicketStatus.OPEN, createdBy: createdByUser, attachments: (_a = data.attachments) === null || _a === void 0 ? void 0 : _a.map(attachmentData => {
+                    const attachment = new _entities_ticket_attachment_entity__WEBPACK_IMPORTED_MODULE_6__.TicketAttachment();
+                    Object.assign(attachment, attachmentData);
+                    attachment.organizationId = data.organizationId;
+                    attachment.uploadedById = data.createdBy;
+                    return attachment;
+                }) }));
+            await queryRunner.manager.save(ticket);
+            if ((_b = data.attachments) === null || _b === void 0 ? void 0 : _b.length) {
+                for (const attachmentData of data.attachments) {
+                    const attachment = new _entities_ticket_attachment_entity__WEBPACK_IMPORTED_MODULE_6__.TicketAttachment();
+                    Object.assign(attachment, attachmentData);
+                    attachment.ticketId = ticket.id;
+                    attachment.organizationId = data.organizationId;
+                    attachment.uploadedById = data.createdBy;
+                    await queryRunner.manager.save(attachment);
+                }
+            }
+            const activity = new _entities_ticket_activity_entity__WEBPACK_IMPORTED_MODULE_7__.TicketActivity();
+            activity.ticketId = ticket.id;
+            activity.organizationId = data.organizationId;
+            activity.userId = data.createdBy;
+            activity.action = 'CREATED';
+            activity.details = { status: ticket.status };
             await queryRunner.manager.save(activity);
             await queryRunner.commitTransaction();
             if (ticket.assigneeId) {
@@ -21427,7 +24883,7 @@ let TicketsService = class TicketsService {
                     type: 'TICKET_ASSIGNED',
                     title: 'New Ticket Assigned',
                     content: `Ticket #${ticket.referenceNumber} has been assigned to you: ${ticket.title}`,
-                    recipients: [{ userId: ticket.assigneeId }],
+                    recipients: ticket.assigneeId ? [{ userId: ticket.assigneeId }] : [],
                     organizationId: data.organizationId,
                     senderId: data.createdBy,
                 });
@@ -21479,20 +24935,20 @@ let TicketsService = class TicketsService {
             queryBuilder.andWhere('ticket.createdAt <= :endDate', { endDate });
         }
         queryBuilder.orderBy('ticket.createdAt', 'DESC');
-        return (0,nestjs_typeorm_paginate__WEBPACK_IMPORTED_MODULE_10__.paginate)(queryBuilder, { page, limit });
+        return (0,nestjs_typeorm_paginate__WEBPACK_IMPORTED_MODULE_11__.paginate)(queryBuilder, { page, limit });
     }
     async findOne(id, organizationId) {
-        const ticket = await this.ticketRepository.findOne({
-            where: { id, organizationId },
-            relations: [
-                'assignee',
-                'contact',
-                'department',
-                'comments',
-                'attachments',
-                'activities',
-            ],
-        });
+        const ticket = await this.ticketRepository
+            .createQueryBuilder('ticket')
+            .where('ticket.id = :id', { id })
+            .andWhere('ticket.organizationId = :organizationId', { organizationId })
+            .leftJoinAndSelect('ticket.assignee', 'assignee')
+            .leftJoinAndSelect('ticket.contact', 'contact')
+            .leftJoinAndSelect('ticket.department', 'department')
+            .leftJoinAndSelect('ticket.comments', 'comments')
+            .leftJoinAndSelect('ticket.attachments', 'attachments')
+            .leftJoinAndSelect('ticket.activities', 'activities')
+            .getOne();
         if (!ticket) {
             throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.NotFoundException('Ticket not found');
         }
@@ -21508,24 +24964,23 @@ let TicketsService = class TicketsService {
             Object.assign(ticket, data);
             await queryRunner.manager.save(ticket);
             if (data.status && data.status !== oldStatus) {
-                const activity = this.activityRepository.create({
-                    ticketId: ticket.id,
-                    organizationId: data.organizationId,
-                    userId: data.updatedBy,
-                    action: 'STATUS_CHANGED',
-                    details: {
-                        oldStatus,
-                        newStatus: data.status,
-                        note: data.statusNote,
-                    },
-                });
+                const activity = new _entities_ticket_activity_entity__WEBPACK_IMPORTED_MODULE_7__.TicketActivity();
+                activity.ticketId = ticket.id;
+                activity.organizationId = data.organizationId;
+                activity.userId = data.updatedBy;
+                activity.action = 'STATUS_CHANGED';
+                activity.details = {
+                    oldStatus,
+                    newStatus: data.status,
+                    note: data.statusNote,
+                };
                 await queryRunner.manager.save(activity);
                 if (ticket.assigneeId) {
                     await this.notificationsService.create({
                         type: 'TICKET_STATUS_CHANGED',
                         title: 'Ticket Status Updated',
                         content: `Ticket #${ticket.referenceNumber} status changed to ${data.status}`,
-                        recipients: [{ userId: ticket.assigneeId }],
+                        recipients: ticket.assigneeId ? [{ userId: ticket.assigneeId }] : [],
                         organizationId: data.organizationId,
                         senderId: data.updatedBy,
                     });
@@ -21547,17 +25002,17 @@ let TicketsService = class TicketsService {
         const oldAssigneeId = ticket.assigneeId;
         ticket.assigneeId = data.assigneeId;
         await this.ticketRepository.save(ticket);
-        await this.activityRepository.save({
-            ticketId: ticket.id,
-            organizationId: data.organizationId,
-            userId: data.assignedBy,
-            action: 'ASSIGNED',
-            details: {
-                oldAssigneeId,
-                newAssigneeId: data.assigneeId,
-                note: data.note,
-            },
-        });
+        const activity = new _entities_ticket_activity_entity__WEBPACK_IMPORTED_MODULE_7__.TicketActivity();
+        activity.ticketId = ticket.id;
+        activity.organizationId = data.organizationId;
+        activity.userId = data.assignedBy;
+        activity.action = 'ASSIGNED';
+        activity.details = {
+            oldAssigneeId,
+            newAssigneeId: data.assigneeId,
+            note: data.note,
+        };
+        await this.activityRepository.save(activity);
         await this.notificationsService.create({
             type: 'TICKET_ASSIGNED',
             title: 'Ticket Assigned',
@@ -21570,23 +25025,27 @@ let TicketsService = class TicketsService {
     }
     async addComment(id, data) {
         const ticket = await this.findOne(id, data.organizationId);
-        const comment = this.commentRepository.create(Object.assign(Object.assign({}, data), { ticketId: ticket.id }));
+        const comment = new _entities_ticket_comment_entity__WEBPACK_IMPORTED_MODULE_5__.TicketComment();
+        Object.assign(comment, data);
+        comment.ticketId = ticket.id;
+        comment.organizationId = data.organizationId;
+        comment.userId = data.userId;
         await this.commentRepository.save(comment);
         ticket.lastActivityAt = new Date();
         await this.ticketRepository.save(ticket);
-        await this.activityRepository.save({
-            ticketId: ticket.id,
-            organizationId: data.organizationId,
-            userId: data.userId,
-            action: 'COMMENTED',
-            details: { commentId: comment.id },
-        });
+        const activity = new _entities_ticket_activity_entity__WEBPACK_IMPORTED_MODULE_7__.TicketActivity();
+        activity.ticketId = ticket.id;
+        activity.organizationId = data.organizationId;
+        activity.userId = data.userId;
+        activity.action = 'COMMENTED';
+        activity.details = { commentId: comment.id };
+        await this.activityRepository.save(activity);
         if (data.isInternal && ticket.assigneeId !== data.userId) {
             await this.notificationsService.create({
                 type: 'TICKET_INTERNAL_NOTE',
                 title: 'New Internal Note',
                 content: `New internal note added to ticket #${ticket.referenceNumber}`,
-                recipients: [{ userId: ticket.assigneeId }],
+                recipients: ticket.assigneeId ? [{ userId: ticket.assigneeId }] : [],
                 organizationId: data.organizationId,
                 senderId: data.userId,
             });
@@ -21600,30 +25059,93 @@ let TicketsService = class TicketsService {
         ticket.escalatedById = data.escalatedBy;
         ticket.escalationReason = data.reason;
         await this.ticketRepository.save(ticket);
-        await this.activityRepository.save({
-            ticketId: ticket.id,
-            organizationId: data.organizationId,
-            userId: data.escalatedBy,
-            action: 'ESCALATED',
-            details: { reason: data.reason },
-        });
+        const activity = new _entities_ticket_activity_entity__WEBPACK_IMPORTED_MODULE_7__.TicketActivity();
+        activity.ticketId = ticket.id;
+        activity.organizationId = data.organizationId;
+        activity.userId = data.escalatedBy;
+        activity.action = 'ESCALATED';
+        activity.details = { reason: data.reason };
+        await this.activityRepository.save(activity);
         await this.notificationsService.create({
             type: 'TICKET_ESCALATED',
             title: 'Ticket Escalated',
             content: `Ticket #${ticket.referenceNumber} has been escalated: ${data.reason}`,
             priority: 'HIGH',
-            recipients: [{ role: 'ADMIN' }],
+            recipients: [{ userId: 'ADMIN_USER_ID' }],
             organizationId: data.organizationId,
             senderId: data.escalatedBy,
         });
         return ticket;
     }
+    async resolveTicket(id, data) {
+        const ticket = await this.findOne(id, data.organizationId);
+        ticket.status = _dto_create_ticket_dto__WEBPACK_IMPORTED_MODULE_8__.TicketStatus.RESOLVED;
+        ticket.resolvedAt = new Date();
+        ticket.resolvedById = data.resolvedBy;
+        ticket.resolution = data.resolution;
+        await this.ticketRepository.save(ticket);
+        const activity = new _entities_ticket_activity_entity__WEBPACK_IMPORTED_MODULE_7__.TicketActivity();
+        activity.ticketId = ticket.id;
+        activity.organizationId = data.organizationId;
+        activity.userId = data.resolvedBy;
+        activity.action = 'RESOLVED';
+        activity.details = { resolution: data.resolution };
+        await this.activityRepository.save(activity);
+        if (ticket.createdById !== data.resolvedBy) {
+            await this.notificationsService.create({
+                type: 'TICKET_RESOLVED',
+                title: 'Ticket Resolved',
+                content: `Your ticket #${ticket.referenceNumber} has been resolved`,
+                recipients: [{ userId: ticket.createdById }],
+                organizationId: data.organizationId,
+                senderId: data.resolvedBy,
+            });
+        }
+        return ticket;
+    }
+    async getAssignedTickets(query) {
+        const { organizationId, userId, status, priority, type, contactId, departmentId, search, startDate, endDate, page = 1, limit = 10, } = query;
+        const queryBuilder = this.ticketRepository
+            .createQueryBuilder('ticket')
+            .where('ticket.organizationId = :organizationId', { organizationId })
+            .andWhere('ticket.assigneeId = :assigneeId', { assigneeId: userId })
+            .leftJoinAndSelect('ticket.contact', 'contact')
+            .leftJoinAndSelect('ticket.department', 'department');
+        if (status) {
+            queryBuilder.andWhere('ticket.status = :status', { status });
+        }
+        if (priority) {
+            queryBuilder.andWhere('ticket.priority = :priority', { priority });
+        }
+        if (type) {
+            queryBuilder.andWhere('ticket.type = :type', { type });
+        }
+        if (contactId) {
+            queryBuilder.andWhere('ticket.contactId = :contactId', { contactId });
+        }
+        if (departmentId) {
+            queryBuilder.andWhere('ticket.departmentId = :departmentId', { departmentId });
+        }
+        if (search) {
+            queryBuilder.andWhere('(LOWER(ticket.title) LIKE LOWER(:search) OR LOWER(ticket.description) LIKE LOWER(:search) OR ticket.referenceNumber LIKE :search)', { search: `%${search}%` });
+        }
+        if (startDate) {
+            queryBuilder.andWhere('ticket.createdAt >= :startDate', { startDate });
+        }
+        if (endDate) {
+            queryBuilder.andWhere('ticket.createdAt <= :endDate', { endDate });
+        }
+        queryBuilder.orderBy('ticket.createdAt', 'DESC');
+        return (0,nestjs_typeorm_paginate__WEBPACK_IMPORTED_MODULE_11__.paginate)(queryBuilder, { page, limit });
+    }
     async getTimeline(id, organizationId) {
-        const activities = await this.activityRepository.find({
-            where: { ticketId: id, organizationId },
-            relations: ['user'],
-            order: { createdAt: 'DESC' },
-        });
+        const activities = await this.activityRepository
+            .createQueryBuilder('activity')
+            .where('activity.ticketId = :ticketId', { ticketId: id })
+            .andWhere('activity.organizationId = :organizationId', { organizationId })
+            .leftJoinAndSelect('activity.user', 'user')
+            .orderBy('activity.createdAt', 'DESC')
+            .getMany();
         return activities;
     }
     async getDashboard(organizationId) {
@@ -21651,11 +25173,13 @@ TicketsService = __decorate([
     __param(1, (0,_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__.InjectRepository)(_entities_ticket_comment_entity__WEBPACK_IMPORTED_MODULE_5__.TicketComment)),
     __param(2, (0,_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__.InjectRepository)(_entities_ticket_attachment_entity__WEBPACK_IMPORTED_MODULE_6__.TicketAttachment)),
     __param(3, (0,_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__.InjectRepository)(_entities_ticket_activity_entity__WEBPACK_IMPORTED_MODULE_7__.TicketActivity)),
+    __param(5, (0,_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__.InjectRepository)(_users_entities_user_entity__WEBPACK_IMPORTED_MODULE_10__.User)),
     __metadata("design:paramtypes", [typeorm__WEBPACK_IMPORTED_MODULE_2__.Repository,
         typeorm__WEBPACK_IMPORTED_MODULE_2__.Repository,
         typeorm__WEBPACK_IMPORTED_MODULE_2__.Repository,
         typeorm__WEBPACK_IMPORTED_MODULE_2__.Repository,
         typeorm__WEBPACK_IMPORTED_MODULE_2__.DataSource,
+        typeorm__WEBPACK_IMPORTED_MODULE_2__.Repository,
         _nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_3__.EventEmitter2,
         _notifications_services_notifications_service__WEBPACK_IMPORTED_MODULE_9__.NotificationsService])
 ], TicketsService);
@@ -21781,7 +25305,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _auth_guards_jwt_auth_guard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../auth/guards/jwt-auth.guard */ "./src/modules/auth/guards/jwt-auth.guard.ts");
 /* harmony import */ var _auth_guards_roles_guard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../auth/guards/roles.guard */ "./src/modules/auth/guards/roles.guard.ts");
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../auth/decorators/roles.decorator'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var _auth_decorators_roles_decorator__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../auth/decorators/roles.decorator */ "./src/modules/auth/decorators/roles.decorator.ts");
 /* harmony import */ var _enums_role_enum__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../enums/role.enum */ "./src/modules/users/enums/role.enum.ts");
 /* harmony import */ var _services_users_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../services/users.service */ "./src/modules/users/services/users.service.ts");
 /* harmony import */ var _dto_create_user_dto__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../dto/create-user.dto */ "./src/modules/users/dto/create-user.dto.ts");
@@ -21819,21 +25343,51 @@ let UsersController = class UsersController {
         this.usersService = usersService;
     }
     async create(createUserDto, req) {
+        if (!req.organization) {
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.ForbiddenException('Organization context is required');
+        }
+        if (!req.user) {
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.ForbiddenException('User context is required');
+        }
         return this.usersService.create(Object.assign(Object.assign({}, createUserDto), { organizationId: req.organization.id, createdBy: req.user.id }));
     }
     async findAll(query, req) {
+        if (!req.organization) {
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.ForbiddenException('Organization context is required');
+        }
         return this.usersService.findAll(Object.assign(Object.assign({}, query), { organizationId: req.organization.id }));
     }
     async getProfile(req) {
+        if (!req.organization) {
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.ForbiddenException('Organization context is required');
+        }
+        if (!req.user) {
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.ForbiddenException('User context is required');
+        }
         return this.usersService.findOne(req.user.id, req.organization.id);
     }
     async updateProfile(updateProfileDto, req) {
+        if (!req.organization) {
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.ForbiddenException('Organization context is required');
+        }
+        if (!req.user) {
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.ForbiddenException('User context is required');
+        }
         return this.usersService.updateProfile(req.user.id, Object.assign(Object.assign({}, updateProfileDto), { organizationId: req.organization.id }));
     }
     async updatePassword(updatePasswordDto, req) {
+        if (!req.organization) {
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.ForbiddenException('Organization context is required');
+        }
+        if (!req.user) {
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.ForbiddenException('User context is required');
+        }
         return this.usersService.updatePassword(req.user.id, Object.assign(Object.assign({}, updatePasswordDto), { organizationId: req.organization.id }));
     }
     async findOne(id, req) {
+        if (!req.organization) {
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.ForbiddenException('Organization context is required');
+        }
         const user = await this.usersService.findOne(id, req.organization.id);
         if (!user) {
             throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.NotFoundException('User not found');
@@ -21841,6 +25395,12 @@ let UsersController = class UsersController {
         return user;
     }
     async update(id, updateUserDto, req) {
+        if (!req.organization) {
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.ForbiddenException('Organization context is required');
+        }
+        if (!req.user) {
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.ForbiddenException('User context is required');
+        }
         if (updateUserDto.role && updateUserDto.role !== _enums_role_enum__WEBPACK_IMPORTED_MODULE_5__.Role.ADMIN) {
             const admins = await this.usersService.getAdminCount(req.organization.id);
             if (admins === 1) {
@@ -21853,6 +25413,9 @@ let UsersController = class UsersController {
         return this.usersService.update(id, Object.assign(Object.assign({}, updateUserDto), { organizationId: req.organization.id, updatedBy: req.user.id }));
     }
     async remove(id, req) {
+        if (!req.organization) {
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.ForbiddenException('Organization context is required');
+        }
         const user = await this.usersService.findOne(id, req.organization.id);
         if (user.role === _enums_role_enum__WEBPACK_IMPORTED_MODULE_5__.Role.ADMIN) {
             const admins = await this.usersService.getAdminCount(req.organization.id);
@@ -21863,9 +25426,15 @@ let UsersController = class UsersController {
         await this.usersService.remove(id, req.organization.id);
     }
     async activate(id, req) {
+        if (!req.organization) {
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.ForbiddenException('Organization context is required');
+        }
         return this.usersService.activate(id, req.organization.id);
     }
     async deactivate(id, req) {
+        if (!req.organization) {
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.ForbiddenException('Organization context is required');
+        }
         const user = await this.usersService.findOne(id, req.organization.id);
         if (user.role === _enums_role_enum__WEBPACK_IMPORTED_MODULE_5__.Role.ADMIN) {
             const admins = await this.usersService.getAdminCount(req.organization.id);
@@ -21876,15 +25445,21 @@ let UsersController = class UsersController {
         return this.usersService.deactivate(id, req.organization.id);
     }
     async getActivity(id, query, req) {
+        if (!req.organization) {
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.ForbiddenException('Organization context is required');
+        }
         return this.usersService.getActivity(id, Object.assign(Object.assign({}, query), { organizationId: req.organization.id }));
     }
     async getPermissions(id, req) {
+        if (!req.organization) {
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.ForbiddenException('Organization context is required');
+        }
         return this.usersService.getPermissions(id, req.organization.id);
     }
 };
 __decorate([
     (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Post)(),
-    Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../auth/decorators/roles.decorator'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_enums_role_enum__WEBPACK_IMPORTED_MODULE_5__.Role.ADMIN),
+    (0,_auth_decorators_roles_decorator__WEBPACK_IMPORTED_MODULE_4__.Roles)(_enums_role_enum__WEBPACK_IMPORTED_MODULE_5__.Role.ADMIN),
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Create new user' }),
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse)({ status: _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.CREATED, description: 'User created successfully' }),
     _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 201, type: (__webpack_require__(/*! ../entities/user.entity */ "./src/modules/users/entities/user.entity.ts").User) }),
@@ -21896,7 +25471,7 @@ __decorate([
 ], UsersController.prototype, "create", null);
 __decorate([
     (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Get)(),
-    Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../auth/decorators/roles.decorator'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_enums_role_enum__WEBPACK_IMPORTED_MODULE_5__.Role.ADMIN),
+    (0,_auth_decorators_roles_decorator__WEBPACK_IMPORTED_MODULE_4__.Roles)(_enums_role_enum__WEBPACK_IMPORTED_MODULE_5__.Role.ADMIN),
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Get all users' }),
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse)({ status: _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.OK, description: 'Return all users' }),
     _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 200 }),
@@ -21940,7 +25515,7 @@ __decorate([
 ], UsersController.prototype, "updatePassword", null);
 __decorate([
     (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Get)(':id'),
-    Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../auth/decorators/roles.decorator'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_enums_role_enum__WEBPACK_IMPORTED_MODULE_5__.Role.ADMIN),
+    (0,_auth_decorators_roles_decorator__WEBPACK_IMPORTED_MODULE_4__.Roles)(_enums_role_enum__WEBPACK_IMPORTED_MODULE_5__.Role.ADMIN),
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Get user by id' }),
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse)({ status: _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.OK, description: 'Return user details' }),
     _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 200, type: (__webpack_require__(/*! ../entities/user.entity */ "./src/modules/users/entities/user.entity.ts").User) }),
@@ -21952,7 +25527,7 @@ __decorate([
 ], UsersController.prototype, "findOne", null);
 __decorate([
     (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Put)(':id'),
-    Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../auth/decorators/roles.decorator'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_enums_role_enum__WEBPACK_IMPORTED_MODULE_5__.Role.ADMIN),
+    (0,_auth_decorators_roles_decorator__WEBPACK_IMPORTED_MODULE_4__.Roles)(_enums_role_enum__WEBPACK_IMPORTED_MODULE_5__.Role.ADMIN),
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Update user' }),
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse)({ status: _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.OK, description: 'User updated successfully' }),
     _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 200, type: (__webpack_require__(/*! ../entities/user.entity */ "./src/modules/users/entities/user.entity.ts").User) }),
@@ -21965,7 +25540,7 @@ __decorate([
 ], UsersController.prototype, "update", null);
 __decorate([
     (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Delete)(':id'),
-    Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../auth/decorators/roles.decorator'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_enums_role_enum__WEBPACK_IMPORTED_MODULE_5__.Role.ADMIN),
+    (0,_auth_decorators_roles_decorator__WEBPACK_IMPORTED_MODULE_4__.Roles)(_enums_role_enum__WEBPACK_IMPORTED_MODULE_5__.Role.ADMIN),
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Delete user' }),
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse)({ status: _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.NO_CONTENT, description: 'User deleted successfully' }),
     _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 200 }),
@@ -21977,7 +25552,7 @@ __decorate([
 ], UsersController.prototype, "remove", null);
 __decorate([
     (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Put)(':id/activate'),
-    Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../auth/decorators/roles.decorator'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_enums_role_enum__WEBPACK_IMPORTED_MODULE_5__.Role.ADMIN),
+    (0,_auth_decorators_roles_decorator__WEBPACK_IMPORTED_MODULE_4__.Roles)(_enums_role_enum__WEBPACK_IMPORTED_MODULE_5__.Role.ADMIN),
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Activate user' }),
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse)({ status: _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.OK, description: 'User activated successfully' }),
     _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 200, type: (__webpack_require__(/*! ../entities/user.entity */ "./src/modules/users/entities/user.entity.ts").User) }),
@@ -21989,7 +25564,7 @@ __decorate([
 ], UsersController.prototype, "activate", null);
 __decorate([
     (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Put)(':id/deactivate'),
-    Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../auth/decorators/roles.decorator'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_enums_role_enum__WEBPACK_IMPORTED_MODULE_5__.Role.ADMIN),
+    (0,_auth_decorators_roles_decorator__WEBPACK_IMPORTED_MODULE_4__.Roles)(_enums_role_enum__WEBPACK_IMPORTED_MODULE_5__.Role.ADMIN),
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Deactivate user' }),
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse)({ status: _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.OK, description: 'User deactivated successfully' }),
     _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 200, type: (__webpack_require__(/*! ../entities/user.entity */ "./src/modules/users/entities/user.entity.ts").User) }),
@@ -22001,7 +25576,7 @@ __decorate([
 ], UsersController.prototype, "deactivate", null);
 __decorate([
     (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Get)(':id/activity'),
-    Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../auth/decorators/roles.decorator'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_enums_role_enum__WEBPACK_IMPORTED_MODULE_5__.Role.ADMIN),
+    (0,_auth_decorators_roles_decorator__WEBPACK_IMPORTED_MODULE_4__.Roles)(_enums_role_enum__WEBPACK_IMPORTED_MODULE_5__.Role.ADMIN),
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Get user activity' }),
     (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse)({ status: _nestjs_common__WEBPACK_IMPORTED_MODULE_1__.HttpStatus.OK, description: 'Return user activity' }),
     _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 200, type: [(__webpack_require__(/*! ../entities/user-activity.entity */ "./src/modules/users/entities/user-activity.entity.ts").UserActivity)] }),
@@ -23037,7 +26612,7 @@ let User = class User {
         return this.isActive && !this.isLocked;
     }
     static _OPENAPI_METADATA_FACTORY() {
-        return { id: { required: true, type: () => String }, organizationId: { required: true, type: () => String }, firstName: { required: true, type: () => String }, lastName: { required: true, type: () => String }, email: { required: true, type: () => String }, password: { required: true, type: () => String }, phoneNumber: { required: false, type: () => String }, role: { required: true, enum: (__webpack_require__(/*! ../enums/role.enum */ "./src/modules/users/enums/role.enum.ts").Role) }, title: { required: false, type: () => String }, department: { required: false, type: () => String }, employeeId: { required: false, type: () => String }, address: { required: false, type: () => ({ street: { required: true, type: () => String }, city: { required: true, type: () => String }, state: { required: true, type: () => String }, postalCode: { required: true, type: () => String }, country: { required: true, type: () => String } }) }, emergencyContact: { required: false, type: () => ({ name: { required: true, type: () => String }, relationship: { required: true, type: () => String }, phone: { required: true, type: () => String }, address: { required: false, type: () => String } }) }, licenseNumber: { required: false, type: () => String }, specialization: { required: false, type: () => String }, qualifications: { required: false, type: () => [String] }, certifications: { required: false, type: () => [String] }, isOnCall: { required: true, type: () => Boolean }, languages: { required: false, type: () => [String] }, requirePasswordChange: { required: true, type: () => Boolean }, preferences: { required: false, type: () => ({ theme: { required: false, type: () => String }, notifications: { required: false, type: () => ({ email: { required: false, type: () => Boolean }, sms: { required: false, type: () => Boolean }, inApp: { required: false, type: () => Boolean } }) }, timezone: { required: false, type: () => String }, language: { required: false, type: () => String } }) }, metadata: { required: false, type: () => Object }, isActive: { required: true, type: () => Boolean }, isLocked: { required: true, type: () => Boolean }, isEmailVerified: { required: true, type: () => Boolean }, isPhoneVerified: { required: true, type: () => Boolean }, lastLoginAt: { required: false, type: () => Date }, lastActiveAt: { required: false, type: () => Date }, deviceTokens: { required: false, type: () => [String] }, avatar: { required: false, type: () => String }, signature: { required: false, type: () => String }, createdById: { required: true, type: () => String }, updatedById: { required: false, type: () => String }, createdAt: { required: true, type: () => Date }, updatedAt: { required: true, type: () => Date }, deletedAt: { required: false, type: () => Date }, organization: { required: true, type: () => (__webpack_require__(/*! ../../organizations/entities/organization.entity */ "./src/modules/organizations/entities/organization.entity.ts").Organization) }, createdBy: { required: true, type: () => (__webpack_require__(/*! ./user.entity */ "./src/modules/users/entities/user.entity.ts").User) }, updatedBy: { required: false, type: () => (__webpack_require__(/*! ./user.entity */ "./src/modules/users/entities/user.entity.ts").User) }, assignedTickets: { required: true, type: () => [(__webpack_require__(/*! ../../tickets/entities/ticket.entity */ "./src/modules/tickets/entities/ticket.entity.ts").Ticket)] }, messages: { required: true, type: () => [(__webpack_require__(/*! ../../messages/entities/message.entity */ "./src/modules/messages/entities/message.entity.ts").Message)] }, appointments: { required: true, type: () => [(__webpack_require__(/*! ../../appointments/entities/appointment.entity */ "./src/modules/appointments/entities/appointment.entity.ts").Appointment)] }, notifications: { required: true, type: () => [(__webpack_require__(/*! ../../notifications/entities/notification.entity */ "./src/modules/notifications/entities/notification.entity.ts").Notification)] }, activities: { required: true, type: () => [(__webpack_require__(/*! ./user-activity.entity */ "./src/modules/users/entities/user-activity.entity.ts").UserActivity)] } };
+        return { id: { required: true, type: () => String }, mobilePhone: { required: false, type: () => String }, organizationId: { required: true, type: () => String }, firstName: { required: true, type: () => String }, lastName: { required: true, type: () => String }, email: { required: true, type: () => String }, password: { required: true, type: () => String }, phoneNumber: { required: false, type: () => String }, role: { required: true, enum: (__webpack_require__(/*! ../enums/role.enum */ "./src/modules/users/enums/role.enum.ts").Role) }, title: { required: false, type: () => String }, department: { required: false, type: () => String }, employeeId: { required: false, type: () => String }, address: { required: false, type: () => ({ street: { required: true, type: () => String }, city: { required: true, type: () => String }, state: { required: true, type: () => String }, postalCode: { required: true, type: () => String }, country: { required: true, type: () => String } }) }, emergencyContact: { required: false, type: () => ({ name: { required: true, type: () => String }, relationship: { required: true, type: () => String }, phone: { required: true, type: () => String }, address: { required: false, type: () => String } }) }, licenseNumber: { required: false, type: () => String }, specialization: { required: false, type: () => String }, qualifications: { required: false, type: () => [String] }, certifications: { required: false, type: () => [String] }, isOnCall: { required: true, type: () => Boolean }, languages: { required: false, type: () => [String] }, requirePasswordChange: { required: true, type: () => Boolean }, preferences: { required: false, type: () => ({ theme: { required: false, type: () => String }, notifications: { required: false, type: () => ({ email: { required: false, type: () => Boolean }, sms: { required: false, type: () => Boolean }, inApp: { required: false, type: () => Boolean } }) }, timezone: { required: false, type: () => String }, language: { required: false, type: () => String } }) }, metadata: { required: false, type: () => Object }, isActive: { required: true, type: () => Boolean }, isLocked: { required: true, type: () => Boolean }, isEmailVerified: { required: true, type: () => Boolean }, isPhoneVerified: { required: true, type: () => Boolean }, lastLoginAt: { required: false, type: () => Date }, lastActiveAt: { required: false, type: () => Date }, deviceTokens: { required: false, type: () => [String] }, avatar: { required: false, type: () => String }, signature: { required: false, type: () => String }, createdById: { required: true, type: () => String }, updatedById: { required: false, type: () => String }, createdAt: { required: true, type: () => Date }, updatedAt: { required: true, type: () => Date }, deletedAt: { required: false, type: () => Date }, organization: { required: true, type: () => (__webpack_require__(/*! ../../organizations/entities/organization.entity */ "./src/modules/organizations/entities/organization.entity.ts").Organization) }, createdBy: { required: true, type: () => (__webpack_require__(/*! ./user.entity */ "./src/modules/users/entities/user.entity.ts").User) }, updatedBy: { required: false, type: () => (__webpack_require__(/*! ./user.entity */ "./src/modules/users/entities/user.entity.ts").User) }, assignedTickets: { required: true, type: () => [(__webpack_require__(/*! ../../tickets/entities/ticket.entity */ "./src/modules/tickets/entities/ticket.entity.ts").Ticket)] }, messages: { required: true, type: () => [(__webpack_require__(/*! ../../messages/entities/message.entity */ "./src/modules/messages/entities/message.entity.ts").Message)] }, appointments: { required: true, type: () => [(__webpack_require__(/*! ../../appointments/entities/appointment.entity */ "./src/modules/appointments/entities/appointment.entity.ts").Appointment)] }, notifications: { required: true, type: () => [(__webpack_require__(/*! ../../notifications/entities/notification.entity */ "./src/modules/notifications/entities/notification.entity.ts").Notification)] }, activities: { required: true, type: () => [(__webpack_require__(/*! ./user-activity.entity */ "./src/modules/users/entities/user-activity.entity.ts").UserActivity)] } };
     }
 };
 __decorate([
@@ -23684,9 +27259,9 @@ let UserEventListener = UserEventListener_1 = class UserEventListener {
                     action: 'USER_CREATED',
                     entityType: 'USER',
                     entityId: event.user.id,
-                    userId: event.performedBy,
+                    actorId: event.performedBy,
                     organizationId: event.organizationId,
-                    metadata: event.metadata
+                    metadata: event.metadata,
                 }),
                 this.emailService.sendEmail({
                     to: event.user.email,
@@ -23694,20 +27269,21 @@ let UserEventListener = UserEventListener_1 = class UserEventListener {
                     template: 'welcome-email',
                     context: {
                         firstName: event.user.firstName,
-                        loginUrl: `${process.env.APP_URL}/login`
-                    }
-                }),
-                event.organizationId && this.notificationsService.send({
-                    type: 'USER_CREATED',
-                    title: 'New User Created',
-                    message: `${event.user.firstName} ${event.user.lastName} has joined the organization`,
-                    organizationId: event.organizationId,
-                    data: {
-                        userId: event.user.id,
-                        email: event.user.email
+                        loginUrl: `${process.env.APP_URL}/login`,
                     },
-                    userId: ''
-                })
+                }),
+                event.organizationId &&
+                    this.notificationsService.send({
+                        type: 'USER_CREATED',
+                        title: 'New User Created',
+                        message: `${event.user.firstName} ${event.user.lastName} has joined the organization`,
+                        organizationId: event.organizationId,
+                        data: {
+                            userId: event.user.id,
+                            email: event.user.email,
+                        },
+                        userId: '',
+                    }),
             ].filter(Boolean));
         }
         catch (error) {
@@ -23725,9 +27301,9 @@ let UserEventListener = UserEventListener_1 = class UserEventListener {
                 action: 'USER_UPDATED',
                 entityType: 'USER',
                 entityId: event.user.id,
-                userId: event.performedBy,
+                actorId: event.performedBy,
                 organizationId: event.organizationId,
-                metadata: event.metadata
+                metadata: event.metadata,
             });
             if ((_a = event.metadata) === null || _a === void 0 ? void 0 : _a.importantChanges) {
                 await this.notificationsService.send({
@@ -23735,16 +27311,16 @@ let UserEventListener = UserEventListener_1 = class UserEventListener {
                     title: 'Profile Updates',
                     message: 'Your profile information has been updated',
                     data: {
-                        changes: event.metadata.importantChanges
+                        changes: event.metadata.importantChanges,
                     },
-                    userId: ''
+                    userId: '',
                 });
             }
         }
         catch (error) {
             this.logger.error('Error handling user updated event', {
                 error,
-                userId: event.user.id
+                userId: event.user.id,
             });
             throw error;
         }
@@ -23756,12 +27332,12 @@ let UserEventListener = UserEventListener_1 = class UserEventListener {
                     action: 'PASSWORD_CHANGED',
                     entityType: 'USER',
                     entityId: event.user.id,
-                    userId: event.performedBy || event.user.id,
+                    actorId: event.performedBy || event.user.id,
                     organizationId: event.organizationId,
                     metadata: {
                         requiresReset: event.requiresReset,
-                        expiresAt: event.expiresAt
-                    }
+                        expiresAt: event.expiresAt,
+                    },
                 }),
                 this.emailService.sendEmail({
                     to: event.user.email,
@@ -23770,15 +27346,15 @@ let UserEventListener = UserEventListener_1 = class UserEventListener {
                     context: {
                         firstName: event.user.firstName,
                         requiresReset: event.requiresReset,
-                        expiresAt: event.expiresAt
-                    }
-                })
+                        expiresAt: event.expiresAt,
+                    },
+                }),
             ]);
         }
         catch (error) {
             this.logger.error('Error handling password changed event', {
                 error,
-                userId: event.user.id
+                userId: event.user.id,
             });
             throw error;
         }
@@ -23791,35 +27367,36 @@ let UserEventListener = UserEventListener_1 = class UserEventListener {
                     action: `USER_${status.toUpperCase()}`,
                     entityType: 'USER',
                     entityId: event.user.id,
-                    userId: event.performedBy,
+                    actorId: event.performedBy,
                     organizationId: event.organizationId,
-                    metadata: event.metadata
+                    metadata: event.metadata,
                 }),
-                event.organizationId && this.notificationsService.send({
-                    type: 'USER_STATUS_CHANGED',
-                    title: `User Account ${status}`,
-                    message: `${event.user.firstName} ${event.user.lastName}'s account has been ${status}`,
-                    organizationId: event.organizationId,
-                    data: {
-                        userId: event.user.id,
-                        status
-                    },
-                    userId: ''
-                }),
+                event.organizationId &&
+                    this.notificationsService.send({
+                        type: 'USER_STATUS_CHANGED',
+                        title: `User Account ${status}`,
+                        message: `${event.user.firstName} ${event.user.lastName}'s account has been ${status}`,
+                        organizationId: event.organizationId,
+                        data: {
+                            userId: event.user.id,
+                            status,
+                        },
+                        userId: '',
+                    }),
                 this.emailService.sendEmail({
                     to: event.user.email,
                     subject: `Account ${status}`,
                     template: `account-${status}`,
                     context: {
-                        firstName: event.user.firstName
-                    }
-                })
+                        firstName: event.user.firstName,
+                    },
+                }),
             ].filter(Boolean));
         }
         catch (error) {
             this.logger.error('Error handling user status changed event', {
                 error,
-                userId: event.user.id
+                userId: event.user.id,
             });
             throw error;
         }
@@ -23831,27 +27408,28 @@ let UserEventListener = UserEventListener_1 = class UserEventListener {
                     action: 'USER_DELETED',
                     entityType: 'USER',
                     entityId: event.user.id,
-                    userId: event.performedBy,
+                    actorId: event.performedBy,
                     organizationId: event.organizationId,
-                    metadata: event.metadata
+                    metadata: event.metadata,
                 }),
-                event.organizationId && this.notificationsService.send({
-                    type: 'USER_DELETED',
-                    title: 'User Account Deleted',
-                    message: `${event.user.firstName} ${event.user.lastName}'s account has been deleted`,
-                    organizationId: event.organizationId,
-                    data: {
-                        userId: event.user.id,
-                        email: event.user.email
-                    },
-                    userId: ''
-                })
+                event.organizationId &&
+                    this.notificationsService.send({
+                        type: 'USER_DELETED',
+                        title: 'User Account Deleted',
+                        message: `${event.user.firstName} ${event.user.lastName}'s account has been deleted`,
+                        organizationId: event.organizationId,
+                        data: {
+                            userId: event.user.id,
+                            email: event.user.email,
+                        },
+                        userId: '',
+                    }),
             ].filter(Boolean));
         }
         catch (error) {
             this.logger.error('Error handling user deleted event', {
                 error,
-                userId: event.user.id
+                userId: event.user.id,
             });
             throw error;
         }
@@ -23864,28 +27442,29 @@ let UserEventListener = UserEventListener_1 = class UserEventListener {
                     action: 'USER_LOGIN',
                     entityType: 'USER',
                     entityId: event.user.id,
-                    userId: event.user.id,
+                    actorId: event.user.id,
                     organizationId: event.organizationId,
-                    metadata: Object.assign({ ip: event.ip, userAgent: event.userAgent }, event.metadata)
+                    metadata: Object.assign({ ip: event.ip, userAgent: event.userAgent }, event.metadata),
                 }),
-                ((_a = event.metadata) === null || _a === void 0 ? void 0 : _a.suspicious) && this.notificationsService.send({
-                    type: 'SUSPICIOUS_LOGIN',
-                    title: 'Suspicious Login Detected',
-                    message: 'A login attempt from an unrecognized device was detected',
-                    userId: event.user.id,
-                    priority: 'HIGH',
-                    data: {
-                        ip: event.ip,
-                        userAgent: event.userAgent,
-                        location: event.metadata.location
-                    }
-                })
+                ((_a = event.metadata) === null || _a === void 0 ? void 0 : _a.suspicious) &&
+                    this.notificationsService.send({
+                        type: 'SUSPICIOUS_LOGIN',
+                        title: 'Suspicious Login Detected',
+                        message: 'A login attempt from an unrecognized device was detected',
+                        userId: event.user.id,
+                        priority: 'HIGH',
+                        data: {
+                            ip: event.ip,
+                            userAgent: event.userAgent,
+                            location: event.metadata.location,
+                        },
+                    }),
             ].filter(Boolean));
         }
         catch (error) {
             this.logger.error('Error handling user login event', {
                 error,
-                userId: event.user.id
+                userId: event.user.id,
             });
             throw error;
         }
@@ -24152,211 +27731,6 @@ UserActivityService = UserActivityService_1 = __decorate([
 
 /***/ }),
 
-/***/ "./src/modules/users/services/user-sessions.service.ts":
-/*!*************************************************************!*\
-  !*** ./src/modules/users/services/user-sessions.service.ts ***!
-  \*************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   UserSessionsService: () => (/* binding */ UserSessionsService)
-/* harmony export */ });
-/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
-/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nestjs/typeorm */ "@nestjs/typeorm");
-/* harmony import */ var _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! typeorm */ "typeorm");
-/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(typeorm__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _nestjs_config__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @nestjs/config */ "@nestjs/config");
-/* harmony import */ var _nestjs_config__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_nestjs_config__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _nestjs_jwt__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @nestjs/jwt */ "@nestjs/jwt");
-/* harmony import */ var _nestjs_jwt__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_nestjs_jwt__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _entities_user_session_entity__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../entities/user-session.entity */ "./src/modules/users/entities/user-session.entity.ts");
-/* harmony import */ var ua_parser_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ua-parser-js */ "../node_modules/ua-parser-js/src/main/ua-parser.mjs");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
-    return function (target, key) { decorator(target, key, paramIndex); }
-};
-var UserSessionsService_1;
-
-
-
-
-
-
-
-let UserSessionsService = UserSessionsService_1 = class UserSessionsService {
-    constructor(sessionRepository, jwtService, configService) {
-        this.sessionRepository = sessionRepository;
-        this.jwtService = jwtService;
-        this.configService = configService;
-        this.logger = new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.Logger(UserSessionsService_1.name);
-        this.parser = new ua_parser_js__WEBPACK_IMPORTED_MODULE_6__.UAParser();
-    }
-    async createSession(user, token, request, options = {}) {
-        try {
-            const deviceInfo = this.parseUserAgent(request.headers['user-agent']);
-            const payload = this.jwtService.decode(token);
-            const expiresAt = new Date(payload['exp'] * 1000);
-            const session = this.sessionRepository.create({
-                userId: user.id,
-                organizationId: user.organizationId,
-                token,
-                status: _entities_user_session_entity__WEBPACK_IMPORTED_MODULE_5__.SessionStatus.ACTIVE,
-                expiresAt,
-                ipAddress: request.ip,
-                userAgent: request.headers['user-agent'],
-                deviceId: options.deviceId,
-                deviceType: deviceInfo.deviceType,
-                browser: deviceInfo.browser,
-                operatingSystem: deviceInfo.os,
-                isMobile: deviceInfo.isMobile,
-                isRemembered: options.isRemembered || false,
-                metadata: options.metadata,
-                lastActivityAt: new Date(),
-            });
-            return this.sessionRepository.save(session);
-        }
-        catch (error) {
-            this.logger.error('Error creating session:', error);
-            throw error;
-        }
-    }
-    async validateSession(token) {
-        try {
-            const session = await this.sessionRepository.findOne({
-                where: { token }
-            });
-            if (!session) {
-                return null;
-            }
-            if (session.status !== _entities_user_session_entity__WEBPACK_IMPORTED_MODULE_5__.SessionStatus.ACTIVE) {
-                return null;
-            }
-            if (session.isExpired()) {
-                await this.expireSession(session.id);
-                return null;
-            }
-            return session;
-        }
-        catch (error) {
-            this.logger.error('Error validating session:', error);
-            return null;
-        }
-    }
-    async updateLastActivity(sessionId) {
-        await this.sessionRepository.update(sessionId, {
-            lastActivityAt: new Date()
-        });
-    }
-    async getUserActiveSessions(userId) {
-        return this.sessionRepository.find({
-            where: {
-                userId,
-                status: _entities_user_session_entity__WEBPACK_IMPORTED_MODULE_5__.SessionStatus.ACTIVE,
-                expiresAt: (0,typeorm__WEBPACK_IMPORTED_MODULE_2__.LessThan)(new Date())
-            },
-            order: {
-                lastActivityAt: 'DESC'
-            }
-        });
-    }
-    async revokeSession(sessionId, revokedBy, reason) {
-        const session = await this.sessionRepository.findOne({
-            where: { id: sessionId }
-        });
-        if (!session) {
-            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.UnauthorizedException('Session not found');
-        }
-        if (session.status !== _entities_user_session_entity__WEBPACK_IMPORTED_MODULE_5__.SessionStatus.ACTIVE) {
-            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.UnauthorizedException('Session is not active');
-        }
-        session.revoke(revokedBy, reason);
-        await this.sessionRepository.save(session);
-    }
-    async revokeAllUserSessions(userId, revokedBy, reason) {
-        const sessions = await this.getUserActiveSessions(userId);
-        for (const session of sessions) {
-            session.revoke(revokedBy, reason);
-        }
-        await this.sessionRepository.save(sessions);
-    }
-    async extendSession(sessionId) {
-        const session = await this.sessionRepository.findOne({
-            where: { id: sessionId }
-        });
-        if (!session) {
-            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.UnauthorizedException('Session not found');
-        }
-        if (!session.canBeExtended()) {
-            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.UnauthorizedException('Session cannot be extended');
-        }
-        const extensionDuration = 24 * 60 * 60 * 1000;
-        session.extend(extensionDuration);
-        await this.sessionRepository.save(session);
-    }
-    async cleanupExpiredSessions() {
-        try {
-            const result = await this.sessionRepository
-                .createQueryBuilder()
-                .update()
-                .set({ status: _entities_user_session_entity__WEBPACK_IMPORTED_MODULE_5__.SessionStatus.EXPIRED })
-                .where('status = :status', { status: _entities_user_session_entity__WEBPACK_IMPORTED_MODULE_5__.SessionStatus.ACTIVE })
-                .andWhere('expiresAt <= :now', { now: new Date() })
-                .execute();
-            return result.affected || 0;
-        }
-        catch (error) {
-            this.logger.error('Error cleaning up expired sessions:', error);
-            return 0;
-        }
-    }
-    parseUserAgent(userAgent) {
-        if (!userAgent) {
-            return {
-                browser: 'unknown',
-                os: 'unknown',
-                deviceType: 'unknown',
-                isMobile: false
-            };
-        }
-        this.parser.setUA(userAgent);
-        const result = this.parser.getResult();
-        return {
-            browser: `${result.browser.name || ''} ${result.browser.version || ''}`.trim() || 'unknown',
-            os: `${result.os.name || ''} ${result.os.version || ''}`.trim() || 'unknown',
-            deviceType: result.device.type || 'desktop',
-            isMobile: result.device.type === 'mobile' || result.device.type === 'tablet'
-        };
-    }
-    async expireSession(sessionId) {
-        await this.sessionRepository.update(sessionId, {
-            status: _entities_user_session_entity__WEBPACK_IMPORTED_MODULE_5__.SessionStatus.EXPIRED
-        });
-    }
-};
-UserSessionsService = UserSessionsService_1 = __decorate([
-    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.Injectable)(),
-    __param(0, (0,_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__.InjectRepository)(_entities_user_session_entity__WEBPACK_IMPORTED_MODULE_5__.UserSession)),
-    __metadata("design:paramtypes", [typeorm__WEBPACK_IMPORTED_MODULE_2__.Repository,
-        _nestjs_jwt__WEBPACK_IMPORTED_MODULE_4__.JwtService,
-        _nestjs_config__WEBPACK_IMPORTED_MODULE_3__.ConfigService])
-], UserSessionsService);
-
-
-
-/***/ }),
-
 /***/ "./src/modules/users/services/users.service.ts":
 /*!*****************************************************!*\
   !*** ./src/modules/users/services/users.service.ts ***!
@@ -24382,7 +27756,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _entities_user_activity_entity__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../entities/user-activity.entity */ "./src/modules/users/entities/user-activity.entity.ts");
 /* harmony import */ var _enums_role_enum__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../enums/role.enum */ "./src/modules/users/enums/role.enum.ts");
 /* harmony import */ var _notifications_services_notifications_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../notifications/services/notifications.service */ "./src/modules/notifications/services/notifications.service.ts");
-/* harmony import */ var nestjs_typeorm_paginate__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! nestjs-typeorm-paginate */ "../node_modules/nestjs-typeorm-paginate/dist/index.js");
+/* harmony import */ var nestjs_typeorm_paginate__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! nestjs-typeorm-paginate */ "nestjs-typeorm-paginate");
 /* harmony import */ var nestjs_typeorm_paginate__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(nestjs_typeorm_paginate__WEBPACK_IMPORTED_MODULE_9__);
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -24418,12 +27792,55 @@ var __rest = (undefined && undefined.__rest) || function (s, e) {
 
 
 let UsersService = class UsersService {
+    findUsersByRole(organizationId, arg1) {
+        throw new Error('Method not implemented.');
+    }
     constructor(userRepository, activityRepository, dataSource, eventEmitter, notificationsService) {
         this.userRepository = userRepository;
         this.activityRepository = activityRepository;
         this.dataSource = dataSource;
         this.eventEmitter = eventEmitter;
         this.notificationsService = notificationsService;
+        this.permissionsByRole = {
+            [_enums_role_enum__WEBPACK_IMPORTED_MODULE_7__.Role.SUPER_ADMIN]: [
+                'all.read', 'all.create', 'all.update', 'all.delete',
+                'users.manage', 'organizations.manage', 'settings.manage',
+                'reports.access', 'permissions.manage', 'billing.manage'
+            ],
+            [_enums_role_enum__WEBPACK_IMPORTED_MODULE_7__.Role.ADMIN]: [
+                'users.read', 'users.create', 'users.update', 'users.delete',
+                'contacts.read', 'contacts.create', 'contacts.update', 'contacts.delete',
+                'appointments.read', 'appointments.create', 'appointments.update', 'appointments.delete',
+                'reports.access', 'settings.manage', 'notifications.manage'
+            ],
+            [_enums_role_enum__WEBPACK_IMPORTED_MODULE_7__.Role.MANAGER]: [
+                'users.read', 'contacts.read', 'contacts.create', 'contacts.update',
+                'appointments.read', 'appointments.create', 'appointments.update',
+                'reports.access', 'tasks.manage'
+            ],
+            [_enums_role_enum__WEBPACK_IMPORTED_MODULE_7__.Role.DOCTOR]: [
+                'contacts.read', 'contacts.create', 'contacts.update',
+                'appointments.read', 'appointments.create', 'appointments.update',
+                'medical.read', 'medical.write'
+            ],
+            [_enums_role_enum__WEBPACK_IMPORTED_MODULE_7__.Role.NURSE]: [
+                'contacts.read', 'contacts.update',
+                'appointments.read', 'appointments.update',
+                'medical.read', 'medical.write', 'vitals.manage'
+            ],
+            [_enums_role_enum__WEBPACK_IMPORTED_MODULE_7__.Role.STAFF]: [
+                'contacts.read', 'appointments.read', 'appointments.create',
+                'tasks.read', 'tasks.create'
+            ]
+        };
+    }
+    async findByRole(role, organizationId) {
+        return this.userRepository.find({
+            where: {
+                role: role,
+                organizationId,
+            },
+        });
     }
     async create(data) {
         const queryRunner = this.dataSource.createQueryRunner();
@@ -24573,34 +27990,12 @@ let UsersService = class UsersService {
             order: { createdAt: 'DESC' },
         });
     }
-    async getPermissions(id, organizationId) {
-        const user = await this.findOne(id, organizationId);
-        return this.getRolePermissions(user.role);
-    }
-    getRolePermissions(role) {
-        const permissions = {
-            [_enums_role_enum__WEBPACK_IMPORTED_MODULE_7__.Role.SUPER_ADMIN]: ['*'],
-            [_enums_role_enum__WEBPACK_IMPORTED_MODULE_7__.Role.ADMIN]: [
-                'users.manage',
-                'tickets.manage',
-                'appointments.manage',
-                'reports.view',
-                'settings.manage',
-            ],
-            [_enums_role_enum__WEBPACK_IMPORTED_MODULE_7__.Role.DOCTOR]: [
-                'appointments.manage',
-                'patients.view',
-                'patients.edit',
-                'prescriptions.manage',
-            ],
-            [_enums_role_enum__WEBPACK_IMPORTED_MODULE_7__.Role.STAFF]: [
-                'appointments.view',
-                'appointments.schedule',
-                'patients.view',
-                'tickets.create',
-            ],
-        };
-        return permissions[role] || [];
+    async getPermissions(userId, organizationId) {
+        const user = await this.findOne(userId, organizationId);
+        if (!user) {
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.NotFoundException('User not found');
+        }
+        return this.permissionsByRole[user.role] || [];
     }
 };
 UsersService = __decorate([
@@ -24997,17 +28392,18 @@ WhatsAppMessage = __decorate([
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   TemplateCategory: () => (/* binding */ TemplateCategory),
-/* harmony export */   TemplateLanguage: () => (/* binding */ TemplateLanguage),
-/* harmony export */   TemplateStatus: () => (/* binding */ TemplateStatus),
-/* harmony export */   WhatsAppTemplate: () => (/* binding */ WhatsAppTemplate)
+/* harmony export */   WhatsappTemplate: () => (/* binding */ WhatsappTemplate),
+/* harmony export */   WhatsappTemplateButtonType: () => (/* reexport safe */ _services_whatsapp_template_service__WEBPACK_IMPORTED_MODULE_2__.WhatsappTemplateButtonType),
+/* harmony export */   WhatsappTemplateCategory: () => (/* reexport safe */ _services_whatsapp_template_service__WEBPACK_IMPORTED_MODULE_2__.WhatsappTemplateCategory),
+/* harmony export */   WhatsappTemplateComponentType: () => (/* reexport safe */ _services_whatsapp_template_service__WEBPACK_IMPORTED_MODULE_2__.WhatsappTemplateComponentType),
+/* harmony export */   WhatsappTemplateHeaderType: () => (/* reexport safe */ _services_whatsapp_template_service__WEBPACK_IMPORTED_MODULE_2__.WhatsappTemplateHeaderType),
+/* harmony export */   WhatsappTemplateStatus: () => (/* reexport safe */ _services_whatsapp_template_service__WEBPACK_IMPORTED_MODULE_2__.WhatsappTemplateStatus)
 /* harmony export */ });
 /* harmony import */ var _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/swagger */ "@nestjs/swagger");
 /* harmony import */ var _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! typeorm */ "typeorm");
 /* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(typeorm__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _organizations_entities_organization_entity__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../organizations/entities/organization.entity */ "./src/modules/organizations/entities/organization.entity.ts");
-/* harmony import */ var _users_entities_user_entity__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts");
+/* harmony import */ var _services_whatsapp_template_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/whatsapp-template.service */ "./src/modules/whatsapp/services/whatsapp-template.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -25017,227 +28413,185 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var WhatsAppTemplate_1;
 
 
 
 
-var TemplateStatus;
-(function (TemplateStatus) {
-    TemplateStatus["DRAFT"] = "DRAFT";
-    TemplateStatus["PENDING_APPROVAL"] = "PENDING_APPROVAL";
-    TemplateStatus["APPROVED"] = "APPROVED";
-    TemplateStatus["REJECTED"] = "REJECTED";
-    TemplateStatus["PAUSED"] = "PAUSED";
-    TemplateStatus["DELETED"] = "DELETED";
-})(TemplateStatus || (TemplateStatus = {}));
-var TemplateCategory;
-(function (TemplateCategory) {
-    TemplateCategory["MARKETING"] = "MARKETING";
-    TemplateCategory["UTILITY"] = "UTILITY";
-    TemplateCategory["AUTHENTICATION"] = "AUTHENTICATION";
-    TemplateCategory["APPOINTMENT"] = "APPOINTMENT";
-    TemplateCategory["PAYMENT"] = "PAYMENT";
-    TemplateCategory["CUSTOMER_SUPPORT"] = "CUSTOMER_SUPPORT";
-})(TemplateCategory || (TemplateCategory = {}));
-var TemplateLanguage;
-(function (TemplateLanguage) {
-    TemplateLanguage["EN"] = "en";
-    TemplateLanguage["ES"] = "es";
-    TemplateLanguage["PT"] = "pt";
-    TemplateLanguage["FR"] = "fr";
-    TemplateLanguage["DE"] = "de";
-    TemplateLanguage["IT"] = "it";
-    TemplateLanguage["AR"] = "ar";
-    TemplateLanguage["HI"] = "hi";
-    TemplateLanguage["ZH"] = "zh";
-})(TemplateLanguage || (TemplateLanguage = {}));
-let WhatsAppTemplate = WhatsAppTemplate_1 = class WhatsAppTemplate {
-    isEditable() {
-        return [
-            TemplateStatus.DRAFT,
-            TemplateStatus.REJECTED
-        ].includes(this.status);
+let WhatsappTemplate = class WhatsappTemplate {
+    getVariables() {
+        const variables = new Set();
+        const regex = /{{([^{}]+)}}/g;
+        this.components.forEach(component => {
+            if (component.text) {
+                let match;
+                while ((match = regex.exec(component.text)) !== null) {
+                    variables.add(match[1].trim());
+                }
+            }
+            if (component.buttons) {
+                component.buttons.forEach(button => {
+                    if (button.url) {
+                        let match;
+                        while ((match = regex.exec(button.url)) !== null) {
+                            variables.add(match[1].trim());
+                        }
+                    }
+                });
+            }
+        });
+        return Array.from(variables);
     }
-    canSubmitForApproval() {
-        return [
-            TemplateStatus.DRAFT,
-            TemplateStatus.REJECTED
-        ].includes(this.status);
+    getBodyText() {
+        const bodyComponent = this.components.find(c => c.type === _services_whatsapp_template_service__WEBPACK_IMPORTED_MODULE_2__.WhatsappTemplateComponentType.BODY);
+        return (bodyComponent === null || bodyComponent === void 0 ? void 0 : bodyComponent.text) || null;
     }
-    isUsable() {
-        return (this.status === TemplateStatus.APPROVED &&
-            this.isActive &&
-            !this.isExpired());
+    getHeaderText() {
+        const headerComponent = this.components.find(c => c.type === _services_whatsapp_template_service__WEBPACK_IMPORTED_MODULE_2__.WhatsappTemplateComponentType.HEADER &&
+            c.format === _services_whatsapp_template_service__WEBPACK_IMPORTED_MODULE_2__.WhatsappTemplateHeaderType.TEXT);
+        return (headerComponent === null || headerComponent === void 0 ? void 0 : headerComponent.text) || null;
     }
-    isExpired() {
-        if (!this.expiresAt) {
-            return false;
+    processTemplate(variables = {}) {
+        const result = {
+            body: ''
+        };
+        for (const component of this.components) {
+            switch (component.type) {
+                case _services_whatsapp_template_service__WEBPACK_IMPORTED_MODULE_2__.WhatsappTemplateComponentType.BODY:
+                    result.body = this.processText(component.text || '', variables);
+                    break;
+                case _services_whatsapp_template_service__WEBPACK_IMPORTED_MODULE_2__.WhatsappTemplateComponentType.HEADER:
+                    if (component.format === _services_whatsapp_template_service__WEBPACK_IMPORTED_MODULE_2__.WhatsappTemplateHeaderType.TEXT) {
+                        result.header = this.processText(component.text || '', variables);
+                    }
+                    break;
+                case _services_whatsapp_template_service__WEBPACK_IMPORTED_MODULE_2__.WhatsappTemplateComponentType.FOOTER:
+                    result.footer = this.processText(component.text || '', variables);
+                    break;
+                case _services_whatsapp_template_service__WEBPACK_IMPORTED_MODULE_2__.WhatsappTemplateComponentType.BUTTONS:
+                    if (component.buttons) {
+                        result.buttons = component.buttons.map(button => {
+                            const processedButton = Object.assign({}, button);
+                            if (button.url) {
+                                processedButton.url = this.processText(button.url, variables);
+                            }
+                            return processedButton;
+                        });
+                    }
+                    break;
+            }
         }
-        return this.expiresAt < new Date();
+        return result;
     }
-    validateVariables(values) {
-        const providedVariables = Object.keys(values);
-        const requiredVariables = this.variables;
-        return requiredVariables.every(variable => providedVariables.includes(variable));
-    }
-    createNewVersion() {
-        const newTemplate = new WhatsAppTemplate_1();
-        Object.assign(newTemplate, this);
-        newTemplate.id = this.generateUniqueId();
-        newTemplate.version = this.version + 1;
-        newTemplate.status = TemplateStatus.DRAFT;
-        newTemplate.whatsappTemplateId = undefined;
-        newTemplate.approvedAt = undefined;
-        newTemplate.approvedById = null;
-        newTemplate.usageCount = 0;
-        return newTemplate;
-    }
-    generateUniqueId() {
-        throw new Error('Method not implemented.');
-    }
-    incrementUsage() {
-        this.usageCount += 1;
+    processText(text, variables) {
+        let processed = text;
+        for (const [key, value] of Object.entries(variables)) {
+            const regex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
+            processed = processed.replace(regex, String(value !== null && value !== void 0 ? value : ''));
+        }
+        return processed;
     }
     static _OPENAPI_METADATA_FACTORY() {
-        return { id: { required: true, type: () => String }, organizationId: { required: true, type: () => String }, organization: { required: true, type: () => (__webpack_require__(/*! ../../organizations/entities/organization.entity */ "./src/modules/organizations/entities/organization.entity.ts").Organization) }, name: { required: true, type: () => String }, category: { required: true, enum: (__webpack_require__(/*! ./whatsapp-template.entity */ "./src/modules/whatsapp/entities/whatsapp-template.entity.ts").TemplateCategory) }, language: { required: true, enum: (__webpack_require__(/*! ./whatsapp-template.entity */ "./src/modules/whatsapp/entities/whatsapp-template.entity.ts").TemplateLanguage) }, content: { required: true, type: () => String }, components: { required: true }, variables: { required: true, type: () => [String] }, sampleValues: { required: true, type: () => Object }, status: { required: true, enum: (__webpack_require__(/*! ./whatsapp-template.entity */ "./src/modules/whatsapp/entities/whatsapp-template.entity.ts").TemplateStatus) }, whatsappTemplateId: { required: true, type: () => String }, rejectionReason: { required: true, type: () => String }, allowedTags: { required: true, type: () => [String] }, description: { required: true, type: () => String }, metadata: { required: true, type: () => Object }, version: { required: true, type: () => Number }, expiresAt: { required: true, type: () => Date }, isActive: { required: true, type: () => Boolean }, usageCount: { required: true, type: () => Number }, createdById: { required: true, type: () => String }, createdBy: { required: true, type: () => (__webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts").User) }, updatedById: { required: true, type: () => String }, updatedBy: { required: true, type: () => (__webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts").User) }, approvedById: { required: true, type: () => String, nullable: true }, approvedBy: { required: true, type: () => (__webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts").User) }, approvedAt: { required: true, type: () => Date }, createdAt: { required: true, type: () => Date }, updatedAt: { required: true, type: () => Date }, headerType: { required: true, type: () => Object }, buttons: { required: true, type: () => Object } };
+        return { id: { required: true, type: () => String }, organizationId: { required: true, type: () => String }, name: { required: true, type: () => String }, description: { required: false, type: () => String }, category: { required: true, enum: (__webpack_require__(/*! ../services/whatsapp-template.service */ "./src/modules/whatsapp/services/whatsapp-template.service.ts").WhatsappTemplateCategory) }, status: { required: true, enum: (__webpack_require__(/*! ../services/whatsapp-template.service */ "./src/modules/whatsapp/services/whatsapp-template.service.ts").WhatsappTemplateStatus) }, language: { required: true, type: () => String }, externalTemplateId: { required: false, type: () => String }, components: { required: true, type: () => [Object] }, isDefault: { required: true, type: () => Boolean }, submittedAt: { required: false, type: () => Date }, approvedAt: { required: false, type: () => Date }, rejectionReason: { required: false, type: () => String }, metadata: { required: false, type: () => Object }, useCount: { required: true, type: () => Number }, lastUsedAt: { required: false, type: () => Date }, createdById: { required: false, type: () => String }, updatedById: { required: false, type: () => String }, createdAt: { required: true, type: () => Date }, updatedAt: { required: true, type: () => Date }, deletedAt: { required: false, type: () => Date } };
     }
 };
 __decorate([
     (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.PrimaryGeneratedColumn)('uuid'),
     __metadata("design:type", String)
-], WhatsAppTemplate.prototype, "id", void 0);
-__decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)('uuid'),
-    __metadata("design:type", String)
-], WhatsAppTemplate.prototype, "organizationId", void 0);
-__decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.ManyToOne)(() => _organizations_entities_organization_entity__WEBPACK_IMPORTED_MODULE_2__.Organization),
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.JoinColumn)({ name: 'organizationId' }),
-    __metadata("design:type", _organizations_entities_organization_entity__WEBPACK_IMPORTED_MODULE_2__.Organization)
-], WhatsAppTemplate.prototype, "organization", void 0);
+], WhatsappTemplate.prototype, "id", void 0);
 __decorate([
     (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)(),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Index)(),
     __metadata("design:type", String)
-], WhatsAppTemplate.prototype, "name", void 0);
+], WhatsappTemplate.prototype, "organizationId", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)(),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Index)(),
+    __metadata("design:type", String)
+], WhatsappTemplate.prototype, "name", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true }),
+    __metadata("design:type", String)
+], WhatsappTemplate.prototype, "description", void 0);
 __decorate([
     (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({
         type: 'enum',
-        enum: TemplateCategory
+        enum: _services_whatsapp_template_service__WEBPACK_IMPORTED_MODULE_2__.WhatsappTemplateCategory,
+        default: _services_whatsapp_template_service__WEBPACK_IMPORTED_MODULE_2__.WhatsappTemplateCategory.UTILITY
     }),
     __metadata("design:type", String)
-], WhatsAppTemplate.prototype, "category", void 0);
+], WhatsappTemplate.prototype, "category", void 0);
 __decorate([
     (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({
         type: 'enum',
-        enum: TemplateLanguage,
-        default: TemplateLanguage.EN
+        enum: _services_whatsapp_template_service__WEBPACK_IMPORTED_MODULE_2__.WhatsappTemplateStatus,
+        default: _services_whatsapp_template_service__WEBPACK_IMPORTED_MODULE_2__.WhatsappTemplateStatus.DRAFT
     }),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Index)(),
     __metadata("design:type", String)
-], WhatsAppTemplate.prototype, "language", void 0);
+], WhatsappTemplate.prototype, "status", void 0);
 __decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)('text'),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ default: 'en' }),
     __metadata("design:type", String)
-], WhatsAppTemplate.prototype, "content", void 0);
+], WhatsappTemplate.prototype, "language", void 0);
 __decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)('jsonb'),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true }),
+    __metadata("design:type", String)
+], WhatsappTemplate.prototype, "externalTemplateId", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'jsonb' }),
     __metadata("design:type", Array)
-], WhatsAppTemplate.prototype, "components", void 0);
-__decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)('text', { array: true }),
-    __metadata("design:type", Array)
-], WhatsAppTemplate.prototype, "variables", void 0);
-__decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)('jsonb', { nullable: true }),
-    __metadata("design:type", Object)
-], WhatsAppTemplate.prototype, "sampleValues", void 0);
-__decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({
-        type: 'enum',
-        enum: TemplateStatus,
-        default: TemplateStatus.DRAFT
-    }),
-    __metadata("design:type", String)
-], WhatsAppTemplate.prototype, "status", void 0);
-__decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true }),
-    __metadata("design:type", Object)
-], WhatsAppTemplate.prototype, "whatsappTemplateId", void 0);
-__decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true }),
-    __metadata("design:type", String)
-], WhatsAppTemplate.prototype, "rejectionReason", void 0);
-__decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)('text', { array: true, nullable: true }),
-    __metadata("design:type", Array)
-], WhatsAppTemplate.prototype, "allowedTags", void 0);
-__decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true }),
-    __metadata("design:type", String)
-], WhatsAppTemplate.prototype, "description", void 0);
-__decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)('jsonb', { nullable: true }),
-    __metadata("design:type", Object)
-], WhatsAppTemplate.prototype, "metadata", void 0);
-__decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ default: 1 }),
-    __metadata("design:type", Number)
-], WhatsAppTemplate.prototype, "version", void 0);
-__decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true }),
-    __metadata("design:type", Date)
-], WhatsAppTemplate.prototype, "expiresAt", void 0);
+], WhatsappTemplate.prototype, "components", void 0);
 __decorate([
     (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ default: false }),
     __metadata("design:type", Boolean)
-], WhatsAppTemplate.prototype, "isActive", void 0);
+], WhatsappTemplate.prototype, "isDefault", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'timestamp', nullable: true }),
+    __metadata("design:type", Date)
+], WhatsappTemplate.prototype, "submittedAt", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'timestamp', nullable: true }),
+    __metadata("design:type", Date)
+], WhatsappTemplate.prototype, "approvedAt", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true }),
+    __metadata("design:type", String)
+], WhatsappTemplate.prototype, "rejectionReason", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true, type: 'jsonb' }),
+    __metadata("design:type", Object)
+], WhatsappTemplate.prototype, "metadata", void 0);
 __decorate([
     (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ default: 0 }),
     __metadata("design:type", Number)
-], WhatsAppTemplate.prototype, "usageCount", void 0);
+], WhatsappTemplate.prototype, "useCount", void 0);
 __decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)('uuid', { nullable: true }),
-    __metadata("design:type", String)
-], WhatsAppTemplate.prototype, "createdById", void 0);
-__decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.ManyToOne)(() => _users_entities_user_entity__WEBPACK_IMPORTED_MODULE_3__.User),
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.JoinColumn)({ name: 'createdById' }),
-    __metadata("design:type", _users_entities_user_entity__WEBPACK_IMPORTED_MODULE_3__.User)
-], WhatsAppTemplate.prototype, "createdBy", void 0);
-__decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)('uuid', { nullable: true }),
-    __metadata("design:type", String)
-], WhatsAppTemplate.prototype, "updatedById", void 0);
-__decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.ManyToOne)(() => _users_entities_user_entity__WEBPACK_IMPORTED_MODULE_3__.User),
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.JoinColumn)({ name: 'updatedById' }),
-    __metadata("design:type", _users_entities_user_entity__WEBPACK_IMPORTED_MODULE_3__.User)
-], WhatsAppTemplate.prototype, "updatedBy", void 0);
-__decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)('uuid', { nullable: true }),
-    __metadata("design:type", Object)
-], WhatsAppTemplate.prototype, "approvedById", void 0);
-__decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.ManyToOne)(() => _users_entities_user_entity__WEBPACK_IMPORTED_MODULE_3__.User),
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.JoinColumn)({ name: 'approvedById' }),
-    __metadata("design:type", _users_entities_user_entity__WEBPACK_IMPORTED_MODULE_3__.User)
-], WhatsAppTemplate.prototype, "approvedBy", void 0);
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'timestamp', nullable: true }),
+    __metadata("design:type", Date)
+], WhatsappTemplate.prototype, "lastUsedAt", void 0);
 __decorate([
     (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true }),
-    __metadata("design:type", Object)
-], WhatsAppTemplate.prototype, "approvedAt", void 0);
+    __metadata("design:type", String)
+], WhatsappTemplate.prototype, "createdById", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true }),
+    __metadata("design:type", String)
+], WhatsappTemplate.prototype, "updatedById", void 0);
 __decorate([
     (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.CreateDateColumn)(),
     __metadata("design:type", Date)
-], WhatsAppTemplate.prototype, "createdAt", void 0);
+], WhatsappTemplate.prototype, "createdAt", void 0);
 __decorate([
     (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.UpdateDateColumn)(),
     __metadata("design:type", Date)
-], WhatsAppTemplate.prototype, "updatedAt", void 0);
-WhatsAppTemplate = WhatsAppTemplate_1 = __decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Entity)('whatsapp_templates'),
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Index)(['organizationId', 'name'])
-], WhatsAppTemplate);
+], WhatsappTemplate.prototype, "updatedAt", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.DeleteDateColumn)(),
+    __metadata("design:type", Date)
+], WhatsappTemplate.prototype, "deletedAt", void 0);
+WhatsappTemplate = __decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Entity)('whatsapp_templates')
+], WhatsappTemplate);
 
 
 
@@ -25252,198 +28606,446 @@ WhatsAppTemplate = WhatsAppTemplate_1 = __decorate([
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   MessageStatusMetadata: () => (/* binding */ MessageStatusMetadata),
-/* harmony export */   WhatsAppMessageStatus: () => (/* binding */ WhatsAppMessageStatus),
-/* harmony export */   canTransitionTo: () => (/* binding */ canTransitionTo),
-/* harmony export */   getStatusDescription: () => (/* binding */ getStatusDescription),
-/* harmony export */   isFinalStatus: () => (/* binding */ isFinalStatus),
-/* harmony export */   isRetryableStatus: () => (/* binding */ isRetryableStatus)
+/* harmony export */   MESSAGE_STATUS_PROPERTIES: () => (/* binding */ MESSAGE_STATUS_PROPERTIES),
+/* harmony export */   WhatsAppMessageStatus: () => (/* binding */ WhatsAppMessageStatus)
 /* harmony export */ });
 var WhatsAppMessageStatus;
 (function (WhatsAppMessageStatus) {
     WhatsAppMessageStatus["DRAFT"] = "DRAFT";
     WhatsAppMessageStatus["QUEUED"] = "QUEUED";
     WhatsAppMessageStatus["SCHEDULED"] = "SCHEDULED";
-    WhatsAppMessageStatus["PROCESSING"] = "PROCESSING";
-    WhatsAppMessageStatus["RATE_LIMITED"] = "RATE_LIMITED";
-    WhatsAppMessageStatus["RETRYING"] = "RETRYING";
+    WhatsAppMessageStatus["PENDING"] = "PENDING";
     WhatsAppMessageStatus["SENT"] = "SENT";
     WhatsAppMessageStatus["DELIVERED"] = "DELIVERED";
     WhatsAppMessageStatus["READ"] = "READ";
-    WhatsAppMessageStatus["REPLIED"] = "REPLIED";
     WhatsAppMessageStatus["FAILED"] = "FAILED";
-    WhatsAppMessageStatus["REJECTED"] = "REJECTED";
-    WhatsAppMessageStatus["INVALID"] = "INVALID";
+    WhatsAppMessageStatus["CANCELED"] = "CANCELED";
+    WhatsAppMessageStatus["BLOCKED"] = "BLOCKED";
     WhatsAppMessageStatus["EXPIRED"] = "EXPIRED";
-    WhatsAppMessageStatus["CANCELLED"] = "CANCELLED";
     WhatsAppMessageStatus["DELETED"] = "DELETED";
-    WhatsAppMessageStatus["PENDING"] = "PENDING";
-    WhatsAppMessageStatus["RECEIVED"] = "RECEIVED";
-    WhatsAppMessageStatus["PERMANENTLY_FAILED"] = "PERMANENTLY_FAILED";
+    WhatsAppMessageStatus["UNDELIVERABLE"] = "UNDELIVERABLE";
     WhatsAppMessageStatus["UNKNOWN"] = "UNKNOWN";
+    WhatsAppMessageStatus["PERMANENTLY_FAILED"] = "PERMANENTLY_FAILED";
+    WhatsAppMessageStatus["RECEIVED"] = "RECEIVED";
 })(WhatsAppMessageStatus || (WhatsAppMessageStatus = {}));
-const MessageStatusMetadata = {
+const MESSAGE_STATUS_PROPERTIES = {
     [WhatsAppMessageStatus.DRAFT]: {
         final: false,
-        retryable: false,
-        description: 'Message is saved as draft'
+        retryable: true,
+        description: 'Message is drafted but not yet queued for sending',
     },
     [WhatsAppMessageStatus.QUEUED]: {
         final: false,
-        retryable: false,
-        description: 'Message is queued for sending'
+        retryable: true,
+        description: 'Message is queued for sending',
     },
     [WhatsAppMessageStatus.SCHEDULED]: {
         final: false,
-        retryable: false,
-        description: 'Message is scheduled for future delivery'
+        retryable: true,
+        description: 'Message is scheduled to be sent at a later time',
     },
-    [WhatsAppMessageStatus.PROCESSING]: {
+    [WhatsAppMessageStatus.PENDING]: {
         final: false,
         retryable: true,
-        description: 'Message is being processed for sending'
-    },
-    [WhatsAppMessageStatus.RATE_LIMITED]: {
-        final: false,
-        retryable: true,
-        description: 'Message sending delayed due to rate limits'
-    },
-    [WhatsAppMessageStatus.RETRYING]: {
-        final: false,
-        retryable: true,
-        description: 'Message is being retried after failure'
+        description: 'Message is being processed for sending',
     },
     [WhatsAppMessageStatus.SENT]: {
         final: false,
         retryable: false,
-        description: 'Message has been sent to WhatsApp'
+        description: 'Message has been sent to WhatsApp servers',
     },
     [WhatsAppMessageStatus.DELIVERED]: {
         final: false,
         retryable: false,
-        description: 'Message has been delivered to recipient'
+        description: 'Message has been delivered to the recipient',
     },
     [WhatsAppMessageStatus.READ]: {
-        final: false,
-        retryable: false,
-        description: 'Message has been read by recipient'
-    },
-    [WhatsAppMessageStatus.REPLIED]: {
         final: true,
         retryable: false,
-        description: 'Message has received a reply'
+        description: 'Message has been read by the recipient',
     },
     [WhatsAppMessageStatus.FAILED]: {
         final: false,
         retryable: true,
-        description: 'Message sending failed'
+        description: 'Message failed to send but can be retried',
     },
-    [WhatsAppMessageStatus.REJECTED]: {
+    [WhatsAppMessageStatus.CANCELED]: {
         final: true,
         retryable: false,
-        description: 'Message was rejected by WhatsApp'
+        description: 'Message was canceled before it could be sent',
     },
-    [WhatsAppMessageStatus.INVALID]: {
+    [WhatsAppMessageStatus.BLOCKED]: {
         final: true,
         retryable: false,
-        description: 'Message content is invalid'
+        description: 'Message was blocked by WhatsApp',
     },
     [WhatsAppMessageStatus.EXPIRED]: {
         final: true,
         retryable: false,
-        description: 'Message has expired'
-    },
-    [WhatsAppMessageStatus.CANCELLED]: {
-        final: true,
-        retryable: false,
-        description: 'Message was cancelled'
+        description: 'Message expired before it could be delivered',
     },
     [WhatsAppMessageStatus.DELETED]: {
         final: true,
         retryable: false,
-        description: 'Message was deleted'
+        description: 'Message was deleted',
     },
-    [WhatsAppMessageStatus.PENDING]: {
+    [WhatsAppMessageStatus.UNDELIVERABLE]: {
+        final: true,
+        retryable: false,
+        description: 'Message cannot be delivered to the recipient',
+    },
+    [WhatsAppMessageStatus.UNKNOWN]: {
         final: false,
         retryable: false,
-        description: 'Message is pending'
-    },
-    [WhatsAppMessageStatus.RECEIVED]: {
-        final: false,
-        retryable: false,
-        description: 'Message has been received'
+        description: 'Message status is unknown',
     },
     [WhatsAppMessageStatus.PERMANENTLY_FAILED]: {
         final: true,
         retryable: false,
-        description: 'Message has permanently failed'
+        description: 'Message has permanently failed to send after max retries',
+    },
+    [WhatsAppMessageStatus.RECEIVED]: {
+        final: false,
+        retryable: false,
+        description: 'Message has been received from a user',
+    },
+};
+
+
+/***/ }),
+
+/***/ "./src/modules/whatsapp/services/whatsapp-template.service.ts":
+/*!********************************************************************!*\
+  !*** ./src/modules/whatsapp/services/whatsapp-template.service.ts ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   WhatsappTemplateButtonType: () => (/* binding */ WhatsappTemplateButtonType),
+/* harmony export */   WhatsappTemplateCategory: () => (/* binding */ WhatsappTemplateCategory),
+/* harmony export */   WhatsappTemplateComponentType: () => (/* binding */ WhatsappTemplateComponentType),
+/* harmony export */   WhatsappTemplateHeaderType: () => (/* binding */ WhatsappTemplateHeaderType),
+/* harmony export */   WhatsappTemplateService: () => (/* binding */ WhatsappTemplateService),
+/* harmony export */   WhatsappTemplateStatus: () => (/* binding */ WhatsappTemplateStatus)
+/* harmony export */ });
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nestjs/typeorm */ "@nestjs/typeorm");
+/* harmony import */ var _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! typeorm */ "typeorm");
+/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(typeorm__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _entities_whatsapp_template_entity__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../entities/whatsapp-template.entity */ "./src/modules/whatsapp/entities/whatsapp-template.entity.ts");
+/* harmony import */ var _nestjs_config__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @nestjs/config */ "@nestjs/config");
+/* harmony import */ var _nestjs_config__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_nestjs_config__WEBPACK_IMPORTED_MODULE_4__);
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+var WhatsappTemplateService_1;
+
+
+
+
+
+
+var WhatsappTemplateStatus;
+(function (WhatsappTemplateStatus) {
+    WhatsappTemplateStatus["DRAFT"] = "draft";
+    WhatsappTemplateStatus["PENDING_APPROVAL"] = "pending_approval";
+    WhatsappTemplateStatus["APPROVED"] = "approved";
+    WhatsappTemplateStatus["REJECTED"] = "rejected";
+    WhatsappTemplateStatus["ACTIVE"] = "active";
+    WhatsappTemplateStatus["INACTIVE"] = "inactive";
+    WhatsappTemplateStatus["DELETED"] = "deleted";
+})(WhatsappTemplateStatus || (WhatsappTemplateStatus = {}));
+var WhatsappTemplateCategory;
+(function (WhatsappTemplateCategory) {
+    WhatsappTemplateCategory["ACCOUNT_UPDATE"] = "account_update";
+    WhatsappTemplateCategory["PAYMENT_UPDATE"] = "payment_update";
+    WhatsappTemplateCategory["PERSONAL_FINANCE_UPDATE"] = "personal_finance_update";
+    WhatsappTemplateCategory["SHIPPING_UPDATE"] = "shipping_update";
+    WhatsappTemplateCategory["RESERVATION_UPDATE"] = "reservation_update";
+    WhatsappTemplateCategory["ISSUE_RESOLUTION"] = "issue_resolution";
+    WhatsappTemplateCategory["APPOINTMENT_UPDATE"] = "appointment_update";
+    WhatsappTemplateCategory["TRANSPORTATION_UPDATE"] = "transportation_update";
+    WhatsappTemplateCategory["TICKET_UPDATE"] = "ticket_update";
+    WhatsappTemplateCategory["ALERT_UPDATE"] = "alert_update";
+    WhatsappTemplateCategory["AUTO_REPLY"] = "auto_reply";
+    WhatsappTemplateCategory["TRANSACTIONAL"] = "transactional";
+    WhatsappTemplateCategory["MARKETING"] = "marketing";
+    WhatsappTemplateCategory["UTILITY"] = "utility";
+    WhatsappTemplateCategory["AUTHENTICATION"] = "authentication";
+})(WhatsappTemplateCategory || (WhatsappTemplateCategory = {}));
+var WhatsappTemplateComponentType;
+(function (WhatsappTemplateComponentType) {
+    WhatsappTemplateComponentType["HEADER"] = "header";
+    WhatsappTemplateComponentType["BODY"] = "body";
+    WhatsappTemplateComponentType["FOOTER"] = "footer";
+    WhatsappTemplateComponentType["BUTTONS"] = "buttons";
+})(WhatsappTemplateComponentType || (WhatsappTemplateComponentType = {}));
+var WhatsappTemplateHeaderType;
+(function (WhatsappTemplateHeaderType) {
+    WhatsappTemplateHeaderType["TEXT"] = "text";
+    WhatsappTemplateHeaderType["IMAGE"] = "image";
+    WhatsappTemplateHeaderType["VIDEO"] = "video";
+    WhatsappTemplateHeaderType["DOCUMENT"] = "document";
+    WhatsappTemplateHeaderType["LOCATION"] = "location";
+})(WhatsappTemplateHeaderType || (WhatsappTemplateHeaderType = {}));
+var WhatsappTemplateButtonType;
+(function (WhatsappTemplateButtonType) {
+    WhatsappTemplateButtonType["PHONE_NUMBER"] = "phone_number";
+    WhatsappTemplateButtonType["URL"] = "url";
+    WhatsappTemplateButtonType["QUICK_REPLY"] = "quick_reply";
+})(WhatsappTemplateButtonType || (WhatsappTemplateButtonType = {}));
+let WhatsappTemplateService = WhatsappTemplateService_1 = class WhatsappTemplateService {
+    constructor(whatsappTemplateRepository, configService) {
+        this.whatsappTemplateRepository = whatsappTemplateRepository;
+        this.configService = configService;
+        this.logger = new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.Logger(WhatsappTemplateService_1.name);
+    }
+    async findById(id, organizationId) {
+        const template = await this.whatsappTemplateRepository.findOne({
+            where: { id, organizationId }
+        });
+        if (!template) {
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.NotFoundException(`WhatsApp template with ID "${id}" not found`);
+        }
+        return template;
+    }
+    async findByName(name, organizationId) {
+        return this.whatsappTemplateRepository.findOne({
+            where: { name, organizationId, status: WhatsappTemplateStatus.ACTIVE }
+        });
+    }
+    async findAll(options) {
+        const { organizationId, status, category, language, search, page = 1, limit = 25 } = options;
+        const where = { organizationId };
+        if (status) {
+            where.status = Array.isArray(status) ? (0,typeorm__WEBPACK_IMPORTED_MODULE_2__.In)(status) : status;
+        }
+        if (category) {
+            where.category = Array.isArray(category) ? (0,typeorm__WEBPACK_IMPORTED_MODULE_2__.In)(category) : category;
+        }
+        if (language) {
+            where.language = language;
+        }
+        if (search) {
+            where.name = (0,typeorm__WEBPACK_IMPORTED_MODULE_2__.Like)(`%${search}%`);
+        }
+        const [items, total] = await this.whatsappTemplateRepository.findAndCount({
+            where,
+            order: { updatedAt: 'DESC' },
+            skip: (page - 1) * limit,
+            take: limit,
+        });
+        return {
+            items,
+            total,
+            page,
+            limit,
+        };
+    }
+    async create(data) {
+        this.validateTemplate(data);
+        const existingTemplate = await this.whatsappTemplateRepository.findOne({
+            where: {
+                name: data.name,
+                organizationId: data.organizationId,
+                language: data.language
+            }
+        });
+        if (existingTemplate) {
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.BadRequestException(`Template with name "${data.name}" and language "${data.language}" already exists`);
+        }
+        const template = this.whatsappTemplateRepository.create(Object.assign(Object.assign({}, data), { status: data.status || WhatsappTemplateStatus.DRAFT }));
+        return this.whatsappTemplateRepository.save(template);
+    }
+    async update(id, organizationId, data) {
+        const template = await this.findById(id, organizationId);
+        if (template.status === WhatsappTemplateStatus.PENDING_APPROVAL) {
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.BadRequestException('Cannot update a template that is pending approval');
+        }
+        if (template.status === WhatsappTemplateStatus.APPROVED && data.components) {
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.BadRequestException('Cannot update components of an approved template. Create a new version instead.');
+        }
+        if (data.name && data.name !== template.name) {
+            const existingTemplate = await this.whatsappTemplateRepository.findOne({
+                where: {
+                    name: data.name,
+                    organizationId,
+                    language: data.language || template.language,
+                    id: (0,typeorm__WEBPACK_IMPORTED_MODULE_2__.Not)(id)
+                }
+            });
+            if (existingTemplate) {
+                throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.BadRequestException(`Template with name "${data.name}" and language "${data.language || template.language}" already exists`);
+            }
+        }
+        if (data.components) {
+            this.validateTemplate(Object.assign(Object.assign({}, template), data));
+        }
+        Object.assign(template, data);
+        if (data.components &&
+            (template.status === WhatsappTemplateStatus.REJECTED)) {
+            template.status = WhatsappTemplateStatus.DRAFT;
+            template.rejectionReason = undefined;
+        }
+        return this.whatsappTemplateRepository.save(template);
+    }
+    async submitForApproval(id, organizationId) {
+        const template = await this.findById(id, organizationId);
+        if (template.status !== WhatsappTemplateStatus.DRAFT) {
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.BadRequestException(`Only templates in DRAFT status can be submitted for approval`);
+        }
+        this.validateTemplate(template);
+        template.status = WhatsappTemplateStatus.PENDING_APPROVAL;
+        template.submittedAt = new Date();
+        const updatedTemplate = await this.whatsappTemplateRepository.save(template);
+        this.submitTemplateToWhatsAppAPI(updatedTemplate).catch(error => {
+            this.logger.error(`Failed to submit template to WhatsApp API: ${error.message}`, error.stack);
+        });
+        return updatedTemplate;
+    }
+    async delete(id, organizationId) {
+        const template = await this.findById(id, organizationId);
+        if (template.status === WhatsappTemplateStatus.ACTIVE) {
+            template.status = WhatsappTemplateStatus.INACTIVE;
+            await this.whatsappTemplateRepository.save(template);
+        }
+        else {
+            await this.whatsappTemplateRepository.softRemove(template);
+        }
+        if ([WhatsappTemplateStatus.APPROVED, WhatsappTemplateStatus.ACTIVE].includes(template.status)) {
+            this.deleteTemplateFromWhatsAppAPI(template).catch(error => {
+                this.logger.error(`Failed to delete template from WhatsApp API: ${error.message}`, error.stack);
+            });
+        }
+    }
+    async getAvailableLanguages() {
+        return [
+            { code: 'en', name: 'English' },
+            { code: 'es', name: 'Spanish' },
+            { code: 'pt_BR', name: 'Portuguese (Brazil)' },
+            { code: 'fr', name: 'French' },
+            { code: 'de', name: 'German' },
+            { code: 'it', name: 'Italian' },
+            { code: 'ar', name: 'Arabic' },
+            { code: 'hi', name: 'Hindi' },
+            { code: 'id', name: 'Indonesian' },
+            { code: 'ru', name: 'Russian' },
+            { code: 'zh_CN', name: 'Chinese (Simplified)' },
+            { code: 'ja', name: 'Japanese' },
+            { code: 'ko', name: 'Korean' },
+        ];
+    }
+    processTemplateText(text, variables = {}) {
+        if (!text)
+            return '';
+        let processed = text;
+        for (const [key, value] of Object.entries(variables)) {
+            const regex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
+            processed = processed.replace(regex, String(value !== null && value !== void 0 ? value : ''));
+        }
+        return processed;
+    }
+    validateTemplate(template) {
+        if (!template.components || !Array.isArray(template.components) || template.components.length === 0) {
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.BadRequestException('Template must have at least one component');
+        }
+        const bodyComponent = template.components.find(c => c.type === WhatsappTemplateComponentType.BODY);
+        if (!bodyComponent) {
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.BadRequestException('Template must have a body component');
+        }
+        if (!bodyComponent.text) {
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.BadRequestException('Body component must have text');
+        }
+        const headerComponent = template.components.find(c => c.type === WhatsappTemplateComponentType.HEADER);
+        if (headerComponent) {
+            if (!headerComponent.format) {
+                throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.BadRequestException('Header component must specify a format');
+            }
+            if (headerComponent.format === WhatsappTemplateHeaderType.TEXT && !headerComponent.text) {
+                throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.BadRequestException('Text header must have text content');
+            }
+        }
+        const buttonsComponent = template.components.find(c => c.type === WhatsappTemplateComponentType.BUTTONS);
+        if (buttonsComponent && buttonsComponent.buttons) {
+            if (buttonsComponent.buttons.length > 3) {
+                throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.BadRequestException('Template can have a maximum of 3 buttons');
+            }
+            for (const button of buttonsComponent.buttons) {
+                if (!button.type) {
+                    throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.BadRequestException('Each button must have a type');
+                }
+                if (!button.text) {
+                    throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.BadRequestException('Each button must have text');
+                }
+                if (button.type === WhatsappTemplateButtonType.URL && !button.url) {
+                    throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.BadRequestException('URL button must have a URL');
+                }
+                if (button.type === WhatsappTemplateButtonType.PHONE_NUMBER && !button.phoneNumber) {
+                    throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.BadRequestException('Phone number button must have a phone number');
+                }
+            }
+        }
+    }
+    async submitTemplateToWhatsAppAPI(template) {
+        const apiKey = this.configService.get('WHATSAPP_API_KEY');
+        const accountId = this.configService.get('WHATSAPP_ACCOUNT_ID');
+        this.logger.log(`[Mock] Submitting template ${template.name} to WhatsApp API`);
+        return {
+            id: `${Date.now()}`,
+            status: 'PENDING',
+            category: template.category
+        };
+    }
+    async deleteTemplateFromWhatsAppAPI(template) {
+        this.logger.log(`[Mock] Deleting template ${template.name} from WhatsApp API`);
+        return {
+            success: true
+        };
+    }
+    async syncTemplatesFromWhatsAppAPI(organizationId) {
+        const pendingTemplates = await this.whatsappTemplateRepository.find({
+            where: {
+                organizationId,
+                status: WhatsappTemplateStatus.PENDING_APPROVAL
+            }
+        });
+        for (const template of pendingTemplates) {
+            const mockApiResponse = {
+                status: Math.random() > 0.3 ? 'APPROVED' : 'REJECTED',
+                reason: 'This is a simulated response'
+            };
+            if (mockApiResponse.status === 'APPROVED') {
+                template.status = WhatsappTemplateStatus.APPROVED;
+                template.approvedAt = new Date();
+            }
+            else {
+                template.status = WhatsappTemplateStatus.REJECTED;
+                template.rejectionReason = mockApiResponse.reason;
+            }
+            await this.whatsappTemplateRepository.save(template);
+        }
     }
 };
-function isFinalStatus(status) {
-    return MessageStatusMetadata[status].final;
-}
-function isRetryableStatus(status) {
-    return MessageStatusMetadata[status].retryable;
-}
-function getStatusDescription(status) {
-    return MessageStatusMetadata[status].description;
-}
-function canTransitionTo(currentStatus, newStatus) {
-    if (MessageStatusMetadata[currentStatus].final) {
-        return false;
-    }
-    const validTransitions = new Map([
-        [WhatsAppMessageStatus.DRAFT, [
-                WhatsAppMessageStatus.QUEUED,
-                WhatsAppMessageStatus.SCHEDULED,
-                WhatsAppMessageStatus.CANCELLED,
-                WhatsAppMessageStatus.DELETED
-            ]],
-        [WhatsAppMessageStatus.QUEUED, [
-                WhatsAppMessageStatus.PROCESSING,
-                WhatsAppMessageStatus.RATE_LIMITED,
-                WhatsAppMessageStatus.CANCELLED
-            ]],
-        [WhatsAppMessageStatus.SCHEDULED, [
-                WhatsAppMessageStatus.QUEUED,
-                WhatsAppMessageStatus.CANCELLED,
-                WhatsAppMessageStatus.EXPIRED
-            ]],
-        [WhatsAppMessageStatus.PROCESSING, [
-                WhatsAppMessageStatus.SENT,
-                WhatsAppMessageStatus.FAILED,
-                WhatsAppMessageStatus.REJECTED,
-                WhatsAppMessageStatus.INVALID
-            ]],
-        [WhatsAppMessageStatus.RATE_LIMITED, [
-                WhatsAppMessageStatus.QUEUED,
-                WhatsAppMessageStatus.PROCESSING,
-                WhatsAppMessageStatus.CANCELLED
-            ]],
-        [WhatsAppMessageStatus.RETRYING, [
-                WhatsAppMessageStatus.PROCESSING,
-                WhatsAppMessageStatus.FAILED,
-                WhatsAppMessageStatus.CANCELLED
-            ]],
-        [WhatsAppMessageStatus.SENT, [
-                WhatsAppMessageStatus.DELIVERED,
-                WhatsAppMessageStatus.FAILED
-            ]],
-        [WhatsAppMessageStatus.DELIVERED, [
-                WhatsAppMessageStatus.READ,
-                WhatsAppMessageStatus.REPLIED
-            ]],
-        [WhatsAppMessageStatus.READ, [
-                WhatsAppMessageStatus.REPLIED
-            ]],
-        [WhatsAppMessageStatus.FAILED, [
-                WhatsAppMessageStatus.RETRYING,
-                WhatsAppMessageStatus.CANCELLED
-            ]]
-    ]);
-    const allowedTransitions = validTransitions.get(currentStatus) || [];
-    return allowedTransitions.includes(newStatus);
-}
+WhatsappTemplateService = WhatsappTemplateService_1 = __decorate([
+    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.Injectable)(),
+    __param(0, (0,_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__.InjectRepository)(_entities_whatsapp_template_entity__WEBPACK_IMPORTED_MODULE_3__.WhatsappTemplate)),
+    __metadata("design:paramtypes", [typeorm__WEBPACK_IMPORTED_MODULE_2__.Repository,
+        _nestjs_config__WEBPACK_IMPORTED_MODULE_4__.ConfigService])
+], WhatsappTemplateService);
+
 
 
 /***/ }),
@@ -25626,10 +29228,11 @@ let WhatsappService = WhatsappService_1 = class WhatsappService {
     }
     buildTemplateComponents(template, parameters) {
         const components = [];
-        if (template.headerType && (parameters === null || parameters === void 0 ? void 0 : parameters.header)) {
+        const headerComponent = template.components.find(c => c.type === _entities_whatsapp_template_entity__WEBPACK_IMPORTED_MODULE_7__.WhatsappTemplateComponentType.HEADER);
+        if (headerComponent && (parameters === null || parameters === void 0 ? void 0 : parameters.header)) {
             components.push({
                 type: 'header',
-                parameters: this.formatParameters(template.headerType, parameters.header)
+                parameters: this.formatParameters(headerComponent.format || _entities_whatsapp_template_entity__WEBPACK_IMPORTED_MODULE_7__.WhatsappTemplateHeaderType.TEXT, parameters.header)
             });
         }
         if (parameters === null || parameters === void 0 ? void 0 : parameters.body) {
@@ -25638,7 +29241,8 @@ let WhatsappService = WhatsappService_1 = class WhatsappService {
                 parameters: this.formatParameters('text', parameters.body)
             });
         }
-        if (template.buttons && (parameters === null || parameters === void 0 ? void 0 : parameters.buttons)) {
+        const buttonComponent = template.components.find(c => c.type === _entities_whatsapp_template_entity__WEBPACK_IMPORTED_MODULE_7__.WhatsappTemplateComponentType.BUTTONS);
+        if ((buttonComponent === null || buttonComponent === void 0 ? void 0 : buttonComponent.buttons) && (parameters === null || parameters === void 0 ? void 0 : parameters.buttons)) {
             components.push({
                 type: 'button',
                 sub_type: 'quick_reply',
@@ -25720,18 +29324,15 @@ let WhatsappService = WhatsappService_1 = class WhatsappService {
         }
     }
     mapWhatsAppStatus(status) {
-        switch (status.toLowerCase()) {
-            case 'sent':
-                return _entities_whatsapp_message_entity__WEBPACK_IMPORTED_MODULE_6__.MessageStatus.SENT;
-            case 'delivered':
-                return _entities_whatsapp_message_entity__WEBPACK_IMPORTED_MODULE_6__.MessageStatus.DELIVERED;
-            case 'read':
-                return _entities_whatsapp_message_entity__WEBPACK_IMPORTED_MODULE_6__.MessageStatus.READ;
-            case 'failed':
-                return _entities_whatsapp_message_entity__WEBPACK_IMPORTED_MODULE_6__.MessageStatus.FAILED;
-            default:
-                return _entities_whatsapp_message_entity__WEBPACK_IMPORTED_MODULE_6__.MessageStatus.UNKNOWN;
-        }
+        const statusMapping = {
+            'sent': _enums_whatsapp_message_status_enum__WEBPACK_IMPORTED_MODULE_8__.WhatsAppMessageStatus.SENT,
+            'delivered': _enums_whatsapp_message_status_enum__WEBPACK_IMPORTED_MODULE_8__.WhatsAppMessageStatus.DELIVERED,
+            'read': _enums_whatsapp_message_status_enum__WEBPACK_IMPORTED_MODULE_8__.WhatsAppMessageStatus.READ,
+            'failed': _enums_whatsapp_message_status_enum__WEBPACK_IMPORTED_MODULE_8__.WhatsAppMessageStatus.FAILED,
+            'pending': _enums_whatsapp_message_status_enum__WEBPACK_IMPORTED_MODULE_8__.WhatsAppMessageStatus.PENDING
+        };
+        const mappedStatus = statusMapping[status.toLowerCase()] || _enums_whatsapp_message_status_enum__WEBPACK_IMPORTED_MODULE_8__.WhatsAppMessageStatus.UNKNOWN;
+        return mappedStatus;
     }
     formatPhoneNumber(phone) {
         const cleaned = phone.replace(/\D/g, '');
@@ -25791,7 +29392,7 @@ let WhatsappService = WhatsappService_1 = class WhatsappService {
 WhatsappService = WhatsappService_1 = __decorate([
     (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.Injectable)(),
     __param(2, (0,_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_2__.InjectRepository)(_entities_whatsapp_message_entity__WEBPACK_IMPORTED_MODULE_6__.WhatsAppMessage)),
-    __param(3, (0,_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_2__.InjectRepository)(_entities_whatsapp_template_entity__WEBPACK_IMPORTED_MODULE_7__.WhatsAppTemplate)),
+    __param(3, (0,_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_2__.InjectRepository)(_entities_whatsapp_template_entity__WEBPACK_IMPORTED_MODULE_7__.WhatsappTemplate)),
     __metadata("design:paramtypes", [_nestjs_config__WEBPACK_IMPORTED_MODULE_1__.ConfigService,
         _nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_4__.EventEmitter2,
         typeorm__WEBPACK_IMPORTED_MODULE_3__.Repository,
@@ -25848,7 +29449,7 @@ let AuditService = class AuditService {
             entityId: dto.entityId.toString(),
             changes: dto.changes || {},
             metadata: Object.assign(Object.assign({}, dto.metadata), { ipAddress: dto.ipAddress || (request === null || request === void 0 ? void 0 : request.ip), userAgent: dto.userAgent || (request === null || request === void 0 ? void 0 : request.headers['user-agent']), timestamp: new Date() }),
-            userId: (_a = dto.userId) === null || _a === void 0 ? void 0 : _a.toString(),
+            actorId: (_a = dto.actorId) === null || _a === void 0 ? void 0 : _a.toString(),
             organizationId: (_b = dto.organizationId) === null || _b === void 0 ? void 0 : _b.toString(),
         });
         return this.auditLogRepository.save(auditLog);
@@ -25874,11 +29475,11 @@ let AuditService = class AuditService {
             .take(options.limit || 50);
         return query.getManyAndCount();
     }
-    async getUserAuditLogs(userId, options = {}) {
+    async getUserAuditLogs(actorId, options = {}) {
         var _a, _b;
         const query = this.auditLogRepository
             .createQueryBuilder('audit_log')
-            .where('audit_log.userId = :userId', { userId: userId.toString() });
+            .where('audit_log.actorId = :actorId', { actorId: actorId.toString() });
         if (options.startDate) {
             query.andWhere('audit_log.createdAt >= :startDate', { startDate: options.startDate });
         }
@@ -25914,9 +29515,9 @@ let AuditService = class AuditService {
         if ((_b = options.entityTypes) === null || _b === void 0 ? void 0 : _b.length) {
             query.andWhere('audit_log.entityType IN (:...entityTypes)', { entityTypes: options.entityTypes });
         }
-        if ((_c = options.userIds) === null || _c === void 0 ? void 0 : _c.length) {
-            query.andWhere('audit_log.userId IN (:...userIds)', {
-                userIds: options.userIds.map(id => id.toString())
+        if ((_c = options.actorIds) === null || _c === void 0 ? void 0 : _c.length) {
+            query.andWhere('audit_log.actorId IN (:...actorIds)', {
+                actorIds: options.actorIds.map(id => id.toString()),
             });
         }
         query
@@ -60432,357 +64033,6 @@ module.exports = isElectron;
 
 /***/ }),
 
-/***/ "../node_modules/nestjs-typeorm-paginate/dist/create-pagination.js":
-/*!*************************************************************************!*\
-  !*** ../node_modules/nestjs-typeorm-paginate/dist/create-pagination.js ***!
-  \*************************************************************************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.createPaginationObject = void 0;
-const pagination_1 = __webpack_require__(/*! ./pagination */ "../node_modules/nestjs-typeorm-paginate/dist/pagination.js");
-function createPaginationObject({ items, totalItems, currentPage, limit, route, metaTransformer, routingLabels, }) {
-    const totalPages = totalItems !== undefined ? Math.ceil(totalItems / limit) : undefined;
-    const hasFirstPage = route;
-    const hasPreviousPage = route && currentPage > 1;
-    const hasNextPage = route && totalItems !== undefined && currentPage < totalPages;
-    const hasLastPage = route && totalItems !== undefined && totalPages > 0;
-    const symbol = route && new RegExp(/\?/).test(route) ? '&' : '?';
-    const limitLabel = routingLabels && routingLabels.limitLabel
-        ? routingLabels.limitLabel
-        : 'limit';
-    const pageLabel = routingLabels && routingLabels.pageLabel ? routingLabels.pageLabel : 'page';
-    const routes = totalItems !== undefined
-        ? {
-            first: hasFirstPage ? `${route}${symbol}${limitLabel}=${limit}` : '',
-            previous: hasPreviousPage
-                ? `${route}${symbol}${pageLabel}=${currentPage - 1}&${limitLabel}=${limit}`
-                : '',
-            next: hasNextPage
-                ? `${route}${symbol}${pageLabel}=${currentPage + 1}&${limitLabel}=${limit}`
-                : '',
-            last: hasLastPage
-                ? `${route}${symbol}${pageLabel}=${totalPages}&${limitLabel}=${limit}`
-                : '',
-        }
-        : undefined;
-    const meta = {
-        totalItems,
-        itemCount: items.length,
-        itemsPerPage: limit,
-        totalPages,
-        currentPage: currentPage,
-    };
-    const links = route ? routes : undefined;
-    if (metaTransformer)
-        return new pagination_1.Pagination(items, metaTransformer(meta), links);
-    // @ts-ignore
-    return new pagination_1.Pagination(items, meta, links);
-}
-exports.createPaginationObject = createPaginationObject;
-
-
-/***/ }),
-
-/***/ "../node_modules/nestjs-typeorm-paginate/dist/index.js":
-/*!*************************************************************!*\
-  !*** ../node_modules/nestjs-typeorm-paginate/dist/index.js ***!
-  \*************************************************************/
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-"use strict";
-
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __exportStar = (this && this.__exportStar) || function(m, exports) {
-    for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
-};
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-__exportStar(__webpack_require__(/*! ./interfaces */ "../node_modules/nestjs-typeorm-paginate/dist/interfaces/index.js"), exports);
-__exportStar(__webpack_require__(/*! ./pagination */ "../node_modules/nestjs-typeorm-paginate/dist/pagination.js"), exports);
-__exportStar(__webpack_require__(/*! ./paginate */ "../node_modules/nestjs-typeorm-paginate/dist/paginate.js"), exports);
-__exportStar(__webpack_require__(/*! ./interfaces */ "../node_modules/nestjs-typeorm-paginate/dist/interfaces/index.js"), exports);
-__exportStar(__webpack_require__(/*! ./create-pagination */ "../node_modules/nestjs-typeorm-paginate/dist/create-pagination.js"), exports);
-
-
-/***/ }),
-
-/***/ "../node_modules/nestjs-typeorm-paginate/dist/interfaces/index.js":
-/*!************************************************************************!*\
-  !*** ../node_modules/nestjs-typeorm-paginate/dist/interfaces/index.js ***!
-  \************************************************************************/
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.PaginationTypeEnum = void 0;
-var PaginationTypeEnum;
-(function (PaginationTypeEnum) {
-    PaginationTypeEnum["LIMIT_AND_OFFSET"] = "limit";
-    PaginationTypeEnum["TAKE_AND_SKIP"] = "take";
-})(PaginationTypeEnum = exports.PaginationTypeEnum || (exports.PaginationTypeEnum = {}));
-
-
-/***/ }),
-
-/***/ "../node_modules/nestjs-typeorm-paginate/dist/paginate.js":
-/*!****************************************************************!*\
-  !*** ../node_modules/nestjs-typeorm-paginate/dist/paginate.js ***!
-  \****************************************************************/
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-"use strict";
-
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.paginateRawAndEntities = exports.paginateRaw = exports.paginate = void 0;
-const typeorm_1 = __webpack_require__(/*! typeorm */ "typeorm");
-const interfaces_1 = __webpack_require__(/*! ./interfaces */ "../node_modules/nestjs-typeorm-paginate/dist/interfaces/index.js");
-const create_pagination_1 = __webpack_require__(/*! ./create-pagination */ "../node_modules/nestjs-typeorm-paginate/dist/create-pagination.js");
-const DEFAULT_LIMIT = 10;
-const DEFAULT_PAGE = 1;
-function paginate(repositoryOrQueryBuilder, options, searchOptions) {
-    return __awaiter(this, void 0, void 0, function* () {
-        return repositoryOrQueryBuilder instanceof typeorm_1.Repository
-            ? paginateRepository(repositoryOrQueryBuilder, options, searchOptions)
-            : paginateQueryBuilder(repositoryOrQueryBuilder, options);
-    });
-}
-exports.paginate = paginate;
-function paginateRaw(queryBuilder, options) {
-    return __awaiter(this, void 0, void 0, function* () {
-        const [page, limit, route, paginationType, countQueries, cacheOption] = resolveOptions(options);
-        const promises = [
-            (paginationType === interfaces_1.PaginationTypeEnum.LIMIT_AND_OFFSET
-                ? queryBuilder.limit(limit).offset((page - 1) * limit)
-                : queryBuilder.take(limit).skip((page - 1) * limit))
-                .cache(cacheOption)
-                .getRawMany(),
-            undefined,
-        ];
-        if (countQueries) {
-            promises[1] = countQuery(queryBuilder, cacheOption);
-        }
-        const [items, total] = yield Promise.all(promises);
-        return (0, create_pagination_1.createPaginationObject)({
-            items,
-            totalItems: total,
-            currentPage: page,
-            limit,
-            route,
-            metaTransformer: options.metaTransformer,
-            routingLabels: options.routingLabels,
-        });
-    });
-}
-exports.paginateRaw = paginateRaw;
-function paginateRawAndEntities(queryBuilder, options) {
-    return __awaiter(this, void 0, void 0, function* () {
-        const [page, limit, route, paginationType, countQueries, cacheOption] = resolveOptions(options);
-        const promises = [
-            (paginationType === interfaces_1.PaginationTypeEnum.LIMIT_AND_OFFSET
-                ? queryBuilder.limit(limit).offset((page - 1) * limit)
-                : queryBuilder.take(limit).skip((page - 1) * limit))
-                .cache(cacheOption)
-                .getRawAndEntities(),
-            undefined,
-        ];
-        if (countQueries) {
-            promises[1] = countQuery(queryBuilder, cacheOption);
-        }
-        const [itemObject, total] = yield Promise.all(promises);
-        return [
-            (0, create_pagination_1.createPaginationObject)({
-                items: itemObject.entities,
-                totalItems: total,
-                currentPage: page,
-                limit,
-                route,
-                metaTransformer: options.metaTransformer,
-                routingLabels: options.routingLabels,
-            }),
-            itemObject.raw,
-        ];
-    });
-}
-exports.paginateRawAndEntities = paginateRawAndEntities;
-function resolveOptions(options) {
-    const page = resolveNumericOption(options, 'page', DEFAULT_PAGE);
-    const limit = resolveNumericOption(options, 'limit', DEFAULT_LIMIT);
-    const route = options.route;
-    const paginationType = options.paginationType || interfaces_1.PaginationTypeEnum.LIMIT_AND_OFFSET;
-    const countQueries = typeof options.countQueries !== 'undefined' ? options.countQueries : true;
-    const cacheQueries = options.cacheQueries || false;
-    return [page, limit, route, paginationType, countQueries, cacheQueries];
-}
-function resolveNumericOption(options, key, defaultValue) {
-    const value = options[key];
-    const resolvedValue = Number(value);
-    if (Number.isInteger(resolvedValue) && resolvedValue >= 0)
-        return resolvedValue;
-    console.warn(`Query parameter "${key}" with value "${value}" was resolved as "${resolvedValue}", please validate your query input! Falling back to default "${defaultValue}".`);
-    return defaultValue;
-}
-function paginateRepository(repository, options, searchOptions) {
-    return __awaiter(this, void 0, void 0, function* () {
-        const [page, limit, route, paginationType, countQueries] = resolveOptions(options);
-        if (page < 1) {
-            return (0, create_pagination_1.createPaginationObject)({
-                items: [],
-                totalItems: 0,
-                currentPage: page,
-                limit,
-                route,
-                metaTransformer: options.metaTransformer,
-                routingLabels: options.routingLabels,
-            });
-        }
-        const promises = [
-            repository.find(Object.assign({ skip: limit * (page - 1), take: limit }, searchOptions)),
-            undefined,
-        ];
-        if (countQueries) {
-            promises[1] = repository.count(Object.assign({}, searchOptions));
-        }
-        const [items, total] = yield Promise.all(promises);
-        return (0, create_pagination_1.createPaginationObject)({
-            items,
-            totalItems: total,
-            currentPage: page,
-            limit,
-            route,
-            metaTransformer: options.metaTransformer,
-            routingLabels: options.routingLabels,
-        });
-    });
-}
-function paginateQueryBuilder(queryBuilder, options) {
-    return __awaiter(this, void 0, void 0, function* () {
-        const [page, limit, route, paginationType, countQueries, cacheOption] = resolveOptions(options);
-        const promises = [
-            (interfaces_1.PaginationTypeEnum.LIMIT_AND_OFFSET === paginationType
-                ? queryBuilder.limit(limit).offset((page - 1) * limit)
-                : queryBuilder.take(limit).skip((page - 1) * limit))
-                .cache(cacheOption)
-                .getMany(),
-            undefined,
-        ];
-        if (countQueries) {
-            promises[1] = countQuery(queryBuilder, cacheOption);
-        }
-        const [items, total] = yield Promise.all(promises);
-        return (0, create_pagination_1.createPaginationObject)({
-            items,
-            totalItems: total,
-            currentPage: page,
-            limit,
-            route,
-            metaTransformer: options.metaTransformer,
-            routingLabels: options.routingLabels,
-        });
-    });
-}
-const countQuery = (queryBuilder, cacheOption) => __awaiter(void 0, void 0, void 0, function* () {
-    const totalQueryBuilder = queryBuilder.clone();
-    totalQueryBuilder
-        .skip(undefined)
-        .limit(undefined)
-        .offset(undefined)
-        .take(undefined)
-        .orderBy(undefined);
-    const { value } = yield queryBuilder.connection
-        .createQueryBuilder()
-        .select('COUNT(*)', 'value')
-        .from(`(${totalQueryBuilder.getQuery()})`, 'uniqueTableAlias')
-        .cache(cacheOption)
-        .setParameters(queryBuilder.getParameters())
-        .getRawOne();
-    return Number(value);
-});
-
-
-/***/ }),
-
-/***/ "../node_modules/nestjs-typeorm-paginate/dist/pagination.js":
-/*!******************************************************************!*\
-  !*** ../node_modules/nestjs-typeorm-paginate/dist/pagination.js ***!
-  \******************************************************************/
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.Pagination = void 0;
-class Pagination {
-    constructor(
-    /**
-     * a list of items to be returned
-     */
-    items, 
-    /**
-     * associated meta information (e.g., counts)
-     */
-    meta, 
-    /**
-     * associated links
-     */
-    links) {
-        this.items = items;
-        this.meta = meta;
-        this.links = links;
-    }
-}
-exports.Pagination = Pagination;
-
-
-/***/ }),
-
-/***/ "../node_modules/p-finally/index.js":
-/*!******************************************!*\
-  !*** ../node_modules/p-finally/index.js ***!
-  \******************************************/
-/***/ ((module) => {
-
-"use strict";
-
-module.exports = (promise, onFinally) => {
-	onFinally = onFinally || (() => {});
-
-	return promise.then(
-		val => new Promise(resolve => {
-			resolve(onFinally());
-		}).then(() => val),
-		err => new Promise(resolve => {
-			resolve(onFinally());
-		}).then(() => {
-			throw err;
-		})
-	);
-};
-
-
-/***/ }),
-
 /***/ "../node_modules/p-queue/dist/index.js":
 /*!*********************************************!*\
   !*** ../node_modules/p-queue/dist/index.js ***!
@@ -60793,7 +64043,7 @@ module.exports = (promise, onFinally) => {
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const EventEmitter = __webpack_require__(/*! eventemitter3 */ "eventemitter3");
-const p_timeout_1 = __webpack_require__(/*! p-timeout */ "../node_modules/p-timeout/index.js");
+const p_timeout_1 = __webpack_require__(/*! p-timeout */ "p-timeout");
 const priority_queue_1 = __webpack_require__(/*! ./priority-queue */ "../node_modules/p-queue/dist/priority-queue.js");
 // eslint-disable-next-line @typescript-eslint/no-empty-function
 const empty = () => { };
@@ -61244,71 +64494,14 @@ module.exports.AbortError = AbortError;
 
 /***/ }),
 
-/***/ "../node_modules/p-timeout/index.js":
-/*!******************************************!*\
-  !*** ../node_modules/p-timeout/index.js ***!
-  \******************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+/***/ "@nestjs-modules/mailer/dist/adapters/handlebars.adapter":
+/*!**************************************************************************!*\
+  !*** external "@nestjs-modules/mailer/dist/adapters/handlebars.adapter" ***!
+  \**************************************************************************/
+/***/ ((module) => {
 
 "use strict";
-
-
-const pFinally = __webpack_require__(/*! p-finally */ "../node_modules/p-finally/index.js");
-
-class TimeoutError extends Error {
-	constructor(message) {
-		super(message);
-		this.name = 'TimeoutError';
-	}
-}
-
-const pTimeout = (promise, milliseconds, fallback) => new Promise((resolve, reject) => {
-	if (typeof milliseconds !== 'number' || milliseconds < 0) {
-		throw new TypeError('Expected `milliseconds` to be a positive number');
-	}
-
-	if (milliseconds === Infinity) {
-		resolve(promise);
-		return;
-	}
-
-	const timer = setTimeout(() => {
-		if (typeof fallback === 'function') {
-			try {
-				resolve(fallback());
-			} catch (error) {
-				reject(error);
-			}
-
-			return;
-		}
-
-		const message = typeof fallback === 'string' ? fallback : `Promise timed out after ${milliseconds} milliseconds`;
-		const timeoutError = fallback instanceof Error ? fallback : new TimeoutError(message);
-
-		if (typeof promise.cancel === 'function') {
-			promise.cancel();
-		}
-
-		reject(timeoutError);
-	}, milliseconds);
-
-	// TODO: Use native `finally` keyword when targeting Node.js 10
-	pFinally(
-		// eslint-disable-next-line promise/prefer-await-to-then
-		promise.then(resolve, reject),
-		() => {
-			clearTimeout(timer);
-		}
-	);
-});
-
-module.exports = pTimeout;
-// TODO: Remove this for the next major release
-module.exports["default"] = pTimeout;
-
-module.exports.TimeoutError = TimeoutError;
-
+module.exports = require("@nestjs-modules/mailer/dist/adapters/handlebars.adapter");
 
 /***/ }),
 
@@ -61430,6 +64623,17 @@ module.exports = require("@nestjs/schedule");
 
 "use strict";
 module.exports = require("@nestjs/swagger");
+
+/***/ }),
+
+/***/ "@nestjs/throttler":
+/*!************************************!*\
+  !*** external "@nestjs/throttler" ***!
+  \************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("@nestjs/throttler");
 
 /***/ }),
 
@@ -61642,6 +64846,17 @@ module.exports = require("negotiator");
 
 /***/ }),
 
+/***/ "nestjs-typeorm-paginate":
+/*!******************************************!*\
+  !*** external "nestjs-typeorm-paginate" ***!
+  \******************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("nestjs-typeorm-paginate");
+
+/***/ }),
+
 /***/ "nodemailer":
 /*!*****************************!*\
   !*** external "nodemailer" ***!
@@ -61664,6 +64879,17 @@ module.exports = require("on-headers");
 
 /***/ }),
 
+/***/ "p-timeout":
+/*!****************************!*\
+  !*** external "p-timeout" ***!
+  \****************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("p-timeout");
+
+/***/ }),
+
 /***/ "passport-jwt":
 /*!*******************************!*\
   !*** external "passport-jwt" ***!
@@ -61683,6 +64909,17 @@ module.exports = require("passport-jwt");
 
 "use strict";
 module.exports = require("retry");
+
+/***/ }),
+
+/***/ "rxjs/operators":
+/*!*********************************!*\
+  !*** external "rxjs/operators" ***!
+  \*********************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("rxjs/operators");
 
 /***/ }),
 
@@ -62583,1417 +65820,6 @@ const helmet = Object.assign(
 
 
 
-
-/***/ }),
-
-/***/ "../node_modules/ua-parser-js/src/main/ua-parser.mjs":
-/*!***********************************************************!*\
-  !*** ../node_modules/ua-parser-js/src/main/ua-parser.mjs ***!
-  \***********************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   UAParser: () => (/* binding */ UAParser)
-/* harmony export */ });
-// Generated ESM version of ua-parser-js
-// DO NOT EDIT THIS FILE!
-// Source: /src/main/ua-parser.js
-
-/////////////////////////////////////////////////////////////////////////////////
-/* UAParser.js v2.0.2
-   Copyright © 2012-2024 Faisal Salman <f@faisalman.com>
-   AGPLv3 License *//*
-   Detect Browser, Engine, OS, CPU, and Device type/model from User-Agent data.
-   Supports browser & node.js environment. 
-   Demo   : https://uaparser.dev
-   Source : https://github.com/faisalman/ua-parser-js */
-/////////////////////////////////////////////////////////////////////////////////
-
-/* jshint esversion: 6 */ 
-/* globals window */
-
-
-    
-    //////////////
-    // Constants
-    /////////////
-
-    var LIBVERSION  = '2.0.2',
-        UA_MAX_LENGTH = 500,
-        USER_AGENT  = 'user-agent',
-        EMPTY       = '',
-        UNKNOWN     = '?',
-
-        // typeof
-        FUNC_TYPE   = 'function',
-        UNDEF_TYPE  = 'undefined',
-        OBJ_TYPE    = 'object',
-        STR_TYPE    = 'string',
-
-        // properties
-        UA_BROWSER  = 'browser',
-        UA_CPU      = 'cpu',
-        UA_DEVICE   = 'device',
-        UA_ENGINE   = 'engine',
-        UA_OS       = 'os',
-        UA_RESULT   = 'result',
-        
-        NAME        = 'name',
-        TYPE        = 'type',
-        VENDOR      = 'vendor',
-        VERSION     = 'version',
-        ARCHITECTURE= 'architecture',
-        MAJOR       = 'major',
-        MODEL       = 'model',
-
-        // device types
-        CONSOLE     = 'console',
-        MOBILE      = 'mobile',
-        TABLET      = 'tablet',
-        SMARTTV     = 'smarttv',
-        WEARABLE    = 'wearable',
-        XR          = 'xr',
-        EMBEDDED    = 'embedded',
-
-        // browser types
-        INAPP       = 'inapp',
-
-        // client hints
-        BRANDS      = 'brands',
-        FORMFACTORS = 'formFactors',
-        FULLVERLIST = 'fullVersionList',
-        PLATFORM    = 'platform',
-        PLATFORMVER = 'platformVersion',
-        BITNESS     = 'bitness',
-        CH_HEADER   = 'sec-ch-ua',
-        CH_HEADER_FULL_VER_LIST = CH_HEADER + '-full-version-list',
-        CH_HEADER_ARCH      = CH_HEADER + '-arch',
-        CH_HEADER_BITNESS   = CH_HEADER + '-' + BITNESS,
-        CH_HEADER_FORM_FACTORS = CH_HEADER + '-form-factors',
-        CH_HEADER_MOBILE    = CH_HEADER + '-' + MOBILE,
-        CH_HEADER_MODEL     = CH_HEADER + '-' + MODEL,
-        CH_HEADER_PLATFORM  = CH_HEADER + '-' + PLATFORM,
-        CH_HEADER_PLATFORM_VER = CH_HEADER_PLATFORM + '-version',
-        CH_ALL_VALUES       = [BRANDS, FULLVERLIST, MOBILE, MODEL, PLATFORM, PLATFORMVER, ARCHITECTURE, FORMFACTORS, BITNESS],
-
-        // device vendors
-        AMAZON      = 'Amazon',
-        APPLE       = 'Apple',
-        ASUS        = 'ASUS',
-        BLACKBERRY  = 'BlackBerry',
-        GOOGLE      = 'Google',
-        HUAWEI      = 'Huawei',
-        LENOVO      = 'Lenovo',
-        HONOR       = 'Honor',
-        LG          = 'LG',
-        MICROSOFT   = 'Microsoft',
-        MOTOROLA    = 'Motorola',
-        NVIDIA      = 'Nvidia',
-        ONEPLUS     = 'OnePlus',
-        OPPO        = 'OPPO',
-        SAMSUNG     = 'Samsung',
-        SHARP       = 'Sharp',
-        SONY        = 'Sony',
-        XIAOMI      = 'Xiaomi',
-        ZEBRA       = 'Zebra',
-
-        // browsers
-        CHROME      = 'Chrome',
-        CHROMIUM    = 'Chromium',
-        CHROMECAST  = 'Chromecast',
-        EDGE        = 'Edge',
-        FIREFOX     = 'Firefox',
-        OPERA       = 'Opera',
-        FACEBOOK    = 'Facebook',
-        SOGOU       = 'Sogou',
-
-        PREFIX_MOBILE  = 'Mobile ',
-        SUFFIX_BROWSER = ' Browser',
-
-        // os
-        WINDOWS     = 'Windows';
-   
-    var isWindow            = typeof window !== UNDEF_TYPE,
-        NAVIGATOR           = (isWindow && window.navigator) ? 
-                                window.navigator : 
-                                undefined,
-        NAVIGATOR_UADATA    = (NAVIGATOR && NAVIGATOR.userAgentData) ? 
-                                NAVIGATOR.userAgentData : 
-                                undefined;
-
-    ///////////
-    // Helper
-    //////////
-
-    var extend = function (defaultRgx, extensions) {
-            var mergedRgx = {};
-            var extraRgx = extensions;
-            if (!isExtensions(extensions)) {
-                extraRgx = {};
-                for (var i in extensions) {
-                    for (var j in extensions[i]) {
-                        extraRgx[j] = extensions[i][j].concat(extraRgx[j] ? extraRgx[j] : []);
-                    }
-                }
-            }
-            for (var k in defaultRgx) {
-                mergedRgx[k] = extraRgx[k] && extraRgx[k].length % 2 === 0 ? extraRgx[k].concat(defaultRgx[k]) : defaultRgx[k];
-            }
-            return mergedRgx;
-        },
-        enumerize = function (arr) {
-            var enums = {};
-            for (var i=0; i<arr.length; i++) {
-                enums[arr[i].toUpperCase()] = arr[i];
-            }
-            return enums;
-        },
-        has = function (str1, str2) {
-            if (typeof str1 === OBJ_TYPE && str1.length > 0) {
-                for (var i in str1) {
-                    if (lowerize(str1[i]) == lowerize(str2)) return true;
-                }
-                return false;
-            }
-            return isString(str1) ? lowerize(str2).indexOf(lowerize(str1)) !== -1 : false;
-        },
-        isExtensions = function (obj, deep) {
-            for (var prop in obj) {
-                return /^(browser|cpu|device|engine|os)$/.test(prop) || (deep ? isExtensions(obj[prop]) : false);
-            }
-        },
-        isString = function (val) {
-            return typeof val === STR_TYPE;
-        },
-        itemListToArray = function (header) {
-            if (!header) return undefined;
-            var arr = [];
-            var tokens = strip(/\\?\"/g, header).split(',');
-            for (var i = 0; i < tokens.length; i++) {
-                if (tokens[i].indexOf(';') > -1) {
-                    var token = trim(tokens[i]).split(';v=');
-                    arr[i] = { brand : token[0], version : token[1] };
-                } else {
-                    arr[i] = trim(tokens[i]);
-                }
-            }
-            return arr;
-        },
-        lowerize = function (str) {
-            return isString(str) ? str.toLowerCase() : str;
-        },
-        majorize = function (version) {
-            return isString(version) ? strip(/[^\d\.]/g, version).split('.')[0] : undefined;
-        },
-        setProps = function (arr) {
-            for (var i in arr) {
-                var propName = arr[i];
-                if (typeof propName == OBJ_TYPE && propName.length == 2) {
-                    this[propName[0]] = propName[1];
-                } else {
-                    this[propName] = undefined;
-                }
-            }
-            return this;
-        },
-        strip = function (pattern, str) {
-            return isString(str) ? str.replace(pattern, EMPTY) : str;
-        },
-        stripQuotes = function (str) {
-            return strip(/\\?\"/g, str); 
-        },
-        trim = function (str, len) {
-            if (isString(str)) {
-                str = strip(/^\s\s*/, str);
-                return typeof len === UNDEF_TYPE ? str : str.substring(0, UA_MAX_LENGTH);
-            }
-    };
-
-    ///////////////
-    // Map helper
-    //////////////
-
-    var rgxMapper = function (ua, arrays) {
-
-            if(!ua || !arrays) return;
-
-            var i = 0, j, k, p, q, matches, match;
-
-            // loop through all regexes maps
-            while (i < arrays.length && !matches) {
-
-                var regex = arrays[i],       // even sequence (0,2,4,..)
-                    props = arrays[i + 1];   // odd sequence (1,3,5,..)
-                j = k = 0;
-
-                // try matching uastring with regexes
-                while (j < regex.length && !matches) {
-
-                    if (!regex[j]) { break; }
-                    matches = regex[j++].exec(ua);
-
-                    if (!!matches) {
-                        for (p = 0; p < props.length; p++) {
-                            match = matches[++k];
-                            q = props[p];
-                            // check if given property is actually array
-                            if (typeof q === OBJ_TYPE && q.length > 0) {
-                                if (q.length === 2) {
-                                    if (typeof q[1] == FUNC_TYPE) {
-                                        // assign modified match
-                                        this[q[0]] = q[1].call(this, match);
-                                    } else {
-                                        // assign given value, ignore regex match
-                                        this[q[0]] = q[1];
-                                    }
-                                } else if (q.length === 3) {
-                                    // check whether function or regex
-                                    if (typeof q[1] === FUNC_TYPE && !(q[1].exec && q[1].test)) {
-                                        // call function (usually string mapper)
-                                        this[q[0]] = match ? q[1].call(this, match, q[2]) : undefined;
-                                    } else {
-                                        // sanitize match using given regex
-                                        this[q[0]] = match ? match.replace(q[1], q[2]) : undefined;
-                                    }
-                                } else if (q.length === 4) {
-                                        this[q[0]] = match ? q[3].call(this, match.replace(q[1], q[2])) : undefined;
-                                }
-                            } else {
-                                this[q] = match ? match : undefined;
-                            }
-                        }
-                    }
-                }
-                i += 2;
-            }
-        },
-
-        strMapper = function (str, map) {
-
-            for (var i in map) {
-                // check if current value is array
-                if (typeof map[i] === OBJ_TYPE && map[i].length > 0) {
-                    for (var j = 0; j < map[i].length; j++) {
-                        if (has(map[i][j], str)) {
-                            return (i === UNKNOWN) ? undefined : i;
-                        }
-                    }
-                } else if (has(map[i], str)) {
-                    return (i === UNKNOWN) ? undefined : i;
-                }
-            }
-            return map.hasOwnProperty('*') ? map['*'] : str;
-    };
-
-    ///////////////
-    // String map
-    //////////////
-
-    var windowsVersionMap = {
-            'ME'        : '4.90',
-            'NT 3.11'   : 'NT3.51',
-            'NT 4.0'    : 'NT4.0',
-            '2000'      : 'NT 5.0',
-            'XP'        : ['NT 5.1', 'NT 5.2'],
-            'Vista'     : 'NT 6.0',
-            '7'         : 'NT 6.1',
-            '8'         : 'NT 6.2',
-            '8.1'       : 'NT 6.3',
-            '10'        : ['NT 6.4', 'NT 10.0'],
-            'RT'        : 'ARM'
-        },
-        
-        formFactorsMap = {
-            'embedded'  : 'Automotive',
-            'mobile'    : 'Mobile',
-            'tablet'    : ['Tablet', 'EInk'],
-            'smarttv'   : 'TV',
-            'wearable'  : 'Watch',
-            'xr'        : ['VR', 'XR'],
-            '?'         : ['Desktop', 'Unknown'],
-            '*'         : undefined
-    };
-
-    //////////////
-    // Regex map
-    /////////////
-
-    var defaultRegexes = {
-
-        browser : [[
-
-            // Most common regardless engine
-            /\b(?:crmo|crios)\/([\w\.]+)/i                                      // Chrome for Android/iOS
-            ], [VERSION, [NAME, PREFIX_MOBILE + 'Chrome']], [
-            /edg(?:e|ios|a)?\/([\w\.]+)/i                                       // Microsoft Edge
-            ], [VERSION, [NAME, 'Edge']], [
-
-            // Presto based
-            /(opera mini)\/([-\w\.]+)/i,                                        // Opera Mini
-            /(opera [mobiletab]{3,6})\b.+version\/([-\w\.]+)/i,                 // Opera Mobi/Tablet
-            /(opera)(?:.+version\/|[\/ ]+)([\w\.]+)/i                           // Opera
-            ], [NAME, VERSION], [
-            /opios[\/ ]+([\w\.]+)/i                                             // Opera mini on iphone >= 8.0
-            ], [VERSION, [NAME, OPERA+' Mini']], [
-            /\bop(?:rg)?x\/([\w\.]+)/i                                          // Opera GX
-            ], [VERSION, [NAME, OPERA+' GX']], [
-            /\bopr\/([\w\.]+)/i                                                 // Opera Webkit
-            ], [VERSION, [NAME, OPERA]], [
-
-            // Mixed
-            /\bb[ai]*d(?:uhd|[ub]*[aekoprswx]{5,6})[\/ ]?([\w\.]+)/i            // Baidu
-            ], [VERSION, [NAME, 'Baidu']], [
-            /\b(?:mxbrowser|mxios|myie2)\/?([-\w\.]*)\b/i                       // Maxthon
-            ], [VERSION, [NAME, 'Maxthon']], [
-            /(kindle)\/([\w\.]+)/i,                                             // Kindle
-            /(lunascape|maxthon|netfront|jasmine|blazer|sleipnir)[\/ ]?([\w\.]*)/i,      
-                                                                                // Lunascape/Maxthon/Netfront/Jasmine/Blazer/Sleipnir
-            // Trident based
-            /(avant|iemobile|slim(?:browser|boat|jet))[\/ ]?([\d\.]*)/i,        // Avant/IEMobile/SlimBrowser/SlimBoat/Slimjet
-            /(?:ms|\()(ie) ([\w\.]+)/i,                                         // Internet Explorer
-
-            // Blink/Webkit/KHTML based                                         // Flock/RockMelt/Midori/Epiphany/Silk/Skyfire/Bolt/Iron/Iridium/PhantomJS/Bowser/QupZilla/Falkon
-            /(flock|rockmelt|midori|epiphany|silk|skyfire|ovibrowser|bolt|iron|vivaldi|iridium|phantomjs|bowser|qupzilla|falkon|rekonq|puffin|brave|whale(?!.+naver)|qqbrowserlite|duckduckgo|klar|helio|(?=comodo_)?dragon)\/([-\w\.]+)/i,
-                                                                                // Rekonq/Puffin/Brave/Whale/QQBrowserLite/QQ//Vivaldi/DuckDuckGo/Klar/Helio/Dragon
-            /(heytap|ovi|115)browser\/([\d\.]+)/i,                              // HeyTap/Ovi/115
-            /(weibo)__([\d\.]+)/i                                               // Weibo
-            ], [NAME, VERSION], [
-            /quark(?:pc)?\/([-\w\.]+)/i                                         // Quark
-            ], [VERSION, [NAME, 'Quark']], [
-            /\bddg\/([\w\.]+)/i                                                 // DuckDuckGo
-            ], [VERSION, [NAME, 'DuckDuckGo']], [
-            /(?:\buc? ?browser|(?:juc.+)ucweb)[\/ ]?([\w\.]+)/i                 // UCBrowser
-            ], [VERSION, [NAME, 'UCBrowser']], [
-            /microm.+\bqbcore\/([\w\.]+)/i,                                     // WeChat Desktop for Windows Built-in Browser
-            /\bqbcore\/([\w\.]+).+microm/i,
-            /micromessenger\/([\w\.]+)/i                                        // WeChat
-            ], [VERSION, [NAME, 'WeChat']], [
-            /konqueror\/([\w\.]+)/i                                             // Konqueror
-            ], [VERSION, [NAME, 'Konqueror']], [
-            /trident.+rv[: ]([\w\.]{1,9})\b.+like gecko/i                       // IE11
-            ], [VERSION, [NAME, 'IE']], [
-            /ya(?:search)?browser\/([\w\.]+)/i                                  // Yandex
-            ], [VERSION, [NAME, 'Yandex']], [
-            /slbrowser\/([\w\.]+)/i                                             // Smart Lenovo Browser
-            ], [VERSION, [NAME, 'Smart ' + LENOVO + SUFFIX_BROWSER]], [
-            /(avast|avg)\/([\w\.]+)/i                                           // Avast/AVG Secure Browser
-            ], [[NAME, /(.+)/, '$1 Secure' + SUFFIX_BROWSER], VERSION], [
-            /\bfocus\/([\w\.]+)/i                                               // Firefox Focus
-            ], [VERSION, [NAME, FIREFOX+' Focus']], [
-            /\bopt\/([\w\.]+)/i                                                 // Opera Touch
-            ], [VERSION, [NAME, OPERA+' Touch']], [
-            /coc_coc\w+\/([\w\.]+)/i                                            // Coc Coc Browser
-            ], [VERSION, [NAME, 'Coc Coc']], [
-            /dolfin\/([\w\.]+)/i                                                // Dolphin
-            ], [VERSION, [NAME, 'Dolphin']], [
-            /coast\/([\w\.]+)/i                                                 // Opera Coast
-            ], [VERSION, [NAME, OPERA+' Coast']], [
-            /miuibrowser\/([\w\.]+)/i                                           // MIUI Browser
-            ], [VERSION, [NAME, 'MIUI' + SUFFIX_BROWSER]], [
-            /fxios\/([\w\.-]+)/i                                                // Firefox for iOS
-            ], [VERSION, [NAME, PREFIX_MOBILE + FIREFOX]], [
-            /\bqihoobrowser\/?([\w\.]*)/i                                       // 360
-            ], [VERSION, [NAME, '360']], [
-            /\b(qq)\/([\w\.]+)/i                                                // QQ
-            ], [[NAME, /(.+)/, '$1Browser'], VERSION], [
-            /(oculus|sailfish|huawei|vivo|pico)browser\/([\w\.]+)/i
-            ], [[NAME, /(.+)/, '$1' + SUFFIX_BROWSER], VERSION], [              // Oculus/Sailfish/HuaweiBrowser/VivoBrowser/PicoBrowser
-            /samsungbrowser\/([\w\.]+)/i                                        // Samsung Internet
-            ], [VERSION, [NAME, SAMSUNG + ' Internet']], [
-            /metasr[\/ ]?([\d\.]+)/i                                            // Sogou Explorer
-            ], [VERSION, [NAME, SOGOU + ' Explorer']], [
-            /(sogou)mo\w+\/([\d\.]+)/i                                          // Sogou Mobile
-            ], [[NAME, SOGOU + ' Mobile'], VERSION], [
-            /(electron)\/([\w\.]+) safari/i,                                    // Electron-based App
-            /(tesla)(?: qtcarbrowser|\/(20\d\d\.[-\w\.]+))/i,                   // Tesla
-            /m?(qqbrowser|2345(?=browser|chrome|explorer))\w*[\/ ]?v?([\w\.]+)/i   // QQ/2345
-            ], [NAME, VERSION], [
-            /(lbbrowser|rekonq)/i                                               // LieBao Browser/Rekonq
-            ], [NAME], [
-            /ome\/([\w\.]+) \w* ?(iron) saf/i,                                  // Iron
-            /ome\/([\w\.]+).+qihu (360)[es]e/i                                  // 360
-            ], [VERSION, NAME], [
-
-            // WebView
-            /((?:fban\/fbios|fb_iab\/fb4a)(?!.+fbav)|;fbav\/([\w\.]+);)/i       // Facebook App for iOS & Android
-            ], [[NAME, FACEBOOK], VERSION, [TYPE, INAPP]], [
-            /(Klarna)\/([\w\.]+)/i,                                             // Klarna Shopping Browser for iOS & Android
-            /(kakao(?:talk|story))[\/ ]([\w\.]+)/i,                             // Kakao App
-            /(naver)\(.*?(\d+\.[\w\.]+).*\)/i,                                  // Naver InApp
-            /(daum)apps[\/ ]([\w\.]+)/i,                                        // Daum App
-            /safari (line)\/([\w\.]+)/i,                                        // Line App for iOS
-            /\b(line)\/([\w\.]+)\/iab/i,                                        // Line App for Android
-            /(alipay)client\/([\w\.]+)/i,                                       // Alipay
-            /(twitter)(?:and| f.+e\/([\w\.]+))/i,                               // Twitter
-            /(instagram|snapchat)[\/ ]([-\w\.]+)/i                              // Instagram/Snapchat
-            ], [NAME, VERSION, [TYPE, INAPP]], [
-            /\bgsa\/([\w\.]+) .*safari\//i                                      // Google Search Appliance on iOS
-            ], [VERSION, [NAME, 'GSA'], [TYPE, INAPP]], [
-            /musical_ly(?:.+app_?version\/|_)([\w\.]+)/i                        // TikTok
-            ], [VERSION, [NAME, 'TikTok'], [TYPE, INAPP]], [
-            /\[(linkedin)app\]/i                                                // LinkedIn App for iOS & Android
-            ], [NAME, [TYPE, INAPP]], [
-
-            /(chromium)[\/ ]([-\w\.]+)/i                                        // Chromium
-            ], [NAME, VERSION], [
-
-            /headlesschrome(?:\/([\w\.]+)| )/i                                  // Chrome Headless
-            ], [VERSION, [NAME, CHROME+' Headless']], [
-
-            / wv\).+(chrome)\/([\w\.]+)/i                                       // Chrome WebView
-            ], [[NAME, CHROME+' WebView'], VERSION], [
-
-            /droid.+ version\/([\w\.]+)\b.+(?:mobile safari|safari)/i           // Android Browser
-            ], [VERSION, [NAME, 'Android' + SUFFIX_BROWSER]], [
-
-            /chrome\/([\w\.]+) mobile/i                                         // Chrome Mobile
-            ], [VERSION, [NAME, PREFIX_MOBILE + 'Chrome']], [
-
-            /(chrome|omniweb|arora|[tizenoka]{5} ?browser)\/v?([\w\.]+)/i       // Chrome/OmniWeb/Arora/Tizen/Nokia
-            ], [NAME, VERSION], [
-
-            /version\/([\w\.\,]+) .*mobile(?:\/\w+ | ?)safari/i                 // Safari Mobile
-            ], [VERSION, [NAME, PREFIX_MOBILE + 'Safari']], [
-            /iphone .*mobile(?:\/\w+ | ?)safari/i
-            ], [[NAME, PREFIX_MOBILE + 'Safari']], [
-            /version\/([\w\.\,]+) .*(safari)/i                                  // Safari
-            ], [VERSION, NAME], [
-            /webkit.+?(mobile ?safari|safari)(\/[\w\.]+)/i                      // Safari < 3.0
-            ], [NAME, [VERSION, '1']], [
-
-            /(webkit|khtml)\/([\w\.]+)/i
-            ], [NAME, VERSION], [
-
-            // Gecko based
-            /(?:mobile|tablet);.*(firefox)\/([\w\.-]+)/i                        // Firefox Mobile
-            ], [[NAME, PREFIX_MOBILE + FIREFOX], VERSION], [
-            /(navigator|netscape\d?)\/([-\w\.]+)/i                              // Netscape
-            ], [[NAME, 'Netscape'], VERSION], [
-            /(wolvic|librewolf)\/([\w\.]+)/i                                    // Wolvic/LibreWolf
-            ], [NAME, VERSION], [
-            /mobile vr; rv:([\w\.]+)\).+firefox/i                               // Firefox Reality
-            ], [VERSION, [NAME, FIREFOX+' Reality']], [
-            /ekiohf.+(flow)\/([\w\.]+)/i,                                       // Flow
-            /(swiftfox)/i,                                                      // Swiftfox
-            /(icedragon|iceweasel|camino|chimera|fennec|maemo browser|minimo|conkeror)[\/ ]?([\w\.\+]+)/i,
-                                                                                // IceDragon/Iceweasel/Camino/Chimera/Fennec/Maemo/Minimo/Conkeror
-            /(seamonkey|k-meleon|icecat|iceape|firebird|phoenix|palemoon|basilisk|waterfox)\/([-\w\.]+)$/i,
-                                                                                // Firefox/SeaMonkey/K-Meleon/IceCat/IceApe/Firebird/Phoenix
-            /(firefox)\/([\w\.]+)/i,                                            // Other Firefox-based
-            /(mozilla)\/([\w\.]+) .+rv\:.+gecko\/\d+/i,                         // Mozilla
-
-            // Other
-            /(amaya|dillo|doris|icab|ladybird|lynx|mosaic|netsurf|obigo|polaris|w3m|(?:go|ice|up)[\. ]?browser)[-\/ ]?v?([\w\.]+)/i,
-                                                                                // Polaris/Lynx/Dillo/iCab/Doris/Amaya/w3m/NetSurf/Obigo/Mosaic/Go/ICE/UP.Browser/Ladybird
-            /\b(links) \(([\w\.]+)/i                                            // Links
-            ], [NAME, [VERSION, /_/g, '.']], [
-            
-            /(cobalt)\/([\w\.]+)/i                                              // Cobalt
-            ], [NAME, [VERSION, /[^\d\.]+./, EMPTY]]
-        ],
-
-        cpu : [[
-
-            /\b((amd|x|x86[-_]?|wow|win)64)\b/i                                 // AMD64 (x64)
-            ], [[ARCHITECTURE, 'amd64']], [
-
-            /(ia32(?=;))/i,                                                     // IA32 (quicktime)
-            /\b((i[346]|x)86)(pc)?\b/i                                          // IA32 (x86)
-            ], [[ARCHITECTURE, 'ia32']], [
-
-            /\b(aarch64|arm(v?[89]e?l?|_?64))\b/i                               // ARM64
-            ], [[ARCHITECTURE, 'arm64']], [
-
-            /\b(arm(v[67])?ht?n?[fl]p?)\b/i                                     // ARMHF
-            ], [[ARCHITECTURE, 'armhf']], [
-
-            // PocketPC mistakenly identified as PowerPC
-            /( (ce|mobile); ppc;|\/[\w\.]+arm\b)/i
-            ], [[ARCHITECTURE, 'arm']], [
-
-            /((ppc|powerpc)(64)?)( mac|;|\))/i                                  // PowerPC
-            ], [[ARCHITECTURE, /ower/, EMPTY, lowerize]], [
-
-            / sun4\w[;\)]/i                                                     // SPARC
-            ], [[ARCHITECTURE, 'sparc']], [
-
-            /\b(avr32|ia64(?=;)|68k(?=\))|\barm(?=v([1-7]|[5-7]1)l?|;|eabi)|(irix|mips|sparc)(64)?\b|pa-risc)/i
-                                                                                // IA64, 68K, ARM/64, AVR/32, IRIX/64, MIPS/64, SPARC/64, PA-RISC
-            ], [[ARCHITECTURE, lowerize]]
-        ],
-
-        device : [[
-
-            //////////////////////////
-            // MOBILES & TABLETS
-            /////////////////////////
-
-            // Samsung
-            /\b(sch-i[89]0\d|shw-m380s|sm-[ptx]\w{2,4}|gt-[pn]\d{2,4}|sgh-t8[56]9|nexus 10)/i
-            ], [MODEL, [VENDOR, SAMSUNG], [TYPE, TABLET]], [
-            /\b((?:s[cgp]h|gt|sm)-(?![lr])\w+|sc[g-]?[\d]+a?|galaxy nexus)/i,
-            /samsung[- ]((?!sm-[lr])[-\w]+)/i,
-            /sec-(sgh\w+)/i
-            ], [MODEL, [VENDOR, SAMSUNG], [TYPE, MOBILE]], [
-
-            // Apple
-            /(?:\/|\()(ip(?:hone|od)[\w, ]*)(?:\/|;)/i                          // iPod/iPhone
-            ], [MODEL, [VENDOR, APPLE], [TYPE, MOBILE]], [
-            /\((ipad);[-\w\),; ]+apple/i,                                       // iPad
-            /applecoremedia\/[\w\.]+ \((ipad)/i,
-            /\b(ipad)\d\d?,\d\d?[;\]].+ios/i
-            ], [MODEL, [VENDOR, APPLE], [TYPE, TABLET]], [
-            /(macintosh);/i
-            ], [MODEL, [VENDOR, APPLE]], [
-
-            // Sharp
-            /\b(sh-?[altvz]?\d\d[a-ekm]?)/i
-            ], [MODEL, [VENDOR, SHARP], [TYPE, MOBILE]], [
-
-            // Honor
-            /\b((?:brt|eln|hey2?|gdi|jdn)-a?[lnw]09|(?:ag[rm]3?|jdn2|kob2)-a?[lw]0[09]hn)(?: bui|\)|;)/i
-            ], [MODEL, [VENDOR, HONOR], [TYPE, TABLET]], [
-            /honor([-\w ]+)[;\)]/i
-            ], [MODEL, [VENDOR, HONOR], [TYPE, MOBILE]], [
-
-            // Huawei
-            /\b((?:ag[rs][2356]?k?|bah[234]?|bg[2o]|bt[kv]|cmr|cpn|db[ry]2?|jdn2|got|kob2?k?|mon|pce|scm|sht?|[tw]gr|vrd)-[ad]?[lw][0125][09]b?|605hw|bg2-u03|(?:gem|fdr|m2|ple|t1)-[7a]0[1-4][lu]|t1-a2[13][lw]|mediapad[\w\. ]*(?= bui|\)))\b(?!.+d\/s)/i
-            ], [MODEL, [VENDOR, HUAWEI], [TYPE, TABLET]], [
-            /(?:huawei)([-\w ]+)[;\)]/i,
-            /\b(nexus 6p|\w{2,4}e?-[atu]?[ln][\dx][012359c][adn]?)\b(?!.+d\/s)/i
-            ], [MODEL, [VENDOR, HUAWEI], [TYPE, MOBILE]], [
-
-            // Xiaomi
-            /oid[^\)]+; (2[\dbc]{4}(182|283|rp\w{2})[cgl]|m2105k81a?c)(?: bui|\))/i,
-            /\b((?:red)?mi[-_ ]?pad[\w- ]*)(?: bui|\))/i                                // Mi Pad tablets
-            ],[[MODEL, /_/g, ' '], [VENDOR, XIAOMI], [TYPE, TABLET]], [
-
-            /\b(poco[\w ]+|m2\d{3}j\d\d[a-z]{2})(?: bui|\))/i,                  // Xiaomi POCO
-            /\b; (\w+) build\/hm\1/i,                                           // Xiaomi Hongmi 'numeric' models
-            /\b(hm[-_ ]?note?[_ ]?(?:\d\w)?) bui/i,                             // Xiaomi Hongmi
-            /\b(redmi[\-_ ]?(?:note|k)?[\w_ ]+)(?: bui|\))/i,                   // Xiaomi Redmi
-            /oid[^\)]+; (m?[12][0-389][01]\w{3,6}[c-y])( bui|; wv|\))/i,        // Xiaomi Redmi 'numeric' models
-            /\b(mi[-_ ]?(?:a\d|one|one[_ ]plus|note lte|max|cc)?[_ ]?(?:\d?\w?)[_ ]?(?:plus|se|lite|pro)?)(?: bui|\))/i, // Xiaomi Mi
-            / ([\w ]+) miui\/v?\d/i
-            ], [[MODEL, /_/g, ' '], [VENDOR, XIAOMI], [TYPE, MOBILE]], [
-
-            // OPPO
-            /; (\w+) bui.+ oppo/i,
-            /\b(cph[12]\d{3}|p(?:af|c[al]|d\w|e[ar])[mt]\d0|x9007|a101op)\b/i
-            ], [MODEL, [VENDOR, OPPO], [TYPE, MOBILE]], [
-            /\b(opd2(\d{3}a?))(?: bui|\))/i
-            ], [MODEL, [VENDOR, strMapper, { 'OnePlus' : ['304', '403', '203'], '*' : OPPO }], [TYPE, TABLET]], [
-
-            // Vivo
-            /vivo (\w+)(?: bui|\))/i,
-            /\b(v[12]\d{3}\w?[at])(?: bui|;)/i
-            ], [MODEL, [VENDOR, 'Vivo'], [TYPE, MOBILE]], [
-
-            // Realme
-            /\b(rmx[1-3]\d{3})(?: bui|;|\))/i
-            ], [MODEL, [VENDOR, 'Realme'], [TYPE, MOBILE]], [
-
-            // Motorola
-            /\b(milestone|droid(?:[2-4x]| (?:bionic|x2|pro|razr))?:?( 4g)?)\b[\w ]+build\//i,
-            /\bmot(?:orola)?[- ](\w*)/i,
-            /((?:moto(?! 360)[\w\(\) ]+|xt\d{3,4}|nexus 6)(?= bui|\)))/i
-            ], [MODEL, [VENDOR, MOTOROLA], [TYPE, MOBILE]], [
-            /\b(mz60\d|xoom[2 ]{0,2}) build\//i
-            ], [MODEL, [VENDOR, MOTOROLA], [TYPE, TABLET]], [
-
-            // LG
-            /((?=lg)?[vl]k\-?\d{3}) bui| 3\.[-\w; ]{10}lg?-([06cv9]{3,4})/i
-            ], [MODEL, [VENDOR, LG], [TYPE, TABLET]], [
-            /(lm(?:-?f100[nv]?|-[\w\.]+)(?= bui|\))|nexus [45])/i,
-            /\blg[-e;\/ ]+((?!browser|netcast|android tv|watch)\w+)/i,
-            /\blg-?([\d\w]+) bui/i
-            ], [MODEL, [VENDOR, LG], [TYPE, MOBILE]], [
-
-            // Lenovo
-            /(ideatab[-\w ]+|602lv|d-42a|a101lv|a2109a|a3500-hv|s[56]000|pb-6505[my]|tb-?x?\d{3,4}(?:f[cu]|xu|[av])|yt\d?-[jx]?\d+[lfmx])( bui|;|\)|\/)/i,
-            /lenovo ?(b[68]0[08]0-?[hf]?|tab(?:[\w- ]+?)|tb[\w-]{6,7})( bui|;|\)|\/)/i
-            ], [MODEL, [VENDOR, LENOVO], [TYPE, TABLET]], [
-
-            // Nokia
-            /(nokia) (t[12][01])/i
-            ], [VENDOR, MODEL, [TYPE, TABLET]], [
-            /(?:maemo|nokia).*(n900|lumia \d+|rm-\d+)/i,
-            /nokia[-_ ]?(([-\w\. ]*))/i
-            ], [[MODEL, /_/g, ' '], [TYPE, MOBILE], [VENDOR, 'Nokia']], [
-
-            // Google
-            /(pixel (c|tablet))\b/i                                             // Google Pixel C/Tablet
-            ], [MODEL, [VENDOR, GOOGLE], [TYPE, TABLET]], [
-            /droid.+; (pixel[\daxl ]{0,6})(?: bui|\))/i                         // Google Pixel
-            ], [MODEL, [VENDOR, GOOGLE], [TYPE, MOBILE]], [
-
-            // Sony
-            /droid.+; (a?\d[0-2]{2}so|[c-g]\d{4}|so[-gl]\w+|xq-a\w[4-7][12])(?= bui|\).+chrome\/(?![1-6]{0,1}\d\.))/i
-            ], [MODEL, [VENDOR, SONY], [TYPE, MOBILE]], [
-            /sony tablet [ps]/i,
-            /\b(?:sony)?sgp\w+(?: bui|\))/i
-            ], [[MODEL, 'Xperia Tablet'], [VENDOR, SONY], [TYPE, TABLET]], [
-
-            // OnePlus
-            / (kb2005|in20[12]5|be20[12][59])\b/i,
-            /(?:one)?(?:plus)? (a\d0\d\d)(?: b|\))/i
-            ], [MODEL, [VENDOR, ONEPLUS], [TYPE, MOBILE]], [
-
-            // Amazon
-            /(alexa)webm/i,
-            /(kf[a-z]{2}wi|aeo(?!bc)\w\w)( bui|\))/i,                           // Kindle Fire without Silk / Echo Show
-            /(kf[a-z]+)( bui|\)).+silk\//i                                      // Kindle Fire HD
-            ], [MODEL, [VENDOR, AMAZON], [TYPE, TABLET]], [
-            /((?:sd|kf)[0349hijorstuw]+)( bui|\)).+silk\//i                     // Fire Phone
-            ], [[MODEL, /(.+)/g, 'Fire Phone $1'], [VENDOR, AMAZON], [TYPE, MOBILE]], [
-
-            // BlackBerry
-            /(playbook);[-\w\),; ]+(rim)/i                                      // BlackBerry PlayBook
-            ], [MODEL, VENDOR, [TYPE, TABLET]], [
-            /\b((?:bb[a-f]|st[hv])100-\d)/i,
-            /\(bb10; (\w+)/i                                                    // BlackBerry 10
-            ], [MODEL, [VENDOR, BLACKBERRY], [TYPE, MOBILE]], [
-
-            // Asus
-            /(?:\b|asus_)(transfo[prime ]{4,10} \w+|eeepc|slider \w+|nexus 7|padfone|p00[cj])/i
-            ], [MODEL, [VENDOR, ASUS], [TYPE, TABLET]], [
-            / (z[bes]6[027][012][km][ls]|zenfone \d\w?)\b/i
-            ], [MODEL, [VENDOR, ASUS], [TYPE, MOBILE]], [
-
-            // HTC
-            /(nexus 9)/i                                                        // HTC Nexus 9
-            ], [MODEL, [VENDOR, 'HTC'], [TYPE, TABLET]], [
-            /(htc)[-;_ ]{1,2}([\w ]+(?=\)| bui)|\w+)/i,                         // HTC
-
-            // ZTE
-            /(zte)[- ]([\w ]+?)(?: bui|\/|\))/i,
-            /(alcatel|geeksphone|nexian|panasonic(?!(?:;|\.))|sony(?!-bra))[-_ ]?([-\w]*)/i         // Alcatel/GeeksPhone/Nexian/Panasonic/Sony
-            ], [VENDOR, [MODEL, /_/g, ' '], [TYPE, MOBILE]], [
-
-            // TCL
-            /tcl (xess p17aa)/i,
-            /droid [\w\.]+; ((?:8[14]9[16]|9(?:0(?:48|60|8[01])|1(?:3[27]|66)|2(?:6[69]|9[56])|466))[gqswx])(_\w(\w|\w\w))?(\)| bui)/i
-            ], [MODEL, [VENDOR, 'TCL'], [TYPE, TABLET]], [
-            /droid [\w\.]+; (418(?:7d|8v)|5087z|5102l|61(?:02[dh]|25[adfh]|27[ai]|56[dh]|59k|65[ah])|a509dl|t(?:43(?:0w|1[adepqu])|50(?:6d|7[adju])|6(?:09dl|10k|12b|71[efho]|76[hjk])|7(?:66[ahju]|67[hw]|7[045][bh]|71[hk]|73o|76[ho]|79w|81[hks]?|82h|90[bhsy]|99b)|810[hs]))(_\w(\w|\w\w))?(\)| bui)/i
-            ], [MODEL, [VENDOR, 'TCL'], [TYPE, MOBILE]], [
-
-            // itel
-            /(itel) ((\w+))/i
-            ], [[VENDOR, lowerize], MODEL, [TYPE, strMapper, { 'tablet' : ['p10001l', 'w7001'], '*' : 'mobile' }]], [
-
-            // Acer
-            /droid.+; ([ab][1-7]-?[0178a]\d\d?)/i
-            ], [MODEL, [VENDOR, 'Acer'], [TYPE, TABLET]], [
-
-            // Meizu
-            /droid.+; (m[1-5] note) bui/i,
-            /\bmz-([-\w]{2,})/i
-            ], [MODEL, [VENDOR, 'Meizu'], [TYPE, MOBILE]], [
-                
-            // Ulefone
-            /; ((?:power )?armor(?:[\w ]{0,8}))(?: bui|\))/i
-            ], [MODEL, [VENDOR, 'Ulefone'], [TYPE, MOBILE]], [
-
-            // Energizer
-            /; (energy ?\w+)(?: bui|\))/i,
-            /; energizer ([\w ]+)(?: bui|\))/i
-            ], [MODEL, [VENDOR, 'Energizer'], [TYPE, MOBILE]], [
-
-            // Cat
-            /; cat (b35);/i,
-            /; (b15q?|s22 flip|s48c|s62 pro)(?: bui|\))/i
-            ], [MODEL, [VENDOR, 'Cat'], [TYPE, MOBILE]], [
-
-            // Smartfren
-            /((?:new )?andromax[\w- ]+)(?: bui|\))/i
-            ], [MODEL, [VENDOR, 'Smartfren'], [TYPE, MOBILE]], [
-
-            // Nothing
-            /droid.+; (a(?:015|06[35]|142p?))/i
-            ], [MODEL, [VENDOR, 'Nothing'], [TYPE, MOBILE]], [
-
-            // MIXED
-            /(imo) (tab \w+)/i,                                                 // IMO
-            /(infinix) (x1101b?)/i                                              // Infinix XPad
-            ], [VENDOR, MODEL, [TYPE, TABLET]], [
-
-            /(blackberry|benq|palm(?=\-)|sonyericsson|acer|asus(?! zenw)|dell|jolla|meizu|motorola|polytron|infinix|tecno|micromax|advan)[-_ ]?([-\w]*)/i,
-                                                                                // BlackBerry/BenQ/Palm/Sony-Ericsson/Acer/Asus/Dell/Meizu/Motorola/Polytron/Infinix/Tecno/Micromax/Advan
-            /; (hmd|imo) ([\w ]+?)(?: bui|\))/i,                                // HMD/IMO
-            /(hp) ([\w ]+\w)/i,                                                 // HP iPAQ
-            /(microsoft); (lumia[\w ]+)/i,                                      // Microsoft Lumia
-            /(lenovo)[-_ ]?([-\w ]+?)(?: bui|\)|\/)/i,                          // Lenovo
-            /(oppo) ?([\w ]+) bui/i                                             // OPPO
-            ], [VENDOR, MODEL, [TYPE, MOBILE]], [
-
-            /(kobo)\s(ereader|touch)/i,                                         // Kobo
-            /(archos) (gamepad2?)/i,                                            // Archos
-            /(hp).+(touchpad(?!.+tablet)|tablet)/i,                             // HP TouchPad
-            /(kindle)\/([\w\.]+)/i                                              // Kindle
-            ], [VENDOR, MODEL, [TYPE, TABLET]], [
-
-            /(surface duo)/i                                                    // Surface Duo
-            ], [MODEL, [VENDOR, MICROSOFT], [TYPE, TABLET]], [
-            /droid [\d\.]+; (fp\du?)(?: b|\))/i                                 // Fairphone
-            ], [MODEL, [VENDOR, 'Fairphone'], [TYPE, MOBILE]], [
-            /((?:tegranote|shield t(?!.+d tv))[\w- ]*?)(?: b|\))/i              // Nvidia Tablets
-            ], [MODEL, [VENDOR, NVIDIA], [TYPE, TABLET]], [
-            /(sprint) (\w+)/i                                                   // Sprint Phones
-            ], [VENDOR, MODEL, [TYPE, MOBILE]], [
-            /(kin\.[onetw]{3})/i                                                // Microsoft Kin
-            ], [[MODEL, /\./g, ' '], [VENDOR, MICROSOFT], [TYPE, MOBILE]], [
-            /droid.+; ([c6]+|et5[16]|mc[239][23]x?|vc8[03]x?)\)/i               // Zebra
-            ], [MODEL, [VENDOR, ZEBRA], [TYPE, TABLET]], [
-            /droid.+; (ec30|ps20|tc[2-8]\d[kx])\)/i
-            ], [MODEL, [VENDOR, ZEBRA], [TYPE, MOBILE]], [
-
-            ///////////////////
-            // SMARTTVS
-            ///////////////////
-
-            /smart-tv.+(samsung)/i                                              // Samsung
-            ], [VENDOR, [TYPE, SMARTTV]], [
-            /hbbtv.+maple;(\d+)/i
-            ], [[MODEL, /^/, 'SmartTV'], [VENDOR, SAMSUNG], [TYPE, SMARTTV]], [
-            /(nux; netcast.+smarttv|lg (netcast\.tv-201\d|android tv))/i        // LG SmartTV
-            ], [[VENDOR, LG], [TYPE, SMARTTV]], [
-            /(apple) ?tv/i                                                      // Apple TV
-            ], [VENDOR, [MODEL, APPLE+' TV'], [TYPE, SMARTTV]], [
-            /crkey.*devicetype\/chromecast/i                                    // Google Chromecast Third Generation
-            ], [[MODEL, CHROMECAST+' Third Generation'], [VENDOR, GOOGLE], [TYPE, SMARTTV]], [
-            /crkey.*devicetype\/([^/]*)/i                                       // Google Chromecast with specific device type
-            ], [[MODEL, /^/, 'Chromecast '], [VENDOR, GOOGLE], [TYPE, SMARTTV]], [
-            /fuchsia.*crkey/i                                                   // Google Chromecast Nest Hub
-            ], [[MODEL, CHROMECAST+' Nest Hub'], [VENDOR, GOOGLE], [TYPE, SMARTTV]], [
-            /crkey/i                                                            // Google Chromecast, Linux-based or unknown
-            ], [[MODEL, CHROMECAST], [VENDOR, GOOGLE], [TYPE, SMARTTV]], [
-            /droid.+aft(\w+)( bui|\))/i                                         // Fire TV
-            ], [MODEL, [VENDOR, AMAZON], [TYPE, SMARTTV]], [
-            /(shield \w+ tv)/i                                                  // Nvidia Shield TV
-            ], [MODEL, [VENDOR, NVIDIA], [TYPE, SMARTTV]], [
-            /\(dtv[\);].+(aquos)/i,
-            /(aquos-tv[\w ]+)\)/i                                               // Sharp
-            ], [MODEL, [VENDOR, SHARP], [TYPE, SMARTTV]],[
-            /(bravia[\w ]+)( bui|\))/i                                          // Sony
-            ], [MODEL, [VENDOR, SONY], [TYPE, SMARTTV]], [
-            /(mi(tv|box)-?\w+) bui/i                                            // Xiaomi
-            ], [MODEL, [VENDOR, XIAOMI], [TYPE, SMARTTV]], [
-            /Hbbtv.*(technisat) (.*);/i                                         // TechniSAT
-            ], [VENDOR, MODEL, [TYPE, SMARTTV]], [
-            /\b(roku)[\dx]*[\)\/]((?:dvp-)?[\d\.]*)/i,                          // Roku
-            /hbbtv\/\d+\.\d+\.\d+ +\([\w\+ ]*; *([\w\d][^;]*);([^;]*)/i         // HbbTV devices
-            ], [[VENDOR, trim], [MODEL, trim], [TYPE, SMARTTV]], [
-                                                                                // SmartTV from Unidentified Vendors
-            /droid.+; ([\w- ]+) (?:android tv|smart[- ]?tv)/i
-            ], [MODEL, [TYPE, SMARTTV]], [
-            /\b(android tv|smart[- ]?tv|opera tv|tv; rv:)\b/i
-            ], [[TYPE, SMARTTV]], [
-
-            ///////////////////
-            // CONSOLES
-            ///////////////////
-
-            /(ouya)/i,                                                          // Ouya
-            /(nintendo) (\w+)/i                                                 // Nintendo
-            ], [VENDOR, MODEL, [TYPE, CONSOLE]], [
-            /droid.+; (shield)( bui|\))/i                                       // Nvidia Portable
-            ], [MODEL, [VENDOR, NVIDIA], [TYPE, CONSOLE]], [
-            /(playstation \w+)/i                                                // Playstation
-            ], [MODEL, [VENDOR, SONY], [TYPE, CONSOLE]], [
-            /\b(xbox(?: one)?(?!; xbox))[\); ]/i                                // Microsoft Xbox
-            ], [MODEL, [VENDOR, MICROSOFT], [TYPE, CONSOLE]], [
-
-            ///////////////////
-            // WEARABLES
-            ///////////////////
-
-            /\b(sm-[lr]\d\d[0156][fnuw]?s?|gear live)\b/i                       // Samsung Galaxy Watch
-            ], [MODEL, [VENDOR, SAMSUNG], [TYPE, WEARABLE]], [
-            /((pebble))app/i,                                                   // Pebble
-            /(asus|google|lg|oppo) ((pixel |zen)?watch[\w ]*)( bui|\))/i        // Asus ZenWatch / LG Watch / Pixel Watch
-            ], [VENDOR, MODEL, [TYPE, WEARABLE]], [
-            /(ow(?:19|20)?we?[1-3]{1,3})/i                                      // Oppo Watch
-            ], [MODEL, [VENDOR, OPPO], [TYPE, WEARABLE]], [
-            /(watch)(?: ?os[,\/]|\d,\d\/)[\d\.]+/i                              // Apple Watch
-            ], [MODEL, [VENDOR, APPLE], [TYPE, WEARABLE]], [
-            /(opwwe\d{3})/i                                                     // OnePlus Watch
-            ], [MODEL, [VENDOR, ONEPLUS], [TYPE, WEARABLE]], [
-            /(moto 360)/i                                                       // Motorola 360
-            ], [MODEL, [VENDOR, MOTOROLA], [TYPE, WEARABLE]], [
-            /(smartwatch 3)/i                                                   // Sony SmartWatch
-            ], [MODEL, [VENDOR, SONY], [TYPE, WEARABLE]], [
-            /(g watch r)/i                                                      // LG G Watch R
-            ], [MODEL, [VENDOR, LG], [TYPE, WEARABLE]], [
-            /droid.+; (wt63?0{2,3})\)/i
-            ], [MODEL, [VENDOR, ZEBRA], [TYPE, WEARABLE]], [
-
-            ///////////////////
-            // XR
-            ///////////////////
-
-            /droid.+; (glass) \d/i                                              // Google Glass
-            ], [MODEL, [VENDOR, GOOGLE], [TYPE, XR]], [
-            /(pico) (4|neo3(?: link|pro)?)/i                                    // Pico
-            ], [VENDOR, MODEL, [TYPE, XR]], [
-            /; (quest( \d| pro)?)/i                                             // Oculus Quest
-            ], [MODEL, [VENDOR, FACEBOOK], [TYPE, XR]], [
-
-            ///////////////////
-            // EMBEDDED
-            ///////////////////
-
-            /(tesla)(?: qtcarbrowser|\/[-\w\.]+)/i                              // Tesla
-            ], [VENDOR, [TYPE, EMBEDDED]], [
-            /(aeobc)\b/i                                                        // Echo Dot
-            ], [MODEL, [VENDOR, AMAZON], [TYPE, EMBEDDED]], [
-            /(homepod).+mac os/i                                                // Apple HomePod
-            ], [MODEL, [VENDOR, APPLE], [TYPE, EMBEDDED]], [
-            /windows iot/i
-            ], [[TYPE, EMBEDDED]], [
-
-            ////////////////////
-            // MIXED (GENERIC)
-            ///////////////////
-
-            /droid .+?; ([^;]+?)(?: bui|; wv\)|\) applew).+?(mobile|vr|\d) safari/i
-            ], [MODEL, [TYPE, strMapper, { 'mobile' : 'Mobile', 'xr' : 'VR', '*' : TABLET }]], [
-            /\b((tablet|tab)[;\/]|focus\/\d(?!.+mobile))/i                      // Unidentifiable Tablet
-            ], [[TYPE, TABLET]], [
-            /(phone|mobile(?:[;\/]| [ \w\/\.]*safari)|pda(?=.+windows ce))/i    // Unidentifiable Mobile
-            ], [[TYPE, MOBILE]], [
-            /droid .+?; ([\w\. -]+)( bui|\))/i                                  // Generic Android Device
-            ], [MODEL, [VENDOR, 'Generic']]
-        ],
-
-        engine : [[
-
-            /windows.+ edge\/([\w\.]+)/i                                       // EdgeHTML
-            ], [VERSION, [NAME, EDGE+'HTML']], [
-
-            /(arkweb)\/([\w\.]+)/i                                              // ArkWeb
-            ], [NAME, VERSION], [
-
-            /webkit\/537\.36.+chrome\/(?!27)([\w\.]+)/i                         // Blink
-            ], [VERSION, [NAME, 'Blink']], [
-
-            /(presto)\/([\w\.]+)/i,                                             // Presto
-            /(webkit|trident|netfront|netsurf|amaya|lynx|w3m|goanna|servo)\/([\w\.]+)/i, // WebKit/Trident/NetFront/NetSurf/Amaya/Lynx/w3m/Goanna/Servo
-            /ekioh(flow)\/([\w\.]+)/i,                                          // Flow
-            /(khtml|tasman|links)[\/ ]\(?([\w\.]+)/i,                           // KHTML/Tasman/Links
-            /(icab)[\/ ]([23]\.[\d\.]+)/i,                                      // iCab
-
-            /\b(libweb)/i                                                       // LibWeb
-            ], [NAME, VERSION], [
-            /ladybird\//i
-            ], [[NAME, 'LibWeb']], [
-
-            /rv\:([\w\.]{1,9})\b.+(gecko)/i                                     // Gecko
-            ], [VERSION, NAME]
-        ],
-
-        os : [[
-
-            // Windows
-            /microsoft (windows) (vista|xp)/i                                   // Windows (iTunes)
-            ], [NAME, VERSION], [
-            /(windows (?:phone(?: os)?|mobile|iot))[\/ ]?([\d\.\w ]*)/i         // Windows Phone
-            ], [NAME, [VERSION, strMapper, windowsVersionMap]], [
-            /windows nt 6\.2; (arm)/i,                                          // Windows RT
-            /windows[\/ ]([ntce\d\. ]+\w)(?!.+xbox)/i,
-            /(?:win(?=3|9|n)|win 9x )([nt\d\.]+)/i
-            ], [[VERSION, strMapper, windowsVersionMap], [NAME, WINDOWS]], [
-
-            // iOS/macOS
-            /[adehimnop]{4,7}\b(?:.*os ([\w]+) like mac|; opera)/i,             // iOS
-            /(?:ios;fbsv\/|iphone.+ios[\/ ])([\d\.]+)/i,
-            /cfnetwork\/.+darwin/i
-            ], [[VERSION, /_/g, '.'], [NAME, 'iOS']], [
-            /(mac os x) ?([\w\. ]*)/i,
-            /(macintosh|mac_powerpc\b)(?!.+haiku)/i                             // Mac OS
-            ], [[NAME, 'macOS'], [VERSION, /_/g, '.']], [
-
-            // Google Chromecast
-            /android ([\d\.]+).*crkey/i                                         // Google Chromecast, Android-based
-            ], [VERSION, [NAME, CHROMECAST + ' Android']], [
-            /fuchsia.*crkey\/([\d\.]+)/i                                        // Google Chromecast, Fuchsia-based
-            ], [VERSION, [NAME, CHROMECAST + ' Fuchsia']], [
-            /crkey\/([\d\.]+).*devicetype\/smartspeaker/i                       // Google Chromecast, Linux-based Smart Speaker
-            ], [VERSION, [NAME, CHROMECAST + ' SmartSpeaker']], [
-            /linux.*crkey\/([\d\.]+)/i                                          // Google Chromecast, Legacy Linux-based
-            ], [VERSION, [NAME, CHROMECAST + ' Linux']], [
-            /crkey\/([\d\.]+)/i                                                 // Google Chromecast, unknown
-            ], [VERSION, [NAME, CHROMECAST]], [
-
-            // Mobile OSes
-            /droid ([\w\.]+)\b.+(android[- ]x86|harmonyos)/i                    // Android-x86/HarmonyOS
-            ], [VERSION, NAME], [                                               
-            /(ubuntu) ([\w\.]+) like android/i                                  // Ubuntu Touch
-            ], [[NAME, /(.+)/, '$1 Touch'], VERSION], [
-                                                                                // Android/Blackberry/WebOS/QNX/Bada/RIM/KaiOS/Maemo/MeeGo/S40/Sailfish OS/OpenHarmony/Tizen
-            /(android|bada|blackberry|kaios|maemo|meego|openharmony|qnx|rim tablet os|sailfish|series40|symbian|tizen|webos)\w*[-\/; ]?([\d\.]*)/i
-            ], [NAME, VERSION], [
-            /\(bb(10);/i                                                        // BlackBerry 10
-            ], [VERSION, [NAME, BLACKBERRY]], [
-            /(?:symbian ?os|symbos|s60(?=;)|series ?60)[-\/ ]?([\w\.]*)/i       // Symbian
-            ], [VERSION, [NAME, 'Symbian']], [
-            /mozilla\/[\d\.]+ \((?:mobile|tablet|tv|mobile; [\w ]+); rv:.+ gecko\/([\w\.]+)/i // Firefox OS
-            ], [VERSION, [NAME, FIREFOX+' OS']], [
-            /web0s;.+rt(tv)/i,
-            /\b(?:hp)?wos(?:browser)?\/([\w\.]+)/i                              // WebOS
-            ], [VERSION, [NAME, 'webOS']], [
-            /watch(?: ?os[,\/]|\d,\d\/)([\d\.]+)/i                              // watchOS
-            ], [VERSION, [NAME, 'watchOS']], [
-
-            // Google ChromeOS
-            /(cros) [\w]+(?:\)| ([\w\.]+)\b)/i                                  // Chromium OS
-            ], [[NAME, "Chrome OS"], VERSION],[
-
-            // Smart TVs
-            /panasonic;(viera)/i,                                               // Panasonic Viera
-            /(netrange)mmh/i,                                                   // Netrange
-            /(nettv)\/(\d+\.[\w\.]+)/i,                                         // NetTV
-
-            // Console
-            /(nintendo|playstation) (\w+)/i,                                    // Nintendo/Playstation
-            /(xbox); +xbox ([^\);]+)/i,                                         // Microsoft Xbox (360, One, X, S, Series X, Series S)
-            /(pico) .+os([\w\.]+)/i,                                            // Pico
-
-            // Other
-            /\b(joli|palm)\b ?(?:os)?\/?([\w\.]*)/i,                            // Joli/Palm
-            /(mint)[\/\(\) ]?(\w*)/i,                                           // Mint
-            /(mageia|vectorlinux)[; ]/i,                                        // Mageia/VectorLinux
-            /([kxln]?ubuntu|debian|suse|opensuse|gentoo|arch(?= linux)|slackware|fedora|mandriva|centos|pclinuxos|red ?hat|zenwalk|linpus|raspbian|plan 9|minix|risc os|contiki|deepin|manjaro|elementary os|sabayon|linspire)(?: gnu\/linux)?(?: enterprise)?(?:[- ]linux)?(?:-gnu)?[-\/ ]?(?!chrom|package)([-\w\.]*)/i,
-                                                                                // Ubuntu/Debian/SUSE/Gentoo/Arch/Slackware/Fedora/Mandriva/CentOS/PCLinuxOS/RedHat/Zenwalk/Linpus/Raspbian/Plan9/Minix/RISCOS/Contiki/Deepin/Manjaro/elementary/Sabayon/Linspire
-            /(hurd|linux)(?: arm\w*| x86\w*| ?)([\w\.]*)/i,                     // Hurd/Linux
-            /(gnu) ?([\w\.]*)/i,                                                // GNU
-            /\b([-frentopcghs]{0,5}bsd|dragonfly)[\/ ]?(?!amd|[ix346]{1,2}86)([\w\.]*)/i, // FreeBSD/NetBSD/OpenBSD/PC-BSD/GhostBSD/DragonFly
-            /(haiku) (\w+)/i                                                    // Haiku
-            ], [NAME, VERSION], [
-            /(sunos) ?([\w\.\d]*)/i                                             // Solaris
-            ], [[NAME, 'Solaris'], VERSION], [
-            /((?:open)?solaris)[-\/ ]?([\w\.]*)/i,                              // Solaris
-            /(aix) ((\d)(?=\.|\)| )[\w\.])*/i,                                  // AIX
-            /\b(beos|os\/2|amigaos|morphos|openvms|fuchsia|hp-ux|serenityos)/i, // BeOS/OS2/AmigaOS/MorphOS/OpenVMS/Fuchsia/HP-UX/SerenityOS
-            /(unix) ?([\w\.]*)/i                                                // UNIX
-            ], [NAME, VERSION]
-        ]
-    };
-
-    /////////////////
-    // Factories
-    ////////////////
-
-    var defaultProps = (function () {
-            var props = { init : {}, isIgnore : {}, isIgnoreRgx : {}, toString : {}};
-            setProps.call(props.init, [
-                [UA_BROWSER, [NAME, VERSION, MAJOR, TYPE]],
-                [UA_CPU, [ARCHITECTURE]],
-                [UA_DEVICE, [TYPE, MODEL, VENDOR]],
-                [UA_ENGINE, [NAME, VERSION]],
-                [UA_OS, [NAME, VERSION]]
-            ]);
-            setProps.call(props.isIgnore, [
-                [UA_BROWSER, [VERSION, MAJOR]],
-                [UA_ENGINE, [VERSION]],
-                [UA_OS, [VERSION]]
-            ]);
-            setProps.call(props.isIgnoreRgx, [
-                [UA_BROWSER, / ?browser$/i],
-                [UA_OS, / ?os$/i]
-            ]);
-            setProps.call(props.toString, [
-                [UA_BROWSER, [NAME, VERSION]],
-                [UA_CPU, [ARCHITECTURE]],
-                [UA_DEVICE, [VENDOR, MODEL]],
-                [UA_ENGINE, [NAME, VERSION]],
-                [UA_OS, [NAME, VERSION]]
-            ]);
-            return props;
-    })();
-
-    var createIData = function (item, itemType) {
-
-        var init_props = defaultProps.init[itemType],
-            is_ignoreProps = defaultProps.isIgnore[itemType] || 0,
-            is_ignoreRgx = defaultProps.isIgnoreRgx[itemType] || 0,
-            toString_props = defaultProps.toString[itemType] || 0;
-
-        function IData () {
-            setProps.call(this, init_props);
-        }
-
-        IData.prototype.getItem = function () {
-            return item;
-        };
-
-        IData.prototype.withClientHints = function () {
-
-            // nodejs / non-client-hints browsers
-            if (!NAVIGATOR_UADATA) {
-                return item
-                        .parseCH()
-                        .get();
-            }
-
-            // browsers based on chromium 85+
-            return NAVIGATOR_UADATA
-                    .getHighEntropyValues(CH_ALL_VALUES)
-                    .then(function (res) {
-                        return item
-                                .setCH(new UACHData(res, false))
-                                .parseCH()
-                                .get();
-            });
-        };
-
-        IData.prototype.withFeatureCheck = function () {
-            return item.detectFeature().get();
-        };
-
-        if (itemType != UA_RESULT) {
-            IData.prototype.is = function (strToCheck) {
-                var is = false;
-                for (var i in this) {
-                    if (this.hasOwnProperty(i) && !has(is_ignoreProps, i) && lowerize(is_ignoreRgx ? strip(is_ignoreRgx, this[i]) : this[i]) == lowerize(is_ignoreRgx ? strip(is_ignoreRgx, strToCheck) : strToCheck)) {
-                        is = true;
-                        if (strToCheck != UNDEF_TYPE) break;
-                    } else if (strToCheck == UNDEF_TYPE && is) {
-                        is = !is;
-                        break;
-                    }
-                }
-                return is;
-            };
-            IData.prototype.toString = function () {
-                var str = EMPTY;
-                for (var i in toString_props) {
-                    if (typeof(this[toString_props[i]]) !== UNDEF_TYPE) {
-                        str += (str ? ' ' : EMPTY) + this[toString_props[i]];
-                    }
-                }
-                return str || UNDEF_TYPE;
-            };
-        }
-
-        if (!NAVIGATOR_UADATA) {
-            IData.prototype.then = function (cb) { 
-                var that = this;
-                var IDataResolve = function () {
-                    for (var prop in that) {
-                        if (that.hasOwnProperty(prop)) {
-                            this[prop] = that[prop];
-                        }
-                    }
-                };
-                IDataResolve.prototype = {
-                    is : IData.prototype.is,
-                    toString : IData.prototype.toString
-                };
-                var resolveData = new IDataResolve();
-                cb(resolveData);
-                return resolveData;
-            };
-        }
-
-        return new IData();
-    };
-
-    /////////////////
-    // Constructor
-    ////////////////
-
-    function UACHData (uach, isHttpUACH) {
-        uach = uach || {};
-        setProps.call(this, CH_ALL_VALUES);
-        if (isHttpUACH) {
-            setProps.call(this, [
-                [BRANDS, itemListToArray(uach[CH_HEADER])],
-                [FULLVERLIST, itemListToArray(uach[CH_HEADER_FULL_VER_LIST])],
-                [MOBILE, /\?1/.test(uach[CH_HEADER_MOBILE])],
-                [MODEL, stripQuotes(uach[CH_HEADER_MODEL])],
-                [PLATFORM, stripQuotes(uach[CH_HEADER_PLATFORM])],
-                [PLATFORMVER, stripQuotes(uach[CH_HEADER_PLATFORM_VER])],
-                [ARCHITECTURE, stripQuotes(uach[CH_HEADER_ARCH])],
-                [FORMFACTORS, itemListToArray(uach[CH_HEADER_FORM_FACTORS])],
-                [BITNESS, stripQuotes(uach[CH_HEADER_BITNESS])]
-            ]);
-        } else {
-            for (var prop in uach) {
-                if(this.hasOwnProperty(prop) && typeof uach[prop] !== UNDEF_TYPE) this[prop] = uach[prop];
-            }
-        }
-    }
-
-    function UAItem (itemType, ua, rgxMap, uaCH) {
-
-        this.get = function (prop) {
-            if (!prop) return this.data;
-            return this.data.hasOwnProperty(prop) ? this.data[prop] : undefined;
-        };
-
-        this.set = function (prop, val) {
-            this.data[prop] = val;
-            return this;
-        };
-
-        this.setCH = function (ch) {
-            this.uaCH = ch;
-            return this;
-        };
-
-        this.detectFeature = function () {
-            if (NAVIGATOR && NAVIGATOR.userAgent == this.ua) {
-                switch (this.itemType) {
-                    case UA_BROWSER:
-                        // Brave-specific detection
-                        if (NAVIGATOR.brave && typeof NAVIGATOR.brave.isBrave == FUNC_TYPE) {
-                            this.set(NAME, 'Brave');
-                        }
-                        break;
-                    case UA_DEVICE:
-                        // Chrome-specific detection: check for 'mobile' value of navigator.userAgentData
-                        if (!this.get(TYPE) && NAVIGATOR_UADATA && NAVIGATOR_UADATA[MOBILE]) {
-                            this.set(TYPE, MOBILE);
-                        }
-                        // iPadOS-specific detection: identified as Mac, but has some iOS-only properties
-                        if (this.get(MODEL) == 'Macintosh' && NAVIGATOR && typeof NAVIGATOR.standalone !== UNDEF_TYPE && NAVIGATOR.maxTouchPoints && NAVIGATOR.maxTouchPoints > 2) {
-                            this.set(MODEL, 'iPad')
-                                .set(TYPE, TABLET);
-                        }
-                        break;
-                    case UA_OS:
-                        // Chrome-specific detection: check for 'platform' value of navigator.userAgentData
-                        if (!this.get(NAME) && NAVIGATOR_UADATA && NAVIGATOR_UADATA[PLATFORM]) {
-                            this.set(NAME, NAVIGATOR_UADATA[PLATFORM]);
-                        }
-                        break;
-                    case UA_RESULT:
-                        var data = this.data;
-                        var detect = function (itemType) {
-                            return data[itemType]
-                                    .getItem()
-                                    .detectFeature()
-                                    .get();
-                        };
-                        this.set(UA_BROWSER, detect(UA_BROWSER))
-                            .set(UA_CPU, detect(UA_CPU))
-                            .set(UA_DEVICE, detect(UA_DEVICE))
-                            .set(UA_ENGINE, detect(UA_ENGINE))
-                            .set(UA_OS, detect(UA_OS));
-                }
-            }
-            return this;
-        };
-
-        this.parseUA = function () {
-            if (this.itemType != UA_RESULT) {
-                rgxMapper.call(this.data, this.ua, this.rgxMap);
-            }
-            if (this.itemType == UA_BROWSER) {
-                this.set(MAJOR, majorize(this.get(VERSION)));
-            }
-            return this;
-        };
-
-        this.parseCH = function () {
-            var uaCH = this.uaCH,
-                rgxMap = this.rgxMap;
-    
-            switch (this.itemType) {
-                case UA_BROWSER:
-                case UA_ENGINE:
-                    var brands = uaCH[FULLVERLIST] || uaCH[BRANDS], prevName;
-                    if (brands) {
-                        for (var i in brands) {
-                            var brandName = brands[i].brand || brands[i],
-                                brandVersion = brands[i].version;
-                            if (this.itemType == UA_BROWSER && !/not.a.brand/i.test(brandName) && (!prevName || (/chrom/i.test(prevName) && brandName != CHROMIUM))) {
-                                brandName = strMapper(brandName, {
-                                    'Chrome' : 'Google Chrome',
-                                    'Edge' : 'Microsoft Edge',
-                                    'Chrome WebView' : 'Android WebView',
-                                    'Chrome Headless' : 'HeadlessChrome'
-                                });
-                                this.set(NAME, brandName)
-                                    .set(VERSION, brandVersion)
-                                    .set(MAJOR, majorize(brandVersion));
-                                prevName = brandName;
-                            }
-                            if (this.itemType == UA_ENGINE && brandName == CHROMIUM) {
-                                this.set(VERSION, brandVersion);
-                            }
-                        }
-                    }
-                    break;
-                case UA_CPU:
-                    var archName = uaCH[ARCHITECTURE];
-                    if (archName) {
-                        if (archName && uaCH[BITNESS] == '64') archName += '64';
-                        rgxMapper.call(this.data, archName + ';', rgxMap);
-                    }
-                    break;
-                case UA_DEVICE:
-                    if (uaCH[MOBILE]) {
-                        this.set(TYPE, MOBILE);
-                    }
-                    if (uaCH[MODEL]) {
-                        this.set(MODEL, uaCH[MODEL]);
-                        if (!this.get(TYPE) || !this.get(VENDOR)) {
-                            var reParse = {};
-                            rgxMapper.call(reParse, 'droid 9; ' + uaCH[MODEL] + ')', rgxMap);
-                            if (!this.get(TYPE) && !!reParse.type) {
-                                this.set(TYPE, reParse.type);
-                            }
-                            if (!this.get(VENDOR) && !!reParse.vendor) {
-                                this.set(VENDOR, reParse.vendor);
-                            }
-                        }
-                    }
-                    if (uaCH[FORMFACTORS]) {
-                        var ff;
-                        if (typeof uaCH[FORMFACTORS] !== 'string') {
-                            var idx = 0;
-                            while (!ff && idx < uaCH[FORMFACTORS].length) {
-                                ff = strMapper(uaCH[FORMFACTORS][idx++], formFactorsMap);
-                            }
-                        } else {
-                            ff = strMapper(uaCH[FORMFACTORS], formFactorsMap);
-                        }
-                        this.set(TYPE, ff);
-                    }
-                    break;
-                case UA_OS:
-                    var osName = uaCH[PLATFORM];
-                    if(osName) {
-                        var osVersion = uaCH[PLATFORMVER];
-                        if (osName == WINDOWS) osVersion = (parseInt(majorize(osVersion), 10) >= 13 ? '11' : '10');
-                        this.set(NAME, osName)
-                            .set(VERSION, osVersion);
-                    }
-                    // Xbox-Specific Detection
-                    if (this.get(NAME) == WINDOWS && uaCH[MODEL] == 'Xbox') {
-                        this.set(NAME, 'Xbox')
-                            .set(VERSION, undefined);
-                    }           
-                    break;
-                case UA_RESULT:
-                    var data = this.data;
-                    var parse = function (itemType) {
-                        return data[itemType]
-                                .getItem()
-                                .setCH(uaCH)
-                                .parseCH()
-                                .get();
-                    };
-                    this.set(UA_BROWSER, parse(UA_BROWSER))
-                        .set(UA_CPU, parse(UA_CPU))
-                        .set(UA_DEVICE, parse(UA_DEVICE))
-                        .set(UA_ENGINE, parse(UA_ENGINE))
-                        .set(UA_OS, parse(UA_OS));
-            }
-            return this;
-        };
-
-        setProps.call(this, [
-            ['itemType', itemType],
-            ['ua', ua],
-            ['uaCH', uaCH],
-            ['rgxMap', rgxMap],
-            ['data', createIData(this, itemType)]
-        ]);
-
-        return this;
-    }
-
-    function UAParser (ua, extensions, headers) {
-
-        if (typeof ua === OBJ_TYPE) {
-            if (isExtensions(ua, true)) {
-                if (typeof extensions === OBJ_TYPE) {
-                    headers = extensions;               // case UAParser(extensions, headers)           
-                }
-                extensions = ua;                        // case UAParser(extensions)
-            } else {
-                headers = ua;                           // case UAParser(headers)
-                extensions = undefined;
-            }
-            ua = undefined;
-        } else if (typeof ua === STR_TYPE && !isExtensions(extensions, true)) {
-            headers = extensions;                       // case UAParser(ua, headers)
-            extensions = undefined;
-        }
-
-        // Convert Headers object into a plain object
-        if (headers && typeof headers.append === FUNC_TYPE) {
-            var kv = {};
-            headers.forEach(function (v, k) { kv[k] = v; });
-            headers = kv;
-        }
-        
-        if (!(this instanceof UAParser)) {
-            return new UAParser(ua, extensions, headers).getResult();
-        }
-
-        var userAgent = typeof ua === STR_TYPE ? ua :                                       // Passed user-agent string
-                                (headers && headers[USER_AGENT] ? headers[USER_AGENT] :     // User-Agent from passed headers
-                                ((NAVIGATOR && NAVIGATOR.userAgent) ? NAVIGATOR.userAgent : // navigator.userAgent
-                                    EMPTY)),                                                // empty string
-
-            httpUACH = new UACHData(headers, true),
-            regexMap = extensions ? 
-                        extend(defaultRegexes, extensions) : 
-                        defaultRegexes,
-
-            createItemFunc = function (itemType) {
-                if (itemType == UA_RESULT) {
-                    return function () {
-                        return new UAItem(itemType, userAgent, regexMap, httpUACH)
-                                    .set('ua', userAgent)
-                                    .set(UA_BROWSER, this.getBrowser())
-                                    .set(UA_CPU, this.getCPU())
-                                    .set(UA_DEVICE, this.getDevice())
-                                    .set(UA_ENGINE, this.getEngine())
-                                    .set(UA_OS, this.getOS())
-                                    .get();
-                    };
-                } else {
-                    return function () {
-                        return new UAItem(itemType, userAgent, regexMap[itemType], httpUACH)
-                                    .parseUA()
-                                    .get();
-                    };
-                }
-            };
-            
-        // public methods
-        setProps.call(this, [
-            ['getBrowser', createItemFunc(UA_BROWSER)],
-            ['getCPU', createItemFunc(UA_CPU)],
-            ['getDevice', createItemFunc(UA_DEVICE)],
-            ['getEngine', createItemFunc(UA_ENGINE)],
-            ['getOS', createItemFunc(UA_OS)],
-            ['getResult', createItemFunc(UA_RESULT)],
-            ['getUA', function () { return userAgent; }],
-            ['setUA', function (ua) {
-                if (isString(ua))
-                    userAgent = ua.length > UA_MAX_LENGTH ? trim(ua, UA_MAX_LENGTH) : ua;
-                return this;
-            }]
-        ])
-        .setUA(userAgent);
-
-        return this;
-    }
-
-    UAParser.VERSION = LIBVERSION;
-    UAParser.BROWSER =  enumerize([NAME, VERSION, MAJOR, TYPE]);
-    UAParser.CPU = enumerize([ARCHITECTURE]);
-    UAParser.DEVICE = enumerize([MODEL, VENDOR, TYPE, CONSOLE, MOBILE, SMARTTV, TABLET, WEARABLE, EMBEDDED]);
-    UAParser.ENGINE = UAParser.OS = enumerize([NAME, VERSION]);
-
-    
 
 /***/ }),
 

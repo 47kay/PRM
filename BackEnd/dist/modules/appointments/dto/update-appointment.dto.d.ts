@@ -19,13 +19,13 @@ export declare class UpdateAppointmentDto {
     cancellationReason?: string;
     reschedulingReason?: string;
 }
-declare class UpdateReminderPreferencesDto {
+export declare class UpdateReminderPreferencesDto {
     email?: boolean;
     sms?: boolean;
     whatsapp?: boolean;
     reminderTimes?: number[];
 }
-declare class UpdateAppointmentFormDataDto {
+export declare class UpdateAppointmentFormDataDto {
     chiefComplaint?: string;
     symptoms?: string[];
     duration?: string;
@@ -35,7 +35,7 @@ declare class UpdateAppointmentFormDataDto {
     prescriptions?: string[];
     followUpInstructions?: string;
 }
-declare class UpdateAppointmentMetadataDto {
+export declare class UpdateAppointmentMetadataDto {
     referralSource?: string;
     insurance?: string;
     tags?: string[];
@@ -45,4 +45,3 @@ declare class UpdateAppointmentMetadataDto {
     billingStatus?: string;
     claimStatus?: string;
 }
-export {};

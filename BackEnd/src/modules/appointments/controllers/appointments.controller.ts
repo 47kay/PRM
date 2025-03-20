@@ -1,226 +1,534 @@
-// src/modules/appointments/controllers/appointments.controller.ts
+// src/modules/appointments/services/appointments.service.ts
 
 import {
-    Controller,
-    Get,
-    Post,
-    Put,
-    Delete,
-    Body,
-    Param,
-    Query,
-    UseGuards,
-    HttpStatus,
-    ParseUUIDPipe,
-    Request,
+    Injectable,
+    NotFoundException,
+    BadRequestException,
+    ConflictException,
+    ForbiddenException,
 } from '@nestjs/common';
-import { ApiTags, ApiOperation, ApiResponse, ApiBearerAuth } from '@nestjs/swagger';
-import { AuthGuard } from '@nestjs/passport';
-import { RolesGuard } from '../../auth/guards/roles.guard';
-import { AppointmentsService } from '../services/appointments.service';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository, Between, LessThanOrEqual, MoreThanOrEqual, In } from 'typeorm';
+import { ConfigService } from '@nestjs/config';
+import { EventEmitter2 } from '@nestjs/event-emitter';
+import { Appointment } from '../entities/appointment.entity';
+import { User } from '../../users/entities/user.entity';
+import { Contact } from '../../contacts/entities/contact.entity';
 import { CreateAppointmentDto } from '../dto/create-appointment.dto';
 import { UpdateAppointmentDto } from '../dto/update-appointment.dto';
-import { AppointmentQueryDto } from '../dto/appointment-query.dto';
-import { RescheduleAppointmentDto } from '../dto/reschedule-appointment.dto';
-import { Roles } from '../../auth/decorators/roles.decorator';
-import { Role } from '../../users/enums/role.enum';
-import { Appointment } from '../entities/appointment.entity';
-import { CustomRequest } from '../../../interfaces/request.interface';
+import { AppointmentStatus } from '../enums/appointment-status.enum';
+import { NotificationsService } from '../../notifications/services/notifications.service';
+import { EmailService } from '../../email/services/email.service';
+import { DoctorScheduleService } from '../services/doctor-schedule.service';
 
-@ApiTags('Appointments')
-@Controller('appointments')
-@UseGuards(AuthGuard('jwt'), RolesGuard)
-@ApiBearerAuth()
-export class AppointmentsController {
-    constructor(private readonly appointmentsService: AppointmentsService) {}
+@Injectable()
+export class AppointmentsService {
+    constructor(
+        @InjectRepository(Appointment)
+        private appointmentRepository: Repository<Appointment>,
+        @InjectRepository(User)
+        private userRepository: Repository<User>,
+        @InjectRepository(Contact)
+        private contactRepository: Repository<Contact>,
+        private configService: ConfigService,
+        private notificationsService: NotificationsService,
+        private emailService: EmailService,
+        private doctorScheduleService: DoctorScheduleService,
+        private eventEmitter: EventEmitter2,
+    ) {}
+    
 
-    @Post()
-    @Roles(Role.ADMIN, Role.DOCTOR, Role.STAFF)
-    @ApiOperation({ summary: 'Create new appointment' })
-    @ApiResponse({ status: HttpStatus.CREATED, description: 'Appointment created successfully' })
-    async create(
-        @Body() createAppointmentDto: CreateAppointmentDto,
-        @Request() req: CustomRequest,
-    ): Promise<Appointment> {
-        return this.appointmentsService.create({
+    async create(createAppointmentDto: CreateAppointmentDto & { organizationId: string; createdBy: string }): Promise<Appointment> {
+        // Validate doctor and patient
+        const [doctor, patient] = await Promise.all([
+            this.userRepository.findOne({ where: { id: createAppointmentDto.doctorId } }),
+            this.contactRepository.findOne({ where: { id: createAppointmentDto.patientId } }),
+        ]);
+
+        if (!doctor) throw new NotFoundException('Doctor not found');
+        if (!patient) throw new NotFoundException('Patient not found');
+
+        // Check doctor availability
+        const isAvailable = await this.doctorScheduleService.checkAvailability({
+            doctorId: doctor.id,
+            startTime: new Date(createAppointmentDto.startTime),
+            endTime: new Date(createAppointmentDto.endTime),
+        });
+
+        if (!isAvailable) {
+            throw new ConflictException('Doctor is not available at the selected time');
+        }
+
+        // Check for conflicting appointments
+        await this.checkConflicts({
+            doctorId: doctor.id,
+            startTime: new Date(createAppointmentDto.startTime),
+            endTime: new Date(createAppointmentDto.endTime),
+        });
+        
+
+        // Create appointment
+        const appointment = this.appointmentRepository.create({
             ...createAppointmentDto,
-            organizationId: req.organization.id,
-            createdBy: req.user.id,
+            startTime: new Date(createAppointmentDto.startTime),
+            endTime: new Date(createAppointmentDto.endTime),
         });
+
+        const savedAppointment = await this.appointmentRepository.save(appointment);
+
+        // Handle recurring appointments if specified
+        if ('isRecurring' in createAppointmentDto && 
+            createAppointmentDto.isRecurring && 
+            'recurrencePattern' in createAppointmentDto && 
+            createAppointmentDto.recurrencePattern) {
+            await this.createRecurringAppointments(
+                savedAppointment, 
+                (createAppointmentDto as any).recurrencePattern
+            );
+        }
+
+        // Send notifications
+        await this.sendAppointmentNotifications(savedAppointment, 'created');
+
+        // Emit event
+        this.eventEmitter.emit('appointment.created', savedAppointment);
+
+        return savedAppointment;
     }
 
-    @Get()
-    @ApiOperation({ summary: 'Get all appointments' })
-    @ApiResponse({ status: HttpStatus.OK, description: 'Return all appointments' })
-    async findAll(
-        @Query() query: AppointmentQueryDto,
-        @Request() req: CustomRequest,
-    ): Promise<{ data: Appointment[]; total: number }> {
-        return this.appointmentsService.findAll({
-            ...query,
-            organizationId: req.organization.id,
-        });
-    }
-
-    @Get('calendar')
-    @ApiOperation({ summary: 'Get appointments in calendar format' })
-    @ApiResponse({ status: HttpStatus.OK, description: 'Return appointments for calendar' })
-    async getCalendar(
-        @Query('start') start: Date,
-        @Query('end') end: Date,
-        @Query('doctorId') doctorId?: string,
-        @Request() req: CustomRequest,
-    ) {
-        return this.appointmentsService.getCalendarEvents({
-            start,
-            end,
-            doctorId,
-            organizationId: req.organization.id,
-        });
-    }
-
-    @Get('doctor/:doctorId')
-    @ApiOperation({ summary: 'Get doctor appointments' })
-    @ApiResponse({ status: HttpStatus.OK, description: 'Return doctor appointments' })
-    async getDoctorAppointments(
-        @Param('doctorId', ParseUUIDPipe) doctorId: string,
-        @Query() query: AppointmentQueryDto,
-        @Request() req: CustomRequest,
-    ) {
-        return this.appointmentsService.findAll({
-            ...query,
-            doctorId,
-            organizationId: req.organization.id,
-        });
-    }
-
-    @Get('patient/:patientId')
-    @ApiOperation({ summary: 'Get patient appointments' })
-    @ApiResponse({ status: HttpStatus.OK, description: 'Return patient appointments' })
-    async getPatientAppointments(
-        @Param('patientId', ParseUUIDPipe) patientId: string,
-        @Query() query: AppointmentQueryDto,
-        @Request() req: CustomRequest,
-    ) {
-        return this.appointmentsService.findAll({
-            ...query,
-            patientId,
-            organizationId: req.organization.id,
-        });
-    }
-
-    @Get('available-slots')
-    @ApiOperation({ summary: 'Get available appointment slots' })
-    @ApiResponse({ status: HttpStatus.OK, description: 'Return available slots' })
-    async getAvailableSlots(
-        @Query('doctorId', ParseUUIDPipe) doctorId: string,
-        @Query('date') date: Date,
-        @Request() req: CustomRequest,
-    ) {
-        return this.appointmentsService.getAvailableSlots({
-            doctorId,
-            date,
-            organizationId: req.organization.id,
-        });
-    }
-
-    @Get(':id')
-    @ApiOperation({ summary: 'Get appointment by id' })
-    @ApiResponse({ status: HttpStatus.OK, description: 'Return appointment' })
-    async findOne(
-        @Param('id', ParseUUIDPipe) id: string,
-        @Request() req: CustomRequest,
-    ): Promise<Appointment> {
-        return this.appointmentsService.findOne(id, req.organization.id);
-    }
-
-    @Put(':id')
-    @Roles(Role.ADMIN, Role.DOCTOR, Role.STAFF)
-    @ApiOperation({ summary: 'Update appointment' })
-    @ApiResponse({ status: HttpStatus.OK, description: 'Appointment updated successfully' })
-    async update(
-        @Param('id', ParseUUIDPipe) id: string,
-        @Body() updateAppointmentDto: UpdateAppointmentDto,
-        @Request() req: CustomRequest,
-    ): Promise<Appointment> {
-        return this.appointmentsService.update(id, {
-            ...updateAppointmentDto,
-            organizationId: req.organization.id,
-            updatedBy: req.user.id,
-        });
-    }
-
-    @Put(':id/reschedule')
-    @Roles(Role.ADMIN, Role.DOCTOR, Role.STAFF)
-    @ApiOperation({ summary: 'Reschedule appointment' })
-    @ApiResponse({ status: HttpStatus.OK, description: 'Appointment rescheduled successfully' })
-    async reschedule(
-        @Param('id', ParseUUIDPipe) id: string,
-        @Body() rescheduleDto: RescheduleAppointmentDto,
-        @Request() req: CustomRequest,
-    ): Promise<Appointment> {
-        return this.appointmentsService.reschedule(id, {
-            ...rescheduleDto,
-            organizationId: req.organization.id,
-            updatedBy: req.user.id,
-        });
-    }
-
-    @Put(':id/confirm')
-    @Roles(Role.ADMIN, Role.DOCTOR, Role.STAFF)
-    @ApiOperation({ summary: 'Confirm appointment' })
-    @ApiResponse({ status: HttpStatus.OK, description: 'Appointment confirmed successfully' })
-    async confirm(
-        @Param('id', ParseUUIDPipe) id: string,
-        @Request() req: CustomRequest,
-    ): Promise<Appointment> {
-        return this.appointmentsService.confirm(id, {
-            organizationId: req.organization.id,
-            updatedBy: req.user.id,
-        });
-    }
-
-    @Put(':id/cancel')
-    @ApiOperation({ summary: 'Cancel appointment' })
-    @ApiResponse({ status: HttpStatus.OK, description: 'Appointment cancelled successfully' })
-    async cancel(
-        @Param('id', ParseUUIDPipe) id: string,
-        @Body('reason') reason: string,
-        @Request() req: CustomRequest,
-    ): Promise<Appointment> {
-        return this.appointmentsService.cancel(id, {
-            reason,
-            organizationId: req.organization.id,
-            updatedBy: req.user.id,
-        });
-    }
-
-    @Delete(':id')
-    @Roles(Role.ADMIN)
-    @ApiOperation({ summary: 'Delete appointment' })
-    @ApiResponse({ status: HttpStatus.NO_CONTENT, description: 'Appointment deleted successfully' })
-    async remove(
-        @Param('id', ParseUUIDPipe) id: string,
-        @Request() req: CustomRequest,
-    ): Promise<void> {
-        await this.appointmentsService.remove(id, req.organization.id);
-    }
-
-    @Get('statistics/summary')
-    @Roles(Role.ADMIN, Role.DOCTOR)
-    @ApiOperation({ summary: 'Get appointments statistics' })
-    @ApiResponse({ status: HttpStatus.OK, description: 'Return appointments statistics' })
-    async getStatistics(
-        @Query('startDate') startDate: Date,
-        @Query('endDate') endDate: Date,
-        @Query('doctorId') doctorId?: string,
-        @Request() req: CustomRequest,
-    ) {
-        return this.appointmentsService.getStatistics({
+    async findAll(query: {
+        organizationId: string;
+        startDate?: Date;
+        endDate?: Date;
+        doctorId?: string;
+        patientId?: string;
+        status?: AppointmentStatus[];
+        page?: number;
+        limit?: number;
+    }) {
+        const {
+            organizationId,
             startDate,
             endDate,
             doctorId,
-            organizationId: req.organization.id,
-        });
+            patientId,
+            status,
+            page = 1,
+            limit = 10,
+        } = query;
+
+        const queryBuilder = this.appointmentRepository
+            .createQueryBuilder('appointment')
+            .where('appointment.organizationId = :organizationId', { organizationId });
+
+        // Apply filters
+        if (startDate && endDate) {
+            queryBuilder.andWhere('appointment.startTime BETWEEN :startDate AND :endDate', {
+                startDate,
+                endDate,
+            });
+        }
+
+        if (doctorId) {
+            queryBuilder.andWhere('appointment.doctorId = :doctorId', { doctorId });
+        }
+
+        if (patientId) {
+            queryBuilder.andWhere('appointment.patientId = :patientId', { patientId });
+        }
+
+        if (status && status.length > 0) {
+            queryBuilder.andWhere('appointment.status IN (:...status)', { status });
+        }
+
+        // Add relationships
+        queryBuilder
+            .leftJoinAndSelect('appointment.doctor', 'doctor')
+            .leftJoinAndSelect('appointment.patient', 'patient')
+            .leftJoinAndSelect('appointment.creator', 'creator');
+
+        // Add pagination
+        const skip = (page - 1) * limit;
+        queryBuilder.skip(skip).take(limit);
+
+        // Add ordering
+        queryBuilder.orderBy('appointment.startTime', 'ASC');
+
+        const [appointments, total] = await queryBuilder.getManyAndCount();
+
+        return {
+            data: appointments,
+            meta: {
+                page,
+                limit,
+                total,
+                totalPages: Math.ceil(total / limit),
+            },
+        };
     }
+
+    async findOne(id: string, organizationId: string): Promise<Appointment> {
+        const appointment = await this.appointmentRepository.findOne({
+            where: { id, organizationId },
+            relations: ['doctor', 'patient', 'creator', 'updater'],
+        });
+
+        if (!appointment) {
+            throw new NotFoundException('Appointment not found');
+        }
+
+        return appointment;
+    }
+
+    async update(
+        id: string,
+        updateAppointmentDto: UpdateAppointmentDto & { organizationId: string; updatedBy: string },
+    ): Promise<Appointment> {
+        const appointment = await this.findOne(id, updateAppointmentDto.organizationId);
+
+        if (!appointment.canBeModified()) {
+            throw new ForbiddenException('Appointment cannot be modified');
+        }
+
+        // Check for time conflicts if time is being updated
+        if (updateAppointmentDto.startTime || updateAppointmentDto.endTime) {
+            await this.checkConflicts({
+                doctorId: updateAppointmentDto.doctorId || appointment.doctorId,
+                startTime: new Date(updateAppointmentDto.startTime || appointment.startTime),
+                endTime: new Date(updateAppointmentDto.endTime || appointment.endTime),
+                excludeAppointmentId: id,
+            });
+        }
+
+        // Update appointment
+        Object.assign(appointment, updateAppointmentDto);
+        const savedAppointment = await this.appointmentRepository.save(appointment);
+
+        // Send notifications
+        await this.sendAppointmentNotifications(savedAppointment, 'updated');
+
+        // Emit event
+        this.eventEmitter.emit('appointment.updated', savedAppointment);
+
+        return savedAppointment;
+    }
+
+    async cancel(
+        id: string,
+        data: { reason: string; organizationId: string; updatedBy: string },
+    ): Promise<Appointment> {
+        const appointment = await this.findOne(id, data.organizationId);
+
+        if (!appointment.canBeModified()) {
+            throw new ForbiddenException('Appointment cannot be cancelled');
+        }
+
+        appointment.status = AppointmentStatus.CANCELLED;
+        appointment.cancellationReason = data.reason;
+        appointment.cancelledAt = new Date();
+        appointment.updatedBy = data.updatedBy;
+
+        const savedAppointment = await this.appointmentRepository.save(appointment);
+
+        // Send notifications
+        await this.sendAppointmentNotifications(savedAppointment, 'cancelled');
+
+        // Emit event
+        this.eventEmitter.emit('appointment.cancelled', savedAppointment);
+
+        return savedAppointment;
+    }
+
+    async reschedule(
+        id: string,
+        data: {
+            startTime: Date;
+            endTime: Date;
+            reason: string;
+            organizationId: string;
+            updatedBy: string;
+        },
+    ): Promise<Appointment> {
+        const appointment = await this.findOne(id, data.organizationId);
+
+        if (!appointment.canBeModified()) {
+            throw new ForbiddenException('Appointment cannot be rescheduled');
+        }
+
+        // Check doctor availability and conflicts
+        await this.checkConflicts({
+            doctorId: appointment.doctorId,
+            startTime: data.startTime,
+            endTime: data.endTime,
+            excludeAppointmentId: id,
+        });
+
+        appointment.startTime = data.startTime;
+        appointment.endTime = data.endTime;
+        appointment.status = AppointmentStatus.RESCHEDULED;
+        appointment.reschedulingReason = data.reason;
+        appointment.updatedBy = data.updatedBy;
+
+        const savedAppointment = await this.appointmentRepository.save(appointment);
+
+        // Send notifications
+        await this.sendAppointmentNotifications(savedAppointment, 'rescheduled');
+
+        // Emit event
+        this.eventEmitter.emit('appointment.rescheduled', savedAppointment);
+
+        return savedAppointment;
+    }
+
+    async confirm(
+        id: string,
+        data: { organizationId: string; updatedBy: string },
+    ): Promise<Appointment> {
+        const appointment = await this.findOne(id, data.organizationId);
+
+        if (appointment.status !== AppointmentStatus.PENDING) {
+            throw new BadRequestException('Only pending appointments can be confirmed');
+        }
+
+        appointment.status = AppointmentStatus.CONFIRMED;
+        appointment.confirmedAt = new Date();
+        appointment.updatedBy = data.updatedBy;
+
+        const savedAppointment = await this.appointmentRepository.save(appointment);
+
+        // Send notifications
+        await this.sendAppointmentNotifications(savedAppointment, 'confirmed');
+
+        // Emit event
+        this.eventEmitter.emit('appointment.confirmed', savedAppointment);
+
+        return savedAppointment;
+    }
+
+    async confirmAppointment(
+        id: string,
+        data: { organizationId: string; updatedBy: string },
+    ): Promise<Appointment> {
+        return this.confirm(id, data);
+    }
+
+    async complete(
+        id: string,
+        data: { organizationId: string; updatedBy: string },
+    ): Promise<Appointment> {
+        const appointment = await this.findOne(id, data.organizationId);
+
+        if (appointment.status !== AppointmentStatus.CONFIRMED) {
+            throw new BadRequestException('Only confirmed appointments can be completed');
+        }
+
+        appointment.status = AppointmentStatus.COMPLETED;
+        appointment.completedAt = new Date();
+        appointment.updatedBy = data.updatedBy;
+
+        const savedAppointment = await this.appointmentRepository.save(appointment);
+
+        // Send notifications
+        await this.sendAppointmentNotifications(savedAppointment, 'completed');
+
+        // Emit event
+        this.eventEmitter.emit('appointment.completed', savedAppointment);
+
+        return savedAppointment;
+    }
+
+    async remove(id: string, organizationId: string): Promise<void> {
+        const appointment = await this.findOne(id, organizationId);
+        await this.appointmentRepository.remove(appointment);
+    }
+
+    async getCalendarEvents(query: {
+        organizationId: string;
+        start: Date;
+        end: Date;
+        doctorId?: string;
+    }) {
+        // Get appointments within the date range
+        const whereClause: any = {
+            organizationId: query.organizationId,
+            startTime: MoreThanOrEqual(query.start),
+            endTime: LessThanOrEqual(query.end),
+        };
+
+        // Add doctorId filter if provided
+        if (query.doctorId) {
+            whereClause.doctorId = query.doctorId;
+        }
+
+        const appointments = await this.appointmentRepository.find({
+            where: whereClause,
+            relations: ['doctor', 'patient'],
+        });
+
+        // Map appointments to calendar format
+        return appointments.map(appointment => ({
+            id: appointment.id,
+            title: `Appointment with ${appointment.patient?.fullName || 'Patient'}`,
+            start: appointment.startTime,
+            end: appointment.endTime,
+            status: appointment.status,
+            doctor: appointment.doctor ? {
+                id: appointment.doctor.id,
+                name: appointment.doctor.fullName || `${appointment.doctor.firstName} ${appointment.doctor.lastName}`,
+            } : null,
+            patient: appointment.patient ? {
+                id: appointment.patient.id,
+                name: appointment.patient.fullName || `${appointment.patient.firstName} ${appointment.patient.lastName}`,
+            } : null,
+        }));
+    }
+
+    async findAvailableSlots(query: {
+        doctorId: string;
+        date: Date;
+        organizationId: string;
+    }) {
+        // Get doctor's schedule for that day
+        const schedule = await this.doctorScheduleService.getDoctorScheduleForDate(
+            query.doctorId,
+            query.date,
+            query.organizationId,
+        );
+
+        if (!schedule) {
+            return []; // No schedule found for that day
+        }
+
+        // Set start and end of day for querying appointments
+        const startOfDay = new Date(query.date);
+        startOfDay.setHours(0, 0, 0, 0);
+        
+        const endOfDay = new Date(query.date);
+        endOfDay.setHours(23, 59, 59, 999);
+
+        // Get booked appointments for that day
+        const bookedAppointments = await this.appointmentRepository.find({
+            where: {
+                doctorId: query.doctorId,
+                organizationId: query.organizationId,
+                startTime: Between(startOfDay, endOfDay),
+                status: In([
+                    AppointmentStatus.PENDING,
+                    AppointmentStatus.CONFIRMED,
+                    AppointmentStatus.RESCHEDULED,
+                ]),
+            },
+        });
+
+        // Convert booked appointments to time slots
+        const bookedSlots = bookedAppointments.map(appointment => ({
+            start: appointment.startTime,
+            end: appointment.endTime,
+        }));
+
+        // Calculate available slots based on the doctor's schedule and booked appointments
+        // This is a simplified version - you might want to implement a more sophisticated algorithm
+        const slotDuration = 30; // minutes
+        const slots = [];
+        
+        // Get start and end times from schedule
+        const workStart = new Date(query.date);
+        workStart.setHours(
+            schedule.workStart.getHours(), 
+            schedule.workStart.getMinutes(), 
+            0, 0
+        );
+        
+        const workEnd = new Date(query.date);
+        workEnd.setHours(
+            schedule.workEnd.getHours(), 
+            schedule.workEnd.getMinutes(), 
+            0, 0
+        );
+        
+        // Create slots
+        let currentSlot = new Date(workStart);
+        
+        while (currentSlot < workEnd) {
+            const slotEnd = new Date(currentSlot);
+            slotEnd.setMinutes(slotEnd.getMinutes() + slotDuration);
+            
+            // Check if this slot overlaps with any booked appointment
+            const isBooked = bookedSlots.some(bookedSlot => 
+                currentSlot < bookedSlot.end && slotEnd > bookedSlot.start
+            );
+            
+            // Add the slot to the result
+            slots.push({
+                start: currentSlot.toTimeString().substring(0, 5), // Format as "HH:MM"
+                end: slotEnd.toTimeString().substring(0, 5),
+                available: !isBooked
+            });
+            
+            // Move to next slot
+            currentSlot = new Date(slotEnd);
+        }
+        
+        return slots;
+    }
+
+    private async checkConflicts(data: {
+        doctorId: string;
+        startTime: Date;
+        endTime: Date;
+        excludeAppointmentId?: string;
+    }) {
+        const queryBuilder = this.appointmentRepository
+            .createQueryBuilder('appointment')
+            .where('appointment.doctorId = :doctorId', { doctorId: data.doctorId })
+            .andWhere('appointment.status NOT IN (:...excludeStatuses)', {
+                excludeStatuses: [AppointmentStatus.CANCELLED, AppointmentStatus.COMPLETED],
+            })
+            .andWhere(
+                '(appointment.startTime, appointment.endTime) OVERLAPS (:startTime, :endTime)',
+                {
+                    startTime: data.startTime,
+                    endTime: data.endTime,
+                },
+            );
+
+        if (data.excludeAppointmentId) {
+            queryBuilder.andWhere('appointment.id != :excludeId', {
+                excludeId: data.excludeAppointmentId,
+            });
+        }
+
+        const conflictingAppointment = await queryBuilder.getOne();
+
+        if (conflictingAppointment) {
+            throw new ConflictException('Time slot conflicts with another appointment');
+        }
+    }
+
+    private async createRecurringAppointments(
+        parentAppointment: Appointment,
+        recurrencePattern: any,
+    ) {
+        // Implementation for creating recurring appointments
+        // This would create future appointments based on the recurrence pattern
+    }
+
+    private async sendAppointmentNotifications(
+        appointment: Appointment,
+        action: 'created' | 'updated' | 'cancelled' | 'rescheduled' | 'completed' | 'confirmed',
+    ) {
+        // Send notifications to relevant parties (doctor, patient, staff)
+        // This would use the notification service to send emails, SMS, etc.
+    }
+
+    async getStatistics(query: {
+        organizationId: string;
+        startDate: Date;
+        endDate: Date;
+        doctorId?: string;
+    }) {
+        // Implementation for getting appointment statistics
+        // This would return metrics like total appointments, completion rate, etc.
+    }
+    
 }

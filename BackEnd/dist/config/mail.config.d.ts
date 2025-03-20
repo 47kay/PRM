@@ -30,8 +30,9 @@ export interface MailConfig {
     };
 }
 export declare const mailConfigValidationSchema: Joi.ObjectSchema<any>;
-declare const _default: (() => MailConfig) & import("@nestjs/config").ConfigFactoryKeyHost<MailConfig>;
-export default _default;
+declare const mailConfig: (() => MailConfig) & import("@nestjs/config").ConfigFactoryKeyHost<MailConfig>;
+export default mailConfig;
+export declare const getMailConfig: () => MailConfig;
 export declare const mailerConfig: () => MailerOptions;
 export interface EmailTemplate {
     subject: string;

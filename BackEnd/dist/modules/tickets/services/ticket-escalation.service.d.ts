@@ -14,9 +14,11 @@ export declare class TicketEscalationService {
     private readonly escalationRules;
     constructor(ticketRepository: Repository<Ticket>, activityRepository: Repository<TicketActivity>, notificationsService: NotificationsService, organizationsService: OrganizationsService, configService: ConfigService);
     checkTicketsForEscalation(): Promise<void>;
+    private getCurrentEscalationLevel;
     private checkTicketEscalation;
     private escalateTicket;
     private notifyEscalation;
+    private getOrganizationStaffByRoles;
     private getHoursElapsed;
     getTicketSlaStatus(ticketId: string): Promise<{
         responseTime: {

@@ -6,7 +6,7 @@ import { Queue, Job } from 'bull';
 import { MailerService } from '@nestjs-modules/mailer';
 import { ConfigService } from '@nestjs/config';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { Repository, MoreThanOrEqual, LessThan } from 'typeorm';
 import { EmailLog } from '../modules/email/entities/email-log.entity';
 
 interface EmailJob {
@@ -99,15 +99,14 @@ export class EmailQueueJob {
         if (!organizationId) return;
 
         const key = `email:ratelimit:${organizationId}`;
-        const limit = this.configService.get<number>('email.rateLimit.perHour');
+        const limit = this.configService.get<number>('email.rateLimit.perHour') || 100;
         
+        // TypeORM query using MoreThanOrEqual for date comparison
+        const oneHourAgo = new Date(Date.now() - 60 * 60 * 1000);
         const count = await this.emailLogRepository.count({
             where: {
                 organizationId,
-                createdAt: {
-                    // Last hour
-                    $gte: new Date(Date.now() - 60 * 60 * 1000),
-                },
+                createdAt: MoreThanOrEqual(oneHourAgo)
             },
         });
 
@@ -191,11 +190,9 @@ export class EmailQueueJob {
         await this.emailQueue.clean(30 * 24 * 60 * 60 * 1000, 'completed');
         await this.emailQueue.clean(30 * 24 * 60 * 60 * 1000, 'failed');
         
-        // Clean up logs
+        // Clean up logs using TypeORM's LessThan operator
         await this.emailLogRepository.delete({
-            createdAt: {
-                $lt: thirtyDaysAgo,
-            },
+            createdAt: LessThan(thirtyDaysAgo)
         });
     }
 }

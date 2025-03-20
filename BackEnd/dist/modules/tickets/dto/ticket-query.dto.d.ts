@@ -12,8 +12,17 @@ export declare enum SortOrder {
 }
 export declare class TicketQueryDto {
     searchTerm?: string;
+    priority?: string;
+    type?: string;
+    assigneeId?: string;
+    contactId?: string;
+    departmentId?: string;
+    search?: string;
+    startDate?: string;
+    endDate?: string;
+    page?: number;
+    limit?: number;
     status?: string[];
-    priority?: string[];
     category?: string[];
     assigneeIds?: string[];
     creatorIds?: string[];
@@ -29,7 +38,6 @@ export declare class TicketQueryDto {
     hasAttachments?: boolean;
     sortField?: TicketSortField;
     sortOrder?: SortOrder;
-    limit?: number;
     offset?: number;
     customFields?: Record<string, any>;
     relatedTicketIds?: string[];

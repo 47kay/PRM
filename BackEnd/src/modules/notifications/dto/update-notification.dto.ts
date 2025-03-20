@@ -23,6 +23,7 @@ export class UpdateNotificationDto extends PartialType(
     @IsOptional()
     @IsEnum(NotificationStatus)
     status?: NotificationStatus;
+    isDeleted?: boolean;
 
     @IsOptional()
     @IsBoolean()

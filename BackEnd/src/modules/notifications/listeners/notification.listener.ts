@@ -61,21 +61,24 @@ export class NotificationListener {
             useCount: () => 'use_count + 1'
         });
 
+        // Ensure metadata exists
+        const metadata = notification.metadata || {};
+
         // Apply template to notification
         notification.subject = this.interpolateVariables(
             template.subject,
-            notification.metadata
+            metadata
         );
         notification.content = this.interpolateVariables(
             template.content,
-            notification.metadata
+            metadata
         );
 
         // Apply channel-specific content if available
         if (template.channelSpecificContent) {
             notification.channelContent = {
                 ...notification.channelContent,
-                ...this.processChannelContent(template.channelSpecificContent, notification.metadata)
+                ...this.processChannelContent(template.channelSpecificContent, metadata)
             };
         }
 
@@ -85,7 +88,6 @@ export class NotificationListener {
                 name: channel,
                 type: 'default', // Replace with actual type
                 isActive: true, // Replace with actual value
-
 
                 // Add other required properties for NotificationChannel here
                 // Example:

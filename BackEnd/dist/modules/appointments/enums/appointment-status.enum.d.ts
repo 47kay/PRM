@@ -9,7 +9,8 @@ export declare enum AppointmentStatus {
     CANCELLED = "CANCELLED",
     NO_SHOW = "NO_SHOW",
     RESCHEDULED = "RESCHEDULED",
-    WAITING_LIST = "WAITING_LIST"
+    WAITING_LIST = "WAITING_LIST",
+    MISSED = "MISSED"
 }
 export type StatusMetadata = {
     value: AppointmentStatus;

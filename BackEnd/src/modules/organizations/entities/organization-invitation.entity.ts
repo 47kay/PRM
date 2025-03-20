@@ -15,15 +15,51 @@ export class OrganizationInvitation {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
+  @PrimaryGeneratedColumn('uuid')
+
+    @Column()
+    organizationId: string;
+
+    @ManyToOne(() => Organization, organization => organization.invitations)
+    organization: Organization;
+
+    @Column()
+    email: string;
+
+    @Column('simple-array')
+    roles: string[];
+
+    @ManyToOne(() => User)
+    invitedBy: User;
+
+    @Column()
+    token: string;
+
+    @Column()
+    expiresAt: Date;
+
+    @Column({
+        type: 'enum',
+        enum: InvitationStatus,
+        default: InvitationStatus.PENDING
+    })
+    status: InvitationStatus;
+
+    @Column({ nullable: true })
+
+    @Column({ nullable: true })
+
+    // Add metadata column
+    @Column('json', { nullable: true })
+
+
   @Column('uuid')
-  organizationId: string;
+
 
   @ManyToOne(() => Organization)
   @JoinColumn({ name: 'organizationId' })
-  organization: Organization;
 
   @Column()
-  email: string;
 
   @Column('uuid', { nullable: true })
   invitedUserId: string;
@@ -37,23 +73,20 @@ export class OrganizationInvitation {
 
   @ManyToOne(() => User)
   @JoinColumn({ name: 'invitedById' })
-  invitedBy: User;
+
 
   @Column({
     type: 'enum',
     enum: InvitationStatus,
     default: InvitationStatus.PENDING
   })
-  status: InvitationStatus;
 
   @Column('simple-array')
-  roles: string[];
 
   @Column('uuid', { array: true, nullable: true })
   departmentIds: string[];
 
   @Column({ type: 'timestamp' })
-  expiresAt: Date;
 
   @Column({ nullable: true })
   acceptedAt: Date;
@@ -72,7 +105,6 @@ export class OrganizationInvitation {
   revokedBy: User;
 
   @Column({ unique: true })
-  token: string;
 
   @Column({ nullable: true })
   message: string;

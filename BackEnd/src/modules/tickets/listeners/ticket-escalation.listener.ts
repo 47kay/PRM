@@ -1,80 +1,126 @@
+// src/modules/tickets/listeners/ticket-escalation.listener.ts
+
 import { Injectable } from '@nestjs/common';
 import { OnEvent } from '@nestjs/event-emitter';
-import { TicketEscalationService } from '../services/ticket-escalation.service';
+import { TicketsService } from '../services/tickets.service';
 import { NotificationsService } from '../../notifications/services/notifications.service';
-import { TicketActivityType } from '../enums/ticket-activity-type.enum';
-
-interface TicketActivityEvent {
-  ticketId: string;
-  type: TicketActivityType;
-  metadata?: Record<string, any>;
-}
+import { UsersService } from '../../users/services/users.service';
+import { Role } from '../../users/enums/role.enum';
 
 @Injectable()
 export class TicketEscalationListener {
-  constructor(
-    private readonly escalationService: TicketEscalationService,
-    private readonly notificationsService: NotificationsService,
-  ) {}
+    constructor(
+        private readonly ticketsService: TicketsService,
+        private readonly notificationsService: NotificationsService,
+        private readonly usersService: UsersService,
+    ) {}
 
-  @OnEvent('ticket.activity.created')
-  async handleTicketActivity(event: TicketActivityEvent) {
-    // Check SLA status after any activity
-    await this.escalationService.checkSlaBreachEscalation(event.ticketId);
-  }
-
-  @OnEvent('ticket.updated')
-  async handleTicketUpdate(payload: { 
-    ticketId: string;
-    changes: Record<string, any>;
-  }) {
-    // Check for priority changes that might affect SLA
-    if (payload.changes.priority) {
-      await this.escalationService.checkSlaBreachEscalation(payload.ticketId);
+    @OnEvent('ticket.sla.breach')
+    async handleSlaBreachEvent(payload: {
+        ticketId: string;
+        organizationId: string;
+        slaType: 'response' | 'resolution';
+        elapsedTime: number;
+    }) {
+        const { ticketId, organizationId, slaType, elapsedTime } = payload;
+        
+        // Get ticket details
+        const ticket = await this.ticketsService.findOne(ticketId, organizationId);
+        
+        // Find admins to notify
+        const admins = await this.findAdmins(organizationId);
+        
+        if (admins.length === 0) {
+            console.warn('No admins to notify for SLA breach');
+            return;
+        }
+        
+        // Create type message based on SLA type
+        const typeMessage = slaType === 'response' 
+            ? 'Response time SLA breached' 
+            : 'Resolution time SLA breached';
+        
+        // Format elapsed time for human-readable display
+        const formattedTime = this.formatElapsedTime(elapsedTime);
+        
+        // Notify each admin
+        for (const admin of admins) {
+            await this.notificationsService.create({
+                type: 'SLA_BREACH',
+                title: `${typeMessage} for Ticket #${ticket.referenceNumber}`,
+                content: `${typeMessage} (${formattedTime}) for Ticket #${ticket.referenceNumber}`,
+                priority: 'HIGH',
+                recipients: [{ userId: admin.id }],
+                organizationId: organizationId,
+                senderId: 'system'
+            });
+        }
     }
-  }
 
-  @OnEvent('ticket.sla.breached')
-  async handleSlaBreached(payload: {
-    ticketId: string;
-    slaType: 'response' | 'resolution';
-    elapsedTime: number;
-  }) {
-    // Handle SLA breach notifications
-    await this.notificationsService.send({
-      type: 'TICKET_SLA_BREACH',
-      title: `SLA Breached for Ticket #${payload.ticketId}`,
-      message: `${payload.slaType.toUpperCase()} SLA has been breached. Elapsed time: ${payload.elapsedTime} hours`,
-      data: {
-        ticketId: payload.ticketId,
-        slaType: payload.slaType,
-        elapsedTime: payload.elapsedTime
-      }
-    });
-  }
-
-  @OnEvent('ticket.escalated')
-  async handleTicketEscalated(payload: {
-    ticketId: string;
-    previousLevel: number;
-    newLevel: number;
-  }) {
-    // Handle escalation level change notifications
-    await this.notificationsService.send({
-      type: 'TICKET_ESCALATED',
-      title: `Ticket #${payload.ticketId} Escalated`,
-      message: `Ticket has been escalated from level ${payload.previousLevel} to level ${payload.newLevel}`,
-      data: {
-        ticketId: payload.ticketId,
-        previousLevel: payload.previousLevel,
-        newLevel: payload.newLevel
-      }
-    });
-  }
-
-  @OnEvent('cron.hourly')
-  async handleHourlyCheck() {
-    // Periodic check for tickets that need escalation
-    await this.escalationService.checkTicketsForEscalation();
-  }
+    @OnEvent('ticket.escalation.levelchanged')
+    async handleEscalationLevelChanged(payload: {
+        ticketId: string;
+        organizationId: string;
+        previousLevel: number;
+        newLevel: number;
+    }) {
+        const { ticketId, organizationId, previousLevel, newLevel } = payload;
+        
+        // Get ticket details
+        const ticket = await this.ticketsService.findOne(ticketId, organizationId);
+        
+        // Find admins to notify
+        const admins = await this.findAdmins(organizationId);
+        
+        if (admins.length === 0) {
+            console.warn('No admins to notify for escalation level change');
+            return;
+        }
+        
+        // Notify each admin
+        for (const admin of admins) {
+            await this.notificationsService.create({
+                type: 'ESCALATION_LEVEL_CHANGED',
+                title: `Ticket #${ticket.referenceNumber} Escalation Level Changed`,
+                content: `Ticket #${ticket.referenceNumber} escalation level changed from ${previousLevel} to ${newLevel}`,
+                priority: 'MEDIUM',
+                recipients: [{ userId: admin.id }],
+                organizationId: organizationId,
+                senderId: 'system'
+            });
+        }
+    }
+    
+    // Helper method to find admins in the organization
+    private async findAdmins(organizationId: string) {
+        try {
+            const result = await this.usersService.findAll({
+                organizationId,
+                role: Role.ADMIN,
+                isActive: true,
+                page: 1,
+                limit: 50
+            });
+            
+            return result.items;
+        } catch (error) {
+            console.error('Error finding admin users:', error);
+            return [];
+        }
+    }
+    
+    // Helper method to format elapsed time
+    private formatElapsedTime(milliseconds: number): string {
+        const seconds = Math.floor(milliseconds / 1000);
+        const minutes = Math.floor(seconds / 60);
+        const hours = Math.floor(minutes / 60);
+        
+        if (hours > 0) {
+            return `${hours}h ${minutes % 60}m`;
+        } else if (minutes > 0) {
+            return `${minutes}m ${seconds % 60}s`;
+        } else {
+            return `${seconds}s`;
+        }
+    }
 }

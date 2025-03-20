@@ -3,7 +3,6 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Request } from 'express';
 import { AuditLog } from '../../modules/audit/entities/audit-log.entity';
-import { User } from '../../modules/users/entities/user.entity';
 
 export interface AuditLogDto {
   action: string;
@@ -11,7 +10,7 @@ export interface AuditLogDto {
   entityId: string | number;
   changes?: Record<string, any>;
   metadata?: Record<string, any>;
-  userId?: string | number;
+  actorId?: string | number; // Changed from userId to actorId
   organizationId?: string | number;
   ipAddress?: string;
   userAgent?: string;
@@ -21,14 +20,14 @@ export interface AuditLogDto {
 export class AuditService {
   constructor(
     @InjectRepository(AuditLog)
-    private readonly auditLogRepository: Repository<AuditLog>
+    private readonly auditLogRepository: Repository<AuditLog>,
   ) {}
 
   /**
    * Create a new audit log entry
    */
   async log(dto: AuditLogDto, request?: Request): Promise<AuditLog> {
-    const auditLog = this.auditLogRepository.create({
+    const auditLog: AuditLog = this.auditLogRepository.create({
       action: dto.action,
       entityType: dto.entityType,
       entityId: dto.entityId.toString(),
@@ -39,7 +38,7 @@ export class AuditService {
         userAgent: dto.userAgent || request?.headers['user-agent'],
         timestamp: new Date(),
       },
-      userId: dto.userId?.toString(),
+      actorId: dto.actorId?.toString(), // Changed from userId to actorId
       organizationId: dto.organizationId?.toString(),
     });
 
@@ -58,7 +57,7 @@ export class AuditService {
       startDate?: Date;
       endDate?: Date;
       actions?: string[];
-    } = {}
+    } = {},
   ): Promise<[AuditLog[], number]> {
     const query = this.auditLogRepository
       .createQueryBuilder('audit_log')
@@ -89,7 +88,7 @@ export class AuditService {
    * Get audit logs for a specific user
    */
   async getUserAuditLogs(
-    userId: string | number,
+    actorId: string | number, // Changed from userId to actorId
     options: {
       limit?: number;
       offset?: number;
@@ -97,11 +96,11 @@ export class AuditService {
       endDate?: Date;
       actions?: string[];
       entityTypes?: string[];
-    } = {}
+    } = {},
   ): Promise<[AuditLog[], number]> {
     const query = this.auditLogRepository
       .createQueryBuilder('audit_log')
-      .where('audit_log.userId = :userId', { userId: userId.toString() });
+      .where('audit_log.actorId = :actorId', { actorId: actorId.toString() }); // Changed from userId to actorId
 
     if (options.startDate) {
       query.andWhere('audit_log.createdAt >= :startDate', { startDate: options.startDate });
@@ -139,8 +138,8 @@ export class AuditService {
       endDate?: Date;
       actions?: string[];
       entityTypes?: string[];
-      userIds?: (string | number)[];
-    } = {}
+      actorIds?: (string | number)[]; // Changed from userIds to actorIds
+    } = {},
   ): Promise<[AuditLog[], number]> {
     const query = this.auditLogRepository
       .createQueryBuilder('audit_log')
@@ -162,9 +161,9 @@ export class AuditService {
       query.andWhere('audit_log.entityType IN (:...entityTypes)', { entityTypes: options.entityTypes });
     }
 
-    if (options.userIds?.length) {
-      query.andWhere('audit_log.userId IN (:...userIds)', { 
-        userIds: options.userIds.map(id => id.toString()) 
+    if (options.actorIds?.length) { // Changed from userIds to actorIds
+      query.andWhere('audit_log.actorId IN (:...actorIds)', { 
+        actorIds: options.actorIds.map(id => id.toString()), // Changed from userIds to actorIds
       });
     }
 

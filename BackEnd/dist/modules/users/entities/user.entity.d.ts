@@ -7,6 +7,7 @@ import { Notification } from '../../notifications/entities/notification.entity';
 import { UserActivity } from './user-activity.entity';
 export declare class User {
     id: string;
+    mobilePhone?: string;
     organizationId: string;
     firstName: string;
     lastName: string;

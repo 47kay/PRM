@@ -15,7 +15,16 @@ export declare enum AppointmentType {
     IMAGING = "IMAGING",
     DENTAL = "DENTAL",
     PHARMACY = "PHARMACY",
-    IN_PERSON = "IN_PERSON"
+    IN_PERSON = "IN_PERSON",
+    VIRTUAL = "VIRTUAL",
+    PHONE = "PHONE",
+    HOME_VISIT = "HOME_VISIT",
+    EMERGENCY = "EMERGENCY",
+    CONSULTATION = "CONSULTATION",
+    MATERNITY = "MATERNITY",
+    SPECIALIZED = "SPECIALIZED",
+    PEDIATRIC = "PEDIATRIC",
+    WELLNESS_CHECK = "WELLNESS_CHECK"
 }
 export type AppointmentTypeMetadata = {
     value: AppointmentType;

@@ -18,8 +18,9 @@ export interface SwaggerConfig {
     }[];
 }
 export declare const swaggerConfigValidationSchema: Joi.ObjectSchema<any>;
-declare const _default: (() => SwaggerConfig) & import("@nestjs/config").ConfigFactoryKeyHost<SwaggerConfig>;
-export default _default;
+declare const swaggerConfig: (() => SwaggerConfig) & import("@nestjs/config").ConfigFactoryKeyHost<SwaggerConfig>;
+export default swaggerConfig;
+export declare const getSwaggerConfig: () => SwaggerConfig;
 export declare const createSwaggerDocument: () => Partial<OpenAPIObject>;
 export declare const swaggerCustomOptions: SwaggerCustomOptions;
 export declare const swaggerSecurityConfig: (app: any) => void;

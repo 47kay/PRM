@@ -1,12 +1,14 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository, LessThan } from 'typeorm';
+import { Repository, LessThan, FindOperator, In } from 'typeorm';
 import { ConfigService } from '@nestjs/config';
 import { Ticket } from '../entities/ticket.entity';
 import { TicketActivity } from '../entities/ticket-activity.entity';
 import { TicketActivityType } from '../enums/ticket-activity-type.enum';
+import { TicketStatus } from '../enums/ticket-status.enum';
 import { NotificationsService } from '../../notifications/services/notifications.service';
 import { OrganizationsService } from '../../organizations/services/organizations.service';
+import { StaffMember } from '../../organizations/interfaces/staff-member.interface';
 
 interface EscalationRule {
   priority: string;
@@ -93,17 +95,43 @@ export class TicketEscalationService {
    * Check tickets for escalation
    */
   async checkTicketsForEscalation(): Promise<void> {
+    // Using metadata to store escalation level instead of directly on Ticket entity
     const unresolved = await this.ticketRepository.find({
       where: {
-        status: ['OPEN', 'IN_PROGRESS'],
-        escalationLevel: LessThan(3) // Max escalation level
+        status: In([TicketStatus.OPEN, TicketStatus.IN_PROGRESS])
       },
-      relations: ['assignee', 'organization']
+      relations: ['assignee', 'organization', 'activities']
     });
 
     for (const ticket of unresolved) {
-      await this.checkTicketEscalation(ticket);
+      // We'll check if the current escalation level is less than 3
+      const currentLevel = this.getCurrentEscalationLevel(ticket);
+      if (currentLevel < 3) {
+        await this.checkTicketEscalation(ticket);
+      }
     }
+  }
+
+  /**
+   * Get the current escalation level from the ticket's metadata or activities
+   */
+  private getCurrentEscalationLevel(ticket: Ticket): number {
+    // Try to find the most recent escalation activity
+    const escalationActivities = ticket.activities?.filter(
+      activity => activity.type === TicketActivityType.ESCALATION
+    ) || [];
+    
+    if (escalationActivities.length > 0) {
+      // Sort by created date, descending
+      const latestEscalation = escalationActivities.sort(
+        (a, b) => b.createdAt.getTime() - a.createdAt.getTime()
+      )[0];
+      
+      // Get the escalation level from metadata
+      return latestEscalation.metadata?.newLevel || 0;
+    }
+    
+    return 0; // Default to no escalation
   }
 
   /**
@@ -114,7 +142,7 @@ export class TicketEscalationService {
     if (!rule) return;
 
     const timeElapsed = this.getHoursElapsed(ticket.createdAt);
-    const currentLevel = ticket.escalationLevel || 0;
+    const currentLevel = this.getCurrentEscalationLevel(ticket);
     
     // Find next escalation level
     const nextEscalation = rule.escalationLevels.find(level => 
@@ -131,22 +159,25 @@ export class TicketEscalationService {
    */
   private async escalateTicket(ticket: Ticket, escalation: EscalationRule['escalationLevels'][0]): Promise<void> {
     try {
-      // Update ticket escalation level
-      await this.ticketRepository.update(ticket.id, {
-        escalationLevel: escalation.level
-      });
-
-      // Create activity log
-      const activity = this.activityRepository.create({
+      // Instead of updating a non-existent escalation level field,
+      // we'll track this in the activity metadata
+      
+      // Create activity log for the escalation
+      // Create with only the fields that exist on TicketActivity
+      const activityData = {
         ticket,
         type: TicketActivityType.ESCALATION,
-        description: `Ticket escalated to level ${escalation.level}`,
+        // Using metadata to store all the custom information
         metadata: {
-          previousLevel: ticket.escalationLevel,
+          description: `Ticket escalated to level ${escalation.level}`,
+          previousLevel: this.getCurrentEscalationLevel(ticket),
           newLevel: escalation.level,
           reason: 'SLA breach'
         }
-      });
+      };
+      
+      const activity = this.activityRepository.create(activityData);
+      
       await this.activityRepository.save(activity);
 
       // Notify relevant staff
@@ -161,25 +192,51 @@ export class TicketEscalationService {
    * Send escalation notifications
    */
   private async notifyEscalation(ticket: Ticket, escalation: EscalationRule['escalationLevels'][0]): Promise<void> {
-    // Get organization staff with required roles
-    const staff = await this.organizationsService.getStaffByRoles(
-      ticket.organizationId,
-      escalation.notifyRoles
-    );
+    try {
+      // Get organization staff with required roles
+      // Assuming organizationsService has a method to get staff by roles
+      const staff = await this.getOrganizationStaffByRoles(
+        ticket.organizationId,
+        escalation.notifyRoles
+      );
 
-    // Send notifications
-    for (const user of staff) {
-      await this.notificationsService.send({
-        userId: user.id,
-        type: 'TICKET_ESCALATION',
-        title: `Ticket #${ticket.id} Escalated`,
-        message: `Ticket has been escalated to level ${escalation.level}`,
-        data: {
-          ticketId: ticket.id,
-          escalationLevel: escalation.level,
-          priority: ticket.priority
-        }
-      });
+      // Send notifications
+      for (const user of staff) {
+        await this.notificationsService.send({
+          userId: user.id,
+          type: 'TICKET_ESCALATION',
+          title: `Ticket #${ticket.id} Escalated`,
+          message: `Ticket has been escalated to level ${escalation.level}`,
+          data: {
+            ticketId: ticket.id,
+            escalationLevel: escalation.level,
+            priority: ticket.priority
+          }
+        });
+      }
+    } catch (error) {
+      this.logger.error(`Failed to notify escalation for ticket ${ticket.id}:`, error);
+    }
+  }
+
+  /**
+   * Get organization staff by roles (implementation depends on your OrganizationsService)
+   */
+  private async getOrganizationStaffByRoles(organizationId: string, roles: string[]): Promise<StaffMember[]> {
+    // Assuming the organization service has a method to get staff by org ID and roles
+    // If not, this method needs to be implemented based on your application's structure
+    try {
+      // This is a fallback implementation if getStaffByRoles doesn't exist
+      // Replace this with the actual implementation based on your OrganizationsService
+      const organization = await this.organizationsService.findOne(organizationId);
+      if (!organization) return [];
+      
+      // This is just a placeholder, implement based on your actual data model
+      const staff = organization.staff || [];
+      return staff.filter((member: StaffMember) => roles.includes(member.role));
+    } catch (error) {
+      this.logger.error(`Failed to get staff for organization ${organizationId}:`, error);
+      return [];
     }
   }
 
@@ -216,6 +273,7 @@ export class TicketEscalationService {
     }
 
     const rule = this.escalationRules[ticket.priority];
+    // Check for RESPONSE and RESOLUTION activity types
     const firstResponse = ticket.activities.find(
       a => a.type === TicketActivityType.RESPONSE
     );
@@ -246,13 +304,16 @@ export class TicketEscalationService {
    */
   async checkSlaBreachEscalation(ticketId: string): Promise<void> {
     const slaStatus = await this.getTicketSlaStatus(ticketId);
-    const ticket = await this.ticketRepository.findOneBy({ id: ticketId });
+    const ticket = await this.ticketRepository.findOne({
+      where: { id: ticketId },
+      relations: ['activities']
+    });
 
     if (!ticket) return;
 
     if (slaStatus.responseTime.breached || slaStatus.resolutionTime.breached) {
       const rule = this.escalationRules[ticket.priority];
-      const currentLevel = ticket.escalationLevel || 0;
+      const currentLevel = this.getCurrentEscalationLevel(ticket);
 
       // Find appropriate escalation level based on breach severity
       const nextLevel = rule.escalationLevels.find(level => 

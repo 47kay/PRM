@@ -45,6 +45,10 @@ export class MessagesController {
         @Body() createMessageDto: CreateMessageDto,
         @Request() req: CustomRequest,
     ): Promise<Message> {
+        // Added null checks with throw
+        if (!req.organization) throw new BadRequestException('Organization information not available');
+        if (!req.user) throw new BadRequestException('User information not available');
+        
         return this.messagesService.create({
             ...createMessageDto,
             organizationId: req.organization.id,
@@ -59,6 +63,8 @@ export class MessagesController {
         @Query() query: MessageQueryDto,
         @Request() req: CustomRequest,
     ) {
+        if (!req.organization) throw new BadRequestException('Organization information not available');
+        
         return this.messagesService.findAll({
             ...query,
             organizationId: req.organization.id,
@@ -72,6 +78,8 @@ export class MessagesController {
         @Query() query: MessageQueryDto,
         @Request() req: CustomRequest,
     ) {
+        if (!req.organization) throw new BadRequestException('Organization information not available');
+        
         return this.messagesService.getConversations({
             ...query,
             organizationId: req.organization.id,
@@ -86,6 +94,8 @@ export class MessagesController {
         @Query() query: MessageQueryDto,
         @Request() req: CustomRequest,
     ) {
+        if (!req.organization) throw new BadRequestException('Organization information not available');
+        
         return this.messagesService.getConversation(contactId, {
             ...query,
             organizationId: req.organization.id,
@@ -99,6 +109,8 @@ export class MessagesController {
         @Param('id', ParseUUIDPipe) id: string,
         @Request() req: CustomRequest,
     ): Promise<Message> {
+        if (!req.organization) throw new BadRequestException('Organization information not available');
+        
         const message = await this.messagesService.findOne(id, req.organization.id);
         if (!message) {
             throw new NotFoundException('Message not found');
@@ -115,6 +127,9 @@ export class MessagesController {
         @Body() updateMessageDto: UpdateMessageDto,
         @Request() req: CustomRequest,
     ): Promise<Message> {
+        if (!req.organization) throw new BadRequestException('Organization information not available');
+        if (!req.user) throw new BadRequestException('User information not available');
+        
         return this.messagesService.update(id, {
             ...updateMessageDto,
             organizationId: req.organization.id,
@@ -130,6 +145,8 @@ export class MessagesController {
         @Param('id', ParseUUIDPipe) id: string,
         @Request() req: CustomRequest,
     ): Promise<void> {
+        if (!req.organization) throw new BadRequestException('Organization information not available');
+        
         await this.messagesService.remove(id, req.organization.id);
     }
 
@@ -141,6 +158,9 @@ export class MessagesController {
         @Body() templateDto: MessageTemplateDto,
         @Request() req: CustomRequest,
     ) {
+        if (!req.organization) throw new BadRequestException('Organization information not available');
+        if (!req.user) throw new BadRequestException('User information not available');
+        
         return this.messagesService.createTemplate({
             ...templateDto,
             organizationId: req.organization.id,
@@ -155,6 +175,8 @@ export class MessagesController {
         @Query() query: MessageQueryDto,
         @Request() req: CustomRequest,
     ) {
+        if (!req.organization) throw new BadRequestException('Organization information not available');
+        
         return this.messagesService.getTemplates({
             ...query,
             organizationId: req.organization.id,
@@ -169,6 +191,9 @@ export class MessagesController {
         @Body() bulkMessageDto: BulkMessageDto,
         @Request() req: CustomRequest,
     ) {
+        if (!req.organization) throw new BadRequestException('Organization information not available');
+        if (!req.user) throw new BadRequestException('User information not available');
+        
         if (!bulkMessageDto.contactIds || bulkMessageDto.contactIds.length === 0) {
             throw new BadRequestException('Contact IDs are required for bulk messaging');
         }
@@ -188,6 +213,8 @@ export class MessagesController {
         @Query() query: MessageQueryDto,
         @Request() req: CustomRequest,
     ) {
+        if (!req.organization) throw new BadRequestException('Organization information not available');
+        
         return this.messagesService.getStatistics({
             ...query,
             organizationId: req.organization.id,
@@ -202,6 +229,9 @@ export class MessagesController {
         @Param('id', ParseUUIDPipe) id: string,
         @Request() req: CustomRequest,
     ) {
+        if (!req.organization) throw new BadRequestException('Organization information not available');
+        if (!req.user) throw new BadRequestException('User information not available');
+        
         return this.messagesService.resend(id, {
             organizationId: req.organization.id,
             userId: req.user.id,
@@ -215,6 +245,9 @@ export class MessagesController {
         @Param('id', ParseUUIDPipe) id: string,
         @Request() req: CustomRequest,
     ) {
+        if (!req.organization) throw new BadRequestException('Organization information not available');
+        if (!req.user) throw new BadRequestException('User information not available');
+        
         return this.messagesService.markAsRead(id, {
             organizationId: req.organization.id,
             userId: req.user.id,

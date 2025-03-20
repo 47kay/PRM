@@ -20,6 +20,8 @@ import { Type } from 'class-transformer';
 import { Gender } from '../enums/gender.enum';
 import { MaritalStatus } from '../enums/marital-status.enum';
 import { BloodGroup } from '../enums/blood-group.enum';
+import { DeepPartial } from 'typeorm';
+import { User } from '../../users/entities/user.entity';
 
 export class ContactAddressDto {
     @ApiProperty()
@@ -27,6 +29,12 @@ export class ContactAddressDto {
     @IsNotEmpty()
     @MaxLength(100)
     street: string;
+
+    firstName: string;
+    lastName: string;
+    email: string;
+    phone: string;
+    createdBy?: DeepPartial<User>;
 
     @ApiPropertyOptional()
     @IsOptional()
