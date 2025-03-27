@@ -7,6 +7,8 @@ import { DepartmentAuditService } from './services/department-audit.service';
 import { DepartmentsController } from './controllers/departments.controller';
 import { Department } from './entities/department.entity';
 import { DepartmentAuditLog } from './entities/department-audit-log.entity';
+import { User } from '../users/entities/user.entity';  // Add User entity import
+
 import { DepartmentAssignmentListener } from './listeners/department-assignment.listener';
 import { DepartmentAuditListener } from './listeners/department-audit.listener';
 import { OrganizationsModule } from '../organizations/organizations.module';
@@ -17,7 +19,8 @@ import { NotificationsModule } from '../notifications/notifications.module';
   imports: [
     TypeOrmModule.forFeature([
       Department,
-      DepartmentAuditLog
+      DepartmentAuditLog,
+      User
     ]),
     OrganizationsModule,
     UsersModule,

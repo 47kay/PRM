@@ -1,6 +1,6 @@
 // src/modules/messages/messages.module.ts
 
-import { Module } from '@nestjs/common';
+import { Module, forwardRef } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { EventEmitterModule } from '@nestjs/event-emitter';
 
@@ -9,17 +9,23 @@ import { MessagesService } from './services/messages.service';
 import { Message } from './entities/message.entity';
 import { MessageTemplate } from './entities/message-template.entity';
 import { MessageAttachment } from './entities/message-attachment.entity';
-import { Contact } from '../contacts/entities/contact.entity';
+import { TemplateCategory } from './entities/template-category.entity';
+import { User } from '../users/entities/user.entity'; // Add User entity import
+import { Contact } from '../contacts/entities/contact.entity'; // Add Contact entity import
 
-import { AuthModule } from '../auth/auth.module';
 import { UsersModule } from '../users/users.module';
-import { OrganizationsModule } from '../organizations/organizations.module';
-import { NotificationsModule } from '../notifications/notifications.module';
+import { ContactsModule } from '../contacts/contacts.module';
+import { NotificationsModule } from '../notifications/notifications.module'; // Add NotificationsModule import
 
-import { MessageQueueListener } from './listeners/message-queue.listener';
+import { MessageEventHandler } from './events/message-event.handler';
 import { MessageDeliveryListener } from './listeners/message-delivery.listener';
-import { MessageSchedulerService } from './services/message-scheduler.service';
+import { MessageQueueListener } from './listeners/message-queue.listener';
+
+import { ErrorHandlerService } from './services/error-handler.service';
 import { MessageDeliveryService } from './services/message-delivery.service';
+import { MessageSchedulerService } from './services/message-scheduler.service';
+import { TemplateService } from './services/template.service';
+import { MessageRepository } from './repositories/message.repository';
 
 @Module({
     imports: [
@@ -27,29 +33,39 @@ import { MessageDeliveryService } from './services/message-delivery.service';
             Message,
             MessageTemplate,
             MessageAttachment,
-            Contact
+            TemplateCategory,
+            User,       // Add User entity
+            Contact     // Add Contact entity
         ]),
         EventEmitterModule.forRoot({
-            // Enable wildcard event listeners
             wildcard: true,
-            // Remove memory-leak warnings
             maxListeners: 20,
-            // Enable verbose error handling
             verboseMemoryLeak: true,
         }),
-        AuthModule,
-        UsersModule,
-        OrganizationsModule,
-        NotificationsModule
+        forwardRef(() => UsersModule),    // Import with forwardRef
+        forwardRef(() => ContactsModule),  // Import with forwardRef if needed
+        forwardRef(() => NotificationsModule)
+        // forwardRef(() => OrganizationsModule),
+        // forwardRef(() => AuthModule)
     ],
-    controllers: [MessagesController],
+    controllers: [
+        MessagesController
+    ],
     providers: [
         MessagesService,
-        MessageQueueListener,
-        MessageDeliveryListener,
+        ErrorHandlerService,
+        MessageDeliveryService,
         MessageSchedulerService,
-        MessageDeliveryService
+        TemplateService,
+        MessageEventHandler,
+        MessageDeliveryListener,
+        MessageQueueListener,
+        MessageRepository
     ],
-    exports: [MessagesService, MessageDeliveryService]
+    exports: [
+        MessagesService,
+        MessageDeliveryService,
+        TemplateService
+    ]
 })
 export class MessagesModule {}

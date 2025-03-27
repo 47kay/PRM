@@ -7,51 +7,53 @@ import { TicketAttachment } from './ticket-attachment.entity';
 export class TicketComment {
   @PrimaryGeneratedColumn('uuid')
   id: string;
-  organizationId: string; // Add this line
-  userId: string; // Add this line
-
+  
+  organizationId: string;
+  userId: string;
+  
   @Column('text')
   content: string;
-
+  
   @Column({ default: false })
   isInternal: boolean;
-
+  
   @Column('uuid')
   ticketId: string;
-
+  
   @ManyToOne(() => Ticket, ticket => ticket.comments)
   @JoinColumn({ name: 'ticketId' })
   ticket: Ticket;
-
+  
   @Column('uuid')
   authorId: string;
-
+  
   @ManyToOne(() => User)
   @JoinColumn({ name: 'authorId' })
   author: User;
-
+  
   @OneToMany(() => TicketAttachment, attachment => attachment.comment)
   attachments: TicketAttachment[];
-
+  
   @Column({ nullable: true })
   parentId: string;
-
-  @ManyToOne(() => TicketComment, { nullable: true })
+  
+  // Self-referencing relationships can also use string names
+  @ManyToOne('TicketComment', { nullable: true })
   @JoinColumn({ name: 'parentId' })
   parent: TicketComment;
-
+  
   @Column('jsonb', { nullable: true })
   metadata: Record<string, any>;
-
+  
   @CreateDateColumn()
   createdAt: Date;
-
+  
   @UpdateDateColumn()
   updatedAt: Date;
-
+  
   @Column({ nullable: true })
   editedAt: Date;
-
+  
   @Column({ nullable: true })
   editedBy: string;
 }

@@ -1,5 +1,7 @@
 // src/modules/auth/auth.module.ts
-import { Module, forwardRef } from '@nestjs/common';  // Add forwardRef import
+
+
+import { Module, forwardRef } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
@@ -27,7 +29,8 @@ import { UsersModule } from '../users/users.module';
       }),
       inject: [ConfigService],
     }),
-    forwardRef(() => UsersModule),  // Use forwardRef here
+
+    forwardRef(() => UsersModule),
   ],
   controllers: [AuthController],
   providers: [AuthService, JwtStrategy],
