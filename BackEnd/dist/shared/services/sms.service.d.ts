@@ -3,18 +3,20 @@ import { Notification } from '../../modules/notifications/entities/notification.
 export declare class SmsService {
     private readonly configService;
     private readonly logger;
-    private readonly twilioClient;
+    private twilioClient;
     private readonly fromNumber;
+    private mockMode;
     constructor(configService: ConfigService);
+    private initializeMockClient;
     send(notification: Notification): Promise<void>;
     private formatPhoneNumber;
     private formatContent;
     private getOptionalParams;
     sendSms(phoneNumber: string, message: string): Promise<any>;
     getDeliveryStatus(messageSid: string): Promise<{
-        status: import("twilio/lib/rest/api/v2010/account/message").MessageStatus;
-        error: string;
-        dateCreated: Date;
-        dateUpdated: Date;
+        status: any;
+        error: any;
+        dateCreated: any;
+        dateUpdated: any;
     }>;
 }

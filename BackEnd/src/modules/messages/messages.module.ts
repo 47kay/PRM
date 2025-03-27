@@ -10,12 +10,13 @@ import { Message } from './entities/message.entity';
 import { MessageTemplate } from './entities/message-template.entity';
 import { MessageAttachment } from './entities/message-attachment.entity';
 import { TemplateCategory } from './entities/template-category.entity';
-import { User } from '../users/entities/user.entity'; // Add User entity import
-import { Contact } from '../contacts/entities/contact.entity'; // Add Contact entity import
+import { User } from '../users/entities/user.entity'; 
+import { Contact } from '../contacts/entities/contact.entity'; 
 
 import { UsersModule } from '../users/users.module';
 import { ContactsModule } from '../contacts/contacts.module';
-import { NotificationsModule } from '../notifications/notifications.module'; // Add NotificationsModule import
+import { NotificationsModule } from '../notifications/notifications.module';
+import { AuthModule } from '../auth/auth.module'; // Add this import
 
 import { MessageEventHandler } from './events/message-event.handler';
 import { MessageDeliveryListener } from './listeners/message-delivery.listener';
@@ -34,19 +35,18 @@ import { MessageRepository } from './repositories/message.repository';
             MessageTemplate,
             MessageAttachment,
             TemplateCategory,
-            User,       // Add User entity
-            Contact     // Add Contact entity
+            User,      
+            Contact     
         ]),
         EventEmitterModule.forRoot({
             wildcard: true,
             maxListeners: 20,
             verboseMemoryLeak: true,
         }),
-        forwardRef(() => UsersModule),    // Import with forwardRef
-        forwardRef(() => ContactsModule),  // Import with forwardRef if needed
-        forwardRef(() => NotificationsModule)
-        // forwardRef(() => OrganizationsModule),
-        // forwardRef(() => AuthModule)
+        forwardRef(() => UsersModule),   
+        forwardRef(() => ContactsModule), 
+        forwardRef(() => NotificationsModule),
+        forwardRef(() => AuthModule) // Add this line
     ],
     controllers: [
         MessagesController

@@ -10915,20 +10915,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _users_users_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../users/users.module */ "./src/modules/users/users.module.ts");
 /* harmony import */ var _contacts_contacts_module__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../contacts/contacts.module */ "./src/modules/contacts/contacts.module.ts");
 /* harmony import */ var _notifications_notifications_module__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../notifications/notifications.module */ "./src/modules/notifications/notifications.module.ts");
-/* harmony import */ var _events_message_event_handler__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./events/message-event.handler */ "./src/modules/messages/events/message-event.handler.ts");
-/* harmony import */ var _listeners_message_delivery_listener__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./listeners/message-delivery.listener */ "./src/modules/messages/listeners/message-delivery.listener.ts");
-/* harmony import */ var _listeners_message_queue_listener__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./listeners/message-queue.listener */ "./src/modules/messages/listeners/message-queue.listener.ts");
-/* harmony import */ var _services_error_handler_service__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./services/error-handler.service */ "./src/modules/messages/services/error-handler.service.ts");
-/* harmony import */ var _services_message_delivery_service__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./services/message-delivery.service */ "./src/modules/messages/services/message-delivery.service.ts");
-/* harmony import */ var _services_message_scheduler_service__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./services/message-scheduler.service */ "./src/modules/messages/services/message-scheduler.service.ts");
-/* harmony import */ var _services_template_service__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./services/template.service */ "./src/modules/messages/services/template.service.ts");
-/* harmony import */ var _repositories_message_repository__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./repositories/message.repository */ "./src/modules/messages/repositories/message.repository.ts");
+/* harmony import */ var _auth_auth_module__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../auth/auth.module */ "./src/modules/auth/auth.module.ts");
+/* harmony import */ var _events_message_event_handler__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./events/message-event.handler */ "./src/modules/messages/events/message-event.handler.ts");
+/* harmony import */ var _listeners_message_delivery_listener__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./listeners/message-delivery.listener */ "./src/modules/messages/listeners/message-delivery.listener.ts");
+/* harmony import */ var _listeners_message_queue_listener__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./listeners/message-queue.listener */ "./src/modules/messages/listeners/message-queue.listener.ts");
+/* harmony import */ var _services_error_handler_service__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./services/error-handler.service */ "./src/modules/messages/services/error-handler.service.ts");
+/* harmony import */ var _services_message_delivery_service__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./services/message-delivery.service */ "./src/modules/messages/services/message-delivery.service.ts");
+/* harmony import */ var _services_message_scheduler_service__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./services/message-scheduler.service */ "./src/modules/messages/services/message-scheduler.service.ts");
+/* harmony import */ var _services_template_service__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./services/template.service */ "./src/modules/messages/services/template.service.ts");
+/* harmony import */ var _repositories_message_repository__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./repositories/message.repository */ "./src/modules/messages/repositories/message.repository.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -10971,26 +10973,27 @@ MessagesModule = __decorate([
             }),
             (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.forwardRef)(() => _users_users_module__WEBPACK_IMPORTED_MODULE_11__.UsersModule),
             (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.forwardRef)(() => _contacts_contacts_module__WEBPACK_IMPORTED_MODULE_12__.ContactsModule),
-            (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.forwardRef)(() => _notifications_notifications_module__WEBPACK_IMPORTED_MODULE_13__.NotificationsModule)
+            (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.forwardRef)(() => _notifications_notifications_module__WEBPACK_IMPORTED_MODULE_13__.NotificationsModule),
+            (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.forwardRef)(() => _auth_auth_module__WEBPACK_IMPORTED_MODULE_14__.AuthModule)
         ],
         controllers: [
             _controllers_messages_controller__WEBPACK_IMPORTED_MODULE_3__.MessagesController
         ],
         providers: [
             _services_messages_service__WEBPACK_IMPORTED_MODULE_4__.MessagesService,
-            _services_error_handler_service__WEBPACK_IMPORTED_MODULE_17__.ErrorHandlerService,
-            _services_message_delivery_service__WEBPACK_IMPORTED_MODULE_18__.MessageDeliveryService,
-            _services_message_scheduler_service__WEBPACK_IMPORTED_MODULE_19__.MessageSchedulerService,
-            _services_template_service__WEBPACK_IMPORTED_MODULE_20__.TemplateService,
-            _events_message_event_handler__WEBPACK_IMPORTED_MODULE_14__.MessageEventHandler,
-            _listeners_message_delivery_listener__WEBPACK_IMPORTED_MODULE_15__.MessageDeliveryListener,
-            _listeners_message_queue_listener__WEBPACK_IMPORTED_MODULE_16__.MessageQueueListener,
-            _repositories_message_repository__WEBPACK_IMPORTED_MODULE_21__.MessageRepository
+            _services_error_handler_service__WEBPACK_IMPORTED_MODULE_18__.ErrorHandlerService,
+            _services_message_delivery_service__WEBPACK_IMPORTED_MODULE_19__.MessageDeliveryService,
+            _services_message_scheduler_service__WEBPACK_IMPORTED_MODULE_20__.MessageSchedulerService,
+            _services_template_service__WEBPACK_IMPORTED_MODULE_21__.TemplateService,
+            _events_message_event_handler__WEBPACK_IMPORTED_MODULE_15__.MessageEventHandler,
+            _listeners_message_delivery_listener__WEBPACK_IMPORTED_MODULE_16__.MessageDeliveryListener,
+            _listeners_message_queue_listener__WEBPACK_IMPORTED_MODULE_17__.MessageQueueListener,
+            _repositories_message_repository__WEBPACK_IMPORTED_MODULE_22__.MessageRepository
         ],
         exports: [
             _services_messages_service__WEBPACK_IMPORTED_MODULE_4__.MessagesService,
-            _services_message_delivery_service__WEBPACK_IMPORTED_MODULE_18__.MessageDeliveryService,
-            _services_template_service__WEBPACK_IMPORTED_MODULE_20__.TemplateService
+            _services_message_delivery_service__WEBPACK_IMPORTED_MODULE_19__.MessageDeliveryService,
+            _services_template_service__WEBPACK_IMPORTED_MODULE_21__.TemplateService
         ]
     })
 ], MessagesModule);
@@ -28290,33 +28293,88 @@ let PushNotificationService = PushNotificationService_1 = class PushNotification
     constructor(configService) {
         this.configService = configService;
         this.logger = new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.Logger(PushNotificationService_1.name);
-        if (!firebase_admin__WEBPACK_IMPORTED_MODULE_2__.apps.length) {
-            this.firebaseApp = firebase_admin__WEBPACK_IMPORTED_MODULE_2__.initializeApp({
-                credential: firebase_admin__WEBPACK_IMPORTED_MODULE_2__.credential.cert({
-                    projectId: this.configService.get('FIREBASE_PROJECT_ID'),
-                    clientEmail: this.configService.get('FIREBASE_CLIENT_EMAIL'),
-                    privateKey: (this.configService.get('FIREBASE_PRIVATE_KEY') || '').replace(/\\n/g, '\n'),
-                }),
-                databaseURL: this.configService.get('FIREBASE_DATABASE_URL'),
-            });
+        this.mockMode = false;
+        try {
+            const projectId = this.configService.get('FIREBASE_PROJECT_ID');
+            const clientEmail = this.configService.get('FIREBASE_CLIENT_EMAIL');
+            const privateKey = this.configService.get('FIREBASE_PRIVATE_KEY');
+            if (projectId && clientEmail && privateKey && !firebase_admin__WEBPACK_IMPORTED_MODULE_2__.apps.length) {
+                this.firebaseApp = firebase_admin__WEBPACK_IMPORTED_MODULE_2__.initializeApp({
+                    credential: firebase_admin__WEBPACK_IMPORTED_MODULE_2__.credential.cert({
+                        projectId,
+                        clientEmail,
+                        privateKey: (privateKey || '').replace(/\\n/g, '\n'),
+                    }),
+                    databaseURL: this.configService.get('FIREBASE_DATABASE_URL'),
+                });
+                this.logger.log('Firebase Admin SDK initialized successfully');
+            }
+            else if (firebase_admin__WEBPACK_IMPORTED_MODULE_2__.apps.length) {
+                this.firebaseApp = firebase_admin__WEBPACK_IMPORTED_MODULE_2__.apps[0];
+                this.logger.log('Using existing Firebase Admin SDK instance');
+            }
+            else {
+                this.logger.warn('Firebase credentials incomplete - using mock implementation');
+                this.initMockFirebase();
+                this.mockMode = true;
+            }
         }
-        else {
-            this.firebaseApp = firebase_admin__WEBPACK_IMPORTED_MODULE_2__.apps[0];
+        catch (error) {
+            this.logger.warn(`Failed to initialize Firebase: ${error.message}`);
+            this.logger.warn('Using mock implementation instead');
+            this.initMockFirebase();
+            this.mockMode = true;
         }
+    }
+    initMockFirebase() {
+        this.firebaseApp = {
+            messaging: () => ({
+                send: async (message) => {
+                    var _a, _b;
+                    this.logger.log(`[MOCK] Sending push notification to ${message.token}`);
+                    this.logger.debug('[MOCK] Push notification payload:', {
+                        title: (_a = message.notification) === null || _a === void 0 ? void 0 : _a.title,
+                        body: (_b = message.notification) === null || _b === void 0 ? void 0 : _b.body
+                    });
+                    return `mock-message-id-${Date.now()}`;
+                },
+                sendAll: async (messages) => {
+                    this.logger.log(`[MOCK] Sending batch of ${messages.length} push notifications`);
+                    return {
+                        successCount: messages.length,
+                        failureCount: 0,
+                        responses: messages.map(() => ({
+                            success: true,
+                            messageId: `mock-message-id-${Date.now()}`,
+                            error: null
+                        }))
+                    };
+                },
+                subscribeToTopic: async (tokens, topic) => {
+                    this.logger.log(`[MOCK] Subscribing ${tokens.length} tokens to topic ${topic}`);
+                    return { successCount: tokens.length, failureCount: 0, errors: [] };
+                },
+                unsubscribeFromTopic: async (tokens, topic) => {
+                    this.logger.log(`[MOCK] Unsubscribing ${tokens.length} tokens from topic ${topic}`);
+                    return { successCount: tokens.length, failureCount: 0, errors: [] };
+                }
+            })
+        };
     }
     async send(notification) {
         try {
             const { recipient, content, subject, metadata } = notification;
-            if (!recipient.fcmToken) {
+            if (!this.mockMode && !recipient.fcmToken) {
                 throw new Error('Recipient FCM token not found');
             }
+            const token = recipient.fcmToken || 'mock-token';
             const message = {
                 notification: {
                     title: subject,
                     body: this.formatContent(content),
                 },
                 data: this.prepareData(metadata),
-                token: recipient.fcmToken,
+                token,
                 android: this.getAndroidConfig(metadata),
                 apns: this.getApnsConfig(metadata),
                 webpush: this.getWebPushConfig(metadata),
@@ -28326,7 +28384,12 @@ let PushNotificationService = PushNotificationService_1 = class PushNotification
         }
         catch (error) {
             this.logger.error('Failed to send push notification:', error);
-            throw new Error(`Push notification delivery failed: ${error.message}`);
+            if (!this.mockMode) {
+                throw new Error(`Push notification delivery failed: ${error.message}`);
+            }
+            else {
+                this.logger.warn('[MOCK] Continuing despite push notification error');
+            }
         }
     }
     formatContent(content) {
@@ -28377,7 +28440,7 @@ let PushNotificationService = PushNotificationService_1 = class PushNotification
     async sendBatch(notifications) {
         try {
             const messages = notifications.map(notification => ({
-                token: notification.recipient.fcmToken,
+                token: notification.recipient.fcmToken || 'mock-token',
                 notification: {
                     title: notification.subject,
                     body: this.formatContent(notification.content),
@@ -28388,25 +28451,47 @@ let PushNotificationService = PushNotificationService_1 = class PushNotification
         }
         catch (error) {
             this.logger.error('Failed to send batch push notifications:', error);
-            throw new Error(`Batch push notification delivery failed: ${error.message}`);
+            if (!this.mockMode) {
+                throw new Error(`Batch push notification delivery failed: ${error.message}`);
+            }
+            else {
+                this.logger.warn('[MOCK] Continuing despite batch push notification error');
+                return {
+                    successCount: notifications.length,
+                    failureCount: 0,
+                    responses: []
+                };
+            }
         }
     }
     async subscribeTopic(tokens, topic) {
         try {
             await this.firebaseApp.messaging().subscribeToTopic(tokens, topic);
+            this.logger.log(`Subscribed ${tokens.length} tokens to topic ${topic}`);
         }
         catch (error) {
             this.logger.error(`Failed to subscribe tokens to topic ${topic}:`, error);
-            throw new Error(`Topic subscription failed: ${error.message}`);
+            if (!this.mockMode) {
+                throw new Error(`Topic subscription failed: ${error.message}`);
+            }
+            else {
+                this.logger.warn('[MOCK] Continuing despite topic subscription error');
+            }
         }
     }
     async unsubscribeTopic(tokens, topic) {
         try {
             await this.firebaseApp.messaging().unsubscribeFromTopic(tokens, topic);
+            this.logger.log(`Unsubscribed ${tokens.length} tokens from topic ${topic}`);
         }
         catch (error) {
             this.logger.error(`Failed to unsubscribe tokens from topic ${topic}:`, error);
-            throw new Error(`Topic unsubscription failed: ${error.message}`);
+            if (!this.mockMode) {
+                throw new Error(`Topic unsubscription failed: ${error.message}`);
+            }
+            else {
+                this.logger.warn('[MOCK] Continuing despite topic unsubscription error');
+            }
         }
     }
 };
@@ -28452,13 +28537,64 @@ let SmsService = SmsService_1 = class SmsService {
     constructor(configService) {
         this.configService = configService;
         this.logger = new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.Logger(SmsService_1.name);
-        const accountSid = this.configService.get('TWILIO_ACCOUNT_SID');
-        const authToken = this.configService.get('TWILIO_AUTH_TOKEN');
-        this.twilioClient = twilio__WEBPACK_IMPORTED_MODULE_2___default()(accountSid, authToken);
-        this.fromNumber = this.configService.get('TWILIO_FROM_NUMBER') || '';
-        if (!this.fromNumber) {
-            throw new Error('TWILIO_FROM_NUMBER is not defined in the configuration');
+        this.mockMode = false;
+        try {
+            const accountSid = this.configService.get('TWILIO_ACCOUNT_SID');
+            const authToken = this.configService.get('TWILIO_AUTH_TOKEN');
+            this.fromNumber = this.configService.get('TWILIO_FROM_NUMBER') || '+15555555555';
+            if (accountSid && accountSid.startsWith('AC') && authToken) {
+                this.twilioClient = twilio__WEBPACK_IMPORTED_MODULE_2___default()(accountSid, authToken);
+                this.logger.log('Twilio client initialized successfully');
+            }
+            else {
+                this.logger.warn('Invalid Twilio credentials - using mock client');
+                this.initializeMockClient();
+                this.mockMode = true;
+            }
         }
+        catch (error) {
+            this.logger.warn(`Failed to initialize Twilio client: ${error.message}`);
+            this.logger.warn('Using mock client instead');
+            this.initializeMockClient();
+            this.mockMode = true;
+        }
+    }
+    initializeMockClient() {
+        this.twilioClient = {
+            messages: {
+                create: async (params) => {
+                    this.logger.log(`[MOCK] Sending SMS to ${params.to}: ${params.body}`);
+                    return {
+                        sid: `MOCK_${Date.now()}`,
+                        to: params.to,
+                        from: params.from,
+                        body: params.body,
+                        status: 'queued',
+                        dateCreated: new Date(),
+                        dateUpdated: new Date(),
+                        errorMessage: null
+                    };
+                }
+            }
+        };
+        const originalMessages = this.twilioClient.messages;
+        this.twilioClient.messages = (messageSid) => {
+            if (typeof messageSid === 'string') {
+                return {
+                    fetch: async () => {
+                        this.logger.log(`[MOCK] Fetching message status for ${messageSid}`);
+                        return {
+                            sid: messageSid,
+                            status: 'delivered',
+                            dateCreated: new Date(),
+                            dateUpdated: new Date(),
+                            errorMessage: null
+                        };
+                    }
+                };
+            }
+            return originalMessages;
+        };
     }
     async send(notification) {
         try {
@@ -28499,8 +28635,24 @@ let SmsService = SmsService_1 = class SmsService {
         return params;
     }
     async sendSms(phoneNumber, message) {
-        this.logger.log(`[MOCK] Sending SMS to ${phoneNumber}: ${message}`);
-        return { success: true };
+        if (this.mockMode) {
+            this.logger.log(`[MOCK] Sending SMS to ${phoneNumber}: ${message}`);
+            return {
+                success: true,
+                sid: `MOCK_${Date.now()}`,
+                status: 'sent'
+            };
+        }
+        const result = await this.twilioClient.messages.create({
+            body: message,
+            from: this.fromNumber,
+            to: this.formatPhoneNumber(phoneNumber)
+        });
+        return {
+            success: true,
+            sid: result.sid,
+            status: result.status
+        };
     }
     async getDeliveryStatus(messageSid) {
         try {

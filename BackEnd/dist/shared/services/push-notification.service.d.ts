@@ -1,18 +1,19 @@
 import { ConfigService } from '@nestjs/config';
-import * as admin from 'firebase-admin';
 import { Notification } from '../../modules/notifications/entities/notification.entity';
 export declare class PushNotificationService {
     private readonly configService;
     private readonly logger;
-    private readonly firebaseApp;
+    private firebaseApp;
+    private mockMode;
     constructor(configService: ConfigService);
+    private initMockFirebase;
     send(notification: Notification): Promise<void>;
     private formatContent;
     private prepareData;
     private getAndroidConfig;
     private getApnsConfig;
     private getWebPushConfig;
-    sendBatch(notifications: Notification[]): Promise<admin.messaging.BatchResponse>;
+    sendBatch(notifications: Notification[]): Promise<any>;
     subscribeTopic(tokens: string[], topic: string): Promise<void>;
     unsubscribeTopic(tokens: string[], topic: string): Promise<void>;
 }
