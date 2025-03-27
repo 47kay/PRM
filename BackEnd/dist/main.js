@@ -438,38 +438,6 @@ const CurrentOrganization = (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.creat
 
 /***/ }),
 
-/***/ "./src/common/decorators/current-user.decorator.ts":
-/*!*********************************************************!*\
-  !*** ./src/common/decorators/current-user.decorator.ts ***!
-  \*********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   CurrentUser: () => (/* binding */ CurrentUser),
-/* harmony export */   TypedCurrentUser: () => (/* binding */ TypedCurrentUser)
-/* harmony export */ });
-/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
-/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_0__);
-
-const CurrentUser = (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.createParamDecorator)((data, context) => {
-    const request = context.switchToHttp().getRequest();
-    const user = request.user;
-    if (!user) {
-        return null;
-    }
-    if (!data) {
-        return user;
-    }
-    return data.split('.').reduce((obj, key) => {
-        return obj === null || obj === void 0 ? void 0 : obj[key];
-    }, user);
-});
-const TypedCurrentUser = (propertyPath) => CurrentUser(propertyPath);
-
-
-/***/ }),
-
 /***/ "./src/common/decorators/roles.decorator.ts":
 /*!**************************************************!*\
   !*** ./src/common/decorators/roles.decorator.ts ***!
@@ -2603,7 +2571,7 @@ AuthModule = __decorate([
                 }),
                 inject: [_nestjs_config__WEBPACK_IMPORTED_MODULE_4__.ConfigService],
             }),
-            _users_users_module__WEBPACK_IMPORTED_MODULE_11__.UsersModule,
+            (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.forwardRef)(() => _users_users_module__WEBPACK_IMPORTED_MODULE_11__.UsersModule),
         ],
         controllers: [_controllers_auth_controller__WEBPACK_IMPORTED_MODULE_5__.AuthController],
         providers: [_services_auth_service__WEBPACK_IMPORTED_MODULE_6__.AuthService, _strategies_jwt_strategy__WEBPACK_IMPORTED_MODULE_7__.JwtStrategy],
@@ -3132,6 +3100,41 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+class OrganizationAddressDto {
+    static _OPENAPI_METADATA_FACTORY() {
+        return { street: { required: true, type: () => String }, city: { required: true, type: () => String }, state: { required: true, type: () => String }, postalCode: { required: true, type: () => String }, country: { required: true, type: () => String } };
+    }
+}
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsNotEmpty)(),
+    __metadata("design:type", String)
+], OrganizationAddressDto.prototype, "street", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsNotEmpty)(),
+    __metadata("design:type", String)
+], OrganizationAddressDto.prototype, "city", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsNotEmpty)(),
+    __metadata("design:type", String)
+], OrganizationAddressDto.prototype, "state", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsNotEmpty)(),
+    __metadata("design:type", String)
+], OrganizationAddressDto.prototype, "postalCode", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsNotEmpty)(),
+    __metadata("design:type", String)
+], OrganizationAddressDto.prototype, "country", void 0);
 class RegisterUserDto {
     static _OPENAPI_METADATA_FACTORY() {
         return { firstName: { required: true, type: () => String, minLength: 2, maxLength: 50 }, lastName: { required: true, type: () => String, minLength: 2, maxLength: 50 }, email: { required: true, type: () => String }, password: { required: true, type: () => String, minLength: 8, pattern: "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$/" }, phone: { required: false, type: () => String }, role: { required: false, enum: (__webpack_require__(/*! ../../users/enums/role.enum */ "./src/modules/users/enums/role.enum.ts").Role) } };
@@ -3257,41 +3260,6 @@ __decorate([
     (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsEnum)(_organizations_enums_subscription_plan_enum__WEBPACK_IMPORTED_MODULE_4__.SubscriptionPlan),
     __metadata("design:type", String)
 ], RegisterOrganizationDto.prototype, "subscriptionPlan", void 0);
-class OrganizationAddressDto {
-    static _OPENAPI_METADATA_FACTORY() {
-        return { street: { required: true, type: () => String }, city: { required: true, type: () => String }, state: { required: true, type: () => String }, postalCode: { required: true, type: () => String }, country: { required: true, type: () => String } };
-    }
-}
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsNotEmpty)(),
-    __metadata("design:type", String)
-], OrganizationAddressDto.prototype, "street", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsNotEmpty)(),
-    __metadata("design:type", String)
-], OrganizationAddressDto.prototype, "city", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsNotEmpty)(),
-    __metadata("design:type", String)
-], OrganizationAddressDto.prototype, "state", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsNotEmpty)(),
-    __metadata("design:type", String)
-], OrganizationAddressDto.prototype, "postalCode", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsNotEmpty)(),
-    __metadata("design:type", String)
-], OrganizationAddressDto.prototype, "country", void 0);
 class RegisterDto {
     static _OPENAPI_METADATA_FACTORY() {
         return { user: { required: true, type: () => (__webpack_require__(/*! ./register.dto */ "./src/modules/auth/dto/register.dto.ts").RegisterUserDto) }, organization: { required: true, type: () => (__webpack_require__(/*! ./register.dto */ "./src/modules/auth/dto/register.dto.ts").RegisterOrganizationDto) } };
@@ -3648,131 +3616,6 @@ __decorate([
 User = __decorate([
     (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Entity)('users')
 ], User);
-
-
-
-/***/ }),
-
-/***/ "./src/modules/auth/guards/auth.guard.ts":
-/*!***********************************************!*\
-  !*** ./src/modules/auth/guards/auth.guard.ts ***!
-  \***********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   AuthGuard: () => (/* binding */ AuthGuard)
-/* harmony export */ });
-/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
-/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _nestjs_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nestjs/core */ "@nestjs/core");
-/* harmony import */ var _nestjs_core__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_core__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/auth.service */ "./src/modules/auth/services/auth.service.ts");
-/* harmony import */ var _nestjs_jwt__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @nestjs/jwt */ "@nestjs/jwt");
-/* harmony import */ var _nestjs_jwt__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_nestjs_jwt__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _nestjs_config__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @nestjs/config */ "@nestjs/config");
-/* harmony import */ var _nestjs_config__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_nestjs_config__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _decorators_public_decorator__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../decorators/public.decorator */ "./src/modules/auth/decorators/public.decorator.ts");
-/* harmony import */ var _users_services_users_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../users/services/users.service */ "./src/modules/users/services/users.service.ts");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var AuthGuard_1;
-
-
-
-
-
-
-
-let AuthGuard = AuthGuard_1 = class AuthGuard {
-    constructor(reflector, authService, jwtService, configService, usersService) {
-        this.reflector = reflector;
-        this.authService = authService;
-        this.jwtService = jwtService;
-        this.configService = configService;
-        this.usersService = usersService;
-        this.logger = new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.Logger(AuthGuard_1.name);
-    }
-    async canActivate(context) {
-        try {
-            const request = context.switchToHttp().getRequest();
-            const isPublic = this.reflector.getAllAndOverride(_decorators_public_decorator__WEBPACK_IMPORTED_MODULE_5__.IS_PUBLIC_KEY, [
-                context.getHandler(),
-                context.getClass(),
-            ]);
-            const token = this.extractTokenFromHeader(request);
-            if (!token) {
-                if (isPublic)
-                    return true;
-                throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.UnauthorizedException('No authentication token provided');
-            }
-            try {
-                const payload = this.jwtService.verify(token, {
-                    secret: this.configService.get('JWT_SECRET')
-                });
-                if (this.authService.isTokenBlacklisted(token)) {
-                    throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.UnauthorizedException('Token has been revoked');
-                }
-                const user = await this.usersService.findById(payload.sub);
-                if (!user) {
-                    throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.UnauthorizedException('User not found');
-                }
-                if (!user.isActive) {
-                    throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.UnauthorizedException('User account is inactive');
-                }
-                if (this.authService.requireEmailVerification && !user.isEmailVerified) {
-                    throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.UnauthorizedException('Email verification required');
-                }
-                request.user = user;
-                request.tokenMetadata = {
-                    token,
-                    iat: payload.iat,
-                    exp: payload.exp,
-                };
-                return true;
-            }
-            catch (error) {
-                if (isPublic)
-                    return true;
-                this.logger.error('Token validation failed:', error);
-                if (error.name === 'TokenExpiredError') {
-                    throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.UnauthorizedException('Token has expired');
-                }
-                if (error.name === 'JsonWebTokenError') {
-                    throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.UnauthorizedException('Invalid token');
-                }
-                throw error;
-            }
-        }
-        catch (error) {
-            if (error instanceof _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.UnauthorizedException) {
-                throw error;
-            }
-            this.logger.error('Authentication error:', error);
-            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.UnauthorizedException('Authentication failed');
-        }
-    }
-    extractTokenFromHeader(request) {
-        var _a, _b;
-        const [type, token] = (_b = (_a = request.headers.authorization) === null || _a === void 0 ? void 0 : _a.split(' ')) !== null && _b !== void 0 ? _b : [];
-        return type === 'Bearer' ? token : undefined;
-    }
-};
-AuthGuard = AuthGuard_1 = __decorate([
-    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.Injectable)(),
-    __metadata("design:paramtypes", [_nestjs_core__WEBPACK_IMPORTED_MODULE_1__.Reflector,
-        _services_auth_service__WEBPACK_IMPORTED_MODULE_2__.AuthService,
-        _nestjs_jwt__WEBPACK_IMPORTED_MODULE_3__.JwtService,
-        _nestjs_config__WEBPACK_IMPORTED_MODULE_4__.ConfigService,
-        _users_services_users_service__WEBPACK_IMPORTED_MODULE_6__.UsersService])
-], AuthGuard);
 
 
 
@@ -7337,1979 +7180,6 @@ ContactsService = __decorate([
 
 /***/ }),
 
-/***/ "./src/modules/departments/controllers/departments.controller.ts":
-/*!***********************************************************************!*\
-  !*** ./src/modules/departments/controllers/departments.controller.ts ***!
-  \***********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   DepartmentsController: () => (/* binding */ DepartmentsController)
-/* harmony export */ });
-/* harmony import */ var _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/swagger */ "@nestjs/swagger");
-/* harmony import */ var _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
-/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _services_departments_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/departments.service */ "./src/modules/departments/services/departments.service.ts");
-/* harmony import */ var _services_department_members_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/department-members.service */ "./src/modules/departments/services/department-members.service.ts");
-/* harmony import */ var _auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../auth/guards/auth.guard */ "./src/modules/auth/guards/auth.guard.ts");
-/* harmony import */ var _organizations_guards_organization_guard__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../organizations/guards/organization.guard */ "./src/modules/organizations/guards/organization.guard.ts");
-/* harmony import */ var _auth_guards_roles_guard__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../auth/guards/roles.guard */ "./src/modules/auth/guards/roles.guard.ts");
-/* harmony import */ var _common_decorators_roles_decorator__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../common/decorators/roles.decorator */ "./src/common/decorators/roles.decorator.ts");
-/* harmony import */ var _common_decorators_current_user_decorator__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../common/decorators/current-user.decorator */ "./src/common/decorators/current-user.decorator.ts");
-/* harmony import */ var _dto_create_department_dto__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../dto/create-department.dto */ "./src/modules/departments/dto/create-department.dto.ts");
-/* harmony import */ var _dto_update_department_dto__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../dto/update-department.dto */ "./src/modules/departments/dto/update-department.dto.ts");
-/* harmony import */ var _dto_add_member_dto__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../dto/add-member.dto */ "./src/modules/departments/dto/add-member.dto.ts");
-/* harmony import */ var _dto_department_query_dto__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../dto/department-query.dto */ "./src/modules/departments/dto/department-query.dto.ts");
-/* harmony import */ var _entities_department_entity__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../entities/department.entity */ "./src/modules/departments/entities/department.entity.ts");
-/* harmony import */ var _users_enums_role_enum__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../users/enums/role.enum */ "./src/modules/users/enums/role.enum.ts");
-/* harmony import */ var _users_entities_user_entity__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
-    return function (target, key) { decorator(target, key, paramIndex); }
-};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-let DepartmentsController = class DepartmentsController {
-    constructor(departmentsService, departmentMembersService) {
-        this.departmentsService = departmentsService;
-        this.departmentMembersService = departmentMembersService;
-    }
-    async create(organizationId, createDepartmentDto, userId) {
-        return this.departmentsService.create(organizationId, createDepartmentDto, userId);
-    }
-    async findAll(organizationId, query) {
-        return this.departmentsService.findAll(organizationId, query);
-    }
-    async findOne(id) {
-        return this.departmentsService.findById(id, ['manager', 'parentDepartment']);
-    }
-    async update(id, updateDepartmentDto, userId) {
-        return this.departmentsService.update(id, updateDepartmentDto, userId);
-    }
-    async remove(id, userId) {
-        await this.departmentsService.delete(id, userId);
-    }
-    async addMember(departmentId, addMemberDto, userId) {
-        await this.departmentMembersService.addMember(departmentId, addMemberDto.userId, userId);
-    }
-    async removeMember(departmentId, memberId, userId) {
-        await this.departmentMembersService.removeMember(departmentId, memberId, userId);
-    }
-    async getMembers(departmentId, query) {
-        return this.departmentMembersService.getMembers(departmentId, query);
-    }
-};
-__decorate([
-    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Post)(),
-    (0,_common_decorators_roles_decorator__WEBPACK_IMPORTED_MODULE_7__.Roles)(_users_enums_role_enum__WEBPACK_IMPORTED_MODULE_14__.Role.ADMIN, _users_enums_role_enum__WEBPACK_IMPORTED_MODULE_14__.Role.MANAGER),
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Create department' }),
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse)({ status: 201, type: _entities_department_entity__WEBPACK_IMPORTED_MODULE_13__.Department }),
-    _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 201, type: (__webpack_require__(/*! ../entities/department.entity */ "./src/modules/departments/entities/department.entity.ts").Department) }),
-    __param(0, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Param)('organizationId')),
-    __param(1, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Body)()),
-    __param(2, (0,_common_decorators_current_user_decorator__WEBPACK_IMPORTED_MODULE_8__.CurrentUser)('id')),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, _dto_create_department_dto__WEBPACK_IMPORTED_MODULE_9__.CreateDepartmentDto, String]),
-    __metadata("design:returntype", Promise)
-], DepartmentsController.prototype, "create", null);
-__decorate([
-    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Get)(),
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Get all departments' }),
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse)({ status: 200, type: [_entities_department_entity__WEBPACK_IMPORTED_MODULE_13__.Department] }),
-    _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 200 }),
-    __param(0, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Param)('organizationId')),
-    __param(1, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Query)()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, _dto_department_query_dto__WEBPACK_IMPORTED_MODULE_12__.DepartmentQueryDto]),
-    __metadata("design:returntype", Promise)
-], DepartmentsController.prototype, "findAll", null);
-__decorate([
-    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Get)(':id'),
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Get department by id' }),
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse)({ status: 200, type: _entities_department_entity__WEBPACK_IMPORTED_MODULE_13__.Department }),
-    _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 200, type: (__webpack_require__(/*! ../entities/department.entity */ "./src/modules/departments/entities/department.entity.ts").Department) }),
-    __param(0, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Param)('id')),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
-    __metadata("design:returntype", Promise)
-], DepartmentsController.prototype, "findOne", null);
-__decorate([
-    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Put)(':id'),
-    (0,_common_decorators_roles_decorator__WEBPACK_IMPORTED_MODULE_7__.Roles)(_users_enums_role_enum__WEBPACK_IMPORTED_MODULE_14__.Role.ADMIN, _users_enums_role_enum__WEBPACK_IMPORTED_MODULE_14__.Role.MANAGER),
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Update department' }),
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse)({ status: 200, type: _entities_department_entity__WEBPACK_IMPORTED_MODULE_13__.Department }),
-    _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 200, type: (__webpack_require__(/*! ../entities/department.entity */ "./src/modules/departments/entities/department.entity.ts").Department) }),
-    __param(0, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Param)('id')),
-    __param(1, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Body)()),
-    __param(2, (0,_common_decorators_current_user_decorator__WEBPACK_IMPORTED_MODULE_8__.CurrentUser)('id')),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, _dto_update_department_dto__WEBPACK_IMPORTED_MODULE_10__.UpdateDepartmentDto, String]),
-    __metadata("design:returntype", Promise)
-], DepartmentsController.prototype, "update", null);
-__decorate([
-    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Delete)(':id'),
-    (0,_common_decorators_roles_decorator__WEBPACK_IMPORTED_MODULE_7__.Roles)(_users_enums_role_enum__WEBPACK_IMPORTED_MODULE_14__.Role.ADMIN),
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Delete department' }),
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse)({ status: 204 }),
-    _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 200 }),
-    __param(0, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Param)('id')),
-    __param(1, (0,_common_decorators_current_user_decorator__WEBPACK_IMPORTED_MODULE_8__.CurrentUser)('id')),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, String]),
-    __metadata("design:returntype", Promise)
-], DepartmentsController.prototype, "remove", null);
-__decorate([
-    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Post)(':id/members'),
-    (0,_common_decorators_roles_decorator__WEBPACK_IMPORTED_MODULE_7__.Roles)(_users_enums_role_enum__WEBPACK_IMPORTED_MODULE_14__.Role.ADMIN, _users_enums_role_enum__WEBPACK_IMPORTED_MODULE_14__.Role.MANAGER),
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Add member to department' }),
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse)({ status: 200 }),
-    _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 201 }),
-    __param(0, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Param)('id')),
-    __param(1, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Body)()),
-    __param(2, (0,_common_decorators_current_user_decorator__WEBPACK_IMPORTED_MODULE_8__.CurrentUser)('id')),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, _dto_add_member_dto__WEBPACK_IMPORTED_MODULE_11__.AddMemberDto, String]),
-    __metadata("design:returntype", Promise)
-], DepartmentsController.prototype, "addMember", null);
-__decorate([
-    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Delete)(':id/members/:userId'),
-    (0,_common_decorators_roles_decorator__WEBPACK_IMPORTED_MODULE_7__.Roles)(_users_enums_role_enum__WEBPACK_IMPORTED_MODULE_14__.Role.ADMIN, _users_enums_role_enum__WEBPACK_IMPORTED_MODULE_14__.Role.MANAGER),
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Remove member from department' }),
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse)({ status: 204 }),
-    _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 200 }),
-    __param(0, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Param)('id')),
-    __param(1, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Param)('userId')),
-    __param(2, (0,_common_decorators_current_user_decorator__WEBPACK_IMPORTED_MODULE_8__.CurrentUser)('id')),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, String, String]),
-    __metadata("design:returntype", Promise)
-], DepartmentsController.prototype, "removeMember", null);
-__decorate([
-    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Get)(':id/members'),
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiOperation)({ summary: 'Get department members' }),
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse)({ status: 200, type: [_users_entities_user_entity__WEBPACK_IMPORTED_MODULE_15__.User] }),
-    _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiResponse({ status: 200 }),
-    __param(0, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Param)('id')),
-    __param(1, (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Query)()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, _dto_department_query_dto__WEBPACK_IMPORTED_MODULE_12__.DepartmentQueryDto]),
-    __metadata("design:returntype", Promise)
-], DepartmentsController.prototype, "getMembers", null);
-DepartmentsController = __decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiTags)('Departments'),
-    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.Controller)('organizations/:organizationId/departments'),
-    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_1__.UseGuards)(_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_4__.AuthGuard, _organizations_guards_organization_guard__WEBPACK_IMPORTED_MODULE_5__.OrganizationGuard, _auth_guards_roles_guard__WEBPACK_IMPORTED_MODULE_6__.RolesGuard),
-    __metadata("design:paramtypes", [_services_departments_service__WEBPACK_IMPORTED_MODULE_2__.DepartmentsService,
-        _services_department_members_service__WEBPACK_IMPORTED_MODULE_3__.DepartmentMembersService])
-], DepartmentsController);
-
-
-
-/***/ }),
-
-/***/ "./src/modules/departments/departments.module.ts":
-/*!*******************************************************!*\
-  !*** ./src/modules/departments/departments.module.ts ***!
-  \*******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   DepartmentsModule: () => (/* binding */ DepartmentsModule)
-/* harmony export */ });
-/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
-/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nestjs/typeorm */ "@nestjs/typeorm");
-/* harmony import */ var _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _services_departments_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./services/departments.service */ "./src/modules/departments/services/departments.service.ts");
-/* harmony import */ var _services_department_members_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./services/department-members.service */ "./src/modules/departments/services/department-members.service.ts");
-/* harmony import */ var _services_department_hierarchy_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./services/department-hierarchy.service */ "./src/modules/departments/services/department-hierarchy.service.ts");
-/* harmony import */ var _services_department_audit_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./services/department-audit.service */ "./src/modules/departments/services/department-audit.service.ts");
-/* harmony import */ var _controllers_departments_controller__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./controllers/departments.controller */ "./src/modules/departments/controllers/departments.controller.ts");
-/* harmony import */ var _entities_department_entity__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./entities/department.entity */ "./src/modules/departments/entities/department.entity.ts");
-/* harmony import */ var _entities_department_audit_log_entity__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./entities/department-audit-log.entity */ "./src/modules/departments/entities/department-audit-log.entity.ts");
-/* harmony import */ var _listeners_department_assignment_listener__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./listeners/department-assignment.listener */ "./src/modules/departments/listeners/department-assignment.listener.ts");
-/* harmony import */ var _listeners_department_audit_listener__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./listeners/department-audit.listener */ "./src/modules/departments/listeners/department-audit.listener.ts");
-/* harmony import */ var _organizations_organizations_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../organizations/organizations.module */ "./src/modules/organizations/organizations.module.ts");
-/* harmony import */ var _users_users_module__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../users/users.module */ "./src/modules/users/users.module.ts");
-/* harmony import */ var _notifications_notifications_module__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../notifications/notifications.module */ "./src/modules/notifications/notifications.module.ts");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-let DepartmentsModule = class DepartmentsModule {
-};
-DepartmentsModule = __decorate([
-    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.Module)({
-        imports: [
-            _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__.TypeOrmModule.forFeature([
-                _entities_department_entity__WEBPACK_IMPORTED_MODULE_7__.Department,
-                _entities_department_audit_log_entity__WEBPACK_IMPORTED_MODULE_8__.DepartmentAuditLog
-            ]),
-            _organizations_organizations_module__WEBPACK_IMPORTED_MODULE_11__.OrganizationsModule,
-            _users_users_module__WEBPACK_IMPORTED_MODULE_12__.UsersModule,
-            _notifications_notifications_module__WEBPACK_IMPORTED_MODULE_13__.NotificationsModule
-        ],
-        controllers: [
-            _controllers_departments_controller__WEBPACK_IMPORTED_MODULE_6__.DepartmentsController
-        ],
-        providers: [
-            _services_departments_service__WEBPACK_IMPORTED_MODULE_2__.DepartmentsService,
-            _services_department_members_service__WEBPACK_IMPORTED_MODULE_3__.DepartmentMembersService,
-            _services_department_hierarchy_service__WEBPACK_IMPORTED_MODULE_4__.DepartmentHierarchyService,
-            _services_department_audit_service__WEBPACK_IMPORTED_MODULE_5__.DepartmentAuditService,
-            _listeners_department_assignment_listener__WEBPACK_IMPORTED_MODULE_9__.DepartmentAssignmentListener,
-            _listeners_department_audit_listener__WEBPACK_IMPORTED_MODULE_10__.DepartmentAuditListener
-        ],
-        exports: [
-            _services_departments_service__WEBPACK_IMPORTED_MODULE_2__.DepartmentsService,
-            _services_department_members_service__WEBPACK_IMPORTED_MODULE_3__.DepartmentMembersService,
-            _services_department_hierarchy_service__WEBPACK_IMPORTED_MODULE_4__.DepartmentHierarchyService,
-            _services_department_audit_service__WEBPACK_IMPORTED_MODULE_5__.DepartmentAuditService
-        ]
-    })
-], DepartmentsModule);
-
-
-
-/***/ }),
-
-/***/ "./src/modules/departments/dto/add-member.dto.ts":
-/*!*******************************************************!*\
-  !*** ./src/modules/departments/dto/add-member.dto.ts ***!
-  \*******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   AddMemberDto: () => (/* binding */ AddMemberDto),
-/* harmony export */   DepartmentMemberRole: () => (/* binding */ DepartmentMemberRole)
-/* harmony export */ });
-/* harmony import */ var _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/swagger */ "@nestjs/swagger");
-/* harmony import */ var _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var class_validator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! class-validator */ "class-validator");
-/* harmony import */ var class_validator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(class_validator__WEBPACK_IMPORTED_MODULE_1__);
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var DepartmentMemberRole;
-(function (DepartmentMemberRole) {
-    DepartmentMemberRole["MANAGER"] = "MANAGER";
-    DepartmentMemberRole["SUPERVISOR"] = "SUPERVISOR";
-    DepartmentMemberRole["MEMBER"] = "MEMBER";
-})(DepartmentMemberRole || (DepartmentMemberRole = {}));
-class AddMemberDto {
-    static _OPENAPI_METADATA_FACTORY() {
-        return { userId: { required: true, type: () => String }, role: { required: true, enum: (__webpack_require__(/*! ./add-member.dto */ "./src/modules/departments/dto/add-member.dto.ts").DepartmentMemberRole) }, title: { required: false, type: () => String }, responsibilities: { required: false, type: () => String }, startDate: { required: false, type: () => String }, metadata: { required: false, type: () => Object } };
-    }
-}
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsNotEmpty)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsUUID)(),
-    __metadata("design:type", String)
-], AddMemberDto.prototype, "userId", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)({ enum: DepartmentMemberRole }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsNotEmpty)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsEnum)(DepartmentMemberRole),
-    __metadata("design:type", String)
-], AddMemberDto.prototype, "role", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
-    __metadata("design:type", String)
-], AddMemberDto.prototype, "title", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
-    __metadata("design:type", String)
-], AddMemberDto.prototype, "responsibilities", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
-    __metadata("design:type", String)
-], AddMemberDto.prototype, "startDate", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    __metadata("design:type", Object)
-], AddMemberDto.prototype, "metadata", void 0);
-
-
-/***/ }),
-
-/***/ "./src/modules/departments/dto/create-department.dto.ts":
-/*!**************************************************************!*\
-  !*** ./src/modules/departments/dto/create-department.dto.ts ***!
-  \**************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   CreateDepartmentDto: () => (/* binding */ CreateDepartmentDto)
-/* harmony export */ });
-/* harmony import */ var _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/swagger */ "@nestjs/swagger");
-/* harmony import */ var _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var class_validator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! class-validator */ "class-validator");
-/* harmony import */ var class_validator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(class_validator__WEBPACK_IMPORTED_MODULE_1__);
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-class CreateDepartmentDto {
-    constructor() {
-        this.isActive = true;
-    }
-    static _OPENAPI_METADATA_FACTORY() {
-        return { name: { required: true, type: () => String }, description: { required: false, type: () => String }, parentDepartmentId: { required: false, type: () => String }, managerId: { required: false, type: () => String }, isActive: { required: false, type: () => Boolean, default: true }, contactEmail: { required: false, type: () => String }, contactPhone: { required: false, type: () => String }, workingHours: { required: false, type: () => String }, timezone: { required: false, type: () => String }, tags: { required: false, type: () => [String] }, metadata: { required: false, type: () => Object } };
-    }
-}
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsNotEmpty)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
-    __metadata("design:type", String)
-], CreateDepartmentDto.prototype, "name", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
-    __metadata("design:type", String)
-], CreateDepartmentDto.prototype, "description", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsUUID)(),
-    __metadata("design:type", String)
-], CreateDepartmentDto.prototype, "parentDepartmentId", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsUUID)(),
-    __metadata("design:type", String)
-], CreateDepartmentDto.prototype, "managerId", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ default: true }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsBoolean)(),
-    __metadata("design:type", Boolean)
-], CreateDepartmentDto.prototype, "isActive", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
-    __metadata("design:type", String)
-], CreateDepartmentDto.prototype, "contactEmail", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
-    __metadata("design:type", String)
-], CreateDepartmentDto.prototype, "contactPhone", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
-    __metadata("design:type", String)
-], CreateDepartmentDto.prototype, "workingHours", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
-    __metadata("design:type", String)
-], CreateDepartmentDto.prototype, "timezone", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsArray)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)({ each: true }),
-    __metadata("design:type", Array)
-], CreateDepartmentDto.prototype, "tags", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    __metadata("design:type", Object)
-], CreateDepartmentDto.prototype, "metadata", void 0);
-
-
-/***/ }),
-
-/***/ "./src/modules/departments/dto/department-query.dto.ts":
-/*!*************************************************************!*\
-  !*** ./src/modules/departments/dto/department-query.dto.ts ***!
-  \*************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   DepartmentQueryDto: () => (/* binding */ DepartmentQueryDto)
-/* harmony export */ });
-/* harmony import */ var _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/swagger */ "@nestjs/swagger");
-/* harmony import */ var _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var class_validator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! class-validator */ "class-validator");
-/* harmony import */ var class_validator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(class_validator__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! class-transformer */ "class-transformer");
-/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(class_transformer__WEBPACK_IMPORTED_MODULE_2__);
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-class DepartmentQueryDto {
-    constructor() {
-        this.skip = 0;
-        this.take = 10;
-    }
-    static _OPENAPI_METADATA_FACTORY() {
-        return { search: { required: false, type: () => String }, parentDepartmentId: { required: false, type: () => String }, managerId: { required: false, type: () => String }, isActive: { required: false, type: () => Boolean }, relations: { required: false, type: () => [String] }, skip: { required: false, type: () => Number, default: 0, minimum: 0 }, take: { required: false, type: () => Number, default: 10, minimum: 1, maximum: 100 } };
-    }
-}
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
-    __metadata("design:type", String)
-], DepartmentQueryDto.prototype, "search", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsUUID)(),
-    __metadata("design:type", String)
-], DepartmentQueryDto.prototype, "parentDepartmentId", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsUUID)(),
-    __metadata("design:type", String)
-], DepartmentQueryDto.prototype, "managerId", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsBoolean)(),
-    (0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Type)(() => Boolean),
-    __metadata("design:type", Boolean)
-], DepartmentQueryDto.prototype, "isActive", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsArray)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)({ each: true }),
-    __metadata("design:type", Array)
-], DepartmentQueryDto.prototype, "relations", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ default: 0 }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsNumber)(),
-    (0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Type)(() => Number),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.Min)(0),
-    __metadata("design:type", Number)
-], DepartmentQueryDto.prototype, "skip", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)({ default: 10 }),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsNumber)(),
-    (0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Type)(() => Number),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.Min)(1),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.Max)(100),
-    __metadata("design:type", Number)
-], DepartmentQueryDto.prototype, "take", void 0);
-
-
-/***/ }),
-
-/***/ "./src/modules/departments/dto/update-department.dto.ts":
-/*!**************************************************************!*\
-  !*** ./src/modules/departments/dto/update-department.dto.ts ***!
-  \**************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   UpdateDepartmentDto: () => (/* binding */ UpdateDepartmentDto)
-/* harmony export */ });
-/* harmony import */ var _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/swagger */ "@nestjs/swagger");
-/* harmony import */ var _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var class_validator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! class-validator */ "class-validator");
-/* harmony import */ var class_validator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(class_validator__WEBPACK_IMPORTED_MODULE_1__);
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-class UpdateDepartmentDto {
-    static _OPENAPI_METADATA_FACTORY() {
-        return { name: { required: false, type: () => String }, description: { required: false, type: () => String }, parentDepartmentId: { required: false, type: () => String }, managerId: { required: false, type: () => String }, isActive: { required: false, type: () => Boolean }, contactEmail: { required: false, type: () => String }, contactPhone: { required: false, type: () => String }, workingHours: { required: false, type: () => String }, timezone: { required: false, type: () => String }, tags: { required: false, type: () => [String] }, metadata: { required: false, type: () => Object } };
-    }
-}
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
-    __metadata("design:type", String)
-], UpdateDepartmentDto.prototype, "name", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
-    __metadata("design:type", String)
-], UpdateDepartmentDto.prototype, "description", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsUUID)(),
-    __metadata("design:type", String)
-], UpdateDepartmentDto.prototype, "parentDepartmentId", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsUUID)(),
-    __metadata("design:type", String)
-], UpdateDepartmentDto.prototype, "managerId", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsBoolean)(),
-    __metadata("design:type", Boolean)
-], UpdateDepartmentDto.prototype, "isActive", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
-    __metadata("design:type", String)
-], UpdateDepartmentDto.prototype, "contactEmail", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
-    __metadata("design:type", String)
-], UpdateDepartmentDto.prototype, "contactPhone", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
-    __metadata("design:type", String)
-], UpdateDepartmentDto.prototype, "workingHours", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
-    __metadata("design:type", String)
-], UpdateDepartmentDto.prototype, "timezone", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsArray)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)({ each: true }),
-    __metadata("design:type", Array)
-], UpdateDepartmentDto.prototype, "tags", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiPropertyOptional)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsOptional)(),
-    __metadata("design:type", Object)
-], UpdateDepartmentDto.prototype, "metadata", void 0);
-
-
-/***/ }),
-
-/***/ "./src/modules/departments/entities/department-audit-log.entity.ts":
-/*!*************************************************************************!*\
-  !*** ./src/modules/departments/entities/department-audit-log.entity.ts ***!
-  \*************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   DepartmentAuditAction: () => (/* binding */ DepartmentAuditAction),
-/* harmony export */   DepartmentAuditLog: () => (/* binding */ DepartmentAuditLog)
-/* harmony export */ });
-/* harmony import */ var _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/swagger */ "@nestjs/swagger");
-/* harmony import */ var _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! typeorm */ "typeorm");
-/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(typeorm__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _department_entity__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./department.entity */ "./src/modules/departments/entities/department.entity.ts");
-/* harmony import */ var _users_entities_user_entity__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-var DepartmentAuditAction;
-(function (DepartmentAuditAction) {
-    DepartmentAuditAction["CREATED"] = "CREATED";
-    DepartmentAuditAction["UPDATED"] = "UPDATED";
-    DepartmentAuditAction["DELETED"] = "DELETED";
-    DepartmentAuditAction["MEMBER_ADDED"] = "MEMBER_ADDED";
-    DepartmentAuditAction["MEMBER_REMOVED"] = "MEMBER_REMOVED";
-    DepartmentAuditAction["MEMBER_TRANSFERRED"] = "MEMBER_TRANSFERRED";
-    DepartmentAuditAction["MANAGER_CHANGED"] = "MANAGER_CHANGED";
-    DepartmentAuditAction["MOVED"] = "MOVED";
-    DepartmentAuditAction["REORDERED"] = "REORDERED";
-})(DepartmentAuditAction || (DepartmentAuditAction = {}));
-let DepartmentAuditLog = class DepartmentAuditLog {
-    static _OPENAPI_METADATA_FACTORY() {
-        return { id: { required: true, type: () => String }, departmentId: { required: true, type: () => String }, department: { required: true, type: () => (__webpack_require__(/*! ./department.entity */ "./src/modules/departments/entities/department.entity.ts").Department) }, organizationId: { required: true, type: () => String }, action: { required: true, enum: (__webpack_require__(/*! ./department-audit-log.entity */ "./src/modules/departments/entities/department-audit-log.entity.ts").DepartmentAuditAction) }, changes: { required: true, type: () => Object }, metadata: { required: true, type: () => Object }, performedById: { required: true, type: () => String }, performedBy: { required: true, type: () => (__webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts").User) }, ipAddress: { required: true, type: () => String }, userAgent: { required: true, type: () => String }, createdAt: { required: true, type: () => Date }, affectedUserId: { required: true, type: () => String }, affectedUser: { required: true, type: () => (__webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts").User) } };
-    }
-};
-__decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.PrimaryGeneratedColumn)('uuid'),
-    __metadata("design:type", String)
-], DepartmentAuditLog.prototype, "id", void 0);
-__decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)('uuid'),
-    __metadata("design:type", String)
-], DepartmentAuditLog.prototype, "departmentId", void 0);
-__decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.ManyToOne)(() => _department_entity__WEBPACK_IMPORTED_MODULE_2__.Department),
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.JoinColumn)({ name: 'departmentId' }),
-    __metadata("design:type", _department_entity__WEBPACK_IMPORTED_MODULE_2__.Department)
-], DepartmentAuditLog.prototype, "department", void 0);
-__decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)('uuid'),
-    __metadata("design:type", String)
-], DepartmentAuditLog.prototype, "organizationId", void 0);
-__decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({
-        type: 'enum',
-        enum: DepartmentAuditAction
-    }),
-    __metadata("design:type", String)
-], DepartmentAuditLog.prototype, "action", void 0);
-__decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)('jsonb', { nullable: true }),
-    __metadata("design:type", Object)
-], DepartmentAuditLog.prototype, "changes", void 0);
-__decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)('jsonb', { nullable: true }),
-    __metadata("design:type", Object)
-], DepartmentAuditLog.prototype, "metadata", void 0);
-__decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)('uuid'),
-    __metadata("design:type", String)
-], DepartmentAuditLog.prototype, "performedById", void 0);
-__decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.ManyToOne)(() => _users_entities_user_entity__WEBPACK_IMPORTED_MODULE_3__.User),
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.JoinColumn)({ name: 'performedById' }),
-    __metadata("design:type", _users_entities_user_entity__WEBPACK_IMPORTED_MODULE_3__.User)
-], DepartmentAuditLog.prototype, "performedBy", void 0);
-__decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)('inet', { nullable: true }),
-    __metadata("design:type", String)
-], DepartmentAuditLog.prototype, "ipAddress", void 0);
-__decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true }),
-    __metadata("design:type", String)
-], DepartmentAuditLog.prototype, "userAgent", void 0);
-__decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.CreateDateColumn)(),
-    __metadata("design:type", Date)
-], DepartmentAuditLog.prototype, "createdAt", void 0);
-__decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true }),
-    __metadata("design:type", String)
-], DepartmentAuditLog.prototype, "affectedUserId", void 0);
-__decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.ManyToOne)(() => _users_entities_user_entity__WEBPACK_IMPORTED_MODULE_3__.User),
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.JoinColumn)({ name: 'affectedUserId' }),
-    __metadata("design:type", _users_entities_user_entity__WEBPACK_IMPORTED_MODULE_3__.User)
-], DepartmentAuditLog.prototype, "affectedUser", void 0);
-DepartmentAuditLog = __decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Entity)('department_audit_logs')
-], DepartmentAuditLog);
-
-
-
-/***/ }),
-
-/***/ "./src/modules/departments/entities/department.entity.ts":
-/*!***************************************************************!*\
-  !*** ./src/modules/departments/entities/department.entity.ts ***!
-  \***************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   Department: () => (/* binding */ Department)
-/* harmony export */ });
-/* harmony import */ var _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/swagger */ "@nestjs/swagger");
-/* harmony import */ var _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! typeorm */ "typeorm");
-/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(typeorm__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _organizations_entities_organization_entity__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../organizations/entities/organization.entity */ "./src/modules/organizations/entities/organization.entity.ts");
-/* harmony import */ var _users_entities_user_entity__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts");
-/* harmony import */ var _tickets_entities_ticket_entity__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../tickets/entities/ticket.entity */ "./src/modules/tickets/entities/ticket.entity.ts");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-let Department = class Department {
-    static _OPENAPI_METADATA_FACTORY() {
-        return { id: { required: true, type: () => String }, name: { required: true, type: () => String }, displayOrder: { required: true, type: () => Number }, description: { required: true, type: () => String }, isActive: { required: true, type: () => Boolean }, organizationId: { required: true, type: () => String }, sortOrder: { required: true, type: () => Number }, organization: { required: true, type: () => (__webpack_require__(/*! ../../organizations/entities/organization.entity */ "./src/modules/organizations/entities/organization.entity.ts").Organization) }, managerId: { required: true, type: () => String }, manager: { required: true, type: () => (__webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts").User) }, parentDepartmentId: { required: true, type: () => String }, parentDepartment: { required: true, type: () => (__webpack_require__(/*! ./department.entity */ "./src/modules/departments/entities/department.entity.ts").Department) }, childDepartments: { required: true, type: () => [(__webpack_require__(/*! ./department.entity */ "./src/modules/departments/entities/department.entity.ts").Department)] }, members: { required: true, type: () => [(__webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts").User)] }, tickets: { required: true, type: () => [(__webpack_require__(/*! ../../tickets/entities/ticket.entity */ "./src/modules/tickets/entities/ticket.entity.ts").Ticket)] }, metadata: { required: true, type: () => Object }, tags: { required: true, type: () => [String] }, memberCount: { required: true, type: () => Number }, contactEmail: { required: true, type: () => String }, contactPhone: { required: true, type: () => String }, workingHours: { required: true, type: () => String }, timezone: { required: true, type: () => String }, createdAt: { required: true, type: () => Date }, updatedAt: { required: true, type: () => Date }, createdById: { required: true, type: () => String }, createdBy: { required: true, type: () => (__webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts").User) }, updatedById: { required: true, type: () => String }, updatedBy: { required: true, type: () => (__webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts").User) } };
-    }
-};
-__decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.PrimaryGeneratedColumn)('uuid'),
-    __metadata("design:type", String)
-], Department.prototype, "id", void 0);
-__decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)(),
-    __metadata("design:type", String)
-], Department.prototype, "name", void 0);
-__decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ default: 0, name: 'display_order' }),
-    __metadata("design:type", Number)
-], Department.prototype, "displayOrder", void 0);
-__decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true }),
-    __metadata("design:type", String)
-], Department.prototype, "description", void 0);
-__decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ default: true }),
-    __metadata("design:type", Boolean)
-], Department.prototype, "isActive", void 0);
-__decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)('uuid'),
-    __metadata("design:type", String)
-], Department.prototype, "organizationId", void 0);
-__decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ default: 0 }),
-    __metadata("design:type", Number)
-], Department.prototype, "sortOrder", void 0);
-__decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.ManyToOne)(() => _organizations_entities_organization_entity__WEBPACK_IMPORTED_MODULE_2__.Organization, organization => organization.departments),
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.JoinColumn)({ name: 'organizationId' }),
-    __metadata("design:type", _organizations_entities_organization_entity__WEBPACK_IMPORTED_MODULE_2__.Organization)
-], Department.prototype, "organization", void 0);
-__decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)('uuid', { nullable: true }),
-    __metadata("design:type", String)
-], Department.prototype, "managerId", void 0);
-__decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.ManyToOne)(() => _users_entities_user_entity__WEBPACK_IMPORTED_MODULE_3__.User),
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.JoinColumn)({ name: 'managerId' }),
-    __metadata("design:type", _users_entities_user_entity__WEBPACK_IMPORTED_MODULE_3__.User)
-], Department.prototype, "manager", void 0);
-__decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)('uuid', { nullable: true }),
-    __metadata("design:type", String)
-], Department.prototype, "parentDepartmentId", void 0);
-__decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.ManyToOne)(() => Department, { nullable: true }),
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.JoinColumn)({ name: 'parentDepartmentId' }),
-    __metadata("design:type", Department)
-], Department.prototype, "parentDepartment", void 0);
-__decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.OneToMany)(() => Department, department => department.parentDepartment),
-    __metadata("design:type", Array)
-], Department.prototype, "childDepartments", void 0);
-__decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.ManyToMany)(() => _users_entities_user_entity__WEBPACK_IMPORTED_MODULE_3__.User, user => user.department),
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.JoinTable)({
-        name: 'department_members',
-        joinColumn: {
-            name: 'departmentId',
-            referencedColumnName: 'id'
-        },
-        inverseJoinColumn: {
-            name: 'userId',
-            referencedColumnName: 'id'
-        }
-    }),
-    __metadata("design:type", Array)
-], Department.prototype, "members", void 0);
-__decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.OneToMany)(() => _tickets_entities_ticket_entity__WEBPACK_IMPORTED_MODULE_4__.Ticket, ticket => ticket.department),
-    __metadata("design:type", Array)
-], Department.prototype, "tickets", void 0);
-__decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)('jsonb', { nullable: true }),
-    __metadata("design:type", Object)
-], Department.prototype, "metadata", void 0);
-__decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)('simple-array', { nullable: true }),
-    __metadata("design:type", Array)
-], Department.prototype, "tags", void 0);
-__decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ default: 0 }),
-    __metadata("design:type", Number)
-], Department.prototype, "memberCount", void 0);
-__decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true }),
-    __metadata("design:type", String)
-], Department.prototype, "contactEmail", void 0);
-__decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true }),
-    __metadata("design:type", String)
-], Department.prototype, "contactPhone", void 0);
-__decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true }),
-    __metadata("design:type", String)
-], Department.prototype, "workingHours", void 0);
-__decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true }),
-    __metadata("design:type", String)
-], Department.prototype, "timezone", void 0);
-__decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.CreateDateColumn)(),
-    __metadata("design:type", Date)
-], Department.prototype, "createdAt", void 0);
-__decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.UpdateDateColumn)(),
-    __metadata("design:type", Date)
-], Department.prototype, "updatedAt", void 0);
-__decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)('uuid', { nullable: true }),
-    __metadata("design:type", String)
-], Department.prototype, "createdById", void 0);
-__decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.ManyToOne)(() => _users_entities_user_entity__WEBPACK_IMPORTED_MODULE_3__.User),
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.JoinColumn)({ name: 'createdById' }),
-    __metadata("design:type", _users_entities_user_entity__WEBPACK_IMPORTED_MODULE_3__.User)
-], Department.prototype, "createdBy", void 0);
-__decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)('uuid', { nullable: true }),
-    __metadata("design:type", String)
-], Department.prototype, "updatedById", void 0);
-__decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.ManyToOne)(() => _users_entities_user_entity__WEBPACK_IMPORTED_MODULE_3__.User),
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.JoinColumn)({ name: 'updatedById' }),
-    __metadata("design:type", _users_entities_user_entity__WEBPACK_IMPORTED_MODULE_3__.User)
-], Department.prototype, "updatedBy", void 0);
-Department = __decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Entity)('departments')
-], Department);
-
-
-
-/***/ }),
-
-/***/ "./src/modules/departments/listeners/department-assignment.listener.ts":
-/*!*****************************************************************************!*\
-  !*** ./src/modules/departments/listeners/department-assignment.listener.ts ***!
-  \*****************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   DepartmentAssignmentListener: () => (/* binding */ DepartmentAssignmentListener)
-/* harmony export */ });
-/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
-/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nestjs/event-emitter */ "@nestjs/event-emitter");
-/* harmony import */ var _nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _services_department_audit_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/department-audit.service */ "./src/modules/departments/services/department-audit.service.ts");
-/* harmony import */ var _entities_department_audit_log_entity__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../entities/department-audit-log.entity */ "./src/modules/departments/entities/department-audit-log.entity.ts");
-/* harmony import */ var _notifications_services_notifications_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../notifications/services/notifications.service */ "./src/modules/notifications/services/notifications.service.ts");
-/* harmony import */ var _users_services_users_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../users/services/users.service */ "./src/modules/users/services/users.service.ts");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-let DepartmentAssignmentListener = class DepartmentAssignmentListener {
-    constructor(auditService, notificationsService, usersService) {
-        this.auditService = auditService;
-        this.notificationsService = notificationsService;
-        this.usersService = usersService;
-    }
-    async handleMemberAdded(event) {
-        await this.auditService.log({
-            departmentId: event.departmentId,
-            organizationId: event.organizationId,
-            action: _entities_department_audit_log_entity__WEBPACK_IMPORTED_MODULE_3__.DepartmentAuditAction.MEMBER_ADDED,
-            performedById: event.performedById,
-            affectedUserId: event.userId,
-            metadata: {
-                action: event.action,
-            },
-        });
-        const user = await this.usersService.findById(event.userId);
-        if (user) {
-            const notification = {
-                userId: user.id,
-                type: 'DEPARTMENT_ASSIGNMENT',
-                title: 'Department Assignment',
-                message: 'You have been assigned to a new department',
-                data: {
-                    departmentId: event.departmentId,
-                    organizationId: event.organizationId,
-                },
-                organizationId: event.organizationId,
-                priority: 'MEDIUM',
-            };
-            await this.notificationsService.send(notification);
-        }
-    }
-    async handleMemberRemoved(event) {
-        await this.auditService.log({
-            departmentId: event.departmentId,
-            organizationId: event.organizationId,
-            action: _entities_department_audit_log_entity__WEBPACK_IMPORTED_MODULE_3__.DepartmentAuditAction.MEMBER_REMOVED,
-            performedById: event.performedById,
-            affectedUserId: event.userId,
-            metadata: {
-                action: event.action,
-            },
-        });
-        const user = await this.usersService.findById(event.userId);
-        if (user) {
-            const notification = {
-                userId: user.id,
-                type: 'DEPARTMENT_UNASSIGNMENT',
-                title: 'Department Unassignment',
-                message: 'You have been removed from a department',
-                data: {
-                    departmentId: event.departmentId,
-                    organizationId: event.organizationId,
-                },
-                organizationId: event.organizationId,
-                priority: 'MEDIUM',
-            };
-            await this.notificationsService.send(notification);
-        }
-    }
-    async handleMemberTransferred(event) {
-        await this.auditService.log({
-            departmentId: event.departmentId,
-            organizationId: event.organizationId,
-            action: _entities_department_audit_log_entity__WEBPACK_IMPORTED_MODULE_3__.DepartmentAuditAction.MEMBER_TRANSFERRED,
-            performedById: event.performedById,
-            affectedUserId: event.userId,
-            metadata: {
-                action: event.action,
-                previousDepartmentId: event.previousDepartmentId,
-            },
-        });
-        const user = await this.usersService.findById(event.userId);
-        if (user) {
-            const notification = {
-                userId: user.id,
-                type: 'DEPARTMENT_TRANSFER',
-                title: 'Department Transfer',
-                message: 'You have been transferred to a different department',
-                data: {
-                    departmentId: event.departmentId,
-                    previousDepartmentId: event.previousDepartmentId,
-                    organizationId: event.organizationId,
-                },
-                organizationId: event.organizationId,
-                priority: 'MEDIUM',
-            };
-            await this.notificationsService.send(notification);
-        }
-    }
-    async handleManagerChanged(event) {
-        await this.auditService.log({
-            departmentId: event.departmentId,
-            organizationId: event.organizationId,
-            action: _entities_department_audit_log_entity__WEBPACK_IMPORTED_MODULE_3__.DepartmentAuditAction.MANAGER_CHANGED,
-            performedById: event.performedById,
-            affectedUserId: event.newManagerId,
-            metadata: {
-                previousManagerId: event.previousManagerId,
-            },
-        });
-        const newManagerNotification = {
-            userId: event.newManagerId,
-            type: 'DEPARTMENT_MANAGER_ASSIGNMENT',
-            title: 'Department Manager Assignment',
-            message: 'You have been assigned as a department manager',
-            data: {
-                departmentId: event.departmentId,
-                organizationId: event.organizationId,
-            },
-            organizationId: event.organizationId,
-            priority: 'MEDIUM',
-        };
-        await this.notificationsService.send(newManagerNotification);
-        if (event.previousManagerId) {
-            const previousManagerNotification = {
-                userId: event.previousManagerId,
-                type: 'DEPARTMENT_MANAGER_UNASSIGNMENT',
-                title: 'Department Manager Unassignment',
-                message: 'You are no longer the manager of a department',
-                data: {
-                    departmentId: event.departmentId,
-                    organizationId: event.organizationId,
-                },
-                organizationId: event.organizationId,
-                priority: 'MEDIUM',
-            };
-            await this.notificationsService.send(previousManagerNotification);
-        }
-    }
-};
-__decorate([
-    (0,_nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_1__.OnEvent)('department.member.added'),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", Promise)
-], DepartmentAssignmentListener.prototype, "handleMemberAdded", null);
-__decorate([
-    (0,_nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_1__.OnEvent)('department.member.removed'),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", Promise)
-], DepartmentAssignmentListener.prototype, "handleMemberRemoved", null);
-__decorate([
-    (0,_nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_1__.OnEvent)('department.member.transferred'),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", Promise)
-], DepartmentAssignmentListener.prototype, "handleMemberTransferred", null);
-__decorate([
-    (0,_nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_1__.OnEvent)('department.manager.changed'),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", Promise)
-], DepartmentAssignmentListener.prototype, "handleManagerChanged", null);
-DepartmentAssignmentListener = __decorate([
-    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.Injectable)(),
-    __metadata("design:paramtypes", [_services_department_audit_service__WEBPACK_IMPORTED_MODULE_2__.DepartmentAuditService,
-        _notifications_services_notifications_service__WEBPACK_IMPORTED_MODULE_4__.NotificationsService,
-        _users_services_users_service__WEBPACK_IMPORTED_MODULE_5__.UsersService])
-], DepartmentAssignmentListener);
-
-
-
-/***/ }),
-
-/***/ "./src/modules/departments/listeners/department-audit.listener.ts":
-/*!************************************************************************!*\
-  !*** ./src/modules/departments/listeners/department-audit.listener.ts ***!
-  \************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   DepartmentAuditListener: () => (/* binding */ DepartmentAuditListener)
-/* harmony export */ });
-/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
-/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nestjs/event-emitter */ "@nestjs/event-emitter");
-/* harmony import */ var _nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _services_department_audit_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/department-audit.service */ "./src/modules/departments/services/department-audit.service.ts");
-/* harmony import */ var _entities_department_audit_log_entity__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../entities/department-audit-log.entity */ "./src/modules/departments/entities/department-audit-log.entity.ts");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-let DepartmentAuditListener = class DepartmentAuditListener {
-    constructor(auditService) {
-        this.auditService = auditService;
-    }
-    async handleDepartmentCreated(event) {
-        await this.auditService.log({
-            departmentId: event.departmentId,
-            organizationId: event.organizationId,
-            action: _entities_department_audit_log_entity__WEBPACK_IMPORTED_MODULE_3__.DepartmentAuditAction.CREATED,
-            performedById: event.createdById,
-            request: event.request,
-        });
-    }
-    async handleDepartmentUpdated(event) {
-        await this.auditService.log({
-            departmentId: event.departmentId,
-            organizationId: event.organizationId,
-            action: _entities_department_audit_log_entity__WEBPACK_IMPORTED_MODULE_3__.DepartmentAuditAction.UPDATED,
-            performedById: event.updatedById,
-            changes: event.changes,
-            request: event.request,
-        });
-    }
-    async handleDepartmentDeleted(event) {
-        await this.auditService.log({
-            departmentId: event.departmentId,
-            organizationId: event.organizationId,
-            action: _entities_department_audit_log_entity__WEBPACK_IMPORTED_MODULE_3__.DepartmentAuditAction.DELETED,
-            performedById: event.deletedById,
-            request: event.request,
-        });
-    }
-    async handleDepartmentMoved(event) {
-        await this.auditService.log({
-            departmentId: event.departmentId,
-            organizationId: event.organizationId,
-            action: _entities_department_audit_log_entity__WEBPACK_IMPORTED_MODULE_3__.DepartmentAuditAction.MOVED,
-            performedById: event.performedById,
-            metadata: {
-                previousParentId: event.previousParentId,
-                newParentId: event.newParentId,
-            },
-            request: event.request,
-        });
-    }
-    async handleDepartmentReordered(event) {
-        await this.auditService.log({
-            departmentId: event.departmentId,
-            organizationId: event.organizationId,
-            action: _entities_department_audit_log_entity__WEBPACK_IMPORTED_MODULE_3__.DepartmentAuditAction.REORDERED,
-            performedById: event.performedById,
-            metadata: {
-                newOrder: event.newOrder,
-            },
-            request: event.request,
-        });
-    }
-    async handleBulkUpdate(event) {
-        for (const departmentId of event.departmentIds) {
-            await this.auditService.log({
-                departmentId,
-                organizationId: event.organizationId,
-                action: _entities_department_audit_log_entity__WEBPACK_IMPORTED_MODULE_3__.DepartmentAuditAction.UPDATED,
-                performedById: event.performedById,
-                changes: event.changes,
-                metadata: {
-                    bulkUpdate: true,
-                    totalDepartments: event.departmentIds.length,
-                },
-                request: event.request,
-            });
-        }
-    }
-    async handleHierarchyChanged(event) {
-        await this.auditService.log({
-            departmentId: event.departmentId,
-            organizationId: event.organizationId,
-            action: _entities_department_audit_log_entity__WEBPACK_IMPORTED_MODULE_3__.DepartmentAuditAction.UPDATED,
-            performedById: event.performedById,
-            changes: event.changes,
-            metadata: {
-                hierarchyUpdate: true,
-            },
-            request: event.request,
-        });
-    }
-    async handleSettingsUpdated(event) {
-        await this.auditService.log({
-            departmentId: event.departmentId,
-            organizationId: event.organizationId,
-            action: _entities_department_audit_log_entity__WEBPACK_IMPORTED_MODULE_3__.DepartmentAuditAction.UPDATED,
-            performedById: event.performedById,
-            changes: event.changes,
-            metadata: {
-                settingsUpdate: true,
-            },
-            request: event.request,
-        });
-    }
-    async handleAccessModified(event) {
-        await this.auditService.log({
-            departmentId: event.departmentId,
-            organizationId: event.organizationId,
-            action: _entities_department_audit_log_entity__WEBPACK_IMPORTED_MODULE_3__.DepartmentAuditAction.UPDATED,
-            performedById: event.performedById,
-            metadata: Object.assign({ accessUpdate: true }, event.changes),
-            request: event.request,
-        });
-    }
-};
-__decorate([
-    (0,_nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_1__.OnEvent)('department.created'),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", Promise)
-], DepartmentAuditListener.prototype, "handleDepartmentCreated", null);
-__decorate([
-    (0,_nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_1__.OnEvent)('department.updated'),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", Promise)
-], DepartmentAuditListener.prototype, "handleDepartmentUpdated", null);
-__decorate([
-    (0,_nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_1__.OnEvent)('department.deleted'),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", Promise)
-], DepartmentAuditListener.prototype, "handleDepartmentDeleted", null);
-__decorate([
-    (0,_nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_1__.OnEvent)('department.moved'),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", Promise)
-], DepartmentAuditListener.prototype, "handleDepartmentMoved", null);
-__decorate([
-    (0,_nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_1__.OnEvent)('department.reordered'),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", Promise)
-], DepartmentAuditListener.prototype, "handleDepartmentReordered", null);
-__decorate([
-    (0,_nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_1__.OnEvent)('department.bulk_update'),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", Promise)
-], DepartmentAuditListener.prototype, "handleBulkUpdate", null);
-__decorate([
-    (0,_nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_1__.OnEvent)('department.hierarchy.changed'),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", Promise)
-], DepartmentAuditListener.prototype, "handleHierarchyChanged", null);
-__decorate([
-    (0,_nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_1__.OnEvent)('department.settings.updated'),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", Promise)
-], DepartmentAuditListener.prototype, "handleSettingsUpdated", null);
-__decorate([
-    (0,_nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_1__.OnEvent)('department.access.modified'),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", Promise)
-], DepartmentAuditListener.prototype, "handleAccessModified", null);
-DepartmentAuditListener = __decorate([
-    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.Injectable)(),
-    __metadata("design:paramtypes", [_services_department_audit_service__WEBPACK_IMPORTED_MODULE_2__.DepartmentAuditService])
-], DepartmentAuditListener);
-
-
-
-/***/ }),
-
-/***/ "./src/modules/departments/services/department-audit.service.ts":
-/*!**********************************************************************!*\
-  !*** ./src/modules/departments/services/department-audit.service.ts ***!
-  \**********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   DepartmentAuditService: () => (/* binding */ DepartmentAuditService)
-/* harmony export */ });
-/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
-/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nestjs/typeorm */ "@nestjs/typeorm");
-/* harmony import */ var _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! typeorm */ "typeorm");
-/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(typeorm__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _entities_department_audit_log_entity__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../entities/department-audit-log.entity */ "./src/modules/departments/entities/department-audit-log.entity.ts");
-/* harmony import */ var _entities_department_entity__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../entities/department.entity */ "./src/modules/departments/entities/department.entity.ts");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
-    return function (target, key) { decorator(target, key, paramIndex); }
-};
-
-
-
-
-
-let DepartmentAuditService = class DepartmentAuditService {
-    constructor(auditLogRepository, departmentRepository) {
-        this.auditLogRepository = auditLogRepository;
-        this.departmentRepository = departmentRepository;
-    }
-    async log(options) {
-        var _a, _b;
-        const auditLog = this.auditLogRepository.create({
-            departmentId: options.departmentId,
-            organizationId: options.organizationId,
-            action: options.action,
-            performedById: options.performedById,
-            changes: options.changes,
-            metadata: options.metadata,
-            affectedUserId: options.affectedUserId,
-            ipAddress: (_a = options.request) === null || _a === void 0 ? void 0 : _a.ip,
-            userAgent: (_b = options.request) === null || _b === void 0 ? void 0 : _b.headers['user-agent'],
-        });
-        return this.auditLogRepository.save(auditLog);
-    }
-    async getDepartmentAuditTrail(departmentId, options = {}) {
-        var _a;
-        const queryBuilder = this.auditLogRepository
-            .createQueryBuilder('audit')
-            .leftJoinAndSelect('audit.performedBy', 'performer')
-            .leftJoinAndSelect('audit.affectedUser', 'affected')
-            .where('audit.departmentId = :departmentId', { departmentId });
-        if (options.startDate) {
-            queryBuilder.andWhere('audit.createdAt >= :startDate', {
-                startDate: options.startDate
-            });
-        }
-        if (options.endDate) {
-            queryBuilder.andWhere('audit.createdAt <= :endDate', {
-                endDate: options.endDate
-            });
-        }
-        if ((_a = options.actions) === null || _a === void 0 ? void 0 : _a.length) {
-            queryBuilder.andWhere('audit.action IN (:...actions)', {
-                actions: options.actions
-            });
-        }
-        return queryBuilder
-            .orderBy('audit.createdAt', 'DESC')
-            .take(options.limit || 50)
-            .skip(options.offset || 0)
-            .getManyAndCount();
-    }
-    async getUserDepartmentActivity(userId, options = {}) {
-        var _a;
-        const queryBuilder = this.auditLogRepository
-            .createQueryBuilder('audit')
-            .where('(audit.performedById = :userId OR audit.affectedUserId = :userId)', { userId });
-        if ((_a = options.departmentIds) === null || _a === void 0 ? void 0 : _a.length) {
-            queryBuilder.andWhere('audit.departmentId IN (:...departmentIds)', {
-                departmentIds: options.departmentIds
-            });
-        }
-        if (options.startDate) {
-            queryBuilder.andWhere('audit.createdAt >= :startDate', {
-                startDate: options.startDate
-            });
-        }
-        if (options.endDate) {
-            queryBuilder.andWhere('audit.createdAt <= :endDate', {
-                endDate: options.endDate
-            });
-        }
-        return queryBuilder
-            .orderBy('audit.createdAt', 'DESC')
-            .take(options.limit || 50)
-            .skip(options.offset || 0)
-            .getManyAndCount();
-    }
-    compareChanges(oldData, newData) {
-        const changes = {};
-        for (const key of Object.keys(newData)) {
-            if (oldData[key] !== undefined &&
-                JSON.stringify(oldData[key]) !== JSON.stringify(newData[key])) {
-                changes[key] = {
-                    old: oldData[key],
-                    new: newData[key]
-                };
-            }
-        }
-        return changes;
-    }
-    async cleanupOldLogs(retentionDays = 365) {
-        const cutoffDate = new Date();
-        cutoffDate.setDate(cutoffDate.getDate() - retentionDays);
-        const result = await this.auditLogRepository
-            .createQueryBuilder()
-            .delete()
-            .where('createdAt < :cutoffDate', { cutoffDate })
-            .execute();
-        return result.affected || 0;
-    }
-};
-DepartmentAuditService = __decorate([
-    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.Injectable)(),
-    __param(0, (0,_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__.InjectRepository)(_entities_department_audit_log_entity__WEBPACK_IMPORTED_MODULE_3__.DepartmentAuditLog)),
-    __param(1, (0,_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__.InjectRepository)(_entities_department_entity__WEBPACK_IMPORTED_MODULE_4__.Department)),
-    __metadata("design:paramtypes", [typeorm__WEBPACK_IMPORTED_MODULE_2__.Repository,
-        typeorm__WEBPACK_IMPORTED_MODULE_2__.Repository])
-], DepartmentAuditService);
-
-
-
-/***/ }),
-
-/***/ "./src/modules/departments/services/department-hierarchy.service.ts":
-/*!**************************************************************************!*\
-  !*** ./src/modules/departments/services/department-hierarchy.service.ts ***!
-  \**************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   DepartmentHierarchyService: () => (/* binding */ DepartmentHierarchyService)
-/* harmony export */ });
-/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
-/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nestjs/typeorm */ "@nestjs/typeorm");
-/* harmony import */ var _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! typeorm */ "typeorm");
-/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(typeorm__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @nestjs/event-emitter */ "@nestjs/event-emitter");
-/* harmony import */ var _nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _entities_department_entity__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../entities/department.entity */ "./src/modules/departments/entities/department.entity.ts");
-/* harmony import */ var _departments_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./departments.service */ "./src/modules/departments/services/departments.service.ts");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
-    return function (target, key) { decorator(target, key, paramIndex); }
-};
-
-
-
-
-
-
-let DepartmentHierarchyService = class DepartmentHierarchyService {
-    constructor(departmentRepository, departmentsService, eventEmitter) {
-        this.departmentRepository = departmentRepository;
-        this.departmentsService = departmentsService;
-        this.eventEmitter = eventEmitter;
-    }
-    async getDepartmentTree(organizationId, rootDepartmentId) {
-        const departments = await this.departmentRepository.find({
-            where: { organizationId },
-            order: { name: 'ASC' },
-        });
-        return this.buildDepartmentTree(departments, rootDepartmentId);
-    }
-    buildDepartmentTree(departments, rootDepartmentId, level = 0) {
-        const rootDepartments = departments.filter(dept => rootDepartmentId
-            ? dept.id === rootDepartmentId
-            : !dept.parentDepartmentId);
-        return rootDepartments.map(dept => ({
-            id: dept.id,
-            name: dept.name,
-            managerId: dept.managerId,
-            memberCount: dept.memberCount,
-            level,
-            metadata: dept.metadata,
-            children: this.buildDepartmentTree(departments.filter(d => d.parentDepartmentId === dept.id), undefined, level + 1),
-        }));
-    }
-    async moveDepartment(departmentId, newParentId, userId) {
-        const department = await this.departmentsService.findById(departmentId);
-        if (newParentId) {
-            const newParent = await this.departmentsService.findById(newParentId);
-            if (newParent.organizationId !== department.organizationId) {
-                throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.BadRequestException('Cannot move department to different organization');
-            }
-            await this.validateHierarchyMove(departmentId, newParentId);
-        }
-        await this.departmentRepository.update(departmentId, {
-            parentDepartmentId: newParentId || undefined,
-            updatedById: userId,
-        });
-        this.eventEmitter.emit('department.moved', {
-            departmentId,
-            previousParentId: department.parentDepartmentId,
-            newParentId,
-            performedById: userId,
-            organizationId: department.organizationId,
-        });
-    }
-    async validateHierarchyMove(departmentId, newParentId) {
-        if (departmentId === newParentId) {
-            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.BadRequestException('Department cannot be its own parent');
-        }
-        const childDepartments = await this.getAllChildDepartments(departmentId);
-        if (childDepartments.some(dept => dept.id === newParentId)) {
-            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.BadRequestException('Cannot move department under its own child');
-        }
-    }
-    async getAllChildDepartments(departmentId) {
-        const children = await this.departmentRepository.find({
-            where: { parentDepartmentId: departmentId },
-        });
-        const allChildren = [...children];
-        for (const child of children) {
-            const grandChildren = await this.getAllChildDepartments(child.id);
-            allChildren.push(...grandChildren);
-        }
-        return allChildren;
-    }
-    async getDepartmentAncestors(departmentId) {
-        const ancestors = [];
-        let currentDepartment = await this.departmentsService.findById(departmentId, ['parentDepartment']);
-        while (currentDepartment.parentDepartment) {
-            ancestors.push(currentDepartment.parentDepartment);
-            currentDepartment = await this.departmentsService.findById(currentDepartment.parentDepartment.id, ['parentDepartment']);
-        }
-        return ancestors.reverse();
-    }
-    async getDepartmentDescendants(departmentId) {
-        return this.getAllChildDepartments(departmentId);
-    }
-    async getDepartmentSiblings(departmentId) {
-        const department = await this.departmentsService.findById(departmentId);
-        return this.departmentRepository.find({
-            where: {
-                parentDepartmentId: department.parentDepartmentId || (0,typeorm__WEBPACK_IMPORTED_MODULE_2__.IsNull)(),
-                id: (0,typeorm__WEBPACK_IMPORTED_MODULE_2__.Not)(departmentId),
-                organizationId: department.organizationId,
-            },
-        });
-    }
-    async getDepartmentDepth(departmentId) {
-        const ancestors = await this.getDepartmentAncestors(departmentId);
-        return ancestors.length;
-    }
-    async reorderDepartments(parentDepartmentId, orderedDepartmentIds, userId) {
-        const departments = await this.departmentRepository.find({
-            where: {
-                id: (0,typeorm__WEBPACK_IMPORTED_MODULE_2__.In)(orderedDepartmentIds),
-                parentDepartmentId: parentDepartmentId || (0,typeorm__WEBPACK_IMPORTED_MODULE_2__.IsNull)(),
-            },
-        });
-        if (departments.length !== orderedDepartmentIds.length) {
-            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.BadRequestException('Invalid department IDs provided');
-        }
-        for (let i = 0; i < orderedDepartmentIds.length; i++) {
-            await this.departmentRepository.update(orderedDepartmentIds[i], {
-                sortOrder: i,
-                updatedById: userId,
-            });
-        }
-        this.eventEmitter.emit('department.reordered', {
-            parentDepartmentId,
-            orderedDepartmentIds,
-            performedById: userId,
-            organizationId: departments[0].organizationId,
-        });
-    }
-};
-DepartmentHierarchyService = __decorate([
-    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.Injectable)(),
-    __param(0, (0,_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__.InjectRepository)(_entities_department_entity__WEBPACK_IMPORTED_MODULE_4__.Department)),
-    __metadata("design:paramtypes", [typeorm__WEBPACK_IMPORTED_MODULE_2__.Repository,
-        _departments_service__WEBPACK_IMPORTED_MODULE_5__.DepartmentsService,
-        _nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_3__.EventEmitter2])
-], DepartmentHierarchyService);
-
-
-
-/***/ }),
-
-/***/ "./src/modules/departments/services/department-members.service.ts":
-/*!************************************************************************!*\
-  !*** ./src/modules/departments/services/department-members.service.ts ***!
-  \************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   DepartmentMembersService: () => (/* binding */ DepartmentMembersService)
-/* harmony export */ });
-/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
-/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nestjs/typeorm */ "@nestjs/typeorm");
-/* harmony import */ var _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! typeorm */ "typeorm");
-/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(typeorm__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @nestjs/event-emitter */ "@nestjs/event-emitter");
-/* harmony import */ var _nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _entities_department_entity__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../entities/department.entity */ "./src/modules/departments/entities/department.entity.ts");
-/* harmony import */ var _users_entities_user_entity__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts");
-/* harmony import */ var _users_services_users_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../users/services/users.service */ "./src/modules/users/services/users.service.ts");
-/* harmony import */ var _departments_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./departments.service */ "./src/modules/departments/services/departments.service.ts");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
-    return function (target, key) { decorator(target, key, paramIndex); }
-};
-
-
-
-
-
-
-
-
-let DepartmentMembersService = class DepartmentMembersService {
-    constructor(departmentRepository, userRepository, usersService, departmentsService, eventEmitter) {
-        this.departmentRepository = departmentRepository;
-        this.userRepository = userRepository;
-        this.usersService = usersService;
-        this.departmentsService = departmentsService;
-        this.eventEmitter = eventEmitter;
-    }
-    async addMember(departmentId, userId, performedById) {
-        const department = await this.departmentsService.findById(departmentId);
-        const user = await this.usersService.findById(userId);
-        const isMember = await this.departmentRepository
-            .createQueryBuilder('department')
-            .innerJoin('department.members', 'member')
-            .where('department.id = :departmentId', { departmentId })
-            .andWhere('member.id = :userId', { userId })
-            .getExists();
-        if (isMember) {
-            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.BadRequestException('User is already a member of this department');
-        }
-        await this.departmentRepository
-            .createQueryBuilder()
-            .relation(_entities_department_entity__WEBPACK_IMPORTED_MODULE_4__.Department, 'members')
-            .of(department)
-            .add(user);
-        await this.departmentsService.updateMemberCount(departmentId);
-        this.eventEmitter.emit('department.member.added', {
-            departmentId,
-            userId,
-            performedById,
-            organizationId: department.organizationId,
-        });
-    }
-    async removeMember(departmentId, userId, performedById) {
-        const department = await this.departmentsService.findById(departmentId);
-        const isMember = await this.departmentRepository
-            .createQueryBuilder('department')
-            .innerJoin('department.members', 'member')
-            .where('department.id = :departmentId', { departmentId })
-            .andWhere('member.id = :userId', { userId })
-            .getExists();
-        if (!isMember) {
-            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.BadRequestException('User is not a member of this department');
-        }
-        if (department.managerId === userId) {
-            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.BadRequestException('Cannot remove department manager from department');
-        }
-        await this.departmentRepository
-            .createQueryBuilder()
-            .relation(_entities_department_entity__WEBPACK_IMPORTED_MODULE_4__.Department, 'members')
-            .of(department)
-            .remove(userId);
-        await this.departmentsService.updateMemberCount(departmentId);
-        this.eventEmitter.emit('department.member.removed', {
-            departmentId,
-            userId,
-            performedById,
-            organizationId: department.organizationId,
-        });
-    }
-    async getMembers(departmentId, query) {
-        const queryBuilder = this.userRepository
-            .createQueryBuilder('user')
-            .innerJoin('user.departments', 'department')
-            .where('department.id = :departmentId', { departmentId });
-        if (query.search) {
-            queryBuilder.andWhere('(user.firstName ILIKE :search OR user.lastName ILIKE :search OR user.email ILIKE :search)', { search: `%${query.search}%` });
-        }
-        return queryBuilder
-            .orderBy('user.firstName', 'ASC')
-            .addOrderBy('user.lastName', 'ASC')
-            .skip(query.skip)
-            .take(query.take)
-            .getManyAndCount();
-    }
-    async transferMember(userId, fromDepartmentId, toDepartmentId, performedById) {
-        await this.removeMember(fromDepartmentId, userId, performedById);
-        await this.addMember(toDepartmentId, userId, performedById);
-        const fromDepartment = await this.departmentsService.findById(fromDepartmentId);
-        this.eventEmitter.emit('department.member.transferred', {
-            userId,
-            fromDepartmentId,
-            toDepartmentId,
-            performedById,
-            organizationId: fromDepartment.organizationId,
-        });
-    }
-    async getUserDepartments(userId) {
-        return this.departmentRepository
-            .createQueryBuilder('department')
-            .innerJoin('department.members', 'member')
-            .where('member.id = :userId', { userId })
-            .getMany();
-    }
-    async isMember(departmentId, userId) {
-        return this.departmentRepository
-            .createQueryBuilder('department')
-            .innerJoin('department.members', 'member')
-            .where('department.id = :departmentId', { departmentId })
-            .andWhere('member.id = :userId', { userId })
-            .getExists();
-    }
-};
-DepartmentMembersService = __decorate([
-    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.Injectable)(),
-    __param(0, (0,_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__.InjectRepository)(_entities_department_entity__WEBPACK_IMPORTED_MODULE_4__.Department)),
-    __param(1, (0,_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__.InjectRepository)(_users_entities_user_entity__WEBPACK_IMPORTED_MODULE_5__.User)),
-    __metadata("design:paramtypes", [typeorm__WEBPACK_IMPORTED_MODULE_2__.Repository,
-        typeorm__WEBPACK_IMPORTED_MODULE_2__.Repository,
-        _users_services_users_service__WEBPACK_IMPORTED_MODULE_6__.UsersService,
-        _departments_service__WEBPACK_IMPORTED_MODULE_7__.DepartmentsService,
-        _nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_3__.EventEmitter2])
-], DepartmentMembersService);
-
-
-
-/***/ }),
-
-/***/ "./src/modules/departments/services/departments.service.ts":
-/*!*****************************************************************!*\
-  !*** ./src/modules/departments/services/departments.service.ts ***!
-  \*****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   DepartmentsService: () => (/* binding */ DepartmentsService)
-/* harmony export */ });
-/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
-/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nestjs/typeorm */ "@nestjs/typeorm");
-/* harmony import */ var _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! typeorm */ "typeorm");
-/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(typeorm__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @nestjs/event-emitter */ "@nestjs/event-emitter");
-/* harmony import */ var _nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _entities_department_entity__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../entities/department.entity */ "./src/modules/departments/entities/department.entity.ts");
-/* harmony import */ var _organizations_services_organizations_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../organizations/services/organizations.service */ "./src/modules/organizations/services/organizations.service.ts");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
-    return function (target, key) { decorator(target, key, paramIndex); }
-};
-
-
-
-
-
-
-let DepartmentsService = class DepartmentsService {
-    constructor(departmentRepository, organizationsService, eventEmitter) {
-        this.departmentRepository = departmentRepository;
-        this.organizationsService = organizationsService;
-        this.eventEmitter = eventEmitter;
-    }
-    async create(organizationId, createDepartmentDto, userId) {
-        await this.organizationsService.findById(organizationId);
-        if (createDepartmentDto.parentDepartmentId) {
-            await this.findById(createDepartmentDto.parentDepartmentId);
-        }
-        const department = this.departmentRepository.create(Object.assign(Object.assign({}, createDepartmentDto), { organizationId, createdById: userId }));
-        const savedDepartment = await this.departmentRepository.save(department);
-        this.eventEmitter.emit('department.created', {
-            departmentId: savedDepartment.id,
-            organizationId,
-            createdById: userId,
-        });
-        return savedDepartment;
-    }
-    async findAll(organizationId, query) {
-        const where = { organizationId };
-        if (query.isActive !== undefined) {
-            where.isActive = query.isActive;
-        }
-        if (query.parentDepartmentId) {
-            where.parentDepartmentId = query.parentDepartmentId;
-        }
-        if (query.managerId) {
-            where.managerId = query.managerId;
-        }
-        return this.departmentRepository.findAndCount({
-            where,
-            order: { createdAt: 'DESC' },
-            skip: query.skip,
-            take: query.take,
-            relations: query.relations || [],
-        });
-    }
-    async findById(id, relations = []) {
-        const department = await this.departmentRepository.findOne({
-            where: { id },
-            relations,
-        });
-        if (!department) {
-            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.NotFoundException(`Department with ID ${id} not found`);
-        }
-        return department;
-    }
-    async update(id, updateDepartmentDto, userId) {
-        const department = await this.findById(id);
-        if (updateDepartmentDto.parentDepartmentId) {
-            await this.validateParentDepartment(id, updateDepartmentDto.parentDepartmentId);
-        }
-        const updatedDepartment = await this.departmentRepository.save(Object.assign(Object.assign(Object.assign({}, department), updateDepartmentDto), { updatedById: userId }));
-        this.eventEmitter.emit('department.updated', {
-            departmentId: id,
-            organizationId: department.organizationId,
-            updatedById: userId,
-            changes: updateDepartmentDto,
-        });
-        return updatedDepartment;
-    }
-    async delete(id, userId) {
-        const department = await this.findById(id);
-        const hasChildren = await this.departmentRepository.count({
-            where: { parentDepartmentId: id },
-        });
-        if (hasChildren) {
-            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.BadRequestException('Cannot delete department with child departments');
-        }
-        await this.departmentRepository.softDelete(id);
-        this.eventEmitter.emit('department.deleted', {
-            departmentId: id,
-            organizationId: department.organizationId,
-            deletedById: userId,
-        });
-    }
-    async validateParentDepartment(departmentId, parentId) {
-        if (departmentId === parentId) {
-            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.BadRequestException('Department cannot be its own parent');
-        }
-        const childDepartments = await this.findAllChildren(departmentId);
-        if (childDepartments.some(dept => dept.id === parentId)) {
-            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.BadRequestException('Cannot set a child department as parent department');
-        }
-    }
-    async findAllChildren(departmentId) {
-        const children = await this.departmentRepository.find({
-            where: { parentDepartmentId: departmentId },
-        });
-        const allChildren = [...children];
-        for (const child of children) {
-            const grandChildren = await this.findAllChildren(child.id);
-            allChildren.push(...grandChildren);
-        }
-        return allChildren;
-    }
-    async updateMemberCount(id) {
-        const count = await this.departmentRepository
-            .createQueryBuilder('department')
-            .leftJoin('department.members', 'member')
-            .where('department.id = :id', { id })
-            .getCount();
-        await this.departmentRepository.update(id, { memberCount: count });
-    }
-};
-DepartmentsService = __decorate([
-    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.Injectable)(),
-    __param(0, (0,_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__.InjectRepository)(_entities_department_entity__WEBPACK_IMPORTED_MODULE_4__.Department)),
-    __metadata("design:paramtypes", [typeorm__WEBPACK_IMPORTED_MODULE_2__.Repository,
-        _organizations_services_organizations_service__WEBPACK_IMPORTED_MODULE_5__.OrganizationsService,
-        _nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_3__.EventEmitter2])
-], DepartmentsService);
-
-
-
-/***/ }),
-
 /***/ "./src/modules/documents/entities/document.entity.ts":
 /*!***********************************************************!*\
   !*** ./src/modules/documents/entities/document.entity.ts ***!
@@ -10396,6 +8266,425 @@ DomainVerificationService = DomainVerificationService_1 = __decorate([
         typeorm__WEBPACK_IMPORTED_MODULE_2__.Repository,
         _nestjs_config__WEBPACK_IMPORTED_MODULE_3__.ConfigService])
 ], DomainVerificationService);
+
+
+
+/***/ }),
+
+/***/ "./src/modules/email/entities/email-template.entity.ts":
+/*!*************************************************************!*\
+  !*** ./src/modules/email/entities/email-template.entity.ts ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   EmailTemplate: () => (/* binding */ EmailTemplate),
+/* harmony export */   EmailTemplateStatus: () => (/* binding */ EmailTemplateStatus),
+/* harmony export */   EmailTemplateType: () => (/* binding */ EmailTemplateType)
+/* harmony export */ });
+/* harmony import */ var _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/swagger */ "@nestjs/swagger");
+/* harmony import */ var _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! typeorm */ "typeorm");
+/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(typeorm__WEBPACK_IMPORTED_MODULE_1__);
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var EmailTemplateStatus;
+(function (EmailTemplateStatus) {
+    EmailTemplateStatus["DRAFT"] = "draft";
+    EmailTemplateStatus["ACTIVE"] = "active";
+    EmailTemplateStatus["INACTIVE"] = "inactive";
+    EmailTemplateStatus["ARCHIVED"] = "archived";
+})(EmailTemplateStatus || (EmailTemplateStatus = {}));
+var EmailTemplateType;
+(function (EmailTemplateType) {
+    EmailTemplateType["TRANSACTIONAL"] = "transactional";
+    EmailTemplateType["MARKETING"] = "marketing";
+    EmailTemplateType["NOTIFICATION"] = "notification";
+    EmailTemplateType["REPORT"] = "report";
+    EmailTemplateType["GENERAL"] = "general";
+})(EmailTemplateType || (EmailTemplateType = {}));
+let EmailTemplate = class EmailTemplate {
+    processContent(variables) {
+        if (!variables)
+            return this.content;
+        let processedContent = this.content;
+        for (const [key, value] of Object.entries(variables)) {
+            const regex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
+            processedContent = processedContent.replace(regex, String(value !== null && value !== void 0 ? value : ''));
+        }
+        return processedContent;
+    }
+    processSubject(variables) {
+        if (!variables)
+            return this.subject;
+        let processedSubject = this.subject;
+        for (const [key, value] of Object.entries(variables)) {
+            const regex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
+            processedSubject = processedSubject.replace(regex, String(value !== null && value !== void 0 ? value : ''));
+        }
+        return processedSubject;
+    }
+    static _OPENAPI_METADATA_FACTORY() {
+        return { id: { required: true, type: () => String }, organizationId: { required: true, type: () => String }, name: { required: true, type: () => String }, description: { required: false, type: () => String }, type: { required: true, enum: (__webpack_require__(/*! ./email-template.entity */ "./src/modules/email/entities/email-template.entity.ts").EmailTemplateType) }, status: { required: true, enum: (__webpack_require__(/*! ./email-template.entity */ "./src/modules/email/entities/email-template.entity.ts").EmailTemplateStatus) }, subject: { required: true, type: () => String }, content: { required: true, type: () => String }, plainTextContent: { required: false, type: () => String }, isDefault: { required: true, type: () => Boolean }, category: { required: false, type: () => String }, language: { required: false, type: () => String }, variables: { required: false, type: () => Object }, metadata: { required: false, type: () => Object }, previewText: { required: false, type: () => String }, fromEmail: { required: false, type: () => String }, fromName: { required: false, type: () => String }, replyToEmail: { required: false, type: () => String }, headerImageUrl: { required: false, type: () => String }, footerContent: { required: false, type: () => String }, createdById: { required: false, type: () => String }, updatedById: { required: false, type: () => String }, createdAt: { required: true, type: () => Date }, updatedAt: { required: true, type: () => Date }, deletedAt: { required: false, type: () => Date }, lastUsedAt: { required: false, type: () => Date }, useCount: { required: true, type: () => Number } };
+    }
+};
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.PrimaryGeneratedColumn)('uuid'),
+    __metadata("design:type", String)
+], EmailTemplate.prototype, "id", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)(),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Index)(),
+    __metadata("design:type", String)
+], EmailTemplate.prototype, "organizationId", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)(),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Index)(),
+    __metadata("design:type", String)
+], EmailTemplate.prototype, "name", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true }),
+    __metadata("design:type", String)
+], EmailTemplate.prototype, "description", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'enum', enum: EmailTemplateType, default: EmailTemplateType.GENERAL }),
+    __metadata("design:type", String)
+], EmailTemplate.prototype, "type", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'enum', enum: EmailTemplateStatus, default: EmailTemplateStatus.DRAFT }),
+    __metadata("design:type", String)
+], EmailTemplate.prototype, "status", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)(),
+    __metadata("design:type", String)
+], EmailTemplate.prototype, "subject", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'text' }),
+    __metadata("design:type", String)
+], EmailTemplate.prototype, "content", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true, type: 'text' }),
+    __metadata("design:type", String)
+], EmailTemplate.prototype, "plainTextContent", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ default: false }),
+    __metadata("design:type", Boolean)
+], EmailTemplate.prototype, "isDefault", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true }),
+    __metadata("design:type", String)
+], EmailTemplate.prototype, "category", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true }),
+    __metadata("design:type", String)
+], EmailTemplate.prototype, "language", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true, type: 'jsonb' }),
+    __metadata("design:type", Object)
+], EmailTemplate.prototype, "variables", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true, type: 'jsonb' }),
+    __metadata("design:type", Object)
+], EmailTemplate.prototype, "metadata", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true }),
+    __metadata("design:type", String)
+], EmailTemplate.prototype, "previewText", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true }),
+    __metadata("design:type", String)
+], EmailTemplate.prototype, "fromEmail", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true }),
+    __metadata("design:type", String)
+], EmailTemplate.prototype, "fromName", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true }),
+    __metadata("design:type", String)
+], EmailTemplate.prototype, "replyToEmail", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true }),
+    __metadata("design:type", String)
+], EmailTemplate.prototype, "headerImageUrl", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true }),
+    __metadata("design:type", String)
+], EmailTemplate.prototype, "footerContent", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true }),
+    __metadata("design:type", String)
+], EmailTemplate.prototype, "createdById", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true }),
+    __metadata("design:type", String)
+], EmailTemplate.prototype, "updatedById", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.CreateDateColumn)(),
+    __metadata("design:type", Date)
+], EmailTemplate.prototype, "createdAt", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.UpdateDateColumn)(),
+    __metadata("design:type", Date)
+], EmailTemplate.prototype, "updatedAt", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.DeleteDateColumn)(),
+    __metadata("design:type", Date)
+], EmailTemplate.prototype, "deletedAt", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true }),
+    __metadata("design:type", Date)
+], EmailTemplate.prototype, "lastUsedAt", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ default: 0 }),
+    __metadata("design:type", Number)
+], EmailTemplate.prototype, "useCount", void 0);
+EmailTemplate = __decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Entity)('email_templates')
+], EmailTemplate);
+
+
+
+/***/ }),
+
+/***/ "./src/modules/email/services/email-template.service.ts":
+/*!**************************************************************!*\
+  !*** ./src/modules/email/services/email-template.service.ts ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   EmailTemplateService: () => (/* binding */ EmailTemplateService)
+/* harmony export */ });
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nestjs/typeorm */ "@nestjs/typeorm");
+/* harmony import */ var _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! typeorm */ "typeorm");
+/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(typeorm__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _entities_email_template_entity__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../entities/email-template.entity */ "./src/modules/email/entities/email-template.entity.ts");
+/* harmony import */ var fs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! fs */ "fs");
+/* harmony import */ var fs__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(fs__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! path */ "path");
+/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(path__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var handlebars__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! handlebars */ "handlebars");
+/* harmony import */ var handlebars__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(handlebars__WEBPACK_IMPORTED_MODULE_6__);
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+var __rest = (undefined && undefined.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
+
+
+
+
+
+
+
+let EmailTemplateService = class EmailTemplateService {
+    constructor(emailTemplateRepository) {
+        this.emailTemplateRepository = emailTemplateRepository;
+        this.defaultTemplatePath = path__WEBPACK_IMPORTED_MODULE_5__.join(process.cwd(), 'src/templates/email');
+        this.registerHandlebarsHelpers();
+    }
+    async findById(id, organizationId) {
+        const template = await this.emailTemplateRepository.findOne({
+            where: { id, organizationId }
+        });
+        if (!template) {
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.NotFoundException(`Email template with ID "${id}" not found`);
+        }
+        return template;
+    }
+    async findByName(name, organizationId) {
+        return this.emailTemplateRepository.findOne({
+            where: { name, organizationId, status: _entities_email_template_entity__WEBPACK_IMPORTED_MODULE_3__.EmailTemplateStatus.ACTIVE }
+        });
+    }
+    async findAll(options) {
+        const { organizationId, status, type, category, search, page = 1, limit = 25 } = options;
+        const where = { organizationId };
+        if (status) {
+            where.status = Array.isArray(status) ? (0,typeorm__WEBPACK_IMPORTED_MODULE_2__.In)(status) : status;
+        }
+        if (type) {
+            where.type = type;
+        }
+        if (category) {
+            where.category = category;
+        }
+        if (search) {
+            where.name = (0,typeorm__WEBPACK_IMPORTED_MODULE_2__.Like)(`%${search}%`);
+        }
+        const [items, total] = await this.emailTemplateRepository.findAndCount({
+            where,
+            order: { updatedAt: 'DESC' },
+            skip: (page - 1) * limit,
+            take: limit,
+        });
+        return {
+            items,
+            total,
+            page,
+            limit,
+        };
+    }
+    async create(data) {
+        const existingTemplate = await this.emailTemplateRepository.findOne({
+            where: {
+                name: data.name,
+                organizationId: data.organizationId
+            }
+        });
+        if (existingTemplate) {
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.BadRequestException(`Template with name "${data.name}" already exists`);
+        }
+        const template = this.emailTemplateRepository.create(data);
+        return this.emailTemplateRepository.save(template);
+    }
+    async update(id, organizationId, data) {
+        const template = await this.findById(id, organizationId);
+        if (data.name && data.name !== template.name) {
+            const existingTemplate = await this.emailTemplateRepository.findOne({
+                where: {
+                    name: data.name,
+                    organizationId,
+                    id: (0,typeorm__WEBPACK_IMPORTED_MODULE_2__.Not)(id)
+                }
+            });
+            if (existingTemplate) {
+                throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.BadRequestException(`Template with name "${data.name}" already exists`);
+            }
+        }
+        Object.assign(template, data);
+        return this.emailTemplateRepository.save(template);
+    }
+    async delete(id, organizationId) {
+        const template = await this.findById(id, organizationId);
+        await this.emailTemplateRepository.softRemove(template);
+    }
+    async loadTemplateFromFile(filename) {
+        const templatePath = path__WEBPACK_IMPORTED_MODULE_5__.join(this.defaultTemplatePath, filename);
+        try {
+            return fs__WEBPACK_IMPORTED_MODULE_4__.readFileSync(templatePath, 'utf8');
+        }
+        catch (error) {
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.NotFoundException(`Template file "${filename}" not found`);
+        }
+    }
+    renderTemplate(content, variables = {}) {
+        try {
+            const template = handlebars__WEBPACK_IMPORTED_MODULE_6__.compile(content);
+            return template(variables);
+        }
+        catch (error) {
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.BadRequestException(`Error rendering template: ${error.message}`);
+        }
+    }
+    async renderTemplateById(id, organizationId, variables = {}) {
+        const template = await this.findById(id, organizationId);
+        const content = this.renderTemplate(template.content, variables);
+        const subject = this.renderTemplate(template.subject, variables);
+        const plainTextContent = template.plainTextContent
+            ? this.renderTemplate(template.plainTextContent, variables)
+            : undefined;
+        return { subject, content, plainTextContent };
+    }
+    async getCategories(organizationId) {
+        const result = await this.emailTemplateRepository
+            .createQueryBuilder('template')
+            .select('DISTINCT template.category')
+            .where('template.organizationId = :organizationId', { organizationId })
+            .andWhere('template.category IS NOT NULL')
+            .getRawMany();
+        return result.map(item => item.category).filter(Boolean);
+    }
+    async cloneTemplate(id, organizationId, newName) {
+        const template = await this.findById(id, organizationId);
+        const { id: templateId } = template, templateData = __rest(template, ["id"]);
+        const name = newName || `${template.name} (Copy)`;
+        return this.create(Object.assign(Object.assign({}, templateData), { name, status: _entities_email_template_entity__WEBPACK_IMPORTED_MODULE_3__.EmailTemplateStatus.DRAFT, isDefault: false, organizationId }));
+    }
+    registerHandlebarsHelpers() {
+        handlebars__WEBPACK_IMPORTED_MODULE_6__.registerHelper('formatDate', function (date, format) {
+            if (!date)
+                return '';
+            const d = new Date(date);
+            switch (format) {
+                case 'short':
+                    return d.toLocaleDateString();
+                case 'long':
+                    return d.toLocaleDateString(undefined, {
+                        weekday: 'long',
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric'
+                    });
+                case 'time':
+                    return d.toLocaleTimeString();
+                case 'datetime':
+                    return d.toLocaleString();
+                default:
+                    return d.toDateString();
+            }
+        });
+        handlebars__WEBPACK_IMPORTED_MODULE_6__.registerHelper('ifCond', function (v1, operator, v2, options) {
+            switch (operator) {
+                case '==':
+                    return (v1 == v2) ? options.fn(this) : options.inverse(this);
+                case '===':
+                    return (v1 === v2) ? options.fn(this) : options.inverse(this);
+                case '!=':
+                    return (v1 != v2) ? options.fn(this) : options.inverse(this);
+                case '!==':
+                    return (v1 !== v2) ? options.fn(this) : options.inverse(this);
+                case '<':
+                    return (v1 < v2) ? options.fn(this) : options.inverse(this);
+                case '<=':
+                    return (v1 <= v2) ? options.fn(this) : options.inverse(this);
+                case '>':
+                    return (v1 > v2) ? options.fn(this) : options.inverse(this);
+                case '>=':
+                    return (v1 >= v2) ? options.fn(this) : options.inverse(this);
+                default:
+                    return options.inverse(this);
+            }
+        });
+    }
+};
+EmailTemplateService = __decorate([
+    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.Injectable)(),
+    __param(0, (0,_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__.InjectRepository)(_entities_email_template_entity__WEBPACK_IMPORTED_MODULE_3__.EmailTemplate)),
+    __metadata("design:paramtypes", [typeorm__WEBPACK_IMPORTED_MODULE_2__.Repository])
+], EmailTemplateService);
 
 
 
@@ -12224,6 +10513,86 @@ Message = __decorate([
 
 /***/ }),
 
+/***/ "./src/modules/messages/entities/template-category.entity.ts":
+/*!*******************************************************************!*\
+  !*** ./src/modules/messages/entities/template-category.entity.ts ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   TemplateCategory: () => (/* binding */ TemplateCategory)
+/* harmony export */ });
+/* harmony import */ var _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/swagger */ "@nestjs/swagger");
+/* harmony import */ var _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! typeorm */ "typeorm");
+/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(typeorm__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _message_template_entity__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./message-template.entity */ "./src/modules/messages/entities/message-template.entity.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+let TemplateCategory = class TemplateCategory {
+    static _OPENAPI_METADATA_FACTORY() {
+        return { id: { required: true, type: () => String }, name: { required: true, type: () => String }, description: { required: true, type: () => String }, organizationId: { required: true, type: () => String }, templates: { required: true, type: () => [(__webpack_require__(/*! ./message-template.entity */ "./src/modules/messages/entities/message-template.entity.ts").MessageTemplate)] }, createdById: { required: true, type: () => String }, updatedById: { required: true, type: () => String }, createdAt: { required: true, type: () => Date }, updatedAt: { required: true, type: () => Date }, deletedAt: { required: true, type: () => Date } };
+    }
+};
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.PrimaryGeneratedColumn)('uuid'),
+    __metadata("design:type", String)
+], TemplateCategory.prototype, "id", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)(),
+    __metadata("design:type", String)
+], TemplateCategory.prototype, "name", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true }),
+    __metadata("design:type", String)
+], TemplateCategory.prototype, "description", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)(),
+    __metadata("design:type", String)
+], TemplateCategory.prototype, "organizationId", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.OneToMany)(() => _message_template_entity__WEBPACK_IMPORTED_MODULE_2__.MessageTemplate, template => template.category),
+    __metadata("design:type", Array)
+], TemplateCategory.prototype, "templates", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true }),
+    __metadata("design:type", String)
+], TemplateCategory.prototype, "createdById", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true }),
+    __metadata("design:type", String)
+], TemplateCategory.prototype, "updatedById", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.CreateDateColumn)(),
+    __metadata("design:type", Date)
+], TemplateCategory.prototype, "createdAt", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.UpdateDateColumn)(),
+    __metadata("design:type", Date)
+], TemplateCategory.prototype, "updatedAt", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.DeleteDateColumn)(),
+    __metadata("design:type", Date)
+], TemplateCategory.prototype, "deletedAt", void 0);
+TemplateCategory = __decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Entity)('template_categories')
+], TemplateCategory);
+
+
+
+/***/ }),
+
 /***/ "./src/modules/messages/enums/message-status.enum.ts":
 /*!***********************************************************!*\
   !*** ./src/modules/messages/enums/message-status.enum.ts ***!
@@ -12271,6 +10640,81 @@ var MessageType;
     MessageType["TELEGRAM"] = "TELEGRAM";
     MessageType["INTERNAL"] = "INTERNAL";
 })(MessageType || (MessageType = {}));
+
+
+/***/ }),
+
+/***/ "./src/modules/messages/events/message-event.handler.ts":
+/*!**************************************************************!*\
+  !*** ./src/modules/messages/events/message-event.handler.ts ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   MessageEventHandler: () => (/* binding */ MessageEventHandler)
+/* harmony export */ });
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nestjs/event-emitter */ "@nestjs/event-emitter");
+/* harmony import */ var _nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _message_events__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./message-events */ "./src/modules/messages/events/message-events.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+let MessageEventHandler = class MessageEventHandler {
+    constructor(eventEmitter) {
+        this.eventEmitter = eventEmitter;
+    }
+    emit(event) {
+        this.eventEmitter.emit(event.type, event.message);
+    }
+    emitCreated(message) {
+        this.emit(new _message_events__WEBPACK_IMPORTED_MODULE_2__.MessageEvent(_message_events__WEBPACK_IMPORTED_MODULE_2__.MessageEventType.CREATED, message));
+    }
+};
+MessageEventHandler = __decorate([
+    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.Injectable)(),
+    __metadata("design:paramtypes", [_nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_1__.EventEmitter2])
+], MessageEventHandler);
+
+
+
+/***/ }),
+
+/***/ "./src/modules/messages/events/message-events.ts":
+/*!*******************************************************!*\
+  !*** ./src/modules/messages/events/message-events.ts ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   MessageEvent: () => (/* binding */ MessageEvent),
+/* harmony export */   MessageEventType: () => (/* binding */ MessageEventType)
+/* harmony export */ });
+var MessageEventType;
+(function (MessageEventType) {
+    MessageEventType["CREATED"] = "message.created";
+    MessageEventType["UPDATED"] = "message.updated";
+    MessageEventType["SENT"] = "message.sent";
+    MessageEventType["FAILED"] = "message.failed";
+})(MessageEventType || (MessageEventType = {}));
+class MessageEvent {
+    constructor(type, message) {
+        this.type = type;
+        this.message = message;
+    }
+}
 
 
 /***/ }),
@@ -12465,21 +10909,31 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _entities_message_entity__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./entities/message.entity */ "./src/modules/messages/entities/message.entity.ts");
 /* harmony import */ var _entities_message_template_entity__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./entities/message-template.entity */ "./src/modules/messages/entities/message-template.entity.ts");
 /* harmony import */ var _entities_message_attachment_entity__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./entities/message-attachment.entity */ "./src/modules/messages/entities/message-attachment.entity.ts");
-/* harmony import */ var _contacts_entities_contact_entity__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../contacts/entities/contact.entity */ "./src/modules/contacts/entities/contact.entity.ts");
-/* harmony import */ var _auth_auth_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../auth/auth.module */ "./src/modules/auth/auth.module.ts");
-/* harmony import */ var _users_users_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../users/users.module */ "./src/modules/users/users.module.ts");
-/* harmony import */ var _organizations_organizations_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../organizations/organizations.module */ "./src/modules/organizations/organizations.module.ts");
-/* harmony import */ var _notifications_notifications_module__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../notifications/notifications.module */ "./src/modules/notifications/notifications.module.ts");
-/* harmony import */ var _listeners_message_queue_listener__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./listeners/message-queue.listener */ "./src/modules/messages/listeners/message-queue.listener.ts");
-/* harmony import */ var _listeners_message_delivery_listener__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./listeners/message-delivery.listener */ "./src/modules/messages/listeners/message-delivery.listener.ts");
-/* harmony import */ var _services_message_scheduler_service__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./services/message-scheduler.service */ "./src/modules/messages/services/message-scheduler.service.ts");
-/* harmony import */ var _services_message_delivery_service__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./services/message-delivery.service */ "./src/modules/messages/services/message-delivery.service.ts");
+/* harmony import */ var _entities_template_category_entity__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./entities/template-category.entity */ "./src/modules/messages/entities/template-category.entity.ts");
+/* harmony import */ var _users_entities_user_entity__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts");
+/* harmony import */ var _contacts_entities_contact_entity__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../contacts/entities/contact.entity */ "./src/modules/contacts/entities/contact.entity.ts");
+/* harmony import */ var _users_users_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../users/users.module */ "./src/modules/users/users.module.ts");
+/* harmony import */ var _contacts_contacts_module__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../contacts/contacts.module */ "./src/modules/contacts/contacts.module.ts");
+/* harmony import */ var _notifications_notifications_module__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../notifications/notifications.module */ "./src/modules/notifications/notifications.module.ts");
+/* harmony import */ var _events_message_event_handler__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./events/message-event.handler */ "./src/modules/messages/events/message-event.handler.ts");
+/* harmony import */ var _listeners_message_delivery_listener__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./listeners/message-delivery.listener */ "./src/modules/messages/listeners/message-delivery.listener.ts");
+/* harmony import */ var _listeners_message_queue_listener__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./listeners/message-queue.listener */ "./src/modules/messages/listeners/message-queue.listener.ts");
+/* harmony import */ var _services_error_handler_service__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./services/error-handler.service */ "./src/modules/messages/services/error-handler.service.ts");
+/* harmony import */ var _services_message_delivery_service__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./services/message-delivery.service */ "./src/modules/messages/services/message-delivery.service.ts");
+/* harmony import */ var _services_message_scheduler_service__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./services/message-scheduler.service */ "./src/modules/messages/services/message-scheduler.service.ts");
+/* harmony import */ var _services_template_service__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./services/template.service */ "./src/modules/messages/services/template.service.ts");
+/* harmony import */ var _repositories_message_repository__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./repositories/message.repository */ "./src/modules/messages/repositories/message.repository.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
+
+
 
 
 
@@ -12506,29 +10960,143 @@ MessagesModule = __decorate([
                 _entities_message_entity__WEBPACK_IMPORTED_MODULE_5__.Message,
                 _entities_message_template_entity__WEBPACK_IMPORTED_MODULE_6__.MessageTemplate,
                 _entities_message_attachment_entity__WEBPACK_IMPORTED_MODULE_7__.MessageAttachment,
-                _contacts_entities_contact_entity__WEBPACK_IMPORTED_MODULE_8__.Contact
+                _entities_template_category_entity__WEBPACK_IMPORTED_MODULE_8__.TemplateCategory,
+                _users_entities_user_entity__WEBPACK_IMPORTED_MODULE_9__.User,
+                _contacts_entities_contact_entity__WEBPACK_IMPORTED_MODULE_10__.Contact
             ]),
             _nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_2__.EventEmitterModule.forRoot({
                 wildcard: true,
                 maxListeners: 20,
                 verboseMemoryLeak: true,
             }),
-            _auth_auth_module__WEBPACK_IMPORTED_MODULE_9__.AuthModule,
-            _users_users_module__WEBPACK_IMPORTED_MODULE_10__.UsersModule,
-            _organizations_organizations_module__WEBPACK_IMPORTED_MODULE_11__.OrganizationsModule,
-            _notifications_notifications_module__WEBPACK_IMPORTED_MODULE_12__.NotificationsModule
+            (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.forwardRef)(() => _users_users_module__WEBPACK_IMPORTED_MODULE_11__.UsersModule),
+            (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.forwardRef)(() => _contacts_contacts_module__WEBPACK_IMPORTED_MODULE_12__.ContactsModule),
+            (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.forwardRef)(() => _notifications_notifications_module__WEBPACK_IMPORTED_MODULE_13__.NotificationsModule)
         ],
-        controllers: [_controllers_messages_controller__WEBPACK_IMPORTED_MODULE_3__.MessagesController],
+        controllers: [
+            _controllers_messages_controller__WEBPACK_IMPORTED_MODULE_3__.MessagesController
+        ],
         providers: [
             _services_messages_service__WEBPACK_IMPORTED_MODULE_4__.MessagesService,
-            _listeners_message_queue_listener__WEBPACK_IMPORTED_MODULE_13__.MessageQueueListener,
-            _listeners_message_delivery_listener__WEBPACK_IMPORTED_MODULE_14__.MessageDeliveryListener,
-            _services_message_scheduler_service__WEBPACK_IMPORTED_MODULE_15__.MessageSchedulerService,
-            _services_message_delivery_service__WEBPACK_IMPORTED_MODULE_16__.MessageDeliveryService
+            _services_error_handler_service__WEBPACK_IMPORTED_MODULE_17__.ErrorHandlerService,
+            _services_message_delivery_service__WEBPACK_IMPORTED_MODULE_18__.MessageDeliveryService,
+            _services_message_scheduler_service__WEBPACK_IMPORTED_MODULE_19__.MessageSchedulerService,
+            _services_template_service__WEBPACK_IMPORTED_MODULE_20__.TemplateService,
+            _events_message_event_handler__WEBPACK_IMPORTED_MODULE_14__.MessageEventHandler,
+            _listeners_message_delivery_listener__WEBPACK_IMPORTED_MODULE_15__.MessageDeliveryListener,
+            _listeners_message_queue_listener__WEBPACK_IMPORTED_MODULE_16__.MessageQueueListener,
+            _repositories_message_repository__WEBPACK_IMPORTED_MODULE_21__.MessageRepository
         ],
-        exports: [_services_messages_service__WEBPACK_IMPORTED_MODULE_4__.MessagesService, _services_message_delivery_service__WEBPACK_IMPORTED_MODULE_16__.MessageDeliveryService]
+        exports: [
+            _services_messages_service__WEBPACK_IMPORTED_MODULE_4__.MessagesService,
+            _services_message_delivery_service__WEBPACK_IMPORTED_MODULE_18__.MessageDeliveryService,
+            _services_template_service__WEBPACK_IMPORTED_MODULE_20__.TemplateService
+        ]
     })
 ], MessagesModule);
+
+
+
+/***/ }),
+
+/***/ "./src/modules/messages/repositories/message.repository.ts":
+/*!*****************************************************************!*\
+  !*** ./src/modules/messages/repositories/message.repository.ts ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   MessageRepository: () => (/* binding */ MessageRepository)
+/* harmony export */ });
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nestjs/typeorm */ "@nestjs/typeorm");
+/* harmony import */ var _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! typeorm */ "typeorm");
+/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(typeorm__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _entities_message_entity__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../entities/message.entity */ "./src/modules/messages/entities/message.entity.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+
+
+let MessageRepository = class MessageRepository {
+    constructor(repository) {
+        this.repository = repository;
+    }
+    async findById(id, organizationId) {
+        return this.repository.findOne({
+            where: { id, organizationId },
+            relations: ['contact', 'sender', 'attachments'],
+        });
+    }
+    async create(data) {
+        const entity = this.repository.create(data);
+        const result = await this.repository.save(entity);
+        if (Array.isArray(result)) {
+            if (result.length === 0) {
+                throw new Error('Failed to create entity');
+            }
+            return result[0];
+        }
+        return result;
+    }
+};
+MessageRepository = __decorate([
+    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.Injectable)(),
+    __param(0, (0,_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__.InjectRepository)(_entities_message_entity__WEBPACK_IMPORTED_MODULE_3__.Message)),
+    __metadata("design:paramtypes", [typeorm__WEBPACK_IMPORTED_MODULE_2__.Repository])
+], MessageRepository);
+
+
+
+/***/ }),
+
+/***/ "./src/modules/messages/services/error-handler.service.ts":
+/*!****************************************************************!*\
+  !*** ./src/modules/messages/services/error-handler.service.ts ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ErrorHandlerService: () => (/* binding */ ErrorHandlerService)
+/* harmony export */ });
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_0__);
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+let ErrorHandlerService = class ErrorHandlerService {
+    notFound(entity, id) {
+        throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.NotFoundException(`${entity} with ID ${id} not found`);
+    }
+    badRequest(message) {
+        throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.BadRequestException(message);
+    }
+    conflict(message) {
+        throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.ConflictException(message);
+    }
+};
+ErrorHandlerService = __decorate([
+    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.Injectable)()
+], ErrorHandlerService);
 
 
 
@@ -13254,6 +11822,69 @@ MessagesService = __decorate([
         typeorm__WEBPACK_IMPORTED_MODULE_2__.DataSource,
         _nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_8__.EventEmitter2])
 ], MessagesService);
+
+
+
+/***/ }),
+
+/***/ "./src/modules/messages/services/template.service.ts":
+/*!***********************************************************!*\
+  !*** ./src/modules/messages/services/template.service.ts ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   TemplateService: () => (/* binding */ TemplateService)
+/* harmony export */ });
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nestjs/typeorm */ "@nestjs/typeorm");
+/* harmony import */ var _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! typeorm */ "typeorm");
+/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(typeorm__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _entities_message_template_entity__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../entities/message-template.entity */ "./src/modules/messages/entities/message-template.entity.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+
+
+let TemplateService = class TemplateService {
+    constructor(templateRepository) {
+        this.templateRepository = templateRepository;
+    }
+    async findById(id, organizationId) {
+        const template = await this.templateRepository.findOne({
+            where: { id, organizationId }
+        });
+        if (!template) {
+            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.NotFoundException(`Template with ID ${id} not found`);
+        }
+        return template;
+    }
+    processTemplate(template, data) {
+        return template.replace(/\{\{(\w+)\}\}/g, (match, key) => {
+            const value = data[key];
+            return value !== undefined && value !== null ? String(value) : match;
+        });
+    }
+};
+TemplateService = __decorate([
+    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.Injectable)(),
+    __param(0, (0,_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__.InjectRepository)(_entities_message_template_entity__WEBPACK_IMPORTED_MODULE_3__.MessageTemplate)),
+    __metadata("design:paramtypes", [typeorm__WEBPACK_IMPORTED_MODULE_2__.Repository])
+], TemplateService);
 
 
 
@@ -16311,7 +14942,6 @@ NotificationListener = NotificationListener_1 = __decorate([
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   AppointmentEventTypes: () => (/* binding */ AppointmentEventTypes),
 /* harmony export */   NotificationsModule: () => (/* binding */ NotificationsModule)
 /* harmony export */ });
 /* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
@@ -16320,24 +14950,36 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @nestjs/event-emitter */ "@nestjs/event-emitter");
 /* harmony import */ var _nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _controllers_notifications_controller__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./controllers/notifications.controller */ "./src/modules/notifications/controllers/notifications.controller.ts");
-/* harmony import */ var _services_notifications_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./services/notifications.service */ "./src/modules/notifications/services/notifications.service.ts");
-/* harmony import */ var _services_notification_scheduler_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./services/notification-scheduler.service */ "./src/modules/notifications/services/notification-scheduler.service.ts");
-/* harmony import */ var _entities_notification_entity__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./entities/notification.entity */ "./src/modules/notifications/entities/notification.entity.ts");
-/* harmony import */ var _entities_notification_preference_entity__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./entities/notification-preference.entity */ "./src/modules/notifications/entities/notification-preference.entity.ts");
-/* harmony import */ var _entities_notification_template_entity__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./entities/notification-template.entity */ "./src/modules/notifications/entities/notification-template.entity.ts");
-/* harmony import */ var _listeners_notification_listener__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./listeners/notification.listener */ "./src/modules/notifications/listeners/notification.listener.ts");
-/* harmony import */ var _listeners_notification_schedule_listener__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./listeners/notification-schedule.listener */ "./src/modules/notifications/listeners/notification-schedule.listener.ts");
-/* harmony import */ var _listeners_notification_delivery_listener__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./listeners/notification-delivery.listener */ "./src/modules/notifications/listeners/notification-delivery.listener.ts");
-/* harmony import */ var _users_users_module__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../users/users.module */ "./src/modules/users/users.module.ts");
-/* harmony import */ var _organizations_organizations_module__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../organizations/organizations.module */ "./src/modules/organizations/organizations.module.ts");
-/* harmony import */ var _auth_auth_module__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../auth/auth.module */ "./src/modules/auth/auth.module.ts");
-/* harmony import */ var _shared_services_email_service__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../shared/services/email.service */ "./src/shared/services/email.service.ts");
-/* harmony import */ var _shared_services_sms_service__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../../shared/services/sms.service */ "./src/shared/services/sms.service.ts");
-/* harmony import */ var _shared_services_push_notification_service__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../../shared/services/push-notification.service */ "./src/shared/services/push-notification.service.ts");
-/* harmony import */ var _shared_services_webhook_service__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../../shared/services/webhook.service */ "./src/shared/services/webhook.service.ts");
-/* harmony import */ var _whatsapp_services_whatsapp_services__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../whatsapp/services/whatsapp.services */ "./src/modules/whatsapp/services/whatsapp.services.ts");
-/* harmony import */ var _services_notification_delivery_service__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./services/notification-delivery.service */ "./src/modules/notifications/services/notification-delivery.service.ts");
+/* harmony import */ var _nestjs_config__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @nestjs/config */ "@nestjs/config");
+/* harmony import */ var _nestjs_config__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_nestjs_config__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _controllers_notifications_controller__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./controllers/notifications.controller */ "./src/modules/notifications/controllers/notifications.controller.ts");
+/* harmony import */ var _services_notifications_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./services/notifications.service */ "./src/modules/notifications/services/notifications.service.ts");
+/* harmony import */ var _services_notification_scheduler_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./services/notification-scheduler.service */ "./src/modules/notifications/services/notification-scheduler.service.ts");
+/* harmony import */ var _entities_notification_entity__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./entities/notification.entity */ "./src/modules/notifications/entities/notification.entity.ts");
+/* harmony import */ var _entities_notification_preference_entity__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./entities/notification-preference.entity */ "./src/modules/notifications/entities/notification-preference.entity.ts");
+/* harmony import */ var _entities_notification_template_entity__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./entities/notification-template.entity */ "./src/modules/notifications/entities/notification-template.entity.ts");
+/* harmony import */ var _entities_email_template_entity__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./entities/email-template.entity */ "./src/modules/notifications/entities/email-template.entity.ts");
+/* harmony import */ var _entities_email_log_entity__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./entities/email-log.entity */ "./src/modules/notifications/entities/email-log.entity.ts");
+/* harmony import */ var _entities_email_queue_entity__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./entities/email-queue.entity */ "./src/modules/notifications/entities/email-queue.entity.ts");
+/* harmony import */ var _domain_entities_domain_entity__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../domain/entities/domain.entity */ "./src/modules/domain/entities/domain.entity.ts");
+/* harmony import */ var _domain_entities_domain_verification_token_entity__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../domain/entities/domain-verification-token.entity */ "./src/modules/domain/entities/domain-verification-token.entity.ts");
+/* harmony import */ var _listeners_notification_listener__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./listeners/notification.listener */ "./src/modules/notifications/listeners/notification.listener.ts");
+/* harmony import */ var _listeners_notification_schedule_listener__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./listeners/notification-schedule.listener */ "./src/modules/notifications/listeners/notification-schedule.listener.ts");
+/* harmony import */ var _listeners_notification_delivery_listener__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./listeners/notification-delivery.listener */ "./src/modules/notifications/listeners/notification-delivery.listener.ts");
+/* harmony import */ var _users_users_module__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../users/users.module */ "./src/modules/users/users.module.ts");
+/* harmony import */ var _organizations_organizations_module__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../organizations/organizations.module */ "./src/modules/organizations/organizations.module.ts");
+/* harmony import */ var _auth_auth_module__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../auth/auth.module */ "./src/modules/auth/auth.module.ts");
+/* harmony import */ var _shared_services_email_service__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../../shared/services/email.service */ "./src/shared/services/email.service.ts");
+/* harmony import */ var _shared_services_sms_service__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ../../shared/services/sms.service */ "./src/shared/services/sms.service.ts");
+/* harmony import */ var _shared_services_push_notification_service__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ../../shared/services/push-notification.service */ "./src/shared/services/push-notification.service.ts");
+/* harmony import */ var _shared_services_webhook_service__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ../../shared/services/webhook.service */ "./src/shared/services/webhook.service.ts");
+/* harmony import */ var _whatsapp_services_whatsapp_services__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ../whatsapp/services/whatsapp.services */ "./src/modules/whatsapp/services/whatsapp.services.ts");
+/* harmony import */ var _services_notification_delivery_service__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./services/notification-delivery.service */ "./src/modules/notifications/services/notification-delivery.service.ts");
+/* harmony import */ var _integrations_slack_services_slack_service__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ../integrations/slack/services/slack.service */ "./src/modules/integrations/slack/services/slack.service.ts");
+/* harmony import */ var _domain_services_domain_verification_service__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ../domain/services/domain-verification.service */ "./src/modules/domain/services/domain-verification.service.ts");
+/* harmony import */ var _whatsapp_entities_whatsapp_message_entity__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ../whatsapp/entities/whatsapp-message.entity */ "./src/modules/whatsapp/entities/whatsapp-message.entity.ts");
+/* harmony import */ var _whatsapp_entities_whatsapp_template_entity__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ../whatsapp/entities/whatsapp-template.entity */ "./src/modules/whatsapp/entities/whatsapp-template.entity.ts");
+/* harmony import */ var _whatsapp_entities_whatsapp_log_entity__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ../whatsapp/entities/whatsapp-log.entity */ "./src/modules/whatsapp/entities/whatsapp-log.entity.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -16365,50 +15007,64 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
-var AppointmentEventTypes;
-(function (AppointmentEventTypes) {
-    AppointmentEventTypes["CREATED"] = "appointment.created";
-    AppointmentEventTypes["UPDATED"] = "appointment.updated";
-    AppointmentEventTypes["CANCELLED"] = "appointment.cancelled";
-    AppointmentEventTypes["COMPLETED"] = "appointment.completed";
-    AppointmentEventTypes["RESCHEDULED"] = "appointment.rescheduled";
-})(AppointmentEventTypes || (AppointmentEventTypes = {}));
+
+
+
+
+
+
+
+
+
+
+
 let NotificationsModule = class NotificationsModule {
 };
 NotificationsModule = __decorate([
     (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.Module)({
         imports: [
             _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__.TypeOrmModule.forFeature([
-                _entities_notification_entity__WEBPACK_IMPORTED_MODULE_6__.Notification,
-                _entities_notification_preference_entity__WEBPACK_IMPORTED_MODULE_7__.NotificationPreference,
-                _entities_notification_template_entity__WEBPACK_IMPORTED_MODULE_8__.NotificationTemplate
+                _entities_notification_entity__WEBPACK_IMPORTED_MODULE_7__.Notification,
+                _entities_notification_preference_entity__WEBPACK_IMPORTED_MODULE_8__.NotificationPreference,
+                _entities_notification_template_entity__WEBPACK_IMPORTED_MODULE_9__.NotificationTemplate,
+                _entities_email_template_entity__WEBPACK_IMPORTED_MODULE_10__.EmailTemplate,
+                _entities_email_log_entity__WEBPACK_IMPORTED_MODULE_11__.EmailLog,
+                _entities_email_queue_entity__WEBPACK_IMPORTED_MODULE_12__.EmailQueue,
+                _domain_entities_domain_entity__WEBPACK_IMPORTED_MODULE_13__.Domain,
+                _domain_entities_domain_verification_token_entity__WEBPACK_IMPORTED_MODULE_14__.DomainVerificationToken,
+                _whatsapp_entities_whatsapp_message_entity__WEBPACK_IMPORTED_MODULE_29__.WhatsAppMessage,
+                _whatsapp_entities_whatsapp_template_entity__WEBPACK_IMPORTED_MODULE_30__.WhatsappTemplate,
+                _whatsapp_entities_whatsapp_log_entity__WEBPACK_IMPORTED_MODULE_31__.WhatsappLog
             ]),
             _nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_2__.EventEmitterModule.forRoot({
                 wildcard: true,
                 maxListeners: 20,
                 verboseMemoryLeak: true,
             }),
-            _users_users_module__WEBPACK_IMPORTED_MODULE_12__.UsersModule,
-            _organizations_organizations_module__WEBPACK_IMPORTED_MODULE_13__.OrganizationsModule,
-            _auth_auth_module__WEBPACK_IMPORTED_MODULE_14__.AuthModule
+            _nestjs_config__WEBPACK_IMPORTED_MODULE_3__.ConfigModule,
+            (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.forwardRef)(() => _users_users_module__WEBPACK_IMPORTED_MODULE_18__.UsersModule),
+            (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.forwardRef)(() => _organizations_organizations_module__WEBPACK_IMPORTED_MODULE_19__.OrganizationsModule),
+            (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.forwardRef)(() => _auth_auth_module__WEBPACK_IMPORTED_MODULE_20__.AuthModule)
         ],
-        controllers: [_controllers_notifications_controller__WEBPACK_IMPORTED_MODULE_3__.NotificationsController],
+        controllers: [_controllers_notifications_controller__WEBPACK_IMPORTED_MODULE_4__.NotificationsController],
         providers: [
-            _services_notifications_service__WEBPACK_IMPORTED_MODULE_4__.NotificationsService,
-            _services_notification_scheduler_service__WEBPACK_IMPORTED_MODULE_5__.NotificationSchedulerService,
-            _services_notification_delivery_service__WEBPACK_IMPORTED_MODULE_20__.NotificationDeliveryService,
-            _listeners_notification_listener__WEBPACK_IMPORTED_MODULE_9__.NotificationListener,
-            _listeners_notification_schedule_listener__WEBPACK_IMPORTED_MODULE_10__.NotificationScheduleListener,
-            _listeners_notification_delivery_listener__WEBPACK_IMPORTED_MODULE_11__.NotificationDeliveryListener,
-            _shared_services_email_service__WEBPACK_IMPORTED_MODULE_15__.EmailService,
-            _shared_services_sms_service__WEBPACK_IMPORTED_MODULE_16__.SmsService,
-            _shared_services_push_notification_service__WEBPACK_IMPORTED_MODULE_17__.PushNotificationService,
-            _shared_services_webhook_service__WEBPACK_IMPORTED_MODULE_18__.WebhookService,
-            _whatsapp_services_whatsapp_services__WEBPACK_IMPORTED_MODULE_19__.WhatsappService,
+            _services_notifications_service__WEBPACK_IMPORTED_MODULE_5__.NotificationsService,
+            _services_notification_scheduler_service__WEBPACK_IMPORTED_MODULE_6__.NotificationSchedulerService,
+            _services_notification_delivery_service__WEBPACK_IMPORTED_MODULE_26__.NotificationDeliveryService,
+            _listeners_notification_listener__WEBPACK_IMPORTED_MODULE_15__.NotificationListener,
+            _listeners_notification_schedule_listener__WEBPACK_IMPORTED_MODULE_16__.NotificationScheduleListener,
+            _listeners_notification_delivery_listener__WEBPACK_IMPORTED_MODULE_17__.NotificationDeliveryListener,
+            _shared_services_email_service__WEBPACK_IMPORTED_MODULE_21__.EmailService,
+            _shared_services_sms_service__WEBPACK_IMPORTED_MODULE_22__.SmsService,
+            _shared_services_push_notification_service__WEBPACK_IMPORTED_MODULE_23__.PushNotificationService,
+            _shared_services_webhook_service__WEBPACK_IMPORTED_MODULE_24__.WebhookService,
+            _whatsapp_services_whatsapp_services__WEBPACK_IMPORTED_MODULE_25__.WhatsappService,
+            _integrations_slack_services_slack_service__WEBPACK_IMPORTED_MODULE_27__.SlackService,
+            _domain_services_domain_verification_service__WEBPACK_IMPORTED_MODULE_28__.DomainVerificationService
         ],
         exports: [
-            _services_notifications_service__WEBPACK_IMPORTED_MODULE_4__.NotificationsService,
-            _services_notification_delivery_service__WEBPACK_IMPORTED_MODULE_20__.NotificationDeliveryService
+            _services_notifications_service__WEBPACK_IMPORTED_MODULE_5__.NotificationsService,
+            _services_notification_delivery_service__WEBPACK_IMPORTED_MODULE_26__.NotificationDeliveryService
         ]
     })
 ], NotificationsModule);
@@ -19349,129 +18005,6 @@ const RequireOrganizationRoles = (metadata) => {
 
 /***/ }),
 
-/***/ "./src/modules/organizations/guards/organization.guard.ts":
-/*!****************************************************************!*\
-  !*** ./src/modules/organizations/guards/organization.guard.ts ***!
-  \****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   OptionalOrganization: () => (/* binding */ OptionalOrganization),
-/* harmony export */   OrganizationGuard: () => (/* binding */ OrganizationGuard)
-/* harmony export */ });
-/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
-/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _nestjs_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nestjs/core */ "@nestjs/core");
-/* harmony import */ var _nestjs_core__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_core__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _services_organizations_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/organizations.service */ "./src/modules/organizations/services/organizations.service.ts");
-/* harmony import */ var _users_enums_role_enum__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../users/enums/role.enum */ "./src/modules/users/enums/role.enum.ts");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var OrganizationGuard_1;
-
-
-
-
-let OrganizationGuard = OrganizationGuard_1 = class OrganizationGuard {
-    constructor(reflector, organizationsService) {
-        this.reflector = reflector;
-        this.organizationsService = organizationsService;
-        this.logger = new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.Logger(OrganizationGuard_1.name);
-    }
-    async canActivate(context) {
-        try {
-            const request = context.switchToHttp().getRequest();
-            const user = request.user;
-            if (!user) {
-                throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.UnauthorizedException('No authenticated user found');
-            }
-            if (user.role === _users_enums_role_enum__WEBPACK_IMPORTED_MODULE_3__.Role.SUPER_ADMIN) {
-                return true;
-            }
-            const organizationId = this.extractOrganizationId(request);
-            if (!organizationId) {
-                const isOptional = this.reflector.get('optionalOrganization', context.getHandler());
-                return isOptional || false;
-            }
-            const hasAccess = await this.verifyOrganizationAccess(user.id, organizationId);
-            if (!hasAccess) {
-                throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.ForbiddenException('User does not have access to this organization');
-            }
-            const [organization, member] = await Promise.all([
-                this.organizationsService.findOne(organizationId),
-                this.organizationsService.getMemberContext(organizationId, user.id)
-            ]);
-            if (!organization) {
-                throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.ForbiddenException('Organization not found');
-            }
-            if (!member) {
-                throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_0__.ForbiddenException('User is not a member of this organization');
-            }
-            request.organization = organization;
-            request.organizationMember = member;
-            return true;
-        }
-        catch (error) {
-            this.logger.error('Error in organization guard:', error);
-            throw error;
-        }
-    }
-    extractOrganizationId(request) {
-        var _a, _b, _c;
-        return (((_a = request.params) === null || _a === void 0 ? void 0 : _a.organizationId) ||
-            ((_b = request.body) === null || _b === void 0 ? void 0 : _b.organizationId) ||
-            ((_c = request.query) === null || _c === void 0 ? void 0 : _c.organizationId) ||
-            this.extractFromPath(request.path));
-    }
-    extractFromPath(path) {
-        const matches = path.match(/\/organizations\/([^\/]+)/);
-        return matches === null || matches === void 0 ? void 0 : matches[1];
-    }
-    async verifyOrganizationAccess(userId, organizationId) {
-        try {
-            const membership = await this.organizationsService.getMemberContext(organizationId, userId);
-            if (!membership) {
-                return false;
-            }
-            if (!membership.isActive) {
-                return false;
-            }
-            return true;
-        }
-        catch (error) {
-            this.logger.error(`Error verifying organization access for user ${userId}:`, error);
-            return false;
-        }
-    }
-};
-OrganizationGuard = OrganizationGuard_1 = __decorate([
-    (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.Injectable)(),
-    __metadata("design:paramtypes", [_nestjs_core__WEBPACK_IMPORTED_MODULE_1__.Reflector,
-        _services_organizations_service__WEBPACK_IMPORTED_MODULE_2__.OrganizationsService])
-], OrganizationGuard);
-
-const OptionalOrganization = () => {
-    return (target, key, descriptor) => {
-        if (key) {
-            if (descriptor) {
-                (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.SetMetadata)('optionalOrganization', true)(target, key, descriptor);
-            }
-        }
-        return descriptor;
-    };
-};
-
-
-/***/ }),
-
 /***/ "./src/modules/organizations/listeners/organization-audit.listener.ts":
 /*!****************************************************************************!*\
   !*** ./src/modules/organizations/listeners/organization-audit.listener.ts ***!
@@ -19835,15 +18368,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _controllers_organizations_controller__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./controllers/organizations.controller */ "./src/modules/organizations/controllers/organizations.controller.ts");
 /* harmony import */ var _services_organizations_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./services/organizations.service */ "./src/modules/organizations/services/organizations.service.ts");
 /* harmony import */ var _entities_organization_entity__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./entities/organization.entity */ "./src/modules/organizations/entities/organization.entity.ts");
-/* harmony import */ var _users_users_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../users/users.module */ "./src/modules/users/users.module.ts");
-/* harmony import */ var _auth_auth_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../auth/auth.module */ "./src/modules/auth/auth.module.ts");
-/* harmony import */ var _listeners_organization_billing_listener__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./listeners/organization-billing.listener */ "./src/modules/organizations/listeners/organization-billing.listener.ts");
-/* harmony import */ var _listeners_organization_audit_listener__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./listeners/organization-audit.listener */ "./src/modules/organizations/listeners/organization-audit.listener.ts");
-/* harmony import */ var _services_organization_subscription_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./services/organization-subscription.service */ "./src/modules/organizations/services/organization-subscription.service.ts");
-/* harmony import */ var _services_organization_invitation_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./services/organization-invitation.service */ "./src/modules/organizations/services/organization-invitation.service.ts");
-/* harmony import */ var _services_organization_audit_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./services/organization-audit.service */ "./src/modules/organizations/services/organization-audit.service.ts");
-/* harmony import */ var _guards_organization_access_guard__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./guards/organization-access.guard */ "./src/modules/organizations/guards/organization-access.guard.ts");
-/* harmony import */ var _guards_organization_role_guard__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./guards/organization-role.guard */ "./src/modules/organizations/guards/organization-role.guard.ts");
+/* harmony import */ var _entities_organization_invitation_entity__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./entities/organization-invitation.entity */ "./src/modules/organizations/entities/organization-invitation.entity.ts");
+/* harmony import */ var _entities_organization_audit_log_entity__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./entities/organization-audit-log.entity */ "./src/modules/organizations/entities/organization-audit-log.entity.ts");
+/* harmony import */ var _users_entities_user_entity__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts");
+/* harmony import */ var _audit_entities_audit_log_entity__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../audit/entities/audit-log.entity */ "./src/modules/audit/entities/audit-log.entity.ts");
+/* harmony import */ var _users_users_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../users/users.module */ "./src/modules/users/users.module.ts");
+/* harmony import */ var _auth_auth_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../auth/auth.module */ "./src/modules/auth/auth.module.ts");
+/* harmony import */ var _listeners_organization_billing_listener__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./listeners/organization-billing.listener */ "./src/modules/organizations/listeners/organization-billing.listener.ts");
+/* harmony import */ var _listeners_organization_audit_listener__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./listeners/organization-audit.listener */ "./src/modules/organizations/listeners/organization-audit.listener.ts");
+/* harmony import */ var _services_organization_subscription_service__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./services/organization-subscription.service */ "./src/modules/organizations/services/organization-subscription.service.ts");
+/* harmony import */ var _services_organization_invitation_service__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./services/organization-invitation.service */ "./src/modules/organizations/services/organization-invitation.service.ts");
+/* harmony import */ var _services_organization_audit_service__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./services/organization-audit.service */ "./src/modules/organizations/services/organization-audit.service.ts");
+/* harmony import */ var _guards_organization_access_guard__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./guards/organization-access.guard */ "./src/modules/organizations/guards/organization-access.guard.ts");
+/* harmony import */ var _guards_organization_role_guard__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./guards/organization-role.guard */ "./src/modules/organizations/guards/organization-role.guard.ts");
+/* harmony import */ var _domain_services_domain_verification_service__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../domain/services/domain-verification.service */ "./src/modules/domain/services/domain-verification.service.ts");
+/* harmony import */ var _shared_services_email_service__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../../shared/services/email.service */ "./src/shared/services/email.service.ts");
+/* harmony import */ var _storage_services_storage_service__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../storage/services/storage.service */ "./src/modules/storage/services/storage.service.ts");
+/* harmony import */ var domain__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! domain */ "domain");
+/* harmony import */ var domain__WEBPACK_IMPORTED_MODULE_22___default = /*#__PURE__*/__webpack_require__.n(domain__WEBPACK_IMPORTED_MODULE_22__);
+/* harmony import */ var _domain_entities_domain_verification_token_entity__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ../domain/entities/domain-verification-token.entity */ "./src/modules/domain/entities/domain-verification-token.entity.ts");
+/* harmony import */ var _notifications_entities_email_template_entity__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ../notifications/entities/email-template.entity */ "./src/modules/notifications/entities/email-template.entity.ts");
+/* harmony import */ var _notifications_entities_email_log_entity__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ../notifications/entities/email-log.entity */ "./src/modules/notifications/entities/email-log.entity.ts");
+/* harmony import */ var _notifications_entities_email_queue_entity__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ../notifications/entities/email-queue.entity */ "./src/modules/notifications/entities/email-queue.entity.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -19865,40 +18411,68 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 let OrganizationsModule = class OrganizationsModule {
 };
 OrganizationsModule = __decorate([
     (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.Module)({
         imports: [
-            _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__.TypeOrmModule.forFeature([_entities_organization_entity__WEBPACK_IMPORTED_MODULE_5__.Organization]),
+            _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__.TypeOrmModule.forFeature([
+                _entities_organization_entity__WEBPACK_IMPORTED_MODULE_5__.Organization,
+                _entities_organization_invitation_entity__WEBPACK_IMPORTED_MODULE_6__.OrganizationInvitation,
+                _entities_organization_audit_log_entity__WEBPACK_IMPORTED_MODULE_7__.OrganizationAuditLog,
+                _users_entities_user_entity__WEBPACK_IMPORTED_MODULE_8__.User,
+                _audit_entities_audit_log_entity__WEBPACK_IMPORTED_MODULE_9__.AuditLog,
+                domain__WEBPACK_IMPORTED_MODULE_22__.Domain,
+                _domain_services_domain_verification_service__WEBPACK_IMPORTED_MODULE_19__.DomainVerificationService,
+                _domain_entities_domain_verification_token_entity__WEBPACK_IMPORTED_MODULE_23__.DomainVerificationToken,
+                _notifications_entities_email_template_entity__WEBPACK_IMPORTED_MODULE_24__.EmailTemplate,
+                _notifications_entities_email_log_entity__WEBPACK_IMPORTED_MODULE_25__.EmailLog,
+                _notifications_entities_email_queue_entity__WEBPACK_IMPORTED_MODULE_26__.EmailQueue,
+                _shared_services_email_service__WEBPACK_IMPORTED_MODULE_20__.EmailService,
+            ]),
             _nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_2__.EventEmitterModule.forRoot({
                 wildcard: true,
                 delimiter: '.',
                 maxListeners: 20,
                 verboseMemoryLeak: true,
             }),
-            _users_users_module__WEBPACK_IMPORTED_MODULE_6__.UsersModule,
-            _auth_auth_module__WEBPACK_IMPORTED_MODULE_7__.AuthModule,
+            (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.forwardRef)(() => _users_users_module__WEBPACK_IMPORTED_MODULE_10__.UsersModule),
+            (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.forwardRef)(() => _auth_auth_module__WEBPACK_IMPORTED_MODULE_11__.AuthModule),
         ],
         controllers: [
             _controllers_organizations_controller__WEBPACK_IMPORTED_MODULE_3__.OrganizationsController
         ],
         providers: [
             _services_organizations_service__WEBPACK_IMPORTED_MODULE_4__.OrganizationsService,
-            _services_organization_subscription_service__WEBPACK_IMPORTED_MODULE_10__.OrganizationSubscriptionService,
-            _services_organization_invitation_service__WEBPACK_IMPORTED_MODULE_11__.OrganizationInvitationService,
-            _services_organization_audit_service__WEBPACK_IMPORTED_MODULE_12__.OrganizationAuditService,
-            _listeners_organization_billing_listener__WEBPACK_IMPORTED_MODULE_8__.OrganizationBillingListener,
-            _listeners_organization_audit_listener__WEBPACK_IMPORTED_MODULE_9__.OrganizationAuditListener,
-            _guards_organization_access_guard__WEBPACK_IMPORTED_MODULE_13__.OrganizationAccessGuard,
-            _guards_organization_role_guard__WEBPACK_IMPORTED_MODULE_14__.OrganizationRoleGuard,
+            _services_organization_subscription_service__WEBPACK_IMPORTED_MODULE_14__.OrganizationSubscriptionService,
+            _services_organization_invitation_service__WEBPACK_IMPORTED_MODULE_15__.OrganizationInvitationService,
+            _services_organization_audit_service__WEBPACK_IMPORTED_MODULE_16__.OrganizationAuditService,
+            _listeners_organization_billing_listener__WEBPACK_IMPORTED_MODULE_12__.OrganizationBillingListener,
+            _listeners_organization_audit_listener__WEBPACK_IMPORTED_MODULE_13__.OrganizationAuditListener,
+            _guards_organization_access_guard__WEBPACK_IMPORTED_MODULE_17__.OrganizationAccessGuard,
+            _guards_organization_role_guard__WEBPACK_IMPORTED_MODULE_18__.OrganizationRoleGuard,
+            _domain_services_domain_verification_service__WEBPACK_IMPORTED_MODULE_19__.DomainVerificationService,
+            _shared_services_email_service__WEBPACK_IMPORTED_MODULE_20__.EmailService,
+            _storage_services_storage_service__WEBPACK_IMPORTED_MODULE_21__.StorageService,
         ],
         exports: [
             _services_organizations_service__WEBPACK_IMPORTED_MODULE_4__.OrganizationsService,
-            _services_organization_subscription_service__WEBPACK_IMPORTED_MODULE_10__.OrganizationSubscriptionService,
-            _services_organization_invitation_service__WEBPACK_IMPORTED_MODULE_11__.OrganizationInvitationService,
-            _guards_organization_access_guard__WEBPACK_IMPORTED_MODULE_13__.OrganizationAccessGuard,
-            _guards_organization_role_guard__WEBPACK_IMPORTED_MODULE_14__.OrganizationRoleGuard,
+            _services_organization_subscription_service__WEBPACK_IMPORTED_MODULE_14__.OrganizationSubscriptionService,
+            _services_organization_invitation_service__WEBPACK_IMPORTED_MODULE_15__.OrganizationInvitationService,
+            _guards_organization_access_guard__WEBPACK_IMPORTED_MODULE_17__.OrganizationAccessGuard,
+            _guards_organization_role_guard__WEBPACK_IMPORTED_MODULE_18__.OrganizationRoleGuard,
         ]
     })
 ], OrganizationsModule);
@@ -22924,8 +21498,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! typeorm */ "typeorm");
 /* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(typeorm__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _ticket_entity__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ticket.entity */ "./src/modules/tickets/entities/ticket.entity.ts");
-/* harmony import */ var _ticket_comment_entity__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ticket-comment.entity */ "./src/modules/tickets/entities/ticket-comment.entity.ts");
-/* harmony import */ var _users_entities_user_entity__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts");
+/* harmony import */ var _users_entities_user_entity__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -22939,10 +21512,9 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
-
 let TicketAttachment = class TicketAttachment {
     static _OPENAPI_METADATA_FACTORY() {
-        return { id: { required: true, type: () => String }, organizationId: { required: true, type: () => String }, fileName: { required: true, type: () => String }, fileSize: { required: true, type: () => Number }, mimeType: { required: true, type: () => String }, storageKey: { required: true, type: () => String }, description: { required: true, type: () => String }, ticketId: { required: true, type: () => String }, ticket: { required: true, type: () => (__webpack_require__(/*! ./ticket.entity */ "./src/modules/tickets/entities/ticket.entity.ts").Ticket) }, commentId: { required: true, type: () => String }, comment: { required: true, type: () => (__webpack_require__(/*! ./ticket-comment.entity */ "./src/modules/tickets/entities/ticket-comment.entity.ts").TicketComment) }, uploadedById: { required: true, type: () => String }, uploadedBy: { required: true, type: () => (__webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts").User) }, metadata: { required: true, type: () => Object }, createdAt: { required: true, type: () => Date }, isPrivate: { required: true, type: () => Boolean }, isActive: { required: true, type: () => Boolean } };
+        return { id: { required: true, type: () => String }, organizationId: { required: true, type: () => String }, fileName: { required: true, type: () => String }, fileSize: { required: true, type: () => Number }, mimeType: { required: true, type: () => String }, storageKey: { required: true, type: () => String }, description: { required: true, type: () => String }, ticketId: { required: true, type: () => String }, ticket: { required: true, type: () => (__webpack_require__(/*! ./ticket.entity */ "./src/modules/tickets/entities/ticket.entity.ts").Ticket) }, commentId: { required: true, type: () => String }, comment: { required: true, type: () => Object }, uploadedById: { required: true, type: () => String }, uploadedBy: { required: true, type: () => (__webpack_require__(/*! ../../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts").User) }, metadata: { required: true, type: () => Object }, createdAt: { required: true, type: () => Date }, isPrivate: { required: true, type: () => Boolean }, isActive: { required: true, type: () => Boolean } };
     }
 };
 __decorate([
@@ -22983,18 +21555,18 @@ __decorate([
     __metadata("design:type", String)
 ], TicketAttachment.prototype, "commentId", void 0);
 __decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.ManyToOne)(() => _ticket_comment_entity__WEBPACK_IMPORTED_MODULE_3__.TicketComment, comment => comment.attachments, { nullable: true }),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.ManyToOne)('TicketComment', 'attachments', { nullable: true }),
     (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.JoinColumn)({ name: 'commentId' }),
-    __metadata("design:type", _ticket_comment_entity__WEBPACK_IMPORTED_MODULE_3__.TicketComment)
+    __metadata("design:type", Object)
 ], TicketAttachment.prototype, "comment", void 0);
 __decorate([
     (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)('uuid'),
     __metadata("design:type", String)
 ], TicketAttachment.prototype, "uploadedById", void 0);
 __decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.ManyToOne)(() => _users_entities_user_entity__WEBPACK_IMPORTED_MODULE_4__.User),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.ManyToOne)(() => _users_entities_user_entity__WEBPACK_IMPORTED_MODULE_3__.User),
     (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.JoinColumn)({ name: 'uploadedById' }),
-    __metadata("design:type", _users_entities_user_entity__WEBPACK_IMPORTED_MODULE_4__.User)
+    __metadata("design:type", _users_entities_user_entity__WEBPACK_IMPORTED_MODULE_3__.User)
 ], TicketAttachment.prototype, "uploadedBy", void 0);
 __decorate([
     (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)('jsonb', { nullable: true }),
@@ -23095,7 +21667,7 @@ __decorate([
     __metadata("design:type", String)
 ], TicketComment.prototype, "parentId", void 0);
 __decorate([
-    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.ManyToOne)(() => TicketComment, { nullable: true }),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.ManyToOne)('TicketComment', { nullable: true }),
     (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.JoinColumn)({ name: 'parentId' }),
     __metadata("design:type", TicketComment)
 ], TicketComment.prototype, "parent", void 0);
@@ -25031,23 +23603,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _entities_ticket_comment_entity__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./entities/ticket-comment.entity */ "./src/modules/tickets/entities/ticket-comment.entity.ts");
 /* harmony import */ var _entities_ticket_attachment_entity__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./entities/ticket-attachment.entity */ "./src/modules/tickets/entities/ticket-attachment.entity.ts");
 /* harmony import */ var _entities_ticket_activity_entity__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./entities/ticket-activity.entity */ "./src/modules/tickets/entities/ticket-activity.entity.ts");
-/* harmony import */ var _listeners_ticket_listener__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./listeners/ticket.listener */ "./src/modules/tickets/listeners/ticket.listener.ts");
-/* harmony import */ var _listeners_ticket_escalation_listener__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./listeners/ticket-escalation.listener */ "./src/modules/tickets/listeners/ticket-escalation.listener.ts");
+/* harmony import */ var _users_entities_user_entity__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../users/entities/user.entity */ "./src/modules/users/entities/user.entity.ts");
+/* harmony import */ var _listeners_ticket_listener__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./listeners/ticket.listener */ "./src/modules/tickets/listeners/ticket.listener.ts");
 /* harmony import */ var _listeners_ticket_assignment_listener__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./listeners/ticket-assignment.listener */ "./src/modules/tickets/listeners/ticket-assignment.listener.ts");
-/* harmony import */ var _notifications_notifications_module__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../notifications/notifications.module */ "./src/modules/notifications/notifications.module.ts");
+/* harmony import */ var _listeners_ticket_escalation_listener__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./listeners/ticket-escalation.listener */ "./src/modules/tickets/listeners/ticket-escalation.listener.ts");
 /* harmony import */ var _users_users_module__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../users/users.module */ "./src/modules/users/users.module.ts");
-/* harmony import */ var _contacts_contacts_module__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../contacts/contacts.module */ "./src/modules/contacts/contacts.module.ts");
+/* harmony import */ var _notifications_notifications_module__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../notifications/notifications.module */ "./src/modules/notifications/notifications.module.ts");
 /* harmony import */ var _organizations_organizations_module__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../organizations/organizations.module */ "./src/modules/organizations/organizations.module.ts");
-/* harmony import */ var _departments_departments_module__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../departments/departments.module */ "./src/modules/departments/departments.module.ts");
-/* harmony import */ var _auth_auth_module__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../auth/auth.module */ "./src/modules/auth/auth.module.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-
-
 
 
 
@@ -25075,30 +23643,33 @@ TicketsModule = __decorate([
                 _entities_ticket_entity__WEBPACK_IMPORTED_MODULE_7__.Ticket,
                 _entities_ticket_comment_entity__WEBPACK_IMPORTED_MODULE_8__.TicketComment,
                 _entities_ticket_attachment_entity__WEBPACK_IMPORTED_MODULE_9__.TicketAttachment,
-                _entities_ticket_activity_entity__WEBPACK_IMPORTED_MODULE_10__.TicketActivity
+                _entities_ticket_activity_entity__WEBPACK_IMPORTED_MODULE_10__.TicketActivity,
+                _users_entities_user_entity__WEBPACK_IMPORTED_MODULE_11__.User
             ]),
             _nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_2__.EventEmitterModule.forRoot({
                 wildcard: true,
                 maxListeners: 20,
                 verboseMemoryLeak: true,
             }),
-            _notifications_notifications_module__WEBPACK_IMPORTED_MODULE_14__.NotificationsModule,
-            _users_users_module__WEBPACK_IMPORTED_MODULE_15__.UsersModule,
-            _contacts_contacts_module__WEBPACK_IMPORTED_MODULE_16__.ContactsModule,
-            _organizations_organizations_module__WEBPACK_IMPORTED_MODULE_17__.OrganizationsModule,
-            _departments_departments_module__WEBPACK_IMPORTED_MODULE_18__.DepartmentsModule,
-            _auth_auth_module__WEBPACK_IMPORTED_MODULE_19__.AuthModule
+            (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.forwardRef)(() => _users_users_module__WEBPACK_IMPORTED_MODULE_15__.UsersModule),
+            (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.forwardRef)(() => _notifications_notifications_module__WEBPACK_IMPORTED_MODULE_16__.NotificationsModule),
+            (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.forwardRef)(() => _organizations_organizations_module__WEBPACK_IMPORTED_MODULE_17__.OrganizationsModule)
         ],
-        controllers: [_controllers_tickets_controller__WEBPACK_IMPORTED_MODULE_3__.TicketsController],
+        controllers: [
+            _controllers_tickets_controller__WEBPACK_IMPORTED_MODULE_3__.TicketsController
+        ],
         providers: [
             _services_tickets_service__WEBPACK_IMPORTED_MODULE_4__.TicketsService,
             _services_ticket_activity_service__WEBPACK_IMPORTED_MODULE_5__.TicketActivityService,
             _services_ticket_escalation_service__WEBPACK_IMPORTED_MODULE_6__.TicketEscalationService,
-            _listeners_ticket_listener__WEBPACK_IMPORTED_MODULE_11__.TicketListener,
-            _listeners_ticket_escalation_listener__WEBPACK_IMPORTED_MODULE_12__.TicketEscalationListener,
+            _listeners_ticket_listener__WEBPACK_IMPORTED_MODULE_12__.TicketListener,
             _listeners_ticket_assignment_listener__WEBPACK_IMPORTED_MODULE_13__.TicketAssignmentListener,
+            _listeners_ticket_escalation_listener__WEBPACK_IMPORTED_MODULE_14__.TicketEscalationListener
         ],
-        exports: [_services_tickets_service__WEBPACK_IMPORTED_MODULE_4__.TicketsService]
+        exports: [
+            _services_tickets_service__WEBPACK_IMPORTED_MODULE_4__.TicketsService,
+            _services_ticket_activity_service__WEBPACK_IMPORTED_MODULE_5__.TicketActivityService
+        ]
     })
 ], TicketsModule);
 
@@ -27840,12 +26411,32 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _notifications_notifications_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../notifications/notifications.module */ "./src/modules/notifications/notifications.module.ts");
 /* harmony import */ var _organizations_organizations_module__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../organizations/organizations.module */ "./src/modules/organizations/organizations.module.ts");
 /* harmony import */ var _auth_auth_module__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../auth/auth.module */ "./src/modules/auth/auth.module.ts");
+/* harmony import */ var _shared_services_email_service__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @/shared/services/email.service */ "./src/shared/services/email.service.ts");
+/* harmony import */ var _shared_services_audit_service__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @/shared/services/audit.service */ "./src/shared/services/audit.service.ts");
+/* harmony import */ var _domain_services_domain_verification_service__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../domain/services/domain-verification.service */ "./src/modules/domain/services/domain-verification.service.ts");
+/* harmony import */ var _email_services_email_template_service__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../email/services/email-template.service */ "./src/modules/email/services/email-template.service.ts");
+/* harmony import */ var _notifications_entities_email_template_entity__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../notifications/entities/email-template.entity */ "./src/modules/notifications/entities/email-template.entity.ts");
+/* harmony import */ var _notifications_entities_email_log_entity__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../notifications/entities/email-log.entity */ "./src/modules/notifications/entities/email-log.entity.ts");
+/* harmony import */ var _notifications_entities_email_queue_entity__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../notifications/entities/email-queue.entity */ "./src/modules/notifications/entities/email-queue.entity.ts");
+/* harmony import */ var _domain_entities_domain_entity__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../domain/entities/domain.entity */ "./src/modules/domain/entities/domain.entity.ts");
+/* harmony import */ var _domain_entities_domain_verification_token_entity__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ../domain/entities/domain-verification-token.entity */ "./src/modules/domain/entities/domain-verification-token.entity.ts");
+/* harmony import */ var _audit_entities_audit_log_entity__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ../audit/entities/audit-log.entity */ "./src/modules/audit/entities/audit-log.entity.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -27868,27 +26459,317 @@ UsersModule = __decorate([
             _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_1__.TypeOrmModule.forFeature([
                 _entities_user_entity__WEBPACK_IMPORTED_MODULE_6__.User,
                 _entities_user_activity_entity__WEBPACK_IMPORTED_MODULE_7__.UserActivity,
-                _entities_user_session_entity__WEBPACK_IMPORTED_MODULE_8__.UserSession
+                _entities_user_session_entity__WEBPACK_IMPORTED_MODULE_8__.UserSession,
+                _notifications_entities_email_template_entity__WEBPACK_IMPORTED_MODULE_18__.EmailTemplate,
+                _audit_entities_audit_log_entity__WEBPACK_IMPORTED_MODULE_23__.AuditLog,
+                _notifications_entities_email_log_entity__WEBPACK_IMPORTED_MODULE_19__.EmailLog,
+                _notifications_entities_email_queue_entity__WEBPACK_IMPORTED_MODULE_20__.EmailQueue,
+                _domain_entities_domain_entity__WEBPACK_IMPORTED_MODULE_21__.Domain,
+                _domain_services_domain_verification_service__WEBPACK_IMPORTED_MODULE_16__.DomainVerificationService,
+                _domain_entities_domain_verification_token_entity__WEBPACK_IMPORTED_MODULE_22__.DomainVerificationToken
             ]),
             _nestjs_event_emitter__WEBPACK_IMPORTED_MODULE_2__.EventEmitterModule.forRoot({
                 wildcard: true,
                 maxListeners: 20,
                 verboseMemoryLeak: true,
             }),
-            _notifications_notifications_module__WEBPACK_IMPORTED_MODULE_11__.NotificationsModule,
-            _organizations_organizations_module__WEBPACK_IMPORTED_MODULE_12__.OrganizationsModule,
-            _auth_auth_module__WEBPACK_IMPORTED_MODULE_13__.AuthModule
+            (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.forwardRef)(() => _notifications_notifications_module__WEBPACK_IMPORTED_MODULE_11__.NotificationsModule),
+            (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.forwardRef)(() => _organizations_organizations_module__WEBPACK_IMPORTED_MODULE_12__.OrganizationsModule),
+            (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.forwardRef)(() => _auth_auth_module__WEBPACK_IMPORTED_MODULE_13__.AuthModule)
         ],
         controllers: [_controllers_users_controller__WEBPACK_IMPORTED_MODULE_3__.UsersController],
         providers: [
             _services_users_service__WEBPACK_IMPORTED_MODULE_4__.UsersService,
             _services_user_activity_service__WEBPACK_IMPORTED_MODULE_5__.UserActivityService,
             _listeners_user_listener__WEBPACK_IMPORTED_MODULE_9__.UserEventListener,
-            _listeners_user_activity_listener__WEBPACK_IMPORTED_MODULE_10__.UserActivityListener
+            _listeners_user_activity_listener__WEBPACK_IMPORTED_MODULE_10__.UserActivityListener,
+            _shared_services_email_service__WEBPACK_IMPORTED_MODULE_14__.EmailService,
+            _shared_services_audit_service__WEBPACK_IMPORTED_MODULE_15__.AuditService,
+            _domain_services_domain_verification_service__WEBPACK_IMPORTED_MODULE_16__.DomainVerificationService,
+            _email_services_email_template_service__WEBPACK_IMPORTED_MODULE_17__.EmailTemplateService,
         ],
         exports: [_services_users_service__WEBPACK_IMPORTED_MODULE_4__.UsersService]
     })
 ], UsersModule);
+
+
+
+/***/ }),
+
+/***/ "./src/modules/whatsapp/entities/whatsapp-log.entity.ts":
+/*!**************************************************************!*\
+  !*** ./src/modules/whatsapp/entities/whatsapp-log.entity.ts ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   WhatsappLog: () => (/* binding */ WhatsappLog),
+/* harmony export */   WhatsappMediaType: () => (/* binding */ WhatsappMediaType),
+/* harmony export */   WhatsappMessageStatus: () => (/* binding */ WhatsappMessageStatus),
+/* harmony export */   WhatsappMessageType: () => (/* binding */ WhatsappMessageType)
+/* harmony export */ });
+/* harmony import */ var _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/swagger */ "@nestjs/swagger");
+/* harmony import */ var _nestjs_swagger__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! typeorm */ "typeorm");
+/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(typeorm__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _whatsapp_template_entity__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./whatsapp-template.entity */ "./src/modules/whatsapp/entities/whatsapp-template.entity.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var WhatsappMessageStatus;
+(function (WhatsappMessageStatus) {
+    WhatsappMessageStatus["QUEUED"] = "queued";
+    WhatsappMessageStatus["SENDING"] = "sending";
+    WhatsappMessageStatus["SENT"] = "sent";
+    WhatsappMessageStatus["DELIVERED"] = "delivered";
+    WhatsappMessageStatus["READ"] = "read";
+    WhatsappMessageStatus["FAILED"] = "failed";
+    WhatsappMessageStatus["REJECTED"] = "rejected";
+    WhatsappMessageStatus["CANCELED"] = "canceled";
+    WhatsappMessageStatus["EXPIRED"] = "expired";
+})(WhatsappMessageStatus || (WhatsappMessageStatus = {}));
+var WhatsappMessageType;
+(function (WhatsappMessageType) {
+    WhatsappMessageType["TEXT"] = "text";
+    WhatsappMessageType["TEMPLATE"] = "template";
+    WhatsappMessageType["IMAGE"] = "image";
+    WhatsappMessageType["DOCUMENT"] = "document";
+    WhatsappMessageType["AUDIO"] = "audio";
+    WhatsappMessageType["VIDEO"] = "video";
+    WhatsappMessageType["STICKER"] = "sticker";
+    WhatsappMessageType["LOCATION"] = "location";
+    WhatsappMessageType["CONTACT"] = "contact";
+    WhatsappMessageType["INTERACTIVE"] = "interactive";
+    WhatsappMessageType["REACTION"] = "reaction";
+    WhatsappMessageType["BUTTON"] = "button";
+})(WhatsappMessageType || (WhatsappMessageType = {}));
+var WhatsappMediaType;
+(function (WhatsappMediaType) {
+    WhatsappMediaType["IMAGE"] = "image";
+    WhatsappMediaType["DOCUMENT"] = "document";
+    WhatsappMediaType["AUDIO"] = "audio";
+    WhatsappMediaType["VIDEO"] = "video";
+    WhatsappMediaType["STICKER"] = "sticker";
+})(WhatsappMediaType || (WhatsappMediaType = {}));
+let WhatsappLog = class WhatsappLog {
+    isInFinalStatus() {
+        return [
+            WhatsappMessageStatus.SENT,
+            WhatsappMessageStatus.DELIVERED,
+            WhatsappMessageStatus.READ,
+            WhatsappMessageStatus.FAILED,
+            WhatsappMessageStatus.REJECTED,
+            WhatsappMessageStatus.CANCELED,
+            WhatsappMessageStatus.EXPIRED
+        ].includes(this.status);
+    }
+    isSuccessful() {
+        return [
+            WhatsappMessageStatus.SENT,
+            WhatsappMessageStatus.DELIVERED,
+            WhatsappMessageStatus.READ
+        ].includes(this.status);
+    }
+    updateStatus(status, details) {
+        if (this.isInFinalStatus() &&
+            status !== WhatsappMessageStatus.READ &&
+            status !== WhatsappMessageStatus.DELIVERED) {
+            return;
+        }
+        this.status = status;
+        if (!this.deliveryDetails) {
+            this.deliveryDetails = {};
+        }
+        if (details) {
+            this.deliveryDetails = Object.assign(Object.assign({}, this.deliveryDetails), details);
+        }
+        if (status === WhatsappMessageStatus.SENDING) {
+            this.deliveryDetails.lastAttemptAt = new Date();
+            this.deliveryDetails.attemptCount = (this.deliveryDetails.attemptCount || 0) + 1;
+        }
+        else if (status === WhatsappMessageStatus.DELIVERED) {
+            this.deliveryDetails.deliveredAt = new Date();
+        }
+        else if (status === WhatsappMessageStatus.READ) {
+            this.deliveryDetails.readAt = new Date();
+        }
+    }
+    getFormattedContent() {
+        var _a;
+        if (this.messageType === WhatsappMessageType.TEXT) {
+            return this.content || '';
+        }
+        else if (this.messageType === WhatsappMessageType.TEMPLATE) {
+            const templateName = ((_a = this.template) === null || _a === void 0 ? void 0 : _a.name) || 'Unknown Template';
+            return `Template: ${templateName}`;
+        }
+        else if (this.mediaData) {
+            const caption = this.mediaData.caption ? ` - ${this.mediaData.caption}` : '';
+            return `${this.mediaData.type}${caption}`;
+        }
+        return `${this.messageType} message`;
+    }
+    getCost() {
+        var _a, _b, _c;
+        if (((_a = this.deliveryDetails) === null || _a === void 0 ? void 0 : _a.cost) && ((_b = this.deliveryDetails) === null || _b === void 0 ? void 0 : _b.currency)) {
+            return {
+                amount: this.deliveryDetails.cost,
+                currency: this.deliveryDetails.currency
+            };
+        }
+        else if ((_c = this.deliveryDetails) === null || _c === void 0 ? void 0 : _c.pricing) {
+            return {
+                amount: this.deliveryDetails.pricing.cost,
+                currency: this.deliveryDetails.pricing.currency
+            };
+        }
+        return null;
+    }
+    static _OPENAPI_METADATA_FACTORY() {
+        return { id: { required: true, type: () => String }, organizationId: { required: true, type: () => String }, messageType: { required: true, enum: (__webpack_require__(/*! ./whatsapp-log.entity */ "./src/modules/whatsapp/entities/whatsapp-log.entity.ts").WhatsappMessageType) }, templateId: { required: false, type: () => String }, template: { required: false, type: () => (__webpack_require__(/*! ./whatsapp-template.entity */ "./src/modules/whatsapp/entities/whatsapp-template.entity.ts").WhatsappTemplate) }, to: { required: true, type: () => String }, toName: { required: false, type: () => String }, from: { required: true, type: () => String }, content: { required: false, type: () => String }, status: { required: true, enum: (__webpack_require__(/*! ./whatsapp-log.entity */ "./src/modules/whatsapp/entities/whatsapp-log.entity.ts").WhatsappMessageStatus) }, messageId: { required: false, type: () => String }, conversationId: { required: false, type: () => String }, metadata: { required: false, type: () => Object }, variables: { required: false, type: () => Object }, components: { required: false }, mediaData: { required: false, type: () => ({ type: { required: true, enum: (__webpack_require__(/*! ./whatsapp-log.entity */ "./src/modules/whatsapp/entities/whatsapp-log.entity.ts").WhatsappMediaType) }, id: { required: false, type: () => String }, url: { required: false, type: () => String }, caption: { required: false, type: () => String }, filename: { required: false, type: () => String }, mimeType: { required: false, type: () => String }, size: { required: false, type: () => Number } }) }, deliveryDetails: { required: false, type: () => ({ provider: { required: false, type: () => String }, attemptCount: { required: false, type: () => Number }, lastAttemptAt: { required: false, type: () => Date }, deliveredAt: { required: false, type: () => Date }, readAt: { required: false, type: () => Date }, error: { required: false, type: () => String }, errorCode: { required: false, type: () => String }, errorDetails: { required: false, type: () => Object }, receivedAt: { required: false, type: () => Date }, cost: { required: false, type: () => Number }, currency: { required: false, type: () => String }, wamid: { required: false, type: () => String }, phoneType: { required: false, type: () => String }, phoneModel: { required: false, type: () => String }, pricing: { required: false, type: () => ({ pricing_model: { required: true, type: () => String }, category: { required: true, type: () => String }, cost: { required: true, type: () => Number }, currency: { required: true, type: () => String } }) } }) }, recipientId: { required: false, type: () => String }, senderId: { required: false, type: () => String }, referenceId: { required: false, type: () => String }, referenceType: { required: false, type: () => String }, scheduledFor: { required: false, type: () => Date }, createdById: { required: false, type: () => String }, createdAt: { required: true, type: () => Date }, updatedAt: { required: true, type: () => Date }, isAutomated: { required: true, type: () => Boolean }, buttons: { required: false }, contextInfo: { required: false, type: () => ({ messageId: { required: false, type: () => String }, forwarded: { required: false, type: () => Boolean }, frequentlyForwarded: { required: false, type: () => Boolean }, fromGroup: { required: false, type: () => Boolean }, groupId: { required: false, type: () => String }, groupName: { required: false, type: () => String }, quotedMessageId: { required: false, type: () => String }, quotedMessageText: { required: false, type: () => String }, quotedMessageSender: { required: false, type: () => String }, mentionedContacts: { required: false, type: () => [String] } }) }, externalBusinessId: { required: false, type: () => String } };
+    }
+};
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.PrimaryGeneratedColumn)('uuid'),
+    __metadata("design:type", String)
+], WhatsappLog.prototype, "id", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)(),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Index)(),
+    __metadata("design:type", String)
+], WhatsappLog.prototype, "organizationId", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'enum', enum: WhatsappMessageType }),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Index)(),
+    __metadata("design:type", String)
+], WhatsappLog.prototype, "messageType", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true }),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Index)(),
+    __metadata("design:type", String)
+], WhatsappLog.prototype, "templateId", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.ManyToOne)(() => _whatsapp_template_entity__WEBPACK_IMPORTED_MODULE_2__.WhatsappTemplate, { nullable: true }),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.JoinColumn)({ name: 'templateId' }),
+    __metadata("design:type", _whatsapp_template_entity__WEBPACK_IMPORTED_MODULE_2__.WhatsappTemplate)
+], WhatsappLog.prototype, "template", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)(),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Index)(),
+    __metadata("design:type", String)
+], WhatsappLog.prototype, "to", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true }),
+    __metadata("design:type", String)
+], WhatsappLog.prototype, "toName", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)(),
+    __metadata("design:type", String)
+], WhatsappLog.prototype, "from", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true, type: 'text' }),
+    __metadata("design:type", String)
+], WhatsappLog.prototype, "content", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'enum', enum: WhatsappMessageStatus, default: WhatsappMessageStatus.QUEUED }),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Index)(),
+    __metadata("design:type", String)
+], WhatsappLog.prototype, "status", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true }),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Index)(),
+    __metadata("design:type", String)
+], WhatsappLog.prototype, "messageId", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true }),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Index)(),
+    __metadata("design:type", String)
+], WhatsappLog.prototype, "conversationId", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true, type: 'jsonb' }),
+    __metadata("design:type", Object)
+], WhatsappLog.prototype, "metadata", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true, type: 'jsonb' }),
+    __metadata("design:type", Object)
+], WhatsappLog.prototype, "variables", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true, type: 'jsonb' }),
+    __metadata("design:type", Array)
+], WhatsappLog.prototype, "components", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true, type: 'jsonb' }),
+    __metadata("design:type", Object)
+], WhatsappLog.prototype, "mediaData", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true, type: 'jsonb' }),
+    __metadata("design:type", Object)
+], WhatsappLog.prototype, "deliveryDetails", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true }),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Index)(),
+    __metadata("design:type", String)
+], WhatsappLog.prototype, "recipientId", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true }),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Index)(),
+    __metadata("design:type", String)
+], WhatsappLog.prototype, "senderId", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true }),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Index)(),
+    __metadata("design:type", String)
+], WhatsappLog.prototype, "referenceId", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true }),
+    __metadata("design:type", String)
+], WhatsappLog.prototype, "referenceType", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ type: 'timestamp', nullable: true }),
+    __metadata("design:type", Date)
+], WhatsappLog.prototype, "scheduledFor", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true }),
+    __metadata("design:type", String)
+], WhatsappLog.prototype, "createdById", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.CreateDateColumn)(),
+    __metadata("design:type", Date)
+], WhatsappLog.prototype, "createdAt", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.UpdateDateColumn)(),
+    __metadata("design:type", Date)
+], WhatsappLog.prototype, "updatedAt", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true, type: 'boolean', default: false }),
+    __metadata("design:type", Boolean)
+], WhatsappLog.prototype, "isAutomated", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true, type: 'jsonb' }),
+    __metadata("design:type", Array)
+], WhatsappLog.prototype, "buttons", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true, type: 'jsonb' }),
+    __metadata("design:type", Object)
+], WhatsappLog.prototype, "contextInfo", void 0);
+__decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Column)({ nullable: true }),
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Index)(),
+    __metadata("design:type", String)
+], WhatsappLog.prototype, "externalBusinessId", void 0);
+WhatsappLog = __decorate([
+    (0,typeorm__WEBPACK_IMPORTED_MODULE_1__.Entity)('whatsapp_logs')
+], WhatsappLog);
 
 
 
@@ -30092,6 +28973,16 @@ module.exports = require("firebase-admin");
 
 /***/ }),
 
+/***/ "handlebars":
+/*!*****************************!*\
+  !*** external "handlebars" ***!
+  \*****************************/
+/***/ ((module) => {
+
+module.exports = require("handlebars");
+
+/***/ }),
+
 /***/ "ioredis":
 /*!**************************!*\
   !*** external "ioredis" ***!
@@ -30209,6 +29100,26 @@ module.exports = require("crypto");
 /***/ ((module) => {
 
 module.exports = require("dns");
+
+/***/ }),
+
+/***/ "domain":
+/*!*************************!*\
+  !*** external "domain" ***!
+  \*************************/
+/***/ ((module) => {
+
+module.exports = require("domain");
+
+/***/ }),
+
+/***/ "fs":
+/*!*********************!*\
+  !*** external "fs" ***!
+  \*********************/
+/***/ ((module) => {
+
+module.exports = require("fs");
 
 /***/ }),
 

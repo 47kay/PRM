@@ -17,6 +17,33 @@ import { Type } from 'class-transformer';
 import { Role } from '../../users/enums/role.enum';
 import { SubscriptionPlan } from '../../organizations/enums/subscription-plan.enum';
 
+export class OrganizationAddressDto {
+    @ApiProperty()
+    @IsString()
+    @IsNotEmpty()
+    street: string;
+
+    @ApiProperty()
+    @IsString()
+    @IsNotEmpty()
+    city: string;
+
+    @ApiProperty()
+    @IsString()
+    @IsNotEmpty()
+    state: string;
+
+    @ApiProperty()
+    @IsString()
+    @IsNotEmpty()
+    postalCode: string;
+
+    @ApiProperty()
+    @IsString()
+    @IsNotEmpty()
+    country: string;
+}
+
 export class RegisterUserDto {
     @ApiProperty({
         description: 'User first name',
@@ -126,33 +153,6 @@ export class RegisterOrganizationDto {
     @IsOptional()
     @IsEnum(SubscriptionPlan)
     subscriptionPlan?: SubscriptionPlan;
-}
-
-export class OrganizationAddressDto {
-    @ApiProperty()
-    @IsString()
-    @IsNotEmpty()
-    street: string;
-
-    @ApiProperty()
-    @IsString()
-    @IsNotEmpty()
-    city: string;
-
-    @ApiProperty()
-    @IsString()
-    @IsNotEmpty()
-    state: string;
-
-    @ApiProperty()
-    @IsString()
-    @IsNotEmpty()
-    postalCode: string;
-
-    @ApiProperty()
-    @IsString()
-    @IsNotEmpty()
-    country: string;
 }
 
 export class RegisterDto {
