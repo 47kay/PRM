@@ -1,11 +1,8 @@
 import { ConfigService } from '@nestjs/config';
-import { Queue } from 'bull';
 export declare class AppService {
     private readonly configService;
-    private notificationsQueue;
-    private messagesQueue;
     private redis;
-    constructor(configService: ConfigService, notificationsQueue: Queue, messagesQueue: Queue);
+    constructor(configService: ConfigService);
     checkHealth(): Promise<{
         isHealthy: boolean;
         services: {
@@ -38,11 +35,6 @@ export declare class AppService {
                             completed: number;
                             failed: number;
                         };
-                        error?: undefined;
-                    } | {
-                        status: string;
-                        error: any;
-                        metrics?: undefined;
                     };
                     messages: {
                         status: string;
@@ -52,18 +44,8 @@ export declare class AppService {
                             completed: number;
                             failed: number;
                         };
-                        error?: undefined;
-                    } | {
-                        status: string;
-                        error: any;
-                        metrics?: undefined;
                     };
                 };
-                error?: undefined;
-            } | {
-                status: string;
-                error: any;
-                queues?: undefined;
             };
             memory: {
                 status: string;
@@ -81,8 +63,7 @@ export declare class AppService {
     private checkDatabase;
     private checkDatabaseQuery;
     private checkRedis;
-    private checkQueues;
-    private checkQueueHealth;
+    private checkQueuesMock;
     private checkMemory;
     private formatBytes;
 }

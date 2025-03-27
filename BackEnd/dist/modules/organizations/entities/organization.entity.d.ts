@@ -35,9 +35,9 @@ export declare class Organization {
     maxUsers: number;
     maxStorage: number;
     createdById: string;
-    createdBy: User;
+    createdBy: any;
     updatedById: string;
-    updatedBy: User;
+    updatedBy: any;
     users: User[];
     tickets: Ticket[];
     createdAt: Date;

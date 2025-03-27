@@ -28,17 +28,22 @@ import { OrganizationQueryDto } from '../dto/organization-query.dto';
 import { AddUserDto } from '../dto/add-user.dto';
 import { UpdateSubscriptionDto } from '../dto/update-subscription.dto';
 import { CustomRequest } from '../../../interfaces/request.interface';
+import { Repository } from 'typeorm';
+import { User } from '../../users/entities/user.entity';
+import { InjectRepository } from '@nestjs/typeorm'; 
 
 @ApiTags('Organizations')
 @Controller('organizations')
 @UseGuards(JwtAuthGuard, RolesGuard)
 @ApiBearerAuth()
 export class OrganizationsController {
-    constructor(private readonly organizationsService: OrganizationsService) {}
+    constructor(
+        private readonly organizationsService: OrganizationsService,
+        // @InjectRepository(User)
+        // private readonly userRepository: Repository<User>
+    ) {}
 
     @Post()
-    @ApiOperation({ summary: 'Create new organization' })
-    @ApiResponse({ status: HttpStatus.CREATED, description: 'Organization created successfully' })
     async create(
         @Body() createOrganizationDto: CreateOrganizationDto,
         @Request() req: CustomRequest,
@@ -46,13 +51,12 @@ export class OrganizationsController {
         if (!req.user) {
             throw new UnauthorizedException('User not authenticated');
         }
-
+    
         return this.organizationsService.create({
             ...createOrganizationDto,
-            createdBy: { id: req.user.id },
+            createdById: req.user.id,  // Just pass the ID
         });
     }
-
     @Get()
     @Roles(Role.SUPER_ADMIN)
     @ApiOperation({ summary: 'Get all organizations' })

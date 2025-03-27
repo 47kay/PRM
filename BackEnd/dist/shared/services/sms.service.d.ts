@@ -10,6 +10,7 @@ export declare class SmsService {
     private formatPhoneNumber;
     private formatContent;
     private getOptionalParams;
+    sendSms(phoneNumber: string, message: string): Promise<any>;
     getDeliveryStatus(messageSid: string): Promise<{
         status: import("twilio/lib/rest/api/v2010/account/message").MessageStatus;
         error: string;

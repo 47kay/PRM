@@ -1,7 +1,8 @@
 // src/modules/messages/entities/message-template.entity.ts
 
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, JoinColumn, CreateDateColumn, UpdateDateColumn } from 'typeorm';
-import { User } from '../../users/entities/user.entity';
+// Change to type-only import to break circular dependency
+import type { User } from '../../users/entities/user.entity';
 import { Organization } from '../../organizations/entities/organization.entity';
 
 export enum TemplateCategory {
@@ -59,7 +60,7 @@ export class MessageTemplate {
     @Column({ default: true })
     isActive: boolean;
 
-    @ManyToOne(() => User, { nullable: true })
+    @ManyToOne('User', { nullable: true })
     @JoinColumn({ name: 'created_by_id' })
     createdBy: User;
 

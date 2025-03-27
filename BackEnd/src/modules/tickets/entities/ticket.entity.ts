@@ -19,9 +19,10 @@ import {
     TicketStatus,
     TicketSource,
 } from '../dto/create-ticket.dto';
-import { Organization } from '../../organizations/entities/organization.entity';
-import { User } from '../../users/entities/user.entity';
-import { Contact } from '../../contacts/entities/contact.entity';
+// Remove direct entity imports that cause circular dependencies
+// import { Organization } from '../../organizations/entities/organization.entity';
+// import { User } from '../../users/entities/user.entity';
+// import { Contact } from '../../contacts/entities/contact.entity';
 import { Department } from '../../departments/entities/department.entity';
 import { TicketComment } from './ticket-comment.entity';
 import { TicketAttachment } from './ticket-attachment.entity';
@@ -208,59 +209,59 @@ export class Ticket {
     @DeleteDateColumn()
     deletedAt?: Date;
 
-    // Relations
-    @ManyToOne(() => Organization)
+    // Relations - all using string-based references to avoid circular dependencies
+    @ManyToOne('Organization')
     @JoinColumn({ name: 'organizationId' })
-    organization: Organization;
+    organization: any;
 
-    @ManyToOne(() => Contact)
+    @ManyToOne('Contact')
     @JoinColumn({ name: 'contactId' })
-    contact?: Contact;
+    contact?: any;
 
-    @ManyToOne(() => Department)
+    @ManyToOne('Department')
     @JoinColumn({ name: 'departmentId' })
-    department?: Department;
+    department?: any;
 
-    @ManyToOne(() => User)
+    @ManyToOne('User')
     @JoinColumn({ name: 'assigneeId' })
-    assignee?: User;
+    assignee?: any;
 
-    @ManyToOne(() => User)
+    @ManyToOne('User')
     @JoinColumn({ name: 'createdById' })
-    createdBy: User;
+    createdBy: any;
 
-    @ManyToOne(() => User)
+    @ManyToOne('User')
     @JoinColumn({ name: 'updatedById' })
-    updatedBy?: User;
+    updatedBy?: any;
 
-    @ManyToOne(() => User)
+    @ManyToOne('User')
     @JoinColumn({ name: 'resolvedById' })
-    resolvedBy?: User;
+    resolvedBy?: any;
 
-    @ManyToOne(() => User)
+    @ManyToOne('User')
     @JoinColumn({ name: 'closedById' })
-    closedBy?: User;
+    closedBy?: any;
 
-    @ManyToOne(() => User)
+    @ManyToOne('User')
     @JoinColumn({ name: 'escalatedById' })
-    escalatedBy?: User;
+    escalatedBy?: any;
 
-    @ManyToOne(() => User)
+    @ManyToOne('User')
     @JoinColumn({ name: 'reopenedById' })
-    reopenedBy?: User;
+    reopenedBy?: any;
 
-    @ManyToOne(() => Ticket)
+    @ManyToOne('Ticket')
     @JoinColumn({ name: 'relatedTicketId' })
-    relatedTicket?: Ticket;
+    relatedTicket?: any;
 
-    @OneToMany(() => TicketComment, comment => comment.ticket)
-    comments: TicketComment[];
+    @OneToMany('TicketComment', 'ticket')
+    comments: any[];
 
-    @OneToMany(() => TicketAttachment, attachment => attachment.ticket)
-    attachments: TicketAttachment[];
+    @OneToMany('TicketAttachment', 'ticket')
+    attachments: any[];
 
-    @OneToMany(() => TicketActivity, activity => activity.ticket)
-    activities: TicketActivity[];
+    @OneToMany('TicketActivity', 'ticket')
+    activities: any[];
 
     // Virtual properties
     @ApiProperty()

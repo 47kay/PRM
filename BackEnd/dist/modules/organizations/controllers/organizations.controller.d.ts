@@ -5,6 +5,7 @@ import { OrganizationQueryDto } from '../dto/organization-query.dto';
 import { AddUserDto } from '../dto/add-user.dto';
 import { UpdateSubscriptionDto } from '../dto/update-subscription.dto';
 import { CustomRequest } from '../../../interfaces/request.interface';
+import { User } from '../../users/entities/user.entity';
 export declare class OrganizationsController {
     private readonly organizationsService;
     constructor(organizationsService: OrganizationsService);
@@ -17,7 +18,7 @@ export declare class OrganizationsController {
     findOne(id: string): Promise<import("../entities/organization.entity").Organization>;
     update(id: string, updateOrganizationDto: UpdateOrganizationDto, req: CustomRequest): Promise<import("../entities/organization.entity").Organization>;
     remove(id: string): Promise<void>;
-    addUser(id: string, addUserDto: AddUserDto, req: CustomRequest): Promise<import("../../users/entities/user.entity").User>;
+    addUser(id: string, addUserDto: AddUserDto, req: CustomRequest): Promise<User>;
     removeUser(id: string, userId: string, req: CustomRequest): Promise<void>;
     updateSubscription(id: string, updateSubscriptionDto: UpdateSubscriptionDto, req: CustomRequest): Promise<import("../entities/organization.entity").Organization>;
     getStatistics(id: string, req: CustomRequest): Promise<any>;

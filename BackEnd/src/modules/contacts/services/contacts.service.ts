@@ -87,6 +87,8 @@ export class ContactsService {
         private readonly dataSource: DataSource,
     ) { }
 
+
+
     async create(data: CreateContactDto & { organizationId: string; createdBy: string }): Promise<Contact> {
         const existingContact = await this.contactRepository.findOne({
             where: [
@@ -99,15 +101,34 @@ export class ContactsService {
             throw new ConflictException('Contact with this email or phone number already exists');
         }
 
-        // Create a new contact with correct property mapping
-        const contact = this.contactRepository.create({
-            ...data,
-            createdBy: { id: data.createdBy } as any,
-        });
+        // Extract documents data if it exists to handle properly
+        const { documents: documentIds, ...contactData } = data;
 
-        const [savedContact] = await this.contactRepository.save([contact]);
+        // Create a new contact with correct property mapping
+        const contact = new Contact();
+        Object.assign(contact, contactData);
+
+        // Set createdBy properly - use the string ID directly instead of object
+        contact.createdById = data.createdBy;
+
+        // Handle documents properly if present
+        if (documentIds && Array.isArray(documentIds)) {
+            // Find existing documents or create references using the IDs
+            const documents = await this.documentRepository.find({
+                where: { id: In(documentIds) }
+            });
+
+            // If documents exist, assign them to the contact
+            if (documents.length > 0) {
+                contact.documents = documents;
+            }
+        }
+
+        const savedContact = await this.contactRepository.save(contact);
         return savedContact;
     }
+
+
 
     async findAll(query: ContactQueryDto & { organizationId: string }): Promise<Pagination<Contact>> {
         const { organizationId, search, type, isActive, page = 1, limit = 10, ...filters } = query as { organizationId: string, search?: string, type?: string, isActive?: boolean, page?: number, limit?: number, [key: string]: any };

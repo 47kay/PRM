@@ -1,5 +1,4 @@
 import { Role } from '../enums/role.enum';
-import { Organization } from '../../organizations/entities/organization.entity';
 import { Ticket } from '../../tickets/entities/ticket.entity';
 import { Message } from '../../messages/entities/message.entity';
 import { Appointment } from '../../appointments/entities/appointment.entity';
@@ -63,7 +62,7 @@ export declare class User {
     createdAt: Date;
     updatedAt: Date;
     deletedAt?: Date;
-    organization: Organization;
+    organization: any;
     createdBy: User;
     updatedBy?: User;
     assignedTickets: Ticket[];

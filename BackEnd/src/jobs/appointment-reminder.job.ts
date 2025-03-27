@@ -168,16 +168,19 @@ export class AppointmentReminderJob {
                     this.logger.warn(`Skipping SMS reminder for appointment ${appointment.id}: missing required relation`);
                     continue;
                 }
-                
-                await this.smsService.sendAppointmentReminder(
-                    appointment.contact.phone || '',
-                    {
-                        appointmentId: appointment.id,
-                        patientName: `${appointment.contact.firstName || ''} ${appointment.contact.lastName || ''}`.trim(),
-                        dateTime: appointment.startTime,
-                        organizationName: appointment.organization.name || 'N/A',
+
+                await this.smsService.sendAppointmentReminder({
+                    id: appointment.id,
+                    contact: {
+                        phone: appointment.contact.phone || '',
+                        firstName: appointment.contact.firstName || '',
+                        lastName: appointment.contact.lastName || ''
                     },
-                );
+                    dateTime: appointment.startTime,
+                    organization: {
+                        name: appointment.organization.name || 'N/A'
+                    }
+                });
 
                 await this.markReminderSent(appointment.id);
             } catch (error) {

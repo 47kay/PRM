@@ -9,14 +9,22 @@ import { MessageTemplateDto } from '../dto/message-template.dto';
 import { BulkMessageDto } from '../dto/bulk-message.dto';
 import { Contact } from '../../contacts/entities/contact.entity';
 import { EventEmitter2 } from '@nestjs/event-emitter';
+import { User } from '../../users/entities/user.entity';
 export declare class MessagesService {
     private readonly messageRepository;
     private readonly templateRepository;
     private readonly attachmentRepository;
     private readonly contactRepository;
+    private readonly userRepository;
     private readonly dataSource;
     private readonly eventEmitter;
-    constructor(messageRepository: Repository<Message>, templateRepository: Repository<MessageTemplate>, attachmentRepository: Repository<MessageAttachment>, contactRepository: Repository<Contact>, dataSource: DataSource, eventEmitter: EventEmitter2);
+    constructor(messageRepository: Repository<Message>, templateRepository: Repository<MessageTemplate>, attachmentRepository: Repository<MessageAttachment>, contactRepository: Repository<Contact>, userRepository: Repository<User>, dataSource: DataSource, eventEmitter: EventEmitter2);
+    private withTransaction;
+    private getValidContact;
+    private getUser;
+    private prepareEmailOptions;
+    private applyTemplate;
+    private createAttachmentEntities;
     create(data: CreateMessageDto & {
         organizationId: string;
         senderId: string;
@@ -39,7 +47,7 @@ export declare class MessagesService {
     createTemplate(data: MessageTemplateDto & {
         organizationId: string;
         createdBy: string;
-    }): Promise<MessageTemplate>;
+    }): Promise<any>;
     getTemplates(query: {
         organizationId: string;
     }): Promise<MessageTemplate[]>;

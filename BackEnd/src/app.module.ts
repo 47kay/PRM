@@ -6,8 +6,12 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ThrottlerModule } from '@nestjs/throttler';
 import { EventEmitterModule } from '@nestjs/event-emitter';
 import { ScheduleModule } from '@nestjs/schedule';
-import { BullModule } from '@nestjs/bull';
+// Remove Bull import temporarily
+// import { BullModule } from '@nestjs/bull';
 import { APP_FILTER, APP_INTERCEPTOR, APP_GUARD } from '@nestjs/core';
+// Remove helmet and compression imports temporarily
+// import * as helmet from 'helmet';
+// import * as compression from 'compression';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -60,7 +64,8 @@ import { ThrottlerConfigService } from './config/throttler.config';
       }),
     }),
 
-    // Redis and Bull Queue
+    // Comment out Redis and Bull Queue temporarily
+    /*
     BullModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
@@ -68,21 +73,28 @@ import { ThrottlerConfigService } from './config/throttler.config';
         const host = configService.get<string>('redis.host');
         const port = configService.get<number>('redis.port');
         const password = configService.get<string>('redis.password');
-        
-        const redisUrl = password 
-          ? `redis://:${password}@${host}:${port}`
-          : `redis://${host}:${port}`;
-          
+
+        const redisUrl = password
+            ? `redis://:${password}@${host}:${port}`
+            : `redis://${host}:${port}`;
+
         return {
-          url: redisUrl
+          redis: {
+            url: redisUrl
+          }
         };
       },
     }),
+    */
 
     // Rate Limiting
-    ThrottlerModule.forRootAsync({
-      imports: [ConfigModule],
-      useClass: ThrottlerConfigService,
+    ThrottlerModule.forRoot({
+      throttlers: [
+        {
+          limit: 10,
+          ttl: 60000,  // 60 seconds in milliseconds
+        },
+      ],
     }),
 
     // Event Emitter

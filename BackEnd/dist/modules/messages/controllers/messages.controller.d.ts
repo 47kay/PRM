@@ -16,7 +16,7 @@ export declare class MessagesController {
     findOne(id: string, req: CustomRequest): Promise<Message>;
     update(id: string, updateMessageDto: UpdateMessageDto, req: CustomRequest): Promise<Message>;
     remove(id: string, req: CustomRequest): Promise<void>;
-    createTemplate(templateDto: MessageTemplateDto, req: CustomRequest): Promise<import("../entities/message-template.entity").MessageTemplate>;
+    createTemplate(templateDto: MessageTemplateDto, req: CustomRequest): Promise<any>;
     getTemplates(query: MessageQueryDto, req: CustomRequest): Promise<import("../entities/message-template.entity").MessageTemplate[]>;
     sendBulk(bulkMessageDto: BulkMessageDto, req: CustomRequest): Promise<{
         success: boolean;

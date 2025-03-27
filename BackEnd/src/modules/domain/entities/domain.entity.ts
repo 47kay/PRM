@@ -1,6 +1,5 @@
 import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, ManyToOne, OneToMany, JoinColumn, Index } from 'typeorm';
 import { Organization } from '../../organizations/entities/organization.entity';
-import { DomainVerificationToken } from './domain-verification-token.entity';
 import { DomainVerificationStatus } from '../enums/domain-verification-status.enum';
 import { DomainStatus } from '../enums/domain-status.enum';
 import { DnsRecord } from './dns-record.entity';
@@ -38,8 +37,9 @@ export class Domain {
     @Index()
     verificationStatus: DomainVerificationStatus;
 
-    @OneToMany(() => DomainVerificationToken, token => token.domain)
-    verificationTokens: DomainVerificationToken[];
+    // Use string literal to break circular dependency
+    @OneToMany('DomainVerificationToken', 'domain')
+    verificationTokens: any[]; // Use any[] instead of specific type
 
     @OneToMany(() => DnsRecord, record => record.domain)
     dnsRecords: DnsRecord[];

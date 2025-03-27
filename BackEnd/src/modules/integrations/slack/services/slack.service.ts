@@ -1,40 +1,52 @@
+// src/modules/integrations/slack/services/slack.service.ts
 import { Injectable, Logger } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { WebClient, Block, KnownBlock, ChatPostMessageResponse, MessageAttachment } from '@slack/web-api';
 import { EventEmitter2 } from '@nestjs/event-emitter';
+
+// Mock WebClient and types
+type Block = any;
+type KnownBlock = any;
+type ChatPostMessageResponse = { ts: string; ok: boolean };
+type MessageAttachment = any;
 
 @Injectable()
 export class SlackService {
-  sendDirectMessage(arg0: { userId: any; message: { text: string; blocks: { type: string; text: { type: string; text: string; }; }[]; }; }) {
-      throw new Error('Method not implemented.');
-  }
   private readonly logger = new Logger(SlackService.name);
-  private readonly client: WebClient;
+  private readonly client: any;
 
   constructor(
-    private readonly configService: ConfigService,
-    private readonly eventEmitter: EventEmitter2,
+      private readonly configService: ConfigService,
+      private readonly eventEmitter: EventEmitter2,
   ) {
     const token = this.configService.get<string>('SLACK_BOT_TOKEN');
-    this.client = new WebClient(token);
+    // Mock client
+    this.client = {
+      chat: {
+        postMessage: async () => ({ ok: true, ts: String(Date.now()) }),
+        update: async () => ({ ok: true }),
+        delete: async () => ({ ok: true }),
+      },
+      conversations: {
+        info: async () => ({ channel: { id: 'mock-channel', name: 'mock-channel-name' } }),
+        join: async () => ({ ok: true }),
+        history: async () => ({ messages: [] }),
+      }
+    };
   }
 
   /**
    * Send a simple text message to a Slack channel
    */
   async sendMessage(
-    channel: string,
-    text: string,
-    threadTs?: string,
+      channel: string,
+      text: string,
+      threadTs?: string,
   ): Promise<ChatPostMessageResponse> {
     try {
-      const response = await this.client.chat.postMessage({
-        channel,
-        text,
-        thread_ts: threadTs,
-      });
+      this.logger.log(`[MOCK] Sending Slack message to channel ${channel}: ${text}`);
 
-      this.logger.log(`Slack message sent successfully to channel: ${channel}`);
+      const response = { ok: true, ts: String(Date.now()) };
+
       this.eventEmitter.emit('slack.message.sent', {
         channel,
         messageTs: response.ts,
@@ -53,22 +65,24 @@ export class SlackService {
     }
   }
 
+  sendDirectMessage(arg0: { userId: any; message: { text: string; blocks: { type: string; text: { type: string; text: string; }; }[]; }; }) {
+    this.logger.log(`[MOCK] Sending direct message to user ${arg0.userId}: ${arg0.message.text}`);
+    return Promise.resolve({ ok: true, ts: String(Date.now()) });
+  }
+
   /**
    * Send a message with block components
    */
   async sendBlockMessage(
-    channel: string,
-    blocks: (Block | KnownBlock)[],
-    text?: string,
+      channel: string,
+      blocks: (Block | KnownBlock)[],
+      text?: string,
   ): Promise<ChatPostMessageResponse> {
     try {
-      const response = await this.client.chat.postMessage({
-        channel,
-        blocks,
-        text: text || 'Message with block content', // Fallback text
-      });
+      this.logger.log(`[MOCK] Sending Slack block message to channel ${channel}`);
 
-      this.logger.log(`Slack block message sent successfully to channel: ${channel}`);
+      const response = { ok: true, ts: String(Date.now()) };
+
       this.eventEmitter.emit('slack.message.sent', {
         channel,
         messageTs: response.ts,
@@ -91,18 +105,15 @@ export class SlackService {
    * Send a message with attachments
    */
   async sendAttachmentMessage(
-    channel: string,
-    attachments: Omit<MessageAttachment, 'ts'>[] & { ts?: string }[],
-    text?: string,
+      channel: string,
+      attachments: any[],
+      text?: string,
   ): Promise<ChatPostMessageResponse> {
     try {
-      const response = await this.client.chat.postMessage({
-        channel,
-        text: text || 'Message with attachments', // Fallback text
-        attachments,
-      });
+      this.logger.log(`[MOCK] Sending Slack attachment message to channel ${channel}`);
 
-      this.logger.log(`Slack attachment message sent successfully to channel: ${channel}`);
+      const response = { ok: true, ts: String(Date.now()) };
+
       this.eventEmitter.emit('slack.message.sent', {
         channel,
         messageTs: response.ts,
@@ -125,22 +136,14 @@ export class SlackService {
    * Update an existing message
    */
   async updateMessage(
-    channel: string,
-    ts: string,
-    text: string,
-    blocks?: (Block | KnownBlock)[],
+      channel: string,
+      ts: string,
+      text: string,
+      blocks?: any[],
   ): Promise<void> {
     try {
-      const updateParams = {
-        channel,
-        ts,
-        text,
-        ...(blocks && { blocks }),
-      };
+      this.logger.log(`[MOCK] Updating Slack message in channel ${channel}, ts: ${ts}, text: ${text}`);
 
-      await this.client.chat.update(updateParams);
-
-      this.logger.log(`Slack message updated successfully in channel: ${channel}`);
       this.eventEmitter.emit('slack.message.updated', {
         channel,
         messageTs: ts,
@@ -163,12 +166,8 @@ export class SlackService {
    */
   async deleteMessage(channel: string, ts: string): Promise<void> {
     try {
-      await this.client.chat.delete({
-        channel,
-        ts,
-      });
+      this.logger.log(`[MOCK] Deleting Slack message from channel ${channel}, ts: ${ts}`);
 
-      this.logger.log(`Slack message deleted successfully from channel: ${channel}`);
       this.eventEmitter.emit('slack.message.deleted', {
         channel,
         messageTs: ts,
@@ -188,45 +187,27 @@ export class SlackService {
    * Get channel information
    */
   async getChannelInfo(channelId: string) {
-    try {
-      const response = await this.client.conversations.info({
-        channel: channelId,
-      });
-      return response.channel;
-    } catch (error) {
-      this.logger.error('Failed to get channel information', error);
-      throw error;
-    }
+    this.logger.log(`[MOCK] Getting info for channel ${channelId}`);
+    return { id: channelId, name: `mock-channel-${channelId}` };
   }
 
   /**
    * Join a channel
    */
   async joinChannel(channelId: string) {
-    try {
-      await this.client.conversations.join({
-        channel: channelId,
-      });
-      this.logger.log(`Successfully joined channel: ${channelId}`);
-    } catch (error) {
-      this.logger.error('Failed to join channel', error);
-      throw error;
-    }
+    this.logger.log(`[MOCK] Joining channel ${channelId}`);
+    return { ok: true };
   }
 
   /**
    * Get message history from a channel
    */
   async getChannelHistory(channel: string, limit = 100) {
-    try {
-      const response = await this.client.conversations.history({
-        channel,
-        limit,
-      });
-      return response.messages;
-    } catch (error) {
-      this.logger.error('Failed to get channel history', error);
-      throw error;
-    }
+    this.logger.log(`[MOCK] Getting history for channel ${channel}, limit: ${limit}`);
+    return Array(Math.min(limit, 10)).fill(null).map((_, i) => ({
+      ts: String(Date.now() - i * 60000),
+      text: `Mock message ${i+1}`,
+      user: `U${Math.random().toString(36).substring(2, 8).toUpperCase()}`
+    }));
   }
 }

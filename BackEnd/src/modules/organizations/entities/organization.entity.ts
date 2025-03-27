@@ -93,16 +93,16 @@ export class Organization {
     @Column({ nullable: true })
     createdById: string;
 
-    @ManyToOne(() => User)
+    @ManyToOne('User')
     @JoinColumn({ name: 'createdById' })
-    createdBy: User;
+    createdBy: any;
 
     @Column({ nullable: true })
     updatedById: string;
 
-    @ManyToOne(() => User)
+    @ManyToOne('User')
     @JoinColumn({ name: 'updatedById' })
-    updatedBy: User;
+    updatedBy: any;
 
     // Relationships
     @OneToMany(() => User, user => user.organization)

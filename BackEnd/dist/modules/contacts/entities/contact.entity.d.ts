@@ -1,8 +1,3 @@
-import { Organization } from '../../organizations/entities/organization.entity';
-import { User } from '../../users/entities/user.entity';
-import { Appointment } from '../../appointments/entities/appointment.entity';
-import { Document } from '../../documents/entities/document.entity';
-import { MedicalHistory } from '../../medical-history/medical-history.entity';
 import { ContactRelationship } from './contact-relationship.entity';
 export declare enum ContactType {
     PATIENT = "PATIENT",
@@ -30,7 +25,6 @@ export declare enum BloodType {
 export declare class Contact {
     id: string;
     status: string;
-    createdBy: User;
     metadata?: Record<string, any>;
     phone: string;
     organizationId: string;
@@ -71,13 +65,14 @@ export declare class Contact {
     createdAt: Date;
     updatedAt: Date;
     deletedAt?: Date;
-    organization: Organization;
-    updatedBy: User;
-    appointments: Appointment[];
-    documents: Document[];
-    medicalHistory: MedicalHistory[];
+    organization: any;
+    createdBy: any;
+    updatedBy: any;
+    appointments: any[];
+    documents: any[];
+    medicalHistory: any[];
     relationships: ContactRelationship[];
-    mergedRecords: Contact[];
+    mergedRecords: any[];
     get fullName(): string;
     get age(): number | null;
 }

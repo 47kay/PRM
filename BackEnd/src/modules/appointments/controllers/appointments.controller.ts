@@ -218,24 +218,30 @@ export class AppointmentsService {
         data: { reason: string; organizationId: string; updatedBy: string },
     ): Promise<Appointment> {
         const appointment = await this.findOne(id, data.organizationId);
-
+    
         if (!appointment.canBeModified()) {
             throw new ForbiddenException('Appointment cannot be cancelled');
         }
-
+    
+        // Fetch the user object
+        const updater = await this.userRepository.findOne({ where: { id: data.updatedBy } });
+        if (!updater) {
+            throw new NotFoundException(`User with ID ${data.updatedBy} not found`);
+        }
+    
         appointment.status = AppointmentStatus.CANCELLED;
         appointment.cancellationReason = data.reason;
         appointment.cancelledAt = new Date();
-        appointment.updatedBy = data.updatedBy;
-
+        appointment.updatedBy = updater; // Now assigning a User object instead of string
+    
         const savedAppointment = await this.appointmentRepository.save(appointment);
-
+    
         // Send notifications
         await this.sendAppointmentNotifications(savedAppointment, 'cancelled');
-
+    
         // Emit event
         this.eventEmitter.emit('appointment.cancelled', savedAppointment);
-
+    
         return savedAppointment;
     }
 
@@ -250,11 +256,11 @@ export class AppointmentsService {
         },
     ): Promise<Appointment> {
         const appointment = await this.findOne(id, data.organizationId);
-
+    
         if (!appointment.canBeModified()) {
             throw new ForbiddenException('Appointment cannot be rescheduled');
         }
-
+    
         // Check doctor availability and conflicts
         await this.checkConflicts({
             doctorId: appointment.doctorId,
@@ -262,48 +268,66 @@ export class AppointmentsService {
             endTime: data.endTime,
             excludeAppointmentId: id,
         });
-
+    
+        // Fetch the user object
+        const updater = await this.userRepository.findOne({ where: { id: data.updatedBy } });
+        if (!updater) {
+            throw new NotFoundException(`User with ID ${data.updatedBy} not found`);
+        }
+    
         appointment.startTime = data.startTime;
         appointment.endTime = data.endTime;
         appointment.status = AppointmentStatus.RESCHEDULED;
         appointment.reschedulingReason = data.reason;
-        appointment.updatedBy = data.updatedBy;
-
+        appointment.updatedBy = updater; // Now assigning a User object instead of string
+    
         const savedAppointment = await this.appointmentRepository.save(appointment);
-
+    
         // Send notifications
         await this.sendAppointmentNotifications(savedAppointment, 'rescheduled');
-
+    
         // Emit event
         this.eventEmitter.emit('appointment.rescheduled', savedAppointment);
-
+    
         return savedAppointment;
     }
 
+
+
+    
     async confirm(
         id: string,
         data: { organizationId: string; updatedBy: string },
     ): Promise<Appointment> {
         const appointment = await this.findOne(id, data.organizationId);
-
+    
         if (appointment.status !== AppointmentStatus.PENDING) {
             throw new BadRequestException('Only pending appointments can be confirmed');
         }
-
+    
+        // Fetch the user object
+        const updater = await this.userRepository.findOne({ where: { id: data.updatedBy } });
+        if (!updater) {
+            throw new NotFoundException(`User with ID ${data.updatedBy} not found`);
+        }
+    
         appointment.status = AppointmentStatus.CONFIRMED;
         appointment.confirmedAt = new Date();
-        appointment.updatedBy = data.updatedBy;
-
+        appointment.updatedBy = updater; // Now assigning a User object instead of string
+    
         const savedAppointment = await this.appointmentRepository.save(appointment);
-
+    
         // Send notifications
         await this.sendAppointmentNotifications(savedAppointment, 'confirmed');
-
+    
         // Emit event
         this.eventEmitter.emit('appointment.confirmed', savedAppointment);
-
+    
         return savedAppointment;
     }
+
+
+    
 
     async confirmAppointment(
         id: string,
@@ -317,23 +341,29 @@ export class AppointmentsService {
         data: { organizationId: string; updatedBy: string },
     ): Promise<Appointment> {
         const appointment = await this.findOne(id, data.organizationId);
-
+    
         if (appointment.status !== AppointmentStatus.CONFIRMED) {
             throw new BadRequestException('Only confirmed appointments can be completed');
         }
-
+    
+        // Fetch the user object
+        const updater = await this.userRepository.findOne({ where: { id: data.updatedBy } });
+        if (!updater) {
+            throw new NotFoundException(`User with ID ${data.updatedBy} not found`);
+        }
+    
         appointment.status = AppointmentStatus.COMPLETED;
         appointment.completedAt = new Date();
-        appointment.updatedBy = data.updatedBy;
-
+        appointment.updatedBy = updater; // Now assigning a User object instead of string
+    
         const savedAppointment = await this.appointmentRepository.save(appointment);
-
+    
         // Send notifications
         await this.sendAppointmentNotifications(savedAppointment, 'completed');
-
+    
         // Emit event
         this.eventEmitter.emit('appointment.completed', savedAppointment);
-
+    
         return savedAppointment;
     }
 

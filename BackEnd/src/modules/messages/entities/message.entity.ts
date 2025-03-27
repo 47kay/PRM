@@ -15,8 +15,10 @@ import {
 import { ApiProperty } from '@nestjs/swagger';
 import { MessageType, MessagePriority, MessageStatus } from '../dto/create-message.dto';
 import { Organization } from '../../organizations/entities/organization.entity';
-import { User } from '../../users/entities/user.entity';
-import { Contact } from '../../contacts/entities/contact.entity';
+// Change to type-only import to break circular dependency
+import type { User } from '../../users/entities/user.entity';
+// Change to type-only import to break circular dependency
+import type { Contact } from '../../contacts/entities/contact.entity';
 import { MessageTemplate } from './message-template.entity';
 import { MessageAttachment } from './message-attachment.entity';
 
@@ -148,19 +150,19 @@ export class Message {
     @JoinColumn({ name: 'organizationId' })
     organization: Organization;
 
-    @ManyToOne(() => User)
+    @ManyToOne('User')
     @JoinColumn({ name: 'senderId' })
     sender: User;
 
-    @ManyToOne(() => User)
+    @ManyToOne('User')
     @JoinColumn({ name: 'updatedById' })
     updatedBy?: User;
 
-    @ManyToOne(() => User)
+    @ManyToOne('User')
     @JoinColumn({ name: 'confirmedById' })
     confirmedBy?: User;
 
-    @ManyToOne(() => Contact)
+    @ManyToOne('Contact')
     @JoinColumn({ name: 'contactId' })
     contact: Contact;
 
@@ -168,14 +170,14 @@ export class Message {
     @JoinColumn({ name: 'templateId' })
     template?: MessageTemplate;
 
-    @ManyToOne(() => Message)
+    @ManyToOne('Message')
     @JoinColumn({ name: 'parentMessageId' })
     parentMessage?: Message;
 
-    @OneToMany(() => Message, message => message.parentMessage)
+    @OneToMany('Message', 'parentMessage')
     replies?: Message[];
 
-    @OneToMany(() => MessageAttachment, attachment => attachment.message)
+    @OneToMany('MessageAttachment', 'message')
     attachments?: MessageAttachment[];
 
     // Virtual properties

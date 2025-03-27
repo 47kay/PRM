@@ -52,12 +52,13 @@ export class NotificationPreferencesDto {
     allowReminders?: boolean;
     reminderInterval?: number;
     maxReminders?: number;
-
-    @Column({
-        type: 'enum',
-        enum: NotificationChannel,
-        array: true,
-        default: [NotificationChannel.EMAIL, NotificationChannel.IN_APP]
+    
+    // Changed from @Column decorator to ApiProperty
+    @ApiProperty({ 
+        enum: NotificationChannel, 
+        isArray: true,
+        default: [NotificationChannel.EMAIL, NotificationChannel.IN_APP],
+        description: 'Enabled notification channels'
     })
     enabledChannels: NotificationChannel[];
 }
@@ -256,7 +257,6 @@ class DigestSettingsDto {
     format?: string;
 }
 
-
 export class UpdateNotificationPreferenceDto {
     @ApiPropertyOptional({ enum: NotificationCategory })
     @IsOptional()
@@ -381,8 +381,4 @@ export class UpdateNotificationPreferenceDto {
     @IsOptional()
     @IsObject()
     metadata?: Record<string, any>;
-}
-
-function Column(arg0: { type: string; enum: typeof NotificationChannel; array: boolean; default: NotificationChannel[]; }): (target: NotificationPreferencesDto, propertyKey: "enabledChannels") => void {
-    throw new Error('Function not implemented.');
 }

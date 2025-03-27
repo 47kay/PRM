@@ -1,4 +1,4 @@
-import { Message } from './message.entity';
+import type { Message } from './message.entity';
 export declare enum AttachmentType {
     IMAGE = "image",
     DOCUMENT = "document",

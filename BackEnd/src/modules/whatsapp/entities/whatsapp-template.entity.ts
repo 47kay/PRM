@@ -15,7 +15,7 @@ import {
   WhatsappTemplateComponentType,
   WhatsappTemplateHeaderType,
   WhatsappTemplateButtonType
-} from '../services/whatsapp-template.service';
+} from '../enums/whatsapp-template.enums';
 
 // Re-export the enums so they can be imported from this file
 export {
@@ -24,8 +24,7 @@ export {
   WhatsappTemplateComponentType,
   WhatsappTemplateHeaderType,
   WhatsappTemplateButtonType
-} from '../services/whatsapp-template.service';
-
+} from '../enums/whatsapp-template.enums';
 /**
  * Interface for template button
  */

@@ -4,5 +4,6 @@ export declare class SmsService {
     private readonly logger;
     constructor(configService: ConfigService);
     sendSms(to: string, message: string): Promise<void>;
+    sendAppointmentReminder(appointment: any): Promise<void>;
     private formatReminderMessage;
 }

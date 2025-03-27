@@ -19,7 +19,8 @@ import {
 } from '../dto/create-notification.dto';
 import { NotificationStatus } from '../dto/update-notification.dto';
 import { Organization } from '../../organizations/entities/organization.entity';
-import { User } from '../../users/entities/user.entity';
+// Change to type-only import to break circular dependency
+import type { User } from '../../users/entities/user.entity';
 
 @Entity('notifications')
 @Index(['organizationId', 'userId'])
@@ -207,15 +208,15 @@ export class Notification {
     @JoinColumn({ name: 'organizationId' })
     organization: Organization;
 
-    @ManyToOne(() => User)
+    @ManyToOne('User')
     @JoinColumn({ name: 'userId' })
     user: User;
 
-    @ManyToOne(() => User)
+    @ManyToOne('User')
     @JoinColumn({ name: 'senderId' })
     sender: User;
 
-    @ManyToOne(() => User)
+    @ManyToOne('User')
     @JoinColumn({ name: 'updatedById' })
     updatedBy?: User;
 

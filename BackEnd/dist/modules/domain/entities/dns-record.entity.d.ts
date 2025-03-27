@@ -1,4 +1,4 @@
-import { Domain } from './domain.entity';
+import type { Domain } from './domain.entity';
 export declare enum DnsRecordType {
     A = "A",
     AAAA = "AAAA",

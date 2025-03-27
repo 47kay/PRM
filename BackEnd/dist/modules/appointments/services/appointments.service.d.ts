@@ -63,10 +63,6 @@ export declare class AppointmentsService {
         organizationId: string;
         updatedBy: string;
     }): Promise<Appointment>;
-    confirmAppointment(id: string, data: {
-        organizationId: string;
-        updatedBy: string;
-    }): Promise<Appointment>;
     complete(id: string, data: {
         organizationId: string;
         updatedBy: string;
@@ -84,12 +80,12 @@ export declare class AppointmentsService {
         end: Date;
         status: AppointmentStatus;
         doctor: {
-            id: string;
-            name: string;
+            id: any;
+            name: any;
         } | null;
         patient: {
-            id: string;
-            name: string;
+            id: any;
+            name: any;
         } | null;
     }[]>;
     findAvailableSlots(query: {

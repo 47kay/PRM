@@ -11,6 +11,7 @@ import {
     IsNotEmpty,
     MaxLength,
     IsISO8601,
+    IsObject,
 } from 'class-validator';
 import { Type } from 'class-transformer';
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
@@ -153,4 +154,15 @@ export class CreateMessageDto {
     @IsOptional()
     @IsString()
     externalId?: string;
+
+    @ApiPropertyOptional()
+    @IsOptional()
+    @IsString()
+    subject?: string;
+
+
+    @ApiPropertyOptional()
+    @IsOptional()
+    @IsObject()
+    metadata?: Record<string, any>;
 }

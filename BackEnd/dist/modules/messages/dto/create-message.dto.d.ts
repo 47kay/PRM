@@ -47,4 +47,6 @@ export declare class CreateMessageDto {
     requireConfirmation?: boolean;
     notes?: string;
     externalId?: string;
+    subject?: string;
+    metadata?: Record<string, any>;
 }

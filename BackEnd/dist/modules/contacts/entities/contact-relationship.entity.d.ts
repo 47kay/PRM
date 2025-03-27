@@ -1,4 +1,4 @@
-import { Contact } from './contact.entity';
+import type { Contact } from './contact.entity';
 export declare enum RelationshipType {
     SPOUSE = "SPOUSE",
     PARENT = "PARENT",

@@ -1,4 +1,4 @@
-import { User } from './user.entity';
+import type { User } from './user.entity';
 import { Organization } from '../../organizations/entities/organization.entity';
 export declare enum ActivityType {
     LOGIN = "LOGIN",

@@ -11,15 +11,19 @@ import { Server } from 'socket.io';
 import { Notification } from '../modules/notifications/entities/notification.entity';
 import { User } from '../modules/users/entities/user.entity';
 import { PushSubscription } from '../modules/notifications/entities/push-subscription.entity';
-import { EmailService } from '../modules/email/email.service';
-import { SmsService } from '../modules/sms/sms.service';
+import { EmailService } from '../modules/email/services/email.service';
+import { SmsService } from '../modules/sms/services/sms.service';
+import { NotificationPriority } from '../modules/notifications/enums/notification-priority.enum';
+
+
 
 export interface NotificationJob {
     type: 'SYSTEM' | 'USER' | 'ORGANIZATION';
     title: string;
     message: string;
     data?: Record<string, any>;
-    priority?: 'LOW' | 'MEDIUM' | 'HIGH' | 'URGENT';
+    priority?: NotificationPriority;
+
     recipients: {
         userIds?: string[];
         organizationIds?: string[];
@@ -127,7 +131,8 @@ export class NotificationJob {
             notification.title = data.title;
             notification.message = data.message;
             notification.data = data.data;
-            notification.priority = data.priority || 'MEDIUM';
+            notification.priority = data.priority || NotificationPriority.MEDIUM;
+
             notification.userId = recipient.id;
             notification.organizationId = recipient.organizationId;
             notification.metadata = {
@@ -217,10 +222,15 @@ export class NotificationJob {
                 const user = await this.userRepository.findOne({ where: { id: userId } });
                 if (!user || !user.mobilePhone) return;
 
-                await this.smsService.sendSms(user.mobilePhone, {
-                    notifications: userNotifs,
-                    userName: `${user.firstName} ${user.lastName}`,
-                });
+                // Change this line:
+                // await this.smsService.sendSms(user.mobilePhone, {
+                //     notifications: userNotifs,
+                //     userName: `${user.firstName} ${user.lastName}`,
+                // });
+
+                // To this (which matches your SmsService.sendSms method signature):
+                const message = `You have ${userNotifs.length} new notification(s): ${userNotifs[0].title}${userNotifs.length > 1 ? ' and more...' : ''}`;
+                await this.smsService.sendSms(user.mobilePhone, message);
             });
 
             await Promise.all(smsPromises);
@@ -315,13 +325,13 @@ export class NotificationJob {
 
     private getPriorityLevel(priority?: NotificationJob['priority']): number {
         switch (priority) {
-            case 'URGENT':
+            case NotificationPriority.URGENT:
                 return 1;
-            case 'HIGH':
+            case NotificationPriority.HIGH:
                 return 2;
-            case 'MEDIUM':
+            case NotificationPriority.MEDIUM:
                 return 3;
-            case 'LOW':
+            case NotificationPriority.LOW:
                 return 4;
             default:
                 return 3;

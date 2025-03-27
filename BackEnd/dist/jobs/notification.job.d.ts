@@ -5,14 +5,15 @@ import { Server } from 'socket.io';
 import { Notification } from '../modules/notifications/entities/notification.entity';
 import { User } from '../modules/users/entities/user.entity';
 import { PushSubscription } from '../modules/notifications/entities/push-subscription.entity';
-import { EmailService } from '../modules/email/email.service';
-import { SmsService } from '../modules/sms/sms.service';
+import { EmailService } from '../modules/email/services/email.service';
+import { SmsService } from '../modules/sms/services/sms.service';
+import { NotificationPriority } from '../modules/notifications/enums/notification-priority.enum';
 export interface NotificationJob {
     type: 'SYSTEM' | 'USER' | 'ORGANIZATION';
     title: string;
     message: string;
     data?: Record<string, any>;
-    priority?: 'LOW' | 'MEDIUM' | 'HIGH' | 'URGENT';
+    priority?: NotificationPriority;
     recipients: {
         userIds?: string[];
         organizationIds?: string[];

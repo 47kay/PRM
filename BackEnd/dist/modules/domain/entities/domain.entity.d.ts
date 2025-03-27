@@ -1,5 +1,4 @@
 import { Organization } from '../../organizations/entities/organization.entity';
-import { DomainVerificationToken } from './domain-verification-token.entity';
 import { DomainVerificationStatus } from '../enums/domain-verification-status.enum';
 import { DomainStatus } from '../enums/domain-status.enum';
 import { DnsRecord } from './dns-record.entity';
@@ -10,7 +9,7 @@ export declare class Domain {
     organization: Organization;
     status: DomainStatus;
     verificationStatus: DomainVerificationStatus;
-    verificationTokens: DomainVerificationToken[];
+    verificationTokens: any[];
     dnsRecords: DnsRecord[];
     verifiedAt?: Date;
     verificationDetails?: {

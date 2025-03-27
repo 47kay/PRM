@@ -1,7 +1,7 @@
 import { MessageType, MessagePriority, MessageStatus } from '../dto/create-message.dto';
 import { Organization } from '../../organizations/entities/organization.entity';
-import { User } from '../../users/entities/user.entity';
-import { Contact } from '../../contacts/entities/contact.entity';
+import type { User } from '../../users/entities/user.entity';
+import type { Contact } from '../../contacts/entities/contact.entity';
 import { MessageTemplate } from './message-template.entity';
 import { MessageAttachment } from './message-attachment.entity';
 export declare class Message {

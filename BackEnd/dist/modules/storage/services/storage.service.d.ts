@@ -16,7 +16,6 @@ interface GenerateUrlOptions {
 export declare class StorageService {
     private readonly configService;
     private readonly logger;
-    private readonly s3Client;
     private readonly bucketName;
     private readonly cdnDomain?;
     constructor(configService: ConfigService);
@@ -34,5 +33,6 @@ export declare class StorageService {
     copy(sourceKey: string, destinationKey: string): Promise<void>;
     move(sourceKey: string, destinationKey: string): Promise<void>;
     getModuleBucketLocation(module: string): string;
+    private guessMimeType;
 }
 export {};

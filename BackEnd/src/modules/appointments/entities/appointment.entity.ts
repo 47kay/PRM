@@ -12,26 +12,23 @@ import {
     Index,
 } from 'typeorm';
 import { User } from '../../users/entities/user.entity';
-import { Contact } from '../../contacts/entities/contact.entity';
 import { Organization } from '../../organizations/entities/organization.entity';
 import { AppointmentType } from '../enums/appointment-type.enum';
 import { AppointmentStatus } from '../enums/appointment-status.enum';
 import { AppointmentPriority } from '../enums/appointment-priority.enum';
-import { ApiProperty as SwaggerApiProperty } from '@nestjs/swagger';
+import { ApiProperty } from '@nestjs/swagger';
+import { DeepPartial } from 'typeorm';
+
+// DO NOT import Contact directly - this is what causes the circular dependency
 
 @Entity('appointments')
 @Index(['organizationId', 'startTime'])
 @Index(['doctorId', 'startTime'])
 @Index(['patientId', 'startTime'])
 export class Appointment {
-    @PrimaryGeneratedColumn('uuid')
-    id: string;
-    confirmedAt?: Date;
-    scheduledFor: Date;
-   
-
     @ApiProperty()
     @PrimaryGeneratedColumn('uuid')
+    id: string;
 
     @ApiProperty()
     @Column()
@@ -49,24 +46,6 @@ export class Appointment {
     @Column({ nullable: true })
     notes?: string;
 
-    @ApiProperty()
-    @Column()
-    createdById: string;
-
-    @ApiProperty()
-    @Column({ nullable: true })
-    updatedById?: string;
-
-    @CreateDateColumn()
-    createdAt: Date;
-
-    @UpdateDateColumn()
-    updatedAt: Date;
-
-    // Relations
-    @ManyToOne(() => Contact, contact => contact.appointments)
-    contact: Contact;
-
     @Column({ type: 'uuid' })
     organizationId: string;
 
@@ -77,15 +56,16 @@ export class Appointment {
     doctorId: string;
 
     @Column({ type: 'uuid' })
-    createdBy: string;
+    createdById: string;
 
     @Column({ type: 'uuid', nullable: true })
-    updatedBy: string;
+    updatedById?: string;
+
+    @Column({ type: 'timestamp with time zone', nullable: true })
+    confirmedAt?: Date;
 
     @Column({ type: 'timestamp with time zone' })
-    @Index()
-
-    @Column({ type: 'timestamp with time zone' })
+    scheduledFor: Date;
 
     @Column({
         type: 'enum',
@@ -107,8 +87,6 @@ export class Appointment {
         default: AppointmentPriority.NORMAL,
     })
     priority: AppointmentPriority;
-
-    @Column({ length: 100 })
 
     @Column({ type: 'text', nullable: true })
     description: string;
@@ -152,7 +130,7 @@ export class Appointment {
         previousAppointmentId?: string;
         billingStatus?: string;
         claimStatus?: string;
-        followUpSentAt?: string; // Added followUpSentAt property
+        followUpSentAt?: string;
     };
 
     @Column({ type: 'boolean', default: false })
@@ -191,29 +169,37 @@ export class Appointment {
     cancelledAt: Date;
 
     @CreateDateColumn({ type: 'timestamp with time zone' })
+    createdAt: Date;
 
     @UpdateDateColumn({ type: 'timestamp with time zone' })
+    updatedAt: Date;
 
-    // Relationships
-    @ManyToOne(() => Organization, { onDelete: 'CASCADE' })
+    // Relationships - use only string references for circular dependencies
+    @ManyToOne('Organization', { onDelete: 'CASCADE' })
     @JoinColumn({ name: 'organizationId' })
-    organization: Organization;
+organization: any;
 
-    @ManyToOne(() => Contact, { onDelete: 'CASCADE' })
+    // Use string literals for relations to avoid circular dependencies
+    @ManyToOne('Contact', 'appointments', { onDelete: 'CASCADE' })
     @JoinColumn({ name: 'patientId' })
-    patient: Contact;
+    patient: any;
 
-    @ManyToOne(() => User, { onDelete: 'CASCADE' })
+    // Use string literals for relations to avoid circular dependencies
+    @ManyToOne('Contact', 'appointments', { onDelete: 'CASCADE' })
+    @JoinColumn({ name: 'patientId' })
+    contact: any;
+
+    @ManyToOne('User', { onDelete: 'CASCADE' })
     @JoinColumn({ name: 'doctorId' })
-    doctor: User;
+    doctor: any;
 
-    @ManyToOne(() => User)
-    @JoinColumn({ name: 'createdBy' })
-    creator: User;
+    @ManyToOne('User')
+    @JoinColumn({ name: 'createdById' })
+    createdBy: any;
 
-    @ManyToOne(() => User)
-    @JoinColumn({ name: 'updatedBy' })
-    updater: User;
+    @ManyToOne('User')
+    @JoinColumn({ name: 'updatedById' })
+    updatedBy: any;
 
     @ManyToOne(() => Appointment, { nullable: true })
     @JoinColumn({ name: 'parentAppointmentId' })
@@ -221,6 +207,7 @@ export class Appointment {
 
     @OneToMany(() => Appointment, appointment => appointment.parentAppointment)
     recurrentAppointments: Appointment[];
+    
     provider: any;
 
     // Helper methods
@@ -261,7 +248,4 @@ export class Appointment {
 
         return now >= reminderDue;
     }
-}
-function ApiProperty(): PropertyDecorator {
-    return SwaggerApiProperty();
 }

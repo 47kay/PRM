@@ -3,10 +3,10 @@
 import { Module, DynamicModule } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { SmsService } from './services/sms.service';
 import { SmsTemplateService } from './services/sms-template.service';
 import { SmsTemplate } from './entities/sms-template.entity';
 import { SmsLog } from './entities/sms-log.entity';
+import { SmsService } from './services/sms.service';
 
 export interface SmsModuleOptions {
   provider: 'twilio' | 'nexmo' | 'africas-talking' | 'aws-sns';
@@ -32,6 +32,8 @@ export interface SmsModuleOptions {
   };
   defaultSender?: string;
 }
+
+
 
 @Module({
   imports: [

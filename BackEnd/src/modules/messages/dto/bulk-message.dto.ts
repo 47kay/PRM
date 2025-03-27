@@ -71,4 +71,7 @@ export class BulkMessageDto {
   // These fields will be set by the service
   organizationId?: string;
   senderId?: string;
+
+
+  
 }

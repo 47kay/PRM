@@ -1,6 +1,6 @@
 import { NotificationPriority, NotificationChannel } from '../dto/create-notification.dto';
 import { Organization } from '../../organizations/entities/organization.entity';
-import { User } from '../../users/entities/user.entity';
+import type { User } from '../../users/entities/user.entity';
 export declare class Notification {
     [x: string]: any;
     id: string;

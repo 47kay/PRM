@@ -12,15 +12,10 @@ import {
     ManyToMany,
     JoinTable,
     Index,
+    JoinColumn
 } from 'typeorm';
 import { ApiProperty } from '@nestjs/swagger';
-import { Organization } from '../../organizations/entities/organization.entity';
-import { User } from '../../users/entities/user.entity';
-import { Appointment } from '../../appointments/entities/appointment.entity';
-import { Document } from '../../documents/entities/document.entity';
-import { MedicalHistory } from '../../medical-history/medical-history.entity';
 import { ContactRelationship } from './contact-relationship.entity';
-import { JoinColumn as TypeOrmJoinColumn } from 'typeorm';
 
 export enum ContactType {
     PATIENT = 'PATIENT',
@@ -55,13 +50,18 @@ export class Contact {
     @ApiProperty()
     @PrimaryGeneratedColumn('uuid')
     id: string;
-    status: string; // Add this line
-    createdBy: User;
-
-    @ManyToOne(() => User)
-    @JoinColumn({ name: 'createdById' })
+    
+    @ApiProperty()
+    @Column({ nullable: true })
+    status: string;
+    
+    @ApiProperty()
+    @Column({ type: 'jsonb', nullable: true })
     metadata?: Record<string, any>;
-    phone: string; // Add this line
+    
+    @ApiProperty()
+    @Column({ nullable: true })
+    phone: string;
 
     @ApiProperty()
     @Column()
@@ -180,34 +180,38 @@ export class Contact {
     @DeleteDateColumn()
     deletedAt?: Date;
 
-    // Relations
-    @ManyToOne(() => Organization)
-    organization: Organization;
+    // Relations - all using string references to avoid circular dependencies
+    @ManyToOne('Organization')
+    @JoinColumn({ name: 'organizationId' })
+    organization: any;
 
-    @ManyToOne(() => User)
+    @ManyToOne('User')
+    @JoinColumn({ name: 'createdById' })
+    createdBy: any;
 
-    @ManyToOne(() => User)
-    updatedBy: User;
+    @ManyToOne('User')
+    @JoinColumn({ name: 'updatedById' })
+    updatedBy: any;
 
-    @OneToMany(() => Appointment, appointment => appointment.contact)
-    appointments: Appointment[];
+    @OneToMany('Appointment', 'contact')
+    appointments: any[];
 
-    @OneToMany(() => Document, document => document.contact)
-    documents: Document[];
+    @OneToMany('Document', 'contact')
+    documents: any[];
 
-    @OneToMany(() => MedicalHistory, medicalHistory => medicalHistory.contact)
-    medicalHistory: MedicalHistory[];
+    @OneToMany('MedicalHistory', 'contact')
+    medicalHistory: any[];
 
     @OneToMany(() => ContactRelationship, relationship => relationship.contact)
     relationships: ContactRelationship[];
 
-    @ManyToMany(() => Contact)
+    @ManyToMany('Contact')
     @JoinTable({
         name: 'contact_merged_records',
         joinColumn: { name: 'primary_contact_id', referencedColumnName: 'id' },
         inverseJoinColumn: { name: 'merged_contact_id', referencedColumnName: 'id' },
     })
-    mergedRecords: Contact[];
+    mergedRecords: any[];
 
     // Virtual properties
     @ApiProperty()
@@ -227,7 +231,4 @@ export class Contact {
         }
         return age;
     }
-}
-function JoinColumn(arg0: { name: string; }): PropertyDecorator {
-    return TypeOrmJoinColumn(arg0);
 }

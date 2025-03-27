@@ -41,11 +41,6 @@ export declare class AppController {
                             completed: number;
                             failed: number;
                         };
-                        error?: undefined;
-                    } | {
-                        status: string;
-                        error: any;
-                        metrics?: undefined;
                     };
                     messages: {
                         status: string;
@@ -55,18 +50,8 @@ export declare class AppController {
                             completed: number;
                             failed: number;
                         };
-                        error?: undefined;
-                    } | {
-                        status: string;
-                        error: any;
-                        metrics?: undefined;
                     };
                 };
-                error?: undefined;
-            } | {
-                status: string;
-                error: any;
-                queues?: undefined;
             };
             memory: {
                 status: string;

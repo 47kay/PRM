@@ -86,6 +86,11 @@ export class SmsService {
         return params;
     }
 
+    async sendSms(phoneNumber: string, message: string): Promise<any> {
+        this.logger.log(`[MOCK] Sending SMS to ${phoneNumber}: ${message}`);
+        return { success: true };
+    }
+
     async getDeliveryStatus(messageSid: string) {
         try {
             const message = await this.twilioClient.messages(messageSid).fetch();

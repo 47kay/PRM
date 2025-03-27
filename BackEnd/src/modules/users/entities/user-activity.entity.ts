@@ -8,7 +8,8 @@ import {
     Index,
     UpdateDateColumn,
 } from 'typeorm';
-import { User } from './user.entity';
+// Change to type-only import to break circular dependency
+import type { User } from './user.entity';
 import { Organization } from '../../organizations/entities/organization.entity';
 
 
@@ -46,68 +47,45 @@ export class UserActivity {
     id: string;
 
     @Column()
-
     userId: string;
 
-
-
     @Column()
-
     organizationId: string;
 
-
-
     @Column()
-
     action: string;
 
-
-
     @Column()
-
     performedById: string;
 
-
-
     @CreateDateColumn()
-
     createdAt: Date;
 
     @UpdateDateColumn()
-
     updatedAt: Date;
 
-    
     @Column()
-   
     type: string;
   
     @Column({ nullable: true })
-  
     description: string;
   
     @Column({ type: 'jsonb', nullable: true })
-  
     metadata: Record<string, any>;
   
     @Column({ nullable: true })
-  
     ipAddress: string;
   
     @Column({ nullable: true })
-  
     userAgent: string;
   
     @Column({ nullable: true })
-  
     referrer: string;
   
     @Column({ nullable: true })
-  
     status: string;
   
     @Column({ nullable: true })
-  
     failureReason: string;
 
     @Column({
@@ -146,7 +124,7 @@ export class UserActivity {
     @JoinColumn({ name: 'organizationId' })
     organization: Organization;
 
-    @ManyToOne(() => User)
+    @ManyToOne('User')
     @JoinColumn({ name: 'userId' })
     user: User;
 }

@@ -1,7 +1,8 @@
 // src/modules/messages/entities/message-attachment.entity.ts
 
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, JoinColumn, CreateDateColumn, UpdateDateColumn } from 'typeorm';
-import { Message } from './message.entity';
+// Change to type-only import to break circular dependency
+import type { Message } from './message.entity';
 
 export enum AttachmentType {
     IMAGE = 'image',
@@ -41,13 +42,11 @@ export class MessageAttachment {
     @Column({ default: false })
     isUploaded: boolean;
 
-    @ManyToOne(() => Message, message => message.attachments, { 
-        onDelete: 'CASCADE' 
+    @ManyToOne('Message', {
+        onDelete: 'CASCADE'
     })
     @JoinColumn({ name: 'message_id' })
     message: Message;
-
-    @ManyToOne(() => Message)
 
     @Column({ name: 'message_id' })
     messageId: string;

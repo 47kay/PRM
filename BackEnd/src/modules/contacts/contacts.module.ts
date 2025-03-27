@@ -6,7 +6,7 @@ import { ContactsController } from './controllers/contacts.controller';
 import { ContactsService } from './services/contacts.service';
 import { Contact } from './entities/contact.entity';
 import { ContactRelationship } from './entities/contact-relationship.entity';
-import { MedicalHistory } from '../medical-history/entities/medical-history.entity';
+import { MedicalHistory } from '../medical-history/medical-history.entity';
 import { Appointment } from '../appointments/entities/appointment.entity';
 import { Document } from '../documents/entities/document.entity';
 import { AuthModule } from '../auth/auth.module';

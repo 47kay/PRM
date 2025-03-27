@@ -11,7 +11,8 @@ import {
     DeleteDateColumn,
     Index,
 } from 'typeorm';
-import { Contact } from './contact.entity';
+// Use type-only import to break the circular dependency
+import type { Contact } from './contact.entity';
 
 /**
  * Represents different types of relationships between contacts
@@ -48,7 +49,7 @@ export class ContactRelationship {
     @Index()
     contactId: string;
 
-    @ManyToOne(() => Contact, {
+    @ManyToOne('Contact', {
         onDelete: 'CASCADE',
     })
     @JoinColumn({ name: 'contactId' })
@@ -58,7 +59,7 @@ export class ContactRelationship {
     @Index()
     relatedContactId: string;
 
-    @ManyToOne(() => Contact, {
+    @ManyToOne('Contact', {
         onDelete: 'CASCADE',
     })
     @JoinColumn({ name: 'relatedContactId' })

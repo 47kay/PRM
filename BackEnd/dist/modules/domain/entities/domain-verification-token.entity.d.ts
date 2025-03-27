@@ -1,4 +1,4 @@
-import { Domain } from './domain.entity';
+import type { Domain } from './domain.entity';
 import { DomainVerificationStatus } from '../enums/domain-verification-status.enum';
 import { DomainVerificationMethod } from '../enums/domain-verification-method.enum';
 export declare class DomainVerificationToken {

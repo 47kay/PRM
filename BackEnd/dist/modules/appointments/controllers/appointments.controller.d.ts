@@ -84,12 +84,12 @@ export declare class AppointmentsService {
         end: Date;
         status: AppointmentStatus;
         doctor: {
-            id: string;
-            name: string;
+            id: any;
+            name: any;
         } | null;
         patient: {
-            id: string;
-            name: string;
+            id: any;
+            name: any;
         } | null;
     }[]>;
     findAvailableSlots(query: {

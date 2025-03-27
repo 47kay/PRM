@@ -1,4 +1,4 @@
-import { Repository, DeepPartial } from 'typeorm';
+import { Repository } from 'typeorm';
 import { Organization } from '../entities/organization.entity';
 import { User } from '../../users/entities/user.entity';
 import { AuditLog } from '../../audit/entities/audit-log.entity';
@@ -21,7 +21,7 @@ export declare class OrganizationsService {
     findById(organizationId: string): void;
     constructor(organizationRepository: Repository<Organization>, userRepository: Repository<User>, auditLogRepository: Repository<AuditLog>, domainVerificationService: DomainVerificationService, emailService: EmailService, storageService: StorageService);
     create(createOrganizationDto: CreateOrganizationDto & {
-        createdBy: DeepPartial<User>;
+        createdById: string;
     }): Promise<Organization>;
     findAll(query: OrganizationQueryDto): Promise<{
         items: Organization[];

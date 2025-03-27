@@ -1,3 +1,13 @@
+export declare class WebhookRetryConfigDto {
+    maxAttempts?: number;
+    retryDelay?: number;
+}
+export declare class WebhookSettingsDto {
+    url?: string;
+    secret?: string;
+    headers?: Record<string, string>;
+    retryConfig?: WebhookRetryConfigDto;
+}
 export declare class EmailSettingsDto {
     addresses?: string[];
     format?: 'HTML' | 'TEXT';
@@ -41,16 +51,6 @@ export declare class TeamsSettingsDto {
     channelIds?: string[];
     useAdaptiveCards?: boolean;
     showMentions?: boolean;
-}
-export declare class WebhookSettingsDto {
-    url?: string;
-    secret?: string;
-    headers?: Record<string, string>;
-    retryConfig?: WebhookRetryConfigDto;
-}
-export declare class WebhookRetryConfigDto {
-    maxAttempts?: number;
-    retryDelay?: number;
 }
 export declare class ChannelSettingsDto {
     email?: EmailSettingsDto;

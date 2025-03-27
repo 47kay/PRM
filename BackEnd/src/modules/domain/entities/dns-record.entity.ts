@@ -1,5 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, ManyToOne, JoinColumn, Index } from 'typeorm';
-import { Domain } from './domain.entity';
+// Change to type-only import to break circular dependency
+import type { Domain } from './domain.entity';
 
 export enum DnsRecordType {
     A = 'A',
@@ -25,7 +26,7 @@ export class DnsRecord {
     @Index()
     domainId: string;
 
-    @ManyToOne(() => Domain, domain => domain.dnsRecords, { onDelete: 'CASCADE' })
+    @ManyToOne('Domain', 'dnsRecords', { onDelete: 'CASCADE' })
     @JoinColumn({ name: 'domainId' })
     domain: Domain;
 

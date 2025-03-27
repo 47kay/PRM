@@ -1,8 +1,9 @@
-import { Repository } from 'typeorm';
-import { EmailTemplate } from '../../notifications/entities/email-template.entity';
-import { Notification } from '../../notifications/entities/notification.entity';
-import { EmailQueue } from '../../notifications/entities/email-queue.entity';
-import { EmailLog } from '../../notifications/entities/email-log.entity';
+export interface EmailOptions {
+    to: string;
+    subject: string;
+    text?: string;
+    html?: string;
+}
 interface AppointmentReminderData {
     appointmentId: string;
     patientName: string;
@@ -13,16 +14,13 @@ interface AppointmentReminderData {
     organizationName: string;
 }
 export declare class EmailService {
-    private emailTemplateRepository;
-    private emailQueueRepository;
-    private emailLogRepository;
     private readonly logger;
+    constructor();
     sendNotificationEmail(to: string, data: {
-        notifications: Notification[];
+        notifications: any[];
         userName: string;
     }): Promise<void>;
     sendFollowUpEmail(email: string, details: any): Promise<void>;
-    constructor(emailTemplateRepository: Repository<EmailTemplate>, emailQueueRepository: Repository<EmailQueue>, emailLogRepository: Repository<EmailLog>);
     sendMail(to: string, subject: string, body: string): Promise<void>;
     sendAppointmentReminder(to: string, data: AppointmentReminderData): Promise<void>;
     private compileTemplate;

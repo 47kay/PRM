@@ -193,9 +193,9 @@ export class User {
     deletedAt?: Date;
 
     // Relations
-    @ManyToOne(() => Organization)
+    @ManyToOne('Organization')
     @JoinColumn({ name: 'organizationId' })
-    organization: Organization;
+    organization: any;
 
     @ManyToOne(() => User)
     @JoinColumn({ name: 'createdById' })

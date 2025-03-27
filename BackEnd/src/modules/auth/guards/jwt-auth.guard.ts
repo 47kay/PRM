@@ -52,7 +52,7 @@ export class JwtAuthGuard extends AuthGuard('jwt') {
         }
 
         // Check if token is blacklisted
-        if (this.authService.isTokenBlacklisted(token)) {
+        if (token && this.authService.isTokenBlacklisted(token)) {
             this.logger.warn(`Blacklisted token used for user ${user.id}`);
             throw new UnauthorizedException('Token has been revoked');
         }

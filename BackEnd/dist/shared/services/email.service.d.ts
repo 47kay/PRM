@@ -9,6 +9,7 @@ interface EmailOptions {
     to: string | string[];
     subject: string;
     template?: string;
+    html?: string;
     context?: Record<string, any>;
     attachments?: Array<{
         filename: string;

@@ -52,4 +52,4 @@ export enum AppointmentEventTypes {
     PassportModule,
   ],
 })
-export class AuthModule {}
+export class AppointmentsModule {}

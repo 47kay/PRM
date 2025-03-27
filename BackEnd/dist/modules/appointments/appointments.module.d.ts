@@ -5,5 +5,5 @@ export declare enum AppointmentEventTypes {
     COMPLETED = "appointment.completed",
     RESCHEDULED = "appointment.rescheduled"
 }
-export declare class AuthModule {
+export declare class AppointmentsModule {
 }

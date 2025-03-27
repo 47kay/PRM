@@ -36,38 +36,46 @@ export class OrganizationsService {
         private readonly storageService: StorageService,
     ) {}
 
-    async create(createOrganizationDto: CreateOrganizationDto & { createdBy: DeepPartial<User> }): Promise<Organization> {
+    async create(createOrganizationDto: CreateOrganizationDto & { createdById: string }): Promise<Organization> {
         // Check if organization with same name exists
         const existingOrg = await this.organizationRepository.findOne({
             where: { name: createOrganizationDto.name }
         });
-
+    
         if (existingOrg) {
             throw new ConflictException('Organization with this name already exists');
         }
-
+    
         // Generate slug from name
         const slug = await this.generateUniqueSlug(createOrganizationDto.name);
-
-        // Create new organization
-        const organization = this.organizationRepository.create({
-            ...createOrganizationDto,
+    
+        // Create organization with explicit properties to avoid type issues
+        const organizationData = {
+            name: createOrganizationDto.name,
+            description: createOrganizationDto.description,
             slug,
+            type: createOrganizationDto.type,
             status: OrganizationStatus.PENDING,
             subscriptionTier: SubscriptionTier.FREE,
             settings: this.getDefaultSettings(),
-        });
-
-        // Save organization
-        const savedOrg = await this.organizationRepository.save(organization);
-
+            createdById: createOrganizationDto.createdById,
+        };
+    
+        // Create the entity with type casting to help TypeScript
+        const organization = this.organizationRepository.create(organizationData as any);
+        
+        // Save the entity and handle the case where it returns an array
+        const result = await this.organizationRepository.save(organization);
+        // Convert to single entity if it's an array
+        const savedOrg = Array.isArray(result) ? result[0] : result;
+    
         // Create audit log
         await this.createAuditLog({
             organizationId: savedOrg.id,
             action: 'CREATE_ORGANIZATION',
-            metadata: { userId: createOrganizationDto.createdBy.id, organizationId: savedOrg.id }
+            metadata: { userId: createOrganizationDto.createdById, organizationId: savedOrg.id }
         });
-
+    
         return savedOrg;
     }
 
