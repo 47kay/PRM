@@ -1,6 +1,5 @@
 // src/modules/users/users.module.ts
-
-import { Module } from '@nestjs/common';
+import { Module, forwardRef } from '@nestjs/common';  // Add forwardRef import
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { EventEmitterModule } from '@nestjs/event-emitter';
 
@@ -33,7 +32,7 @@ import { AuthModule } from '../auth/auth.module';
         }),
         NotificationsModule,
         OrganizationsModule,
-        AuthModule
+        forwardRef(() => AuthModule)  // Use forwardRef here
     ],
     controllers: [UsersController],
     providers: [

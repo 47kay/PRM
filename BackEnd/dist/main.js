@@ -2603,7 +2603,7 @@ AuthModule = __decorate([
                 }),
                 inject: [_nestjs_config__WEBPACK_IMPORTED_MODULE_4__.ConfigService],
             }),
-            _users_users_module__WEBPACK_IMPORTED_MODULE_11__.UsersModule,
+            (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.forwardRef)(() => _users_users_module__WEBPACK_IMPORTED_MODULE_11__.UsersModule),
         ],
         controllers: [_controllers_auth_controller__WEBPACK_IMPORTED_MODULE_5__.AuthController],
         providers: [_services_auth_service__WEBPACK_IMPORTED_MODULE_6__.AuthService, _strategies_jwt_strategy__WEBPACK_IMPORTED_MODULE_7__.JwtStrategy],
@@ -3132,6 +3132,41 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+class OrganizationAddressDto {
+    static _OPENAPI_METADATA_FACTORY() {
+        return { street: { required: true, type: () => String }, city: { required: true, type: () => String }, state: { required: true, type: () => String }, postalCode: { required: true, type: () => String }, country: { required: true, type: () => String } };
+    }
+}
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsNotEmpty)(),
+    __metadata("design:type", String)
+], OrganizationAddressDto.prototype, "street", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsNotEmpty)(),
+    __metadata("design:type", String)
+], OrganizationAddressDto.prototype, "city", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsNotEmpty)(),
+    __metadata("design:type", String)
+], OrganizationAddressDto.prototype, "state", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsNotEmpty)(),
+    __metadata("design:type", String)
+], OrganizationAddressDto.prototype, "postalCode", void 0);
+__decorate([
+    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
+    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsNotEmpty)(),
+    __metadata("design:type", String)
+], OrganizationAddressDto.prototype, "country", void 0);
 class RegisterUserDto {
     static _OPENAPI_METADATA_FACTORY() {
         return { firstName: { required: true, type: () => String, minLength: 2, maxLength: 50 }, lastName: { required: true, type: () => String, minLength: 2, maxLength: 50 }, email: { required: true, type: () => String }, password: { required: true, type: () => String, minLength: 8, pattern: "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$/" }, phone: { required: false, type: () => String }, role: { required: false, enum: (__webpack_require__(/*! ../../users/enums/role.enum */ "./src/modules/users/enums/role.enum.ts").Role) } };
@@ -3257,41 +3292,6 @@ __decorate([
     (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsEnum)(_organizations_enums_subscription_plan_enum__WEBPACK_IMPORTED_MODULE_4__.SubscriptionPlan),
     __metadata("design:type", String)
 ], RegisterOrganizationDto.prototype, "subscriptionPlan", void 0);
-class OrganizationAddressDto {
-    static _OPENAPI_METADATA_FACTORY() {
-        return { street: { required: true, type: () => String }, city: { required: true, type: () => String }, state: { required: true, type: () => String }, postalCode: { required: true, type: () => String }, country: { required: true, type: () => String } };
-    }
-}
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsNotEmpty)(),
-    __metadata("design:type", String)
-], OrganizationAddressDto.prototype, "street", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsNotEmpty)(),
-    __metadata("design:type", String)
-], OrganizationAddressDto.prototype, "city", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsNotEmpty)(),
-    __metadata("design:type", String)
-], OrganizationAddressDto.prototype, "state", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsNotEmpty)(),
-    __metadata("design:type", String)
-], OrganizationAddressDto.prototype, "postalCode", void 0);
-__decorate([
-    (0,_nestjs_swagger__WEBPACK_IMPORTED_MODULE_0__.ApiProperty)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsString)(),
-    (0,class_validator__WEBPACK_IMPORTED_MODULE_1__.IsNotEmpty)(),
-    __metadata("design:type", String)
-], OrganizationAddressDto.prototype, "country", void 0);
 class RegisterDto {
     static _OPENAPI_METADATA_FACTORY() {
         return { user: { required: true, type: () => (__webpack_require__(/*! ./register.dto */ "./src/modules/auth/dto/register.dto.ts").RegisterUserDto) }, organization: { required: true, type: () => (__webpack_require__(/*! ./register.dto */ "./src/modules/auth/dto/register.dto.ts").RegisterOrganizationDto) } };
@@ -27877,7 +27877,7 @@ UsersModule = __decorate([
             }),
             _notifications_notifications_module__WEBPACK_IMPORTED_MODULE_11__.NotificationsModule,
             _organizations_organizations_module__WEBPACK_IMPORTED_MODULE_12__.OrganizationsModule,
-            _auth_auth_module__WEBPACK_IMPORTED_MODULE_13__.AuthModule
+            (0,_nestjs_common__WEBPACK_IMPORTED_MODULE_0__.forwardRef)(() => _auth_auth_module__WEBPACK_IMPORTED_MODULE_13__.AuthModule)
         ],
         controllers: [_controllers_users_controller__WEBPACK_IMPORTED_MODULE_3__.UsersController],
         providers: [

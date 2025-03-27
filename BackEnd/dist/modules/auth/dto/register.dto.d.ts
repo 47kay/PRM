@@ -1,5 +1,12 @@
 import { Role } from '../../users/enums/role.enum';
 import { SubscriptionPlan } from '../../organizations/enums/subscription-plan.enum';
+export declare class OrganizationAddressDto {
+    street: string;
+    city: string;
+    state: string;
+    postalCode: string;
+    country: string;
+}
 export declare class RegisterUserDto {
     firstName: string;
     lastName: string;
@@ -14,13 +21,6 @@ export declare class RegisterOrganizationDto {
     phone?: string;
     address?: OrganizationAddressDto;
     subscriptionPlan?: SubscriptionPlan;
-}
-export declare class OrganizationAddressDto {
-    street: string;
-    city: string;
-    state: string;
-    postalCode: string;
-    country: string;
 }
 export declare class RegisterDto {
     user: RegisterUserDto;
