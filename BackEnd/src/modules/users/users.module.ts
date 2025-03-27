@@ -1,5 +1,9 @@
 // src/modules/users/users.module.ts
-import { Module, forwardRef } from '@nestjs/common';  // Add forwardRef import
+
+
+
+import { Module, forwardRef } from '@nestjs/common';
+
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { EventEmitterModule } from '@nestjs/event-emitter';
 
@@ -17,29 +21,53 @@ import { UserActivityListener } from './listeners/user-activity.listener';
 import { NotificationsModule } from '../notifications/notifications.module';
 import { OrganizationsModule } from '../organizations/organizations.module';
 import { AuthModule } from '../auth/auth.module';
+import { EmailService } from '@/shared/services/email.service';
+import { AuditService } from '@/shared/services/audit.service';
+import { DomainVerificationService } from '../domain/services/domain-verification.service';
+import { EmailTemplateService } from '../email/services/email-template.service';
+import { EmailTemplate } from '../notifications/entities/email-template.entity';
+import { EmailLog } from '../notifications/entities/email-log.entity';
+import { EmailQueue } from '../notifications/entities/email-queue.entity';
+import { Domain } from '../domain/entities/domain.entity';
+import { DomainVerificationToken } from '../domain/entities/domain-verification-token.entity';
+import { AuditLog } from '../audit/entities/audit-log.entity';
 
 @Module({
     imports: [
         TypeOrmModule.forFeature([
             User,
             UserActivity,
-            UserSession
+            UserSession,
+            EmailTemplate,
+            AuditLog,
+            EmailLog,
+            EmailQueue,
+            Domain,
+            DomainVerificationService,
+            DomainVerificationToken
         ]),
         EventEmitterModule.forRoot({
             wildcard: true,
             maxListeners: 20,
             verboseMemoryLeak: true,
         }),
-        NotificationsModule,
-        OrganizationsModule,
-        forwardRef(() => AuthModule)  // Use forwardRef here
+
+
+        forwardRef(() => NotificationsModule),
+        forwardRef(() => OrganizationsModule),
+        forwardRef(() => AuthModule)
+
     ],
     controllers: [UsersController],
     providers: [
         UsersService,
         UserActivityService,
         UserEventListener,
-        UserActivityListener
+        UserActivityListener,
+        EmailService,
+        AuditService,
+        DomainVerificationService,
+        EmailTemplateService,
     ],
     exports: [UsersService]
 })

@@ -1,10 +1,15 @@
-import { Module } from '@nestjs/common';
+// src/modules/organizations/organizations.module.ts
+import { Module, forwardRef } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { EventEmitterModule } from '@nestjs/event-emitter';
 
 import { OrganizationsController } from './controllers/organizations.controller';
 import { OrganizationsService } from './services/organizations.service';
 import { Organization } from './entities/organization.entity';
+import { OrganizationInvitation } from './entities/organization-invitation.entity';
+import { OrganizationAuditLog } from './entities/organization-audit-log.entity'; // Add this import
+import { User } from '../users/entities/user.entity';
+import { AuditLog } from '../audit/entities/audit-log.entity';
 
 import { UsersModule } from '../users/users.module';
 import { AuthModule } from '../auth/auth.module';
@@ -22,18 +27,41 @@ import { OrganizationAuditService } from './services/organization-audit.service'
 import { OrganizationAccessGuard } from './guards/organization-access.guard';
 import { OrganizationRoleGuard } from './guards/organization-role.guard';
 
+// Import required services from other modules
+import { DomainVerificationService } from '../domain/services/domain-verification.service';
+import { EmailService } from '../../shared/services/email.service';
+import { StorageService } from '../storage/services/storage.service';
+import { Domain } from 'domain';
+import { DomainVerificationToken } from '../domain/entities/domain-verification-token.entity';
+import { EmailTemplate } from '../notifications/entities/email-template.entity';
+import { EmailLog } from '../notifications/entities/email-log.entity';
+import { EmailQueue } from '../notifications/entities/email-queue.entity';
+
 @Module({
     imports: [
-        TypeOrmModule.forFeature([Organization]),
+        TypeOrmModule.forFeature([
+            Organization,
+            OrganizationInvitation,
+            OrganizationAuditLog, // Add this entity
+            User,
+            AuditLog,
+            Domain,
+            DomainVerificationService,
+            DomainVerificationToken,
+            EmailTemplate,
+            EmailLog,
+            EmailQueue,
+            EmailService,
+            
+        ]),
         EventEmitterModule.forRoot({
-            // Global event emitter configuration
             wildcard: true,
             delimiter: '.',
             maxListeners: 20,
             verboseMemoryLeak: true,
         }),
-        UsersModule,
-        AuthModule,
+        forwardRef(() => UsersModule),
+        forwardRef(() => AuthModule),
     ],
     controllers: [
         OrganizationsController
@@ -52,6 +80,11 @@ import { OrganizationRoleGuard } from './guards/organization-role.guard';
         // Guards
         OrganizationAccessGuard,
         OrganizationRoleGuard,
+        
+        // Services from other modules that are required by OrganizationsService
+        DomainVerificationService,
+        EmailService,
+        StorageService,
     ],
     exports: [
         // Export services that other modules might need
@@ -64,14 +97,4 @@ import { OrganizationRoleGuard } from './guards/organization-role.guard';
         OrganizationRoleGuard,
     ]
 })
-export class OrganizationsModule {
-    // Optional: Implement custom module initialization logic
-    // async onModuleInit() {
-    //     // Initialize any required resources
-    // }
-
-    // Optional: Implement custom module cleanup logic
-    // async onModuleDestroy() {
-    //     // Cleanup any resources
-    // }
-}
+export class OrganizationsModule {}

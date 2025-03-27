@@ -1,8 +1,9 @@
 // src/modules/notifications/notifications.module.ts
 
-import { Module } from '@nestjs/common';
+import { Module, forwardRef } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { EventEmitterModule } from '@nestjs/event-emitter';
+import { ConfigModule } from '@nestjs/config';
 
 import { NotificationsController } from './controllers/notifications.controller';
 import { NotificationsService } from './services/notifications.service';
@@ -11,6 +12,15 @@ import { NotificationSchedulerService } from './services/notification-scheduler.
 import { Notification as NotificationEntity } from './entities/notification.entity';
 import { NotificationPreference } from './entities/notification-preference.entity';
 import { NotificationTemplate } from './entities/notification-template.entity';
+
+// Import email entities with correct paths
+import { EmailTemplate } from './entities/email-template.entity'; // Look for this in notifications module
+import { EmailLog } from './entities/email-log.entity'; // Look for this in notifications module
+import { EmailQueue } from './entities/email-queue.entity';
+
+// Import domain entities
+import { Domain } from '../domain/entities/domain.entity';
+import { DomainVerificationToken } from '../domain/entities/domain-verification-token.entity';
 
 import { NotificationListener } from './listeners/notification.listener';
 import { NotificationScheduleListener } from './listeners/notification-schedule.listener';
@@ -27,32 +37,37 @@ import { WebhookService } from '../../shared/services/webhook.service';
 import { WhatsappService } from '../whatsapp/services/whatsapp.services';
 import { NotificationDeliveryService } from './services/notification-delivery.service';
 
-export enum AppointmentEventTypes {
-    CREATED = 'appointment.created',
-    UPDATED = 'appointment.updated',
-    CANCELLED = 'appointment.cancelled',
-    COMPLETED = 'appointment.completed',
-    RESCHEDULED = 'appointment.rescheduled',
-  }
+// Import services
+import { SlackService } from '../integrations/slack/services/slack.service';
+import { DomainVerificationService } from '../domain/services/domain-verification.service';
+import { WhatsAppMessage } from '../whatsapp/entities/whatsapp-message.entity';
+import { WhatsappTemplate } from '../whatsapp/entities/whatsapp-template.entity';
+import { WhatsappLog } from '../whatsapp/entities/whatsapp-log.entity';
 
 @Module({
     imports: [
         TypeOrmModule.forFeature([
             NotificationEntity,
             NotificationPreference,
-            NotificationTemplate
+            NotificationTemplate,
+            EmailTemplate,
+            EmailLog,
+            EmailQueue,
+            Domain,
+            DomainVerificationToken,
+            WhatsAppMessage,
+            WhatsappTemplate,
+            WhatsappLog
         ]),
         EventEmitterModule.forRoot({
-            // Enable wildcard event listeners
             wildcard: true,
-            // Remove memory-leak warnings
             maxListeners: 20,
-            // Enable verbose error handling
             verboseMemoryLeak: true,
         }),
-        UsersModule,
-        OrganizationsModule,
-        AuthModule
+        ConfigModule,
+        forwardRef(() => UsersModule),
+        forwardRef(() => OrganizationsModule),
+        forwardRef(() => AuthModule)
     ],
     controllers: [NotificationsController],
     providers: [
@@ -72,6 +87,10 @@ export enum AppointmentEventTypes {
         PushNotificationService,
         WebhookService,
         WhatsappService,
+        SlackService,
+        
+        // Add domain verification service
+        DomainVerificationService
     ],
     exports: [
         NotificationsService,
