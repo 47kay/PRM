@@ -3,7 +3,6 @@
 
 
 import { Module, forwardRef } from '@nestjs/common';
-
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { EventEmitterModule } from '@nestjs/event-emitter';
 
@@ -51,7 +50,6 @@ import { AuditLog } from '../audit/entities/audit-log.entity';
             maxListeners: 20,
             verboseMemoryLeak: true,
         }),
-
 
         forwardRef(() => NotificationsModule),
         forwardRef(() => OrganizationsModule),

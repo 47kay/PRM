@@ -17,9 +17,6 @@ import { Type } from 'class-transformer';
 import { Role } from '../../users/enums/role.enum';
 import { SubscriptionPlan } from '../../organizations/enums/subscription-plan.enum';
 
-
-
-
 export class OrganizationAddressDto {
     @ApiProperty()
     @IsString()

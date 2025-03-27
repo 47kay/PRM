@@ -2,7 +2,6 @@
 
 
 import { Module, forwardRef } from '@nestjs/common';
-
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
@@ -33,7 +32,6 @@ import { UsersModule } from '../users/users.module';
 
 
     forwardRef(() => UsersModule),
-
   ],
   controllers: [AuthController],
   providers: [AuthService, JwtStrategy],
