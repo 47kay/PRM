@@ -55,10 +55,10 @@ export declare class Notification {
     };
     updatedById?: string;
     deletedAt?: Date;
-    organization: Organization;
-    user: User;
-    sender: User;
-    updatedBy?: User;
+    organization: Promise<Organization>;
+    user: Promise<User>;
+    sender: Promise<User>;
+    updatedBy?: Promise<User>;
     get isRead(): boolean;
     get isExpired(): boolean;
     get isScheduled(): boolean;

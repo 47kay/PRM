@@ -41,8 +41,8 @@ export class Domain {
     @OneToMany('DomainVerificationToken', 'domain')
     verificationTokens: any[]; // Use any[] instead of specific type
 
-    @OneToMany(() => DnsRecord, record => record.domain)
-    dnsRecords: DnsRecord[];
+    @OneToMany('DnsRecord', 'domain')
+    dnsRecords: any[];
 
     @Column({ nullable: true })
     verifiedAt?: Date;

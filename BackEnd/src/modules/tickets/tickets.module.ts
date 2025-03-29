@@ -13,7 +13,7 @@ import { Ticket } from './entities/ticket.entity';
 import { TicketComment } from './entities/ticket-comment.entity';
 import { TicketAttachment } from './entities/ticket-attachment.entity';
 import { TicketActivity } from './entities/ticket-activity.entity';
-import { User } from '../users/entities/user.entity'; // Add User entity import
+import { User } from '../users/entities/user.entity';
 
 import { TicketListener } from './listeners/ticket.listener';
 import { TicketAssignmentListener } from './listeners/ticket-assignment.listener';
@@ -22,6 +22,8 @@ import { TicketEscalationListener } from './listeners/ticket-escalation.listener
 import { UsersModule } from '../users/users.module';
 import { NotificationsModule } from '../notifications/notifications.module';
 import { OrganizationsModule } from '../organizations/organizations.module';
+import { AuthModule } from '../auth/auth.module';
+import { DepartmentsModule } from '../departments/departments.module'; // Add this import
 
 @Module({
     imports: [
@@ -30,7 +32,7 @@ import { OrganizationsModule } from '../organizations/organizations.module';
             TicketComment,
             TicketAttachment,
             TicketActivity,
-            User  // Add User entity
+            User
         ]),
         EventEmitterModule.forRoot({
             wildcard: true,
@@ -39,7 +41,9 @@ import { OrganizationsModule } from '../organizations/organizations.module';
         }),
         forwardRef(() => UsersModule),
         forwardRef(() => NotificationsModule),
-        forwardRef(() => OrganizationsModule)
+        forwardRef(() => OrganizationsModule),
+        forwardRef(() => AuthModule),
+        DepartmentsModule // Add this line
     ],
     controllers: [
         TicketsController

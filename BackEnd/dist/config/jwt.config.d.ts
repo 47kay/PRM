@@ -22,7 +22,7 @@ export declare const jwtConfigValidationSchema: Joi.ObjectSchema<any>;
 declare const _default: (() => JwtConfig) & import("@nestjs/config").ConfigFactoryKeyHost<JwtConfig>;
 export default _default;
 export declare const jwtModuleConfig: {
-    secret: string | undefined;
+    secret: string;
     signOptions: {
         expiresIn: string;
         algorithm: string;

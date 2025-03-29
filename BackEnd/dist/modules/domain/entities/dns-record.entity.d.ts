@@ -1,4 +1,3 @@
-import type { Domain } from './domain.entity';
 export declare enum DnsRecordType {
     A = "A",
     AAAA = "AAAA",
@@ -14,7 +13,7 @@ export declare enum DnsRecordType {
 export declare class DnsRecord {
     id: string;
     domainId: string;
-    domain: Domain;
+    domain: any;
     type: DnsRecordType;
     name: string;
     content: string;

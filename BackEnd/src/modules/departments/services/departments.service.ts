@@ -1,6 +1,6 @@
 import { Injectable, NotFoundException, BadRequestException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository, FindOptionsWhere } from 'typeorm';
+import { Repository, FindOptionsWhere, DeepPartial } from 'typeorm';
 import { EventEmitter2 } from '@nestjs/event-emitter';
 import { Department } from '../entities/department.entity';
 import { CreateDepartmentDto } from '../dto/create-department.dto';
@@ -21,33 +21,19 @@ export class DepartmentsService {
    * Create a new department
    */
   async create(
-    organizationId: string,
-    createDepartmentDto: CreateDepartmentDto,
-    userId: string
+    createDepartmentDto: Partial<Department>,
+    userId: string,
+    organizationId: string
   ): Promise<Department> {
-    // Verify organization exists
-    await this.organizationsService.findById(organizationId);
-
-    // Check if parent department exists if specified
-    if (createDepartmentDto.parentDepartmentId) {
-      await this.findById(createDepartmentDto.parentDepartmentId);
-    }
-
     const department = this.departmentRepository.create({
       ...createDepartmentDto,
       organizationId,
       createdById: userId,
+      updatedById: userId,
+      isActive: true,
     });
 
-    const savedDepartment = await this.departmentRepository.save(department);
-
-    this.eventEmitter.emit('department.created', {
-      departmentId: savedDepartment.id,
-      organizationId,
-      createdById: userId,
-    });
-
-    return savedDepartment;
+    return await this.departmentRepository.save(department);
   }
 
   /**
@@ -83,10 +69,19 @@ export class DepartmentsService {
   /**
    * Find department by ID
    */
-  async findById(id: string, relations: string[] = []): Promise<Department> {
+  async findById(
+    id: string,
+    organizationId?: string,
+    relations?: string[]
+  ): Promise<Department> {
+    const where: FindOptionsWhere<Department> = { id };
+    if (organizationId) {
+      where.organizationId = organizationId;
+    }
+
     const department = await this.departmentRepository.findOne({
-      where: { id },
-      relations,
+      where,
+      relations: relations || []
     });
 
     if (!department) {

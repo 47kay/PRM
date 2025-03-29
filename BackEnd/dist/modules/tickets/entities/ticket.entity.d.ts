@@ -1,4 +1,5 @@
 import { TicketType, TicketPriority, TicketStatus, TicketSource } from '../dto/create-ticket.dto';
+import { Department } from '../../departments/entities/department.entity';
 export declare class Ticket {
     id: string;
     organizationId: string;
@@ -53,7 +54,7 @@ export declare class Ticket {
     deletedAt?: Date;
     organization: any;
     contact?: any;
-    department?: any;
+    department?: Promise<Department>;
     assignee?: any;
     createdBy: any;
     updatedBy?: any;

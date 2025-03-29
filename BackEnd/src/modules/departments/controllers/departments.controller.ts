@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Put, Delete, Body, Param, Query, UseGuards } from '@nestjs/common';
+import { Controller, Get, Post, Put, Delete, Body, Param, Query, UseGuards, Req } from '@nestjs/common';
 import { ApiTags, ApiOperation, ApiResponse } from '@nestjs/swagger';
 import { DepartmentsService } from '../services/departments.service';
 import { DepartmentMembersService } from '../services/department-members.service';
@@ -14,9 +14,10 @@ import { DepartmentQueryDto } from '../dto/department-query.dto';
 import { Department } from '../entities/department.entity';
 import { Role } from '../../users/enums/role.enum';
 import { User } from '../../users/entities/user.entity';
+import { Request } from 'express';
 
 @ApiTags('Departments')
-@Controller('organizations/:organizationId/departments')
+@Controller('departments')
 @UseGuards(AuthGuard, OrganizationGuard, RolesGuard)
 export class DepartmentsController {
   constructor(
@@ -29,14 +30,13 @@ export class DepartmentsController {
   @ApiOperation({ summary: 'Create department' })
   @ApiResponse({ status: 201, type: Department })
   async create(
-    @Param('organizationId') organizationId: string,
-    @Body() createDepartmentDto: CreateDepartmentDto,
-    @CurrentUser('id') userId: string
+    @Body() createDepartmentDto: Partial<Department>,
+    @Req() req: Request
   ): Promise<Department> {
     return this.departmentsService.create(
-      organizationId,
       createDepartmentDto,
-      userId
+      req.user['id'],
+      req.user['organizationId']
     );
   }
 
@@ -44,19 +44,26 @@ export class DepartmentsController {
   @ApiOperation({ summary: 'Get all departments' })
   @ApiResponse({ status: 200, type: [Department] })
   async findAll(
-    @Param('organizationId') organizationId: string,
-    @Query() query: DepartmentQueryDto
+    @Query() query: DepartmentQueryDto,
+    @Req() req: Request
   ): Promise<[Department[], number]> {
-    return this.departmentsService.findAll(organizationId, query);
+    return this.departmentsService.findAll(
+      req.user['organizationId'],
+      query
+    );
   }
 
   @Get(':id')
   @ApiOperation({ summary: 'Get department by id' })
   @ApiResponse({ status: 200, type: Department })
   async findOne(
-    @Param('id') id: string
+    @Param('id') id: string,
+    @Req() req: Request
   ): Promise<Department> {
-    return this.departmentsService.findById(id, ['manager', 'parentDepartment']);
+    return this.departmentsService.findById(
+      id,
+      req.user['organizationId']
+    );
   }
 
   @Put(':id')

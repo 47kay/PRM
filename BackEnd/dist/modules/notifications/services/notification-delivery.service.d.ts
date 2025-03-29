@@ -31,7 +31,7 @@ export declare class NotificationDeliveryService {
             }[];
             error?: string;
             timeoutAt?: Date;
-        } | undefined;
+        };
         channels: import("../dto/create-notification.dto").NotificationChannel[];
     }>;
 }

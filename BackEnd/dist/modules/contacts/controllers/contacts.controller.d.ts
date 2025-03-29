@@ -31,7 +31,7 @@ export declare class ContactsController {
             id: string;
             firstName: string;
             lastName: string;
-            email: string | undefined;
+            email: string;
             phone: string;
             type: import("../entities/contact.entity").ContactType;
         }[];

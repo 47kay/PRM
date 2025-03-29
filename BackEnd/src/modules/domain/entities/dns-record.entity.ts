@@ -28,7 +28,7 @@ export class DnsRecord {
 
     @ManyToOne('Domain', 'dnsRecords', { onDelete: 'CASCADE' })
     @JoinColumn({ name: 'domainId' })
-    domain: Domain;
+    domain: any;
 
     @Column({
         type: 'enum',

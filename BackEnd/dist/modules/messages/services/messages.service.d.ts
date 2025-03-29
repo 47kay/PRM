@@ -19,6 +19,7 @@ export declare class MessagesService {
     private readonly dataSource;
     private readonly eventEmitter;
     constructor(messageRepository: Repository<Message>, templateRepository: Repository<MessageTemplate>, attachmentRepository: Repository<MessageAttachment>, contactRepository: Repository<Contact>, userRepository: Repository<User>, dataSource: DataSource, eventEmitter: EventEmitter2);
+    private asPromiseEntity;
     private withTransaction;
     private getValidContact;
     private getUser;

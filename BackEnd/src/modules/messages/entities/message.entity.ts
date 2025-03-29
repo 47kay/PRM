@@ -146,39 +146,39 @@ export class Message {
     deletedAt?: Date;
 
     // Relations
-    @ManyToOne(() => Organization)
+    @ManyToOne(() => Organization, { lazy: true })
     @JoinColumn({ name: 'organizationId' })
-    organization: Organization;
+    organization: Promise<Organization>;
 
-    @ManyToOne('User')
+    @ManyToOne('User', { lazy: true })
     @JoinColumn({ name: 'senderId' })
-    sender: User;
+    sender: Promise<User>;
 
-    @ManyToOne('User')
+    @ManyToOne('User', { lazy: true })
     @JoinColumn({ name: 'updatedById' })
-    updatedBy?: User;
+    updatedBy?: Promise<User>;
 
-    @ManyToOne('User')
+    @ManyToOne('User', { lazy: true })
     @JoinColumn({ name: 'confirmedById' })
-    confirmedBy?: User;
+    confirmedBy?: Promise<User>;
 
-    @ManyToOne('Contact')
+    @ManyToOne('Contact', { lazy: true })
     @JoinColumn({ name: 'contactId' })
-    contact: Contact;
+    contact: Promise<Contact>;
 
-    @ManyToOne(() => MessageTemplate)
+    @ManyToOne(() => MessageTemplate, { lazy: true })
     @JoinColumn({ name: 'templateId' })
-    template?: MessageTemplate;
+    template?: Promise<MessageTemplate>;
 
-    @ManyToOne('Message')
+    @ManyToOne(() => Message, { lazy: true })
     @JoinColumn({ name: 'parentMessageId' })
-    parentMessage?: Message;
+    parentMessage?: Promise<Message>;
 
-    @OneToMany('Message', 'parentMessage')
-    replies?: Message[];
+    @OneToMany(() => Message, message => message.parentMessage, { lazy: true })
+    replies?: Promise<Message[]>;
 
-    @OneToMany('MessageAttachment', 'message')
-    attachments?: MessageAttachment[];
+    @OneToMany(() => MessageAttachment, attachment => attachment.message, { lazy: true })
+    attachments?: Promise<MessageAttachment[]>;
 
     // Virtual properties
     @ApiProperty()

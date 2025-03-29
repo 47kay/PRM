@@ -1,1 +1,1 @@
-export {};
+import './build-workarounds';

@@ -67,7 +67,6 @@ export declare class Appointment {
     updatedAt: Date;
     organization: any;
     patient: any;
-    contact: any;
     doctor: any;
     createdBy: any;
     updatedBy: any;

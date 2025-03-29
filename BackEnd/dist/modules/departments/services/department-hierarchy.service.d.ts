@@ -26,5 +26,7 @@ export declare class DepartmentHierarchyService {
     getDepartmentSiblings(departmentId: string): Promise<Department[]>;
     getDepartmentDepth(departmentId: string): Promise<number>;
     reorderDepartments(parentDepartmentId: string | null, orderedDepartmentIds: string[], userId: string): Promise<void>;
+    updateDepartmentParent(departmentId: string, parentDepartmentId: string | null, userId: string): Promise<Department>;
+    updateDepartmentOrder(departmentId: string, sortOrder: number, userId: string): Promise<Department>;
 }
 export {};

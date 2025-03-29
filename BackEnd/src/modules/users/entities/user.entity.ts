@@ -197,28 +197,31 @@ export class User {
     @JoinColumn({ name: 'organizationId' })
     organization: any;
 
-    @ManyToOne(() => User)
+    // Change this to use lazy loading
+    @ManyToOne(() => User, { lazy: true })
     @JoinColumn({ name: 'createdById' })
-    createdBy: User;
+    createdBy: Promise<User>;
 
-    @ManyToOne(() => User)
+    // Change this to use lazy loading
+    @ManyToOne(() => User, { lazy: true })
     @JoinColumn({ name: 'updatedById' })
-    updatedBy?: User;
+    updatedBy?: Promise<User>;
 
-    @OneToMany(() => Ticket, ticket => ticket.assignee)
-    assignedTickets: Ticket[];
+    // Other relationships remain the same but add lazy loading
+    @OneToMany(() => Ticket, ticket => ticket.assignee, { lazy: true })
+    assignedTickets: Promise<Ticket[]>;
 
-    @OneToMany(() => Message, message => message.sender)
-    messages: Message[];
+    @OneToMany(() => Message, message => message.sender, { lazy: true })
+    messages: Promise<Message[]>;
 
-    @OneToMany(() => Appointment, appointment => appointment.provider)
-    appointments: Appointment[];
+    @OneToMany(() => Appointment, appointment => appointment.provider, { lazy: true })
+    appointments: Promise<Appointment[]>;
 
-    @OneToMany(() => Notification, notification => notification.user)
-    notifications: Notification[];
+    @OneToMany(() => Notification, notification => notification.user, { lazy: true })
+    notifications: Promise<Notification[]>;
 
-    @OneToMany(() => UserActivity, activity => activity.user)
-    activities: UserActivity[];
+    @OneToMany(() => UserActivity, activity => activity.user, { lazy: true })
+    activities: Promise<UserActivity[]>;
 
     // Virtual properties
     @ApiProperty()

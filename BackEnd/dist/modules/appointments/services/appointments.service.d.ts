@@ -82,21 +82,17 @@ export declare class AppointmentsService {
         doctor: {
             id: any;
             name: any;
-        } | null;
+        };
         patient: {
             id: any;
             name: any;
-        } | null;
+        };
     }[]>;
     findAvailableSlots(query: {
         doctorId: string;
         date: Date;
         organizationId: string;
-    }): Promise<{
-        start: string;
-        end: string;
-        available: boolean;
-    }[]>;
+    }): Promise<any[]>;
     getStatistics(query: {
         organizationId: string;
         startDate: Date;

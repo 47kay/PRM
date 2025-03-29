@@ -4,6 +4,7 @@ import { Repository, Not, In, IsNull } from 'typeorm';
 import { EventEmitter2 } from '@nestjs/event-emitter';
 import { Department } from '../entities/department.entity';
 import { DepartmentsService } from './departments.service';
+import { QueryDeepPartialEntity } from 'typeorm/query-builder/QueryPartialEntity';
 
 interface DepartmentTreeNode {
   id: string;
@@ -147,6 +148,7 @@ export class DepartmentHierarchyService {
     const ancestors: Department[] = [];
     let currentDepartment = await this.departmentsService.findById(
       departmentId,
+      undefined, // organizationId is optional
       ['parentDepartment']
     );
 
@@ -154,6 +156,7 @@ export class DepartmentHierarchyService {
       ancestors.push(currentDepartment.parentDepartment);
       currentDepartment = await this.departmentsService.findById(
         currentDepartment.parentDepartment.id,
+        undefined,
         ['parentDepartment']
       );
     }
@@ -172,7 +175,11 @@ export class DepartmentHierarchyService {
    * Get department siblings
    */
   async getDepartmentSiblings(departmentId: string): Promise<Department[]> {
-    const department = await this.departmentsService.findById(departmentId);
+    const department = await this.departmentsService.findById(
+      departmentId,
+      undefined,
+      ['parentDepartment']
+    );
 
     return this.departmentRepository.find({
       where: {
@@ -228,5 +235,39 @@ export class DepartmentHierarchyService {
       performedById: userId,
       organizationId: departments[0].organizationId,
     });
+  }
+
+  /**
+   * Update department parent
+   */
+  async updateDepartmentParent(
+    departmentId: string,
+    parentDepartmentId: string | null,
+    userId: string
+  ): Promise<Department> {
+    const updateData: QueryDeepPartialEntity<Department> = {
+      parentDepartmentId,
+      updatedById: userId
+    };
+    
+    await this.departmentRepository.update(departmentId, updateData);
+    return await this.departmentRepository.findOneOrFail({ where: { id: departmentId } });
+  }
+
+  /**
+   * Update department order
+   */
+  async updateDepartmentOrder(
+    departmentId: string,
+    sortOrder: number,
+    userId: string
+  ): Promise<Department> {
+    const updateData: QueryDeepPartialEntity<Department> = {
+      sortOrder,
+      updatedById: userId
+    };
+    
+    await this.departmentRepository.update(departmentId, updateData);
+    return await this.departmentRepository.findOneOrFail({ where: { id: departmentId } });
   }
 }

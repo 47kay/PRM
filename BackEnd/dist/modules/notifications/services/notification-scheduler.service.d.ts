@@ -21,6 +21,7 @@ export declare class NotificationSchedulerService {
     private readonly MAX_RETRY_ATTEMPTS;
     private readonly BATCH_SIZE;
     constructor(notificationRepository: Repository<Notification>, emailService: EmailService, smsService: SmsService, pushNotificationService: PushNotificationService, whatsappService: WhatsappService, slackService: SlackService, eventEmitter: EventEmitter2);
+    private asPromiseEntity;
     processScheduledNotifications(): Promise<void>;
     retryFailedNotifications(): Promise<void>;
     cleanupExpiredNotifications(): Promise<void>;

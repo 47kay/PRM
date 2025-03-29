@@ -63,13 +63,13 @@ export declare class User {
     updatedAt: Date;
     deletedAt?: Date;
     organization: any;
-    createdBy: User;
-    updatedBy?: User;
-    assignedTickets: Ticket[];
-    messages: Message[];
-    appointments: Appointment[];
-    notifications: Notification[];
-    activities: UserActivity[];
+    createdBy: Promise<User>;
+    updatedBy?: Promise<User>;
+    assignedTickets: Promise<Ticket[]>;
+    messages: Promise<Message[]>;
+    appointments: Promise<Appointment[]>;
+    notifications: Promise<Notification[]>;
+    activities: Promise<UserActivity[]>;
     get fullName(): string;
     get isAvailable(): boolean;
 }

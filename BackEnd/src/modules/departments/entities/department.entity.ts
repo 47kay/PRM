@@ -1,107 +1,102 @@
-import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, ManyToOne, OneToMany, JoinColumn, ManyToMany, JoinTable } from 'typeorm';
-import { Organization } from '../../organizations/entities/organization.entity';
+import {
+    Entity,
+    Column,
+    PrimaryGeneratedColumn,
+    CreateDateColumn,
+    UpdateDateColumn,
+    DeleteDateColumn,
+    ManyToOne,
+    OneToMany,
+    JoinColumn,
+} from 'typeorm';
+import { ApiProperty } from '@nestjs/swagger';
 import { User } from '../../users/entities/user.entity';
+import { Organization } from '../../organizations/entities/organization.entity';
 import { Ticket } from '../../tickets/entities/ticket.entity';
 
 @Entity('departments')
 export class Department {
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
+    @ApiProperty()
+    @PrimaryGeneratedColumn('uuid')
+    id: string;
 
-  @Column()
-  name: string;
+    @ApiProperty()
+    @Column()
+    name: string;
 
-  @Column({ default: 0, name: 'display_order' })
-displayOrder: number;
+    @ApiProperty()
+    @Column()
+    organizationId: string;
 
-  @Column({ nullable: true })
-  description: string;
+    @ApiProperty()
+    @Column({ nullable: true })
+    description?: string;
 
-  @Column({ default: true })
-  isActive: boolean;
+    @ApiProperty()
+    @Column({ nullable: true })
+    parentDepartmentId?: string;
 
-  @Column('uuid')
-  organizationId: string;
+    @ApiProperty()
+    @Column({ nullable: true })
+    managerId?: string;
 
-  @Column({ default: 0 })
-  sortOrder: number;
+    @ApiProperty()
+    @Column({ nullable: true })
+    createdById?: string;
 
-  @ManyToOne(() => Organization, organization => organization.departments)
-  @JoinColumn({ name: 'organizationId' })
-  organization: Organization;
+    @ApiProperty()
+    @Column({ nullable: true })
+    updatedById?: string;
 
-  @Column('uuid', { nullable: true })
-  managerId: string;
+    @ApiProperty()
+    @Column({ default: true })
+    isActive: boolean;
 
-  @ManyToOne(() => User)
-  @JoinColumn({ name: 'managerId' })
-  manager: User;
+    @ApiProperty()
+    @Column({ type: 'int', default: 0 })
+    memberCount: number;
 
-  @Column('uuid', { nullable: true })
-  parentDepartmentId: string;
+    @ApiProperty()
+    @Column({ type: 'int', default: 0 })
+    sortOrder: number;
 
-  @ManyToOne(() => Department, { nullable: true })
-  @JoinColumn({ name: 'parentDepartmentId' })
-  parentDepartment: Department;
+    @ApiProperty()
+    @Column({ type: 'jsonb', nullable: true })
+    metadata?: Record<string, any>;
 
-  @OneToMany(() => Department, department => department.parentDepartment)
-  childDepartments: Department[];
+    @CreateDateColumn()
+    createdAt: Date;
 
-  @ManyToMany(() => User, user => user.department)
-  @JoinTable({
-    name: 'department_members',
-    joinColumn: {
-      name: 'departmentId',
-      referencedColumnName: 'id'
-    },
-    inverseJoinColumn: {
-      name: 'userId',
-      referencedColumnName: 'id'
-    }
-  })
-  members: User[];
+    @UpdateDateColumn()
+    updatedAt: Date;
 
-  @OneToMany(() => Ticket, ticket => ticket.department)
-  tickets: Ticket[];
+    @DeleteDateColumn()
+    deletedAt?: Date;
 
-  @Column('jsonb', { nullable: true })
-  metadata: Record<string, any>;
+    // Relations
+    @ManyToOne(() => Organization)
+    @JoinColumn({ name: 'organizationId' })
+    organization: Organization;
 
-  @Column('simple-array', { nullable: true })
-  tags: string[];
+    @ManyToOne(() => Department, { nullable: true })
+    @JoinColumn({ name: 'parentDepartmentId' })
+    parentDepartment?: Department;
 
-  @Column({ default: 0 })
-  memberCount: number;
+    @OneToMany(() => Department, dept => dept.parentDepartment)
+    childDepartments: Department[];
 
-  @Column({ nullable: true })
-  contactEmail: string;
+    @ManyToOne(() => User, { lazy: true })
+    @JoinColumn({ name: 'managerId' })
+    manager: Promise<User>;
 
-  @Column({ nullable: true })
-  contactPhone: string;
+    @ManyToOne(() => User, { lazy: true })
+    @JoinColumn({ name: 'createdById' })
+    createdBy: Promise<User>;
 
-  @Column({ nullable: true })
-  workingHours: string;
+    @ManyToOne(() => User, { lazy: true })
+    @JoinColumn({ name: 'updatedById' })
+    updatedBy: Promise<User>;
 
-  @Column({ nullable: true })
-  timezone: string;
-
-  @CreateDateColumn()
-  createdAt: Date;
-
-  @UpdateDateColumn()
-  updatedAt: Date;
-
-  @Column('uuid', { nullable: true })
-  createdById: string;
-
-  @ManyToOne(() => User)
-  @JoinColumn({ name: 'createdById' })
-  createdBy: User;
-
-  @Column('uuid', { nullable: true })
-  updatedById: string;
-
-  @ManyToOne(() => User)
-  @JoinColumn({ name: 'updatedById' })
-  updatedBy: User;
+    @OneToMany(() => Ticket, ticket => ticket.department)
+    tickets: Promise<Ticket[]>;
 }

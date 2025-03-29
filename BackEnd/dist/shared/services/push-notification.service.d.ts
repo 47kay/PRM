@@ -6,6 +6,7 @@ export declare class PushNotificationService {
     private firebaseApp;
     private mockMode;
     constructor(configService: ConfigService);
+    private initializeFirebase;
     private initMockFirebase;
     send(notification: Notification): Promise<void>;
     private formatContent;

@@ -120,9 +120,16 @@ export class Notification {
     @Column({ type: 'jsonb', nullable: true })
     data?: Record<string, any>;
 
-    @ApiProperty()
-    @Column({ type: 'enum', enum: NotificationChannel, array: true })
-    channels: NotificationChannel[];
+    @ApiProperty({ 
+        type: 'array',
+        items: { 
+          type: 'string', 
+          enum: ['EMAIL', 'SMS', 'PUSH', 'IN_APP', 'WHATSAPP', 'SLACK', 'WEBHOOK']
+        },
+        description: 'Notification delivery channels'
+      })
+      @Column({ type: 'enum', enum: NotificationChannel, array: true })
+      channels: NotificationChannel[];
 
     @ApiProperty()
     @Column({ length: 100, nullable: true })
@@ -157,34 +164,42 @@ export class Notification {
 
     
 
-    @ApiProperty()
-    @Column({ type: 'jsonb', nullable: true })
-    
-    
-    
-    deliveryDetails?: {
-
+    @ApiProperty({
+        type: 'object',
+        nullable: true,
+        properties: {
+          attempts: { type: 'number' },
+          lastAttempt: { type: 'string', format: 'date-time' },
+          channels: { 
+            type: 'array',
+            items: {
+              type: 'object',
+              properties: {
+                channel: { type: 'string', enum: ['EMAIL', 'SMS', 'PUSH', 'IN_APP', 'WHATSAPP', 'SLACK', 'WEBHOOK'] },
+                status: { type: 'string', enum: ['SUCCESS', 'FAILED'] },
+                sentAt: { type: 'string', format: 'date-time' },
+                error: { type: 'string' }
+              }
+            }
+          },
+          error: { type: 'string' },
+          timeoutAt: { type: 'string', format: 'date-time' }
+        }
+      })
+      @Column({ type: 'jsonb', nullable: true })
+      deliveryDetails?: {
+        // Keep the original type definition
         attempts: number;
-
         lastAttempt: Date;
-
         channels: {
-
-            channel: NotificationChannel;
-
-            status: 'SUCCESS' | 'FAILED';
-
-            sentAt: Date;
-
-            error?: string;
-
+          channel: NotificationChannel;
+          status: 'SUCCESS' | 'FAILED';
+          sentAt: Date;
+          error?: string;
         }[];
-
         error?: string;
-
         timeoutAt?: Date;
-
-    };
+      };
 
     @ApiProperty()
     @Column({ type: 'jsonb', nullable: true })
@@ -204,21 +219,21 @@ export class Notification {
     deletedAt?: Date;
 
     // Relations
-    @ManyToOne(() => Organization)
+    @ManyToOne(() => Organization, { lazy: true })
     @JoinColumn({ name: 'organizationId' })
-    organization: Organization;
+    organization: Promise<Organization>;
 
-    @ManyToOne('User')
+    @ManyToOne('User', { lazy: true })
     @JoinColumn({ name: 'userId' })
-    user: User;
+    user: Promise<User>;
 
-    @ManyToOne('User')
+    @ManyToOne('User', { lazy: true })
     @JoinColumn({ name: 'senderId' })
-    sender: User;
+    sender: Promise<User>;
 
-    @ManyToOne('User')
+    @ManyToOne('User', { lazy: true })
     @JoinColumn({ name: 'updatedById' })
-    updatedBy?: User;
+    updatedBy?: Promise<User>;
 
     // Virtual properties
     @ApiProperty()

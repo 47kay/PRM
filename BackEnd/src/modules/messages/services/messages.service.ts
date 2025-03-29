@@ -48,6 +48,13 @@ export class MessagesService {
     ) {}
 
     /**
+     * Helper method to convert an entity to a Promise
+     */
+    private asPromiseEntity<T>(entity: T): Promise<T> {
+        return Promise.resolve(entity);
+    }
+
+    /**
      * Execute a database operation within a transaction
      */
     private async withTransaction<T>(callback: TransactionCallback<T>): Promise<T> {
@@ -179,16 +186,16 @@ export class MessagesService {
                 this.getValidContact(data.contactId, data.organizationId, data.type),
                 this.getUser(data.senderId, 'Sender')
             ]);
-
-            // Prepare message data
+    
+            // Prepare message data using foreign keys instead of relation objects
             const messageData = {
                 content: data.content,
                 type: data.type,
                 scheduledFor: data.scheduledFor ? new Date(data.scheduledFor) : undefined,
                 metadata: data.metadata,
                 organizationId: data.organizationId,
-                contact: contact,
-                sender: sender,
+                contactId: contact.id,  // Use foreign key instead of contact object
+                senderId: sender.id,    // Use foreign key instead of sender object
                 status: data.scheduledFor ? MessageStatus.SCHEDULED : MessageStatus.QUEUED,
                 priority: data.priority,
                 requireConfirmation: data.requireConfirmation || false,
@@ -197,23 +204,23 @@ export class MessagesService {
                 templateId: data.templateId,
                 emailOptions: this.prepareEmailOptions(data)
             };
-
+    
             // Create and save message
             const message = this.messageRepository.create(messageData);
             await this.applyTemplate(message, data.templateId, data.organizationId, contact);
             await queryRunner.manager.save(message);
-
+    
             // Handle attachments
             const attachmentEntities = this.createAttachmentEntities(data.attachments, message);
             if (attachmentEntities.length > 0) {
                 await queryRunner.manager.save(MessageAttachment, attachmentEntities);
             }
-
+    
             // Emit event for immediate sending if not scheduled
             if (!data.scheduledFor) {
                 this.eventEmitter.emit('message.created', message);
             }
-
+    
             return message;
         });
     }
@@ -397,6 +404,7 @@ export class MessagesService {
         // Return the first item if it's an array, otherwise return the result directly
         return Array.isArray(result) ? result[0] : result;
     } 
+
     /**
      * Get all templates for an organization
      */
@@ -532,7 +540,6 @@ export class MessagesService {
         }
     
         // Update message
-       
         
         // Ensure deliveryDetails exists before updating it
         const deliveryDetails = message.deliveryDetails || {};
@@ -546,9 +553,9 @@ export class MessagesService {
             ...(message.deliveryDetails || {})
         };
 
-
         message.status = MessageStatus.QUEUED;
-        message.updatedBy = user;
+        // Fix: Wrap user in Promise
+        message.updatedBy = this.asPromiseEntity(user);
     
         const savedMessage = await this.messageRepository.save(message);
     
@@ -583,6 +590,4 @@ export class MessagesService {
             return value !== undefined && value !== null ? String(value) : match;
         });
     }
-
-    
 }

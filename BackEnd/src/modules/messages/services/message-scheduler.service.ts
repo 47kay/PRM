@@ -24,9 +24,13 @@ export class MessageSchedulerService implements OnModuleInit, OnModuleDestroy {
    */
   async onModuleInit() {
     this.logger.log('Message scheduler service initialized');
-    // Process any messages that might have been scheduled
-    // but not processed due to server restart
-    await this.processScheduledMessages();
+    try {
+      // Process any messages that might have been scheduled
+      // but not processed due to server restart
+      await this.processScheduledMessages();
+    } catch (error) {
+      this.logger.error('Error processing scheduled messages:', error);
+    }
   }
 
   /**
@@ -124,7 +128,7 @@ export class MessageSchedulerService implements OnModuleInit, OnModuleDestroy {
         })
       );
     } catch (error) {
-      this.logger.error('Error processing scheduled messages:', error.stack);
+      this.logger.error('Error processing scheduled messages:', error);
     }
   }
 

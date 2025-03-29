@@ -15,51 +15,26 @@ export class OrganizationInvitation {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @PrimaryGeneratedColumn('uuid')
-
-    @Column()
-    organizationId: string;
-
-    @ManyToOne(() => Organization, organization => organization.invitations)
-    organization: Organization;
-
-    @Column()
-    email: string;
-
-    @Column('simple-array')
-    roles: string[];
-
-    @ManyToOne(() => User)
-    invitedBy: User;
-
-    @Column()
-    token: string;
-
-    @Column()
-    expiresAt: Date;
-
-    @Column({
-        type: 'enum',
-        enum: InvitationStatus,
-        default: InvitationStatus.PENDING
-    })
-    status: InvitationStatus;
-
-    @Column({ nullable: true })
-
-    @Column({ nullable: true })
-
-    // Add metadata column
-    @Column('json', { nullable: true })
-
-
   @Column('uuid')
+  organizationId: string;
 
-
+  // FIXED: Keep only one relationship to Organization
   @ManyToOne(() => Organization)
   @JoinColumn({ name: 'organizationId' })
+  organization: Organization;
 
   @Column()
+  email: string;
+
+  @Column('simple-array')
+  roles: string[];
+
+  @Column('uuid')
+  invitedById: string;
+
+  @ManyToOne(() => User)
+  @JoinColumn({ name: 'invitedById' })
+  invitedBy: User;
 
   @Column('uuid', { nullable: true })
   invitedUserId: string;
@@ -68,25 +43,21 @@ export class OrganizationInvitation {
   @JoinColumn({ name: 'invitedUserId' })
   invitedUser: User;
 
-  @Column('uuid')
-  invitedById: string;
+  @Column()
+  token: string;
 
-  @ManyToOne(() => User)
-  @JoinColumn({ name: 'invitedById' })
-
+  @Column({ type: 'timestamp' })
+  expiresAt: Date;
 
   @Column({
     type: 'enum',
     enum: InvitationStatus,
     default: InvitationStatus.PENDING
   })
-
-  @Column('simple-array')
+  status: InvitationStatus;
 
   @Column('uuid', { array: true, nullable: true })
   departmentIds: string[];
-
-  @Column({ type: 'timestamp' })
 
   @Column({ nullable: true })
   acceptedAt: Date;
@@ -103,8 +74,6 @@ export class OrganizationInvitation {
   @ManyToOne(() => User, { nullable: true })
   @JoinColumn({ name: 'revokedById' })
   revokedBy: User;
-
-  @Column({ unique: true })
 
   @Column({ nullable: true })
   message: string;

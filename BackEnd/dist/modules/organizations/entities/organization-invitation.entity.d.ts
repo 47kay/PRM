@@ -13,13 +13,13 @@ export declare class OrganizationInvitation {
     organization: Organization;
     email: string;
     roles: string[];
+    invitedById: string;
     invitedBy: User;
+    invitedUserId: string;
+    invitedUser: User;
     token: string;
     expiresAt: Date;
     status: InvitationStatus;
-    invitedUserId: string;
-    invitedUser: User;
-    invitedById: string;
     departmentIds: string[];
     acceptedAt: Date;
     declinedAt: Date;

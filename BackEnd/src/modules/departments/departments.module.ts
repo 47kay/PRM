@@ -14,7 +14,7 @@ import { DepartmentAuditListener } from './listeners/department-audit.listener';
 import { OrganizationsModule } from '../organizations/organizations.module';
 import { UsersModule } from '../users/users.module';
 import { NotificationsModule } from '../notifications/notifications.module';
-
+import { AuthModule } from '../auth/auth.module'; 
 @Module({
   imports: [
     TypeOrmModule.forFeature([
@@ -24,7 +24,8 @@ import { NotificationsModule } from '../notifications/notifications.module';
     ]),
     OrganizationsModule,
     UsersModule,
-    NotificationsModule
+    NotificationsModule,
+    AuthModule
   ],
   controllers: [
     DepartmentsController
@@ -44,7 +45,8 @@ import { NotificationsModule } from '../notifications/notifications.module';
     DepartmentsService,
     DepartmentMembersService,
     DepartmentHierarchyService,
-    DepartmentAuditService
+    DepartmentAuditService,
+    TypeOrmModule
   ]
 })
 export class DepartmentsModule {}

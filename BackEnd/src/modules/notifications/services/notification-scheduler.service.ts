@@ -40,6 +40,11 @@ export class NotificationSchedulerService {
         private readonly eventEmitter: EventEmitter2,
     ) {}
 
+    // Helper method to convert entity to Promise
+    private asPromiseEntity<T>(entity: T): Promise<T> {
+        return Promise.resolve(entity);
+    }
+
     @Cron(CronExpression.EVERY_MINUTE)
     async processScheduledNotifications() {
         this.logger.debug('Processing scheduled notifications');
@@ -200,9 +205,10 @@ export class NotificationSchedulerService {
             read: false,
             createdAt: new Date(),
             updatedAt: new Date(),
-            organization: new Organization,
-            user: new User,
-            sender: new User,
+            // Fixed: Wrap entities in Promises
+            organization: this.asPromiseEntity(new Organization()),
+            user: this.asPromiseEntity(new User()),
+            sender: this.asPromiseEntity(new User()),
             isRead: false,
             isExpired: false,
             isScheduled: false,
@@ -235,9 +241,10 @@ export class NotificationSchedulerService {
             read: false,
             createdAt: new Date(),
             updatedAt: new Date(),
-            organization: new Organization,
-            user: new User,
-            sender: new User,
+            // Fixed: Wrap entities in Promises
+            organization: this.asPromiseEntity(new Organization()),
+            user: this.asPromiseEntity(new User()),
+            sender: this.asPromiseEntity(new User()),
             isRead: false,
             isExpired: false,
             isScheduled: false,
@@ -271,9 +278,10 @@ export class NotificationSchedulerService {
             read: false,
             createdAt: new Date(),
             updatedAt: new Date(),
-            organization: new Organization,
-            user: new User,
-            sender: new User,
+            // Fixed: Wrap entities in Promises
+            organization: this.asPromiseEntity(new Organization()),
+            user: this.asPromiseEntity(new User()),
+            sender: this.asPromiseEntity(new User()),
             isRead: false,
             isExpired: false,
             isScheduled: false,

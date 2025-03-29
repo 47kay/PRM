@@ -35,11 +35,11 @@ export declare class Organization {
     maxUsers: number;
     maxStorage: number;
     createdById: string;
-    createdBy: any;
     updatedById: string;
-    updatedBy: any;
-    users: User[];
-    tickets: Ticket[];
+    createdBy: Promise<User>;
+    updatedBy: Promise<User>;
+    users: Promise<User[]>;
+    tickets: Promise<Ticket[]>;
     createdAt: Date;
     updatedAt: Date;
     deletedAt: Date;

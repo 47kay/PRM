@@ -6,12 +6,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ThrottlerModule } from '@nestjs/throttler';
 import { EventEmitterModule } from '@nestjs/event-emitter';
 import { ScheduleModule } from '@nestjs/schedule';
-// Remove Bull import temporarily
-// import { BullModule } from '@nestjs/bull';
 import { APP_FILTER, APP_INTERCEPTOR, APP_GUARD } from '@nestjs/core';
-// Remove helmet and compression imports temporarily
-// import * as helmet from 'helmet';
-// import * as compression from 'compression';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -25,6 +20,7 @@ import { AppointmentsModule } from './modules/appointments/appointments.module';
 import { TicketsModule } from './modules/tickets/tickets.module';
 import { MessagesModule } from './modules/messages/messages.module';
 import { NotificationsModule } from './modules/notifications/notifications.module';
+import { DomainModule } from './modules/domain/domain.module';
 
 // Configuration
 import appConfig from './config/app.config';
@@ -47,52 +43,29 @@ import { ThrottlerConfigService } from './config/throttler.config';
       load: [appConfig, databaseConfig, redisConfig, mailConfig, jwtConfig],
     }),
 
-    // Database
+    // Database - simplified configuration
     TypeOrmModule.forRootAsync({
+      imports: [ConfigModule],
       inject: [ConfigService],
       useFactory: (configService: ConfigService) => ({
         type: 'postgres',
-        host: configService.get('database.host'),
-        port: configService.get('database.port'),
-        username: configService.get('database.username'),
-        password: configService.get('database.password'),
-        database: configService.get('database.name'),
-        entities: ['dist/**/*.entity{.ts,.js}'],
-        synchronize: configService.get('database.synchronize'),
-        logging: configService.get('database.logging'),
-        ssl: configService.get('database.ssl'),
+        host: configService.get<string>('database.host', 'localhost'),
+        port: configService.get<number>('database.port', 5432),
+        username: configService.get<string>('database.username', 'postgres'),
+        password: configService.get<string>('database.password', 'postgres'),
+        database: configService.get<string>('database.name', 'prm_db'),
+        autoLoadEntities: true,
+        synchronize: configService.get<boolean>('database.synchronize', false),
+        logging: configService.get<boolean>('database.logging', false),
       }),
     }),
-
-    // Comment out Redis and Bull Queue temporarily
-    /*
-    BullModule.forRootAsync({
-      imports: [ConfigModule],
-      inject: [ConfigService],
-      useFactory: async (configService: ConfigService) => {
-        const host = configService.get<string>('redis.host');
-        const port = configService.get<number>('redis.port');
-        const password = configService.get<string>('redis.password');
-
-        const redisUrl = password
-            ? `redis://:${password}@${host}:${port}`
-            : `redis://${host}:${port}`;
-
-        return {
-          redis: {
-            url: redisUrl
-          }
-        };
-      },
-    }),
-    */
 
     // Rate Limiting
     ThrottlerModule.forRoot({
       throttlers: [
         {
           limit: 10,
-          ttl: 60000,  // 60 seconds in milliseconds
+          ttl: 60000,
         },
       ],
     }),
@@ -117,6 +90,7 @@ import { ThrottlerConfigService } from './config/throttler.config';
     TicketsModule,
     MessagesModule,
     NotificationsModule,
+    DomainModule,
   ],
   controllers: [AppController],
   providers: [

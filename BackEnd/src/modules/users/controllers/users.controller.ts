@@ -29,6 +29,7 @@ import { UserQueryDto } from '../dto/user-query.dto';
 import { UpdatePasswordDto } from '../dto/update-password.dto';
 import { UpdateProfileDto } from '../dto/update-profile.dto';
 import { CustomRequest } from '../../../interfaces/request.interface';
+import { SimpleUserDto } from '../../../swagger/dtos/simple-user.dto';
 
 @ApiTags('Users')
 @Controller('users')
@@ -40,7 +41,11 @@ export class UsersController {
     @Post()
     @Roles(Role.ADMIN)
     @ApiOperation({ summary: 'Create new user' })
-    @ApiResponse({ status: HttpStatus.CREATED, description: 'User created successfully' })
+    @ApiResponse({ 
+        status: HttpStatus.CREATED, 
+        description: 'User created successfully',
+        type: SimpleUserDto
+    })
     async create(
         @Body() createUserDto: CreateUserDto,
         @Request() req: CustomRequest,
@@ -64,7 +69,12 @@ export class UsersController {
     @Get()
     @Roles(Role.ADMIN)
     @ApiOperation({ summary: 'Get all users' })
-    @ApiResponse({ status: HttpStatus.OK, description: 'Return all users' })
+    @ApiResponse({ 
+        status: HttpStatus.OK, 
+        description: 'Return all users',
+        type: SimpleUserDto,
+        isArray: true
+    })
     async findAll(
         @Query() query: UserQueryDto,
         @Request() req: CustomRequest,
@@ -80,7 +90,11 @@ export class UsersController {
 
     @Get('profile')
     @ApiOperation({ summary: 'Get current user profile' })
-    @ApiResponse({ status: HttpStatus.OK, description: 'Return current user profile' })
+    @ApiResponse({ 
+        status: HttpStatus.OK, 
+        description: 'Return current user profile',
+        type: SimpleUserDto
+    })
     async getProfile(
         @Request() req: CustomRequest,
     ) {
@@ -98,7 +112,11 @@ export class UsersController {
 
     @Put('profile')
     @ApiOperation({ summary: 'Update current user profile' })
-    @ApiResponse({ status: HttpStatus.OK, description: 'Profile updated successfully' })
+    @ApiResponse({ 
+        status: HttpStatus.OK, 
+        description: 'Profile updated successfully',
+        type: SimpleUserDto
+    })
     async updateProfile(
         @Body() updateProfileDto: UpdateProfileDto,
         @Request() req: CustomRequest,
@@ -120,7 +138,11 @@ export class UsersController {
 
     @Put('profile/password')
     @ApiOperation({ summary: 'Update current user password' })
-    @ApiResponse({ status: HttpStatus.OK, description: 'Password updated successfully' })
+    @ApiResponse({ 
+        status: HttpStatus.OK, 
+        description: 'Password updated successfully',
+        type: SimpleUserDto
+    })
     async updatePassword(
         @Body() updatePasswordDto: UpdatePasswordDto,
         @Request() req: CustomRequest,
@@ -143,7 +165,11 @@ export class UsersController {
     @Get(':id')
     @Roles(Role.ADMIN)
     @ApiOperation({ summary: 'Get user by id' })
-    @ApiResponse({ status: HttpStatus.OK, description: 'Return user details' })
+    @ApiResponse({ 
+        status: HttpStatus.OK, 
+        description: 'Return user details',
+        type: SimpleUserDto
+    })
     async findOne(
         @Param('id', ParseUUIDPipe) id: string,
         @Request() req: CustomRequest,
@@ -161,7 +187,11 @@ export class UsersController {
     @Put(':id')
     @Roles(Role.ADMIN)
     @ApiOperation({ summary: 'Update user' })
-    @ApiResponse({ status: HttpStatus.OK, description: 'User updated successfully' })
+    @ApiResponse({ 
+        status: HttpStatus.OK, 
+        description: 'User updated successfully',
+        type: SimpleUserDto
+    })
     async update(
         @Param('id', ParseUUIDPipe) id: string,
         @Body() updateUserDto: UpdateUserDto,
@@ -220,7 +250,11 @@ export class UsersController {
     @Put(':id/activate')
     @Roles(Role.ADMIN)
     @ApiOperation({ summary: 'Activate user' })
-    @ApiResponse({ status: HttpStatus.OK, description: 'User activated successfully' })
+    @ApiResponse({ 
+        status: HttpStatus.OK, 
+        description: 'User activated successfully',
+        type: SimpleUserDto
+    })
     async activate(
         @Param('id', ParseUUIDPipe) id: string,
         @Request() req: CustomRequest,
@@ -234,7 +268,11 @@ export class UsersController {
     @Put(':id/deactivate')
     @Roles(Role.ADMIN)
     @ApiOperation({ summary: 'Deactivate user' })
-    @ApiResponse({ status: HttpStatus.OK, description: 'User deactivated successfully' })
+    @ApiResponse({ 
+        status: HttpStatus.OK, 
+        description: 'User deactivated successfully',
+        type: SimpleUserDto
+    })
     async deactivate(
         @Param('id', ParseUUIDPipe) id: string,
         @Request() req: CustomRequest,
@@ -257,7 +295,27 @@ export class UsersController {
     @Get(':id/activity')
     @Roles(Role.ADMIN)
     @ApiOperation({ summary: 'Get user activity' })
-    @ApiResponse({ status: HttpStatus.OK, description: 'Return user activity' })
+    @ApiResponse({ 
+        status: HttpStatus.OK, 
+        description: 'Return user activity',
+        schema: {
+            type: 'object',
+            properties: {
+                activities: {
+                    type: 'array',
+                    items: {
+                        type: 'object',
+                        properties: {
+                            id: { type: 'string' },
+                            action: { type: 'string' },
+                            timestamp: { type: 'string', format: 'date-time' }
+                        }
+                    }
+                },
+                total: { type: 'number' }
+            }
+        }
+    })
     async getActivity(
         @Param('id', ParseUUIDPipe) id: string,
         @Query() query: any,
@@ -274,7 +332,16 @@ export class UsersController {
 
     @Get(':id/permissions')
     @ApiOperation({ summary: 'Get user permissions' })
-    @ApiResponse({ status: HttpStatus.OK, description: 'Return user permissions' })
+    @ApiResponse({ 
+        status: HttpStatus.OK, 
+        description: 'Return user permissions',
+        schema: {
+            type: 'array',
+            items: {
+                type: 'string'
+            }
+        }
+    })
     async getPermissions(
         @Param('id', ParseUUIDPipe) id: string,
         @Request() req: CustomRequest,

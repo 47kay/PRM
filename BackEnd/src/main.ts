@@ -1,74 +1,56 @@
-// src/main.ts
-
+import './build-workarounds';
 import { NestFactory } from '@nestjs/core';
-import { ValidationPipe } from '@nestjs/common';
-import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+import { ValidationPipe, Logger } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-// Comment out problematic imports
-// import helmet from 'helmet';
-// import compression from 'compression';
 import { AppModule } from './app.module';
+import { SwaggerService } from './swagger/swagger.service';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
-  const configService = app.get(ConfigService);
+  const logger = new Logger('Bootstrap');
+  
+  try {
+    const app = await NestFactory.create(AppModule);
+    const configService = app.get(ConfigService);
+    
+    // Initialize our custom Swagger service
+    const swaggerService = new SwaggerService();
 
-  // Security middleware - temporarily commented out
-  // app.use(helmet());
-  // app.use(compression());
+    app.enableCors({
+      origin: configService.get('app.corsOrigins'),
+      methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
+      allowedHeaders: ['Content-Type', 'Authorization'],
+      credentials: true,
+    });
 
-  app.enableCors({
-    origin: configService.get('app.corsOrigins'),
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true,
-  });
+    app.useGlobalPipes(new ValidationPipe({
+      whitelist: true,
+      transform: true,
+      forbidNonWhitelisted: true,
+      transformOptions: {
+        enableImplicitConversion: true,
+      },
+      validationError: { target: false, value: false },
+    }));
 
-  // Global validation pipe
-  app.useGlobalPipes(new ValidationPipe({
-    whitelist: true,
-    transform: true,
-    forbidNonWhitelisted: true,
-    transformOptions: {
-      enableImplicitConversion: true,
-    },
-  }));
+    // Set up Swagger
+    swaggerService.setup(app);
 
-  // Swagger documentation
-  const config = new DocumentBuilder()
-      .setTitle('Patient Relationship Manager API')
-      .setDescription('API documentation for Patient Relationship Manager')
-      .setVersion(configService.get('app.version') || '1.0.0')
-      .addBearerAuth()
-      .addTag('System')
-      .addTag('Auth')
-      .addTag('Users')
-      .addTag('Organizations')
-      .addTag('Contacts')
-      .addTag('Appointments')
-      .addTag('Tickets')
-      .addTag('Messages')
-      .addTag('Notifications')
-      .build();
+    // Start server
+    const port = configService.get('app.port') || 3000;
+    await app.listen(port);
 
-  const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('api', app, document, {
-    swaggerOptions: {
-      persistAuthorization: true,
-      tagsSorter: 'alpha',
-      operationsSorter: 'alpha',
-    },
-  });
-
-  // Start server
-  const port = configService.get('app.port');
-  await app.listen(port);
-
-  console.log(`Application is running on: ${await app.getUrl()}`);
-  console.log(`API documentation available at: ${await app.getUrl()}/api`);
+    logger.log(`Application is running on: http://localhost:${port}`);
+    logger.log(`API documentation available at: http://localhost:${port}/api-docs`);
+    
+    return app;
+  } catch (error) {
+    logger.error('Failed to initialize application:');
+    logger.error(error);
+    process.exit(1);
+  }
 }
 
 bootstrap().catch(err => {
-  console.error('Failed to start application:', err);
+  console.error('Critical error during application bootstrap:', err);
   process.exit(1);
 });

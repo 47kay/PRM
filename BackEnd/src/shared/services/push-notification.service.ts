@@ -10,30 +10,63 @@ export class PushNotificationService {
     private mockMode = false;
 
     constructor(private readonly configService: ConfigService) {
+        this.initializeFirebase();
+    }
+
+    private initializeFirebase() {
         try {
             // Check if Firebase credentials are available
             const projectId = this.configService.get<string>('FIREBASE_PROJECT_ID');
             const clientEmail = this.configService.get<string>('FIREBASE_CLIENT_EMAIL');
-            const privateKey = this.configService.get<string>('FIREBASE_PRIVATE_KEY');
+            let privateKey = this.configService.get<string>('FIREBASE_PRIVATE_KEY');
 
-            if (projectId && clientEmail && privateKey && !admin.apps.length) {
-                // Initialize real Firebase Admin SDK
+            // Check for mock configuration
+            if (projectId === 'mock' || clientEmail === 'mock' || privateKey === 'mock') {
+                this.logger.warn('Mock Firebase configuration detected - using mock implementation');
+                this.initMockFirebase();
+                this.mockMode = true;
+                return;
+            }
+
+            // Check if credentials are present
+            if (!projectId || !clientEmail || !privateKey) {
+                this.logger.warn('Firebase credentials incomplete - using mock implementation');
+                this.initMockFirebase();
+                this.mockMode = true;
+                return;
+            }
+
+            // Fix common PEM formatting issues
+            if (privateKey) {
+                // Replace escaped newlines with actual newlines if needed
+                if (!privateKey.includes('-----BEGIN PRIVATE KEY-----')) {
+                    privateKey = privateKey.replace(/\\n/g, '\n');
+                }
+                
+                // Ensure proper PEM format
+                if (!privateKey.startsWith('-----BEGIN PRIVATE KEY-----')) {
+                    privateKey = `-----BEGIN PRIVATE KEY-----\n${privateKey}`;
+                }
+                if (!privateKey.endsWith('-----END PRIVATE KEY-----')) {
+                    privateKey = `${privateKey}\n-----END PRIVATE KEY-----`;
+                }
+            }
+
+            // Check if Firebase app is already initialized
+            if (admin.apps.length) {
+                this.firebaseApp = admin.apps[0]!;
+                this.logger.log('Using existing Firebase Admin SDK instance');
+            } else {
+                // Initialize Firebase Admin SDK
                 this.firebaseApp = admin.initializeApp({
                     credential: admin.credential.cert({
                         projectId,
                         clientEmail,
-                        privateKey: (privateKey || '').replace(/\\n/g, '\n'),
+                        privateKey,
                     }),
                     databaseURL: this.configService.get<string>('FIREBASE_DATABASE_URL'),
                 });
                 this.logger.log('Firebase Admin SDK initialized successfully');
-            } else if (admin.apps.length) {
-                this.firebaseApp = admin.apps[0]!;
-                this.logger.log('Using existing Firebase Admin SDK instance');
-            } else {
-                this.logger.warn('Firebase credentials incomplete - using mock implementation');
-                this.initMockFirebase();
-                this.mockMode = true;
             }
         } catch (error) {
             this.logger.warn(`Failed to initialize Firebase: ${error.message}`);
@@ -48,7 +81,7 @@ export class PushNotificationService {
         this.firebaseApp = {
             messaging: () => ({
                 send: async (message: any) => {
-                    this.logger.log(`[MOCK] Sending push notification to ${message.token}`);
+                    this.logger.log(`[MOCK] Sending push notification to ${message.token || 'unknown'}`);
                     this.logger.debug('[MOCK] Push notification payload:', {
                         title: message.notification?.title,
                         body: message.notification?.body
@@ -78,6 +111,9 @@ export class PushNotificationService {
             })
         };
     }
+
+   
+
 
     async send(notification: Notification): Promise<void> {
         try {

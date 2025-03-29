@@ -11,4 +11,4 @@ export declare class OrganizationGuard implements CanActivate {
     private extractFromPath;
     private verifyOrganizationAccess;
 }
-export declare const OptionalOrganization: () => (target: any, key?: string, descriptor?: PropertyDescriptor) => PropertyDescriptor | undefined;
+export declare const OptionalOrganization: () => (target: any, key?: string, descriptor?: PropertyDescriptor) => PropertyDescriptor;

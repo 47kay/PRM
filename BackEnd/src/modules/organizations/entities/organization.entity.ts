@@ -93,23 +93,24 @@ export class Organization {
     @Column({ nullable: true })
     createdById: string;
 
-    @ManyToOne('User')
-    @JoinColumn({ name: 'createdById' })
-    createdBy: any;
 
     @Column({ nullable: true })
     updatedById: string;
 
-    @ManyToOne('User')
+    @ManyToOne(() => User, { lazy: true })
+    @JoinColumn({ name: 'createdById' })
+    createdBy: Promise<User>;
+
+    @ManyToOne(() => User, { lazy: true })
     @JoinColumn({ name: 'updatedById' })
-    updatedBy: any;
+    updatedBy: Promise<User>;
 
     // Relationships
-    @OneToMany(() => User, user => user.organization)
-    users: User[];
+    @OneToMany(() => User, user => user.organization, { lazy: true })
+    users: Promise<User[]>;
 
-    @OneToMany(() => Ticket, ticket => ticket.organization)
-    tickets: Ticket[];
+    @OneToMany(() => Ticket, ticket => ticket.organization, { lazy: true })
+    tickets: Promise<Ticket[]>;
 
     // Timestamps
     @CreateDateColumn()

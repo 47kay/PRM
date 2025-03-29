@@ -209,7 +209,7 @@ export class Ticket {
     @DeleteDateColumn()
     deletedAt?: Date;
 
-    // Relations - all using string-based references to avoid circular dependencies
+    // Relations - all using string references to avoid circular dependencies
     @ManyToOne('Organization')
     @JoinColumn({ name: 'organizationId' })
     organization: any;
@@ -218,9 +218,9 @@ export class Ticket {
     @JoinColumn({ name: 'contactId' })
     contact?: any;
 
-    @ManyToOne('Department')
+    @ManyToOne(() => Department, { lazy: true })
     @JoinColumn({ name: 'departmentId' })
-    department?: any;
+    department?: Promise<Department>;
 
     @ManyToOne('User')
     @JoinColumn({ name: 'assigneeId' })

@@ -177,17 +177,17 @@ export class Appointment {
     // Relationships - use only string references for circular dependencies
     @ManyToOne('Organization', { onDelete: 'CASCADE' })
     @JoinColumn({ name: 'organizationId' })
-organization: any;
+    organization: any;
 
-    // Use string literals for relations to avoid circular dependencies
+    // FIXED: Keep only one relationship to Contact using patientId
     @ManyToOne('Contact', 'appointments', { onDelete: 'CASCADE' })
     @JoinColumn({ name: 'patientId' })
     patient: any;
 
-    // Use string literals for relations to avoid circular dependencies
-    @ManyToOne('Contact', 'appointments', { onDelete: 'CASCADE' })
-    @JoinColumn({ name: 'patientId' })
-    contact: any;
+    // REMOVED the duplicate relationship that was here
+    // @ManyToOne('Contact', 'appointments', { onDelete: 'CASCADE' })
+    // @JoinColumn({ name: 'patientId' })
+    // contact: any;
 
     @ManyToOne('User', { onDelete: 'CASCADE' })
     @JoinColumn({ name: 'doctorId' })
